@@ -12,6 +12,14 @@ interface IZone {
     y: number;
     z: number;
   }): [number, number, number];
+  readonly scale: {
+    xMin: number;
+    xMax: number;
+    xRange: number;
+    yMin: number;
+    yMax: number;
+    yRange: number;
+  }
 }
 
 class Zone implements IZone {
@@ -39,6 +47,16 @@ class Zone implements IZone {
   }
   get names() {
     return messageProvider.getPlaceNames(this.placeNameId);
+  }
+  get scale() {
+    return {
+      xMin: 1.0,
+      xMax: 4096.0 / this.sizeFactor + 1.0,
+      xRange: 4096.0 / this.sizeFactor,
+      yMin: 1.0,
+      yMax: 4096.0 / this.sizeFactor + 1.0,
+      yRange: 4096.0 / this.sizeFactor
+    }
   }
 
   toLocalPosXY(pos: { x: number; y: number }): [number, number] {
