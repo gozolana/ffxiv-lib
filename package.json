@@ -16,7 +16,8 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:addon": "tsc -p tsconfig.addon.json",
     "build:assets": "copyfiles -u 2 src/assets/**/* assets",
-    "build:resources": "ts-node --project ./util/tsconfig.json ./util/generate.ts"
+    "build:resources": "ts-node --project ./util/tsconfig.json ./util/generate.ts",
+    "prepare": "npm run build"
   },
   "author": "",
   "license": "ISC",
