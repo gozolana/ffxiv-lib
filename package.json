@@ -5,6 +5,12 @@
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
   "types": "./cjs/index.d.ts",
+  "files": [
+    "cjs",
+    "esm",
+    "addon",
+    "assets"
+  ],
   "scripts": {
     "clean": "run-s clean:cjs clean:esm clean:addon clean:assets",
     "clean:cjs": "rimraf cjs",
