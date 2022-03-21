@@ -1,0 +1,13 @@
+// Additional information for each expansion
+[
+  // A Realm Reborn
+  { "id": 0, "version": 2, "css": "lime lighten-4" },
+  // Heavensward
+  { "id": 1, "version": 3, "css": "blue lighten-4" },
+  // Stormblood
+  { "id": 2, "version": 4, "css": "red lighten-4" },
+  // Shadowbringers
+  { "id": 3, "version": 5, "css": "blue-grey lighten-4" },
+  // Endwalker
+  { "id": 4, "version": 6, "css": "amber lighten-3" }
+]

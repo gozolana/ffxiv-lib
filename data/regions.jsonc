@@ -1,0 +1,166 @@
+{
+  "regions": [
+    {
+      "key": "EW",
+      "name": {
+        "ja": "暁月エリア",
+        "en": "Endwalker Area",
+        "de": "Endwalker Area",
+        "fr": "Endwalker Area"
+      },
+      "css": "amber lighten-3 black--text"
+    },
+    {
+      "key": "ShB",
+      "name": {
+        "ja": "漆黒エリア",
+        "en": "Shadowbringers Area",
+        "fr": "Shadowbringers Area",
+        "de": "Shadowbringers Area"
+      },
+      "css": "grey darken-2 white--text"
+    },
+    {
+      "key": "SB",
+      "name": {
+        "ja": "紅蓮エリア",
+        "en": "Stormblood Area",
+        "fr": "Stormblood Area",
+        "de": "Stormblood Area"
+      },
+      "css": "red darken-2 white--text"
+    },
+    {
+      "key": "HW",
+      "name": {
+        "ja": "蒼天エリア",
+        "en": "Heavensward Area",
+        "fr": "Heavensward Area",
+        "de": "Heavensward Area"
+      },
+      "css": "indigo darken-2 white--text"
+    },
+    {
+      "key": "LaNoscea",
+      "name": {
+        "ja": "ラノシア",
+        "en": "La Noscea",
+        "fr": "Noscea",
+        "de": "La Noscea"
+      },
+      "css": "red lighten-2 black--text"
+    },
+    {
+      "key": "Gridania",
+      "name": {
+        "ja": "グリダニア",
+        "en": "Gridania",
+        "fr": "Gridania",
+        "de": "Gridania"
+      },
+      "css": "yellow lighten-2 black--text"
+    },
+    {
+      "key": "Thanalan",
+      "name": {
+        "ja": "ザナラーン",
+        "en": "Thanalan",
+        "fr": "Thanalan",
+        "de": "Thanalan"
+      },
+      "css": "brown lighten-2 black--text"
+    },
+    {
+      "key": "Frontier",
+      "name": {
+        "ja": "辺境エリア",
+        "en": "Frontier",
+        "fr": "Frontière",
+        "de": "Grenze"
+      },
+      "css": "brown lighten-4 black--text"
+    },
+    {
+      "key": "Eureka",
+      "name": {
+        "ja": "エウレカ",
+        "en": "Eureka",
+        "fr": "Eureka",
+        "de": "Eureka"
+      },
+      "css": "lime lighten-2 black--text"
+    }
+  ],
+  "huntRegions": [
+    {
+      "key": "EW",
+      "zoneIds": [956, 957, 958, 959, 960, 961]
+    },
+    {
+      "key": "ShB",
+      "zoneIds": [813, 814, 815, 816, 817, 818]
+    },
+    {
+      "key": "SB",
+      "zoneIds": [612, 620, 621, 613, 614, 622]
+    },
+    {
+      "key": "HW",
+      "zoneIds": [397, 401, 402, 398, 399, 400]
+    },
+    {
+      "key": "LaNoscea",
+      "zoneIds": [134, 135, 137, 138, 139, 180]
+    },
+    {
+      "key": "Gridania",
+      "zoneIds": [148, 152, 153, 154]
+    },
+    {
+      "key": "Thanalan",
+      "zoneIds": [140, 141, 145, 146, 147]
+    },
+    {
+      "key": "Frontier",
+      "zoneIds": [155, 156]
+    }
+  ],
+  "weatherRegions": [
+    {
+      "key": "EW",
+      "zoneIds": [956, 957, 958, 959, 960, 961]
+    },
+    {
+      "key": "ShB",
+      "zoneIds": [813, 814, 815, 816, 817, 818]
+    },
+    {
+      "key": "SB",
+      "zoneIds": [612, 620, 621, 613, 614, 622]
+    },
+    {
+      "key": "HW",
+      "zoneIds": [397, 401, 402, 398, 399, 400]
+    },
+    {
+      "key": "LaNoscea",
+      "zoneIds": [134, 135, 137, 138, 139, 180]
+    },
+    {
+      "key": "Gridania",
+      "zoneIds": [148, 152, 153, 154]
+    },
+    {
+      "key": "Thanalan",
+      "zoneIds": [140, 141, 145, 146, 147]
+    },
+    {
+      "key": "Frontier",
+      "zoneIds": [155, 156]
+    },
+    {
+      "key": "Eureka",
+      "zoneIds": [732, 763, 795, 827]
+    }
+  ]
+}

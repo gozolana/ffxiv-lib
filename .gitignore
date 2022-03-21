@@ -1,3 +1,9 @@
+/esm/
+/addon/
+/assets/
+/cjs/
+/ThirdParty/
+
 # Logs
 logs
 *.log

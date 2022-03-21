@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "./cjs",
+    "rootDir": "src/lib",
+    "lib": ["DOM", "ES2020"],
+    "declaration": true,
+    "declarationMap": true
+  },
+  "exclude": ["node_modules", "**/*.d.ts", "**/*.spec.ts", "src/addon", "util"]
+}
