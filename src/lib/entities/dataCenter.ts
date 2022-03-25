@@ -29,4 +29,4 @@ class DataCenter implements IDataCenter {
   }
 }
 
-export { TDataCenter, IDataCenter, DataCenter };
+export { TDataCenter, TDataCenterRegion, IDataCenter, DataCenter };
