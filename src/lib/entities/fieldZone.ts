@@ -27,25 +27,40 @@ interface ISSLocation {
   z: number;
   flag: string;
 }
-
-const enum TMapImage {
+/*
+enum TMapImage {
   Default,
   Outline,
   Transparent,
 }
-
-const TMapSize = {
-  512: 512,
-  1024: 1024,
-  2048: 2048,
+*/
+const TMapImage = {
+  Default: 0,
+  Outline: 1,
+  Transparent: 2,
 } as const;
-type TMapSize = typeof TMapSize[keyof typeof TMapSize];
+type TMapImage = typeof TMapImage[keyof typeof TMapImage];
+
+const TImageSize = {
+  Small: 512,
+  Middle: 1024,
+  Large: 2048,
+} as const;
+type TImageSize = typeof TImageSize[keyof typeof TImageSize];
+
+/*
+enum TImageSize {
+  Small = 512,
+  Middle = 1024,
+  Large = 2048,
+}
+*/
 
 interface IFieldZone extends IZone {
   getMobRank(mobId: number): TMobRank;
   getEliteLocations(filterFlag: number): IEliteLocation[];
   getSSLocations(filterFlag: number): ISSLocation[];
-  getImageUrl(type: TMapImage, size: TMapSize): string;
+  getMapImageUrl(type: TMapImage, size: TImageSize): string;
 }
 
 class FieldZone extends Zone implements IFieldZone {
@@ -122,7 +137,7 @@ class FieldZone extends Zone implements IFieldZone {
     });
   }
 
-  getImageUrl(imageType: TMapImage, imageSize: TMapSize): string {
+  getMapImageUrl(imageType: TMapImage, imageSize: TImageSize): string {
     const baseUrl = "https://res.cloudinary.com/lanaklein14/image/upload";
     switch (imageType) {
       case TMapImage.Outline:
@@ -135,4 +150,4 @@ class FieldZone extends Zone implements IFieldZone {
   }
 }
 
-export { IFieldZone, FieldZone };
+export { TMobRank, TMapImage, TImageSize, IFieldZone, FieldZone };
