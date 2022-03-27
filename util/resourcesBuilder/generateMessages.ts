@@ -1,18 +1,9 @@
 import { readCsv } from "./csvReader";
 import { readFileSync, writeFileSync } from "fs";
-import { IRegionsJson, ITextToSpeechJson, MessageIdSet } from "./types";
+import { IExpansion, IRegionsJson, ITextToSpeechJson, MessageIdSet } from "./types";
 import { parse } from "jsonc-parser";
 
 const outputPath = "./src/lib/resources/messages.data.ts";
-
-interface ILocale {
-  name: {
-    ja: string;
-    en: string;
-    de: string;
-    fr: string;
-  }
-}
 
 const inputRegions: IRegionsJson = parse(
   readFileSync("./data/regions.jsonc").toString()
@@ -20,6 +11,13 @@ const inputRegions: IRegionsJson = parse(
 const inputTTS: ITextToSpeechJson = parse(
   readFileSync("./data/tts.jsonc").toString()
 );
+
+const expansionHeaders = [
+  "id",
+  "name",
+  undefined,
+  undefined,
+];
 
 const placeNameHeaders = [
   "id",
@@ -65,6 +63,7 @@ interface ILang {
   PlaceName: { [key: string]: string };
   Weather: { [key: string]: string };
   Region: { [key: string]: string };
+  ExVersion: {[ key: string]: string };
 }
 
 interface IMessage {
@@ -81,26 +80,48 @@ async function generateMessages(
       PlaceName: {},
       Weather: {},
       Region: {},
+      ExVersion: {},
     },
     en: {
       BNpcName: {},
       PlaceName: {},
       Weather: {},
       Region: {},
+      ExVersion: {},
     },
     de: {
       BNpcName: {},
       PlaceName: {},
       Weather: {},
       Region: {},
+      ExVersion: {},
     },
     fr: {
       BNpcName: {},
       PlaceName: {},
       Weather: {},
       Region: {},
+      ExVersion: {},
     },
   };
+
+  const exVersions = await Promise.all(
+    Object.keys(message).map(async (lang) => {
+      const results: { [key: string]: string } = {};
+      (await readCsv(basePath, "ExVersion", expansionHeaders, lang))
+        .forEach((exVersion) => {
+          results[exVersion.id] = exVersion.name;
+        });
+      return {
+        lang: lang,
+        results: results,
+      };
+    })
+  );
+
+  exVersions.forEach((obj) => {
+    message[obj.lang].ExVersion = obj.results;
+  });
 
   const bnpcnames = await Promise.all(
     Object.keys(message).map(async (lang) => {
@@ -191,6 +212,7 @@ interface IMessage {
     PlaceName?: { [id: number]: string };
     Weather?: { [id: number]: string };
     Region?: { [key: string]: string };
+    ExVersion?: { [id: number]: string };
   };
 };
 

@@ -1,8 +1,9 @@
 export * from "./entities/dataCenter";
-export * from "./entities/eodate";
-export * from "./entities/eoperiod";
+export * from "./entities/eorzeaDate";
+export * from "./entities/eorzeaPeriod";
+export * from "./entities/exVersion";
 export * from "./entities/icon";
-export * from "./entities/huntInfo";
+export * from "./entities/fieldZone";
 export * from "./entities/lang";
 export * from "./entities/region";
 export * from "./entities/weather";
@@ -13,4 +14,3 @@ export * from "./providers/weatherProvider";
 export * from "./providers/worldProvider";
 export * from "./providers/zoneProvider";
 export * from "./providers/messageProvider";
-export * from "./providers/huntProvider";

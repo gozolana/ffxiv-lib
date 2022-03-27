@@ -1,4 +1,4 @@
-import { EorzeaDate } from "./eodate";
+import { EorzeaDate } from "./eorzeaDate";
 
 class EorzeaPeriod {
   start: EorzeaDate;

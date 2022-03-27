@@ -21,24 +21,25 @@ interface ILocationWithFlag {
 }
 
 interface IFieldZoneInfo {
-  id: number;
-  filter?: boolean;
-  elite: {
-    S: IIdentifierWithRespawn;
-    A: IIdentifierWithRespawn;
-    A2?: IIdentifierWithRespawn;
-    B: number;
-    B2?: number;
-    locations: ILocationWithFlag[];
-  };
-  ss?: {
-    S: number;
-    B: number;
-    locations: ILocationWithFlag[];
-  };
-  fate?: {
-    F: number;
-  };
+  [id: string]: {
+    filter?: boolean;
+    elite: {
+      S: IIdentifierWithRespawn;
+      A: IIdentifierWithRespawn;
+      A2?: IIdentifierWithRespawn;
+      B: number;
+      B2?: number;
+      locations: ILocationWithFlag[];
+    };
+    ss?: {
+      S: number;
+      B: number;
+      locations: ILocationWithFlag[];
+    };
+    fate?: {
+      F: number;
+    };
+  }
 }
 
 interface IRegionsJson {

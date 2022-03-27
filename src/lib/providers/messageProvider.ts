@@ -64,6 +64,23 @@ class MessageProvider {
     return result ?? `PlaceName<${id}>`;
   }
 
+  getExVersion(id: number, tts = false) {
+    let result: string | undefined;
+    if (tts) {
+      const ttsMap = this._tts[this._lang]?.ExVersion;
+      if (ttsMap && ttsMap[id]) {
+        result = ttsMap[id];
+      }
+    }
+    if (!result) {
+      const messageMap = this._messages[this._lang]?.ExVersion;
+      if (messageMap && messageMap[id]) {
+        result = messageMap[id];
+      }
+    }
+    return result ?? `ExVersion<${id}>`;
+  }
+
   getWeather(id: number, tts = false) {
     let result: string | undefined;
     if (tts) {

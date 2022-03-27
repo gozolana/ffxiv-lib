@@ -1,6 +1,12 @@
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
+interface IExVersionData {
+  readonly id: number;
+  readonly version: number;
+  readonly css: string;
+}
+
 interface IMarkerData {
   readonly x: number;
   readonly y: number;
@@ -35,7 +41,7 @@ interface ILocationWithFlag {
   readonly flag: string;
 }
 
-interface IFieldZoneData {
+interface IFieldZoneData extends IZoneData {
   readonly id: number;
   readonly filter?: boolean;
   readonly elite: {
@@ -72,6 +78,34 @@ const regionCssMap: { [key: string]: string } = {
   Frontier: "brown lighten-4 black--text",
   Eureka: "lime lighten-2 black--text"
 };
+
+const exVersions: IExVersionData[] = [
+  {
+    id: 0,
+    version: 2,
+    css: "lime lighten-4"
+  },
+  {
+    id: 1,
+    version: 3,
+    css: "blue lighten-4"
+  },
+  {
+    id: 2,
+    version: 4,
+    css: "red lighten-4"
+  },
+  {
+    id: 3,
+    version: 5,
+    css: "blue-grey lighten-4"
+  },
+  {
+    id: 4,
+    version: 6,
+    css: "amber lighten-3"
+  }
+];
 
 const huntRegions: IRegionData[] = [
   {
@@ -251,5767 +285,6 @@ const weatherRegions: IRegionData[] = [
 ];
 
 const zones: IZoneData[] = [
-  {
-    id: 134,
-    placeNameId: 30,
-    weatherRateId: 16,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -1,
-    markers: [
-      {
-        x: 980,
-        y: 1166,
-        placeNameId: 179,
-        icon: "60442"
-      },
-      {
-        x: 1214,
-        y: 1296,
-        placeNameId: 183,
-        icon: "60442"
-      },
-      {
-        x: 1207,
-        y: 788,
-        placeNameId: 184,
-        icon: "60448"
-      },
-      {
-        x: 966,
-        y: 942,
-        placeNameId: 185,
-        icon: "60442"
-      },
-      {
-        x: 882,
-        y: 810,
-        placeNameId: 187,
-        icon: "60442"
-      },
-      {
-        x: 1036,
-        y: 714,
-        placeNameId: 188,
-        icon: "60442"
-      },
-      {
-        x: 724,
-        y: 836,
-        placeNameId: 190,
-        icon: "60442"
-      },
-      {
-        x: 832,
-        y: 378,
-        placeNameId: 191,
-        icon: "60442"
-      },
-      {
-        x: 1012,
-        y: 568,
-        placeNameId: 192,
-        icon: "60442"
-      },
-      {
-        x: 532,
-        y: 710,
-        placeNameId: 194,
-        icon: "60442"
-      },
-      {
-        x: 980,
-        y: 1186,
-        placeNameId: 29,
-        icon: "60441"
-      },
-      {
-        x: 1232,
-        y: 1312,
-        placeNameId: 31,
-        icon: "60441"
-      },
-      {
-        x: 859,
-        y: 290,
-        placeNameId: 32,
-        icon: "60441"
-      },
-      {
-        x: 650,
-        y: 422,
-        placeNameId: 33,
-        icon: "60441"
-      },
-      {
-        x: 1215,
-        y: 828,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1220,
-        y: 815,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1255,
-        y: 767,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1228,
-        y: 816,
-        placeNameId: 0,
-        icon: "60434"
-      }
-    ]
-  },
-  {
-    id: 135,
-    placeNameId: 31,
-    weatherRateId: 17,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -1,
-    markers: [
-      {
-        x: 1239,
-        y: 1125,
-        placeNameId: 195,
-        icon: "60442"
-      },
-      {
-        x: 1307,
-        y: 1052,
-        placeNameId: 196,
-        icon: "60442"
-      },
-      {
-        x: 985,
-        y: 1143,
-        placeNameId: 198,
-        icon: "60442"
-      },
-      {
-        x: 1112,
-        y: 1371,
-        placeNameId: 199,
-        icon: "60442"
-      },
-      {
-        x: 1555,
-        y: 956,
-        placeNameId: 200,
-        icon: "60448"
-      },
-      {
-        x: 1695,
-        y: 815,
-        placeNameId: 201,
-        icon: "60442"
-      },
-      {
-        x: 1349,
-        y: 707,
-        placeNameId: 202,
-        icon: "60442"
-      },
-      {
-        x: 1545,
-        y: 590,
-        placeNameId: 204,
-        icon: "60442"
-      },
-      {
-        x: 1175,
-        y: 1631,
-        placeNameId: 337,
-        icon: "60448"
-      },
-      {
-        x: 890,
-        y: 1716,
-        placeNameId: 338,
-        icon: "60442"
-      },
-      {
-        x: 1010,
-        y: 1870,
-        placeNameId: 339,
-        icon: "60442"
-      },
-      {
-        x: 1041,
-        y: 1697,
-        placeNameId: 340,
-        icon: "60442"
-      },
-      {
-        x: 1130,
-        y: 1959,
-        placeNameId: 341,
-        icon: "60442"
-      },
-      {
-        x: 973,
-        y: 1140,
-        placeNameId: 28,
-        icon: "60441"
-      },
-      {
-        x: 1250,
-        y: 678,
-        placeNameId: 30,
-        icon: "60441"
-      },
-      {
-        x: 1594,
-        y: 497,
-        placeNameId: 32,
-        icon: "60441"
-      },
-      {
-        x: 1719,
-        y: 634,
-        placeNameId: 32,
-        icon: "60441"
-      },
-      {
-        x: 1526,
-        y: 945,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1583,
-        y: 974,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1180,
-        y: 1697,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1070,
-        y: 1628,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1224,
-        y: 1699,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1019,
-        y: 1887,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 979,
-        y: 1871,
-        placeNameId: 0,
-        icon: "60456"
-      },
-      {
-        x: 1514,
-        y: 945,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1210,
-        y: 1680,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1622,
-        y: 916,
-        placeNameId: 425,
-        icon: "60441"
-      },
-      {
-        x: 1292,
-        y: 1738,
-        placeNameId: 460,
-        icon: "60456"
-      },
-      {
-        x: 1302,
-        y: 1758,
-        placeNameId: 1377,
-        icon: "60414"
-      }
-    ]
-  },
-  {
-    id: 137,
-    placeNameId: 32,
-    weatherRateId: 18,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 7,
-    markers: [
-      {
-        x: 1403,
-        y: 1667,
-        placeNameId: 205,
-        icon: "60442"
-      },
-      {
-        x: 1564,
-        y: 1444,
-        placeNameId: 206,
-        icon: "60448"
-      },
-      {
-        x: 1631,
-        y: 1412,
-        placeNameId: 208,
-        icon: "60456"
-      },
-      {
-        x: 1247,
-        y: 1457,
-        placeNameId: 209,
-        icon: "60442"
-      },
-      {
-        x: 1369,
-        y: 1115,
-        placeNameId: 210,
-        icon: "60456"
-      },
-      {
-        x: 1521,
-        y: 1104,
-        placeNameId: 211,
-        icon: "60442"
-      },
-      {
-        x: 685,
-        y: 1180,
-        placeNameId: 212,
-        icon: "60414"
-      },
-      {
-        x: 650,
-        y: 1461,
-        placeNameId: 213,
-        icon: "60442"
-      },
-      {
-        x: 683,
-        y: 1329,
-        placeNameId: 214,
-        icon: "60442"
-      },
-      {
-        x: 1046,
-        y: 1246,
-        placeNameId: 215,
-        icon: "60456"
-      },
-      {
-        x: 963,
-        y: 1022,
-        placeNameId: 216,
-        icon: "60448"
-      },
-      {
-        x: 1287,
-        y: 1022,
-        placeNameId: 217,
-        icon: "60442"
-      },
-      {
-        x: 911,
-        y: 1071,
-        placeNameId: 30,
-        icon: "60441"
-      },
-      {
-        x: 892,
-        y: 1764,
-        placeNameId: 31,
-        icon: "60441"
-      },
-      {
-        x: 1271,
-        y: 1868,
-        placeNameId: 31,
-        icon: "60441"
-      },
-      {
-        x: 1103,
-        y: 909,
-        placeNameId: 34,
-        icon: "60441"
-      },
-      {
-        x: 1514,
-        y: 1491,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1447,
-        y: 1471,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1490,
-        y: 1512,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1005,
-        y: 1027,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1039,
-        y: 1047,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 988,
-        y: 987,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1550,
-        y: 1497,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 971,
-        y: 999,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1010,
-        y: 1281,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1782,
-        y: 1506,
-        placeNameId: 229,
-        icon: "60442"
-      }
-    ]
-  },
-  {
-    id: 138,
-    placeNameId: 33,
-    weatherRateId: 19,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -44,
-    markers: [
-      {
-        x: 1688,
-        y: 1553,
-        placeNameId: 218,
-        icon: "60448"
-      },
-      {
-        x: 1595,
-        y: 1355,
-        placeNameId: 219,
-        icon: "60442"
-      },
-      {
-        x: 1458,
-        y: 1487,
-        placeNameId: 220,
-        icon: "60442"
-      },
-      {
-        x: 1362,
-        y: 1023,
-        placeNameId: 222,
-        icon: "60414"
-      },
-      {
-        x: 1285,
-        y: 1276,
-        placeNameId: 223,
-        icon: "60448"
-      },
-      {
-        x: 1086,
-        y: 1083,
-        placeNameId: 224,
-        icon: "60442"
-      },
-      {
-        x: 1112,
-        y: 956,
-        placeNameId: 225,
-        icon: "60442"
-      },
-      {
-        x: 1041,
-        y: 944,
-        placeNameId: 226,
-        icon: "60442"
-      },
-      {
-        x: 928,
-        y: 1080,
-        placeNameId: 227,
-        icon: "60442"
-      },
-      {
-        x: 670,
-        y: 605,
-        placeNameId: 365,
-        icon: "60442"
-      },
-      {
-        x: 969,
-        y: 943,
-        placeNameId: 364,
-        icon: "60442"
-      },
-      {
-        x: 881,
-        y: 1012,
-        placeNameId: 364,
-        icon: "60442"
-      },
-      {
-        x: 1338,
-        y: 1373,
-        placeNameId: 368,
-        icon: "60456"
-      },
-      {
-        x: 601,
-        y: 788,
-        placeNameId: 362,
-        icon: "60442"
-      },
-      {
-        x: 1836,
-        y: 1414,
-        placeNameId: 30,
-        icon: "60441"
-      },
-      {
-        x: 1435,
-        y: 1012,
-        placeNameId: 34,
-        icon: "60441"
-      },
-      {
-        x: 1676,
-        y: 1537,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1694,
-        y: 1512,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1690,
-        y: 1520,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1284,
-        y: 1242,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1323,
-        y: 1256,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1265,
-        y: 1255,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1250,
-        y: 1255,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1079,
-        y: 1085,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1302,
-        y: 1253,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1044,
-        y: 962,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 932,
-        y: 1108,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 733,
-        y: 1430,
-        placeNameId: 461,
-        icon: "60456"
-      },
-      {
-        x: 802,
-        y: 816,
-        placeNameId: 363,
-        icon: "60554"
-      },
-      {
-        x: 721,
-        y: 1740,
-        placeNameId: 228,
-        icon: "60442"
-      },
-      {
-        x: 751,
-        y: 1491,
-        placeNameId: 230,
-        icon: "60414"
-      },
-      {
-        x: 800,
-        y: 1032,
-        placeNameId: 945,
-        icon: "60442"
-      },
-      {
-        x: 800,
-        y: 1070,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 804,
-        y: 1051,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 864,
-        y: 726,
-        placeNameId: 949,
-        icon: "60442"
-      },
-      {
-        x: 236,
-        y: 1702,
-        placeNameId: 946,
-        icon: "60442"
-      },
-      {
-        x: 1366,
-        y: 1170,
-        placeNameId: 147,
-        icon: "60442"
-      }
-    ]
-  },
-  {
-    id: 139,
-    placeNameId: 34,
-    weatherRateId: 20,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -15,
-    markers: [
-      {
-        x: 1448,
-        y: 1085,
-        placeNameId: 239,
-        icon: "60448"
-      },
-      {
-        x: 697,
-        y: 1142,
-        placeNameId: 231,
-        icon: "60442"
-      },
-      {
-        x: 502,
-        y: 1128,
-        placeNameId: 232,
-        icon: "60442"
-      },
-      {
-        x: 602,
-        y: 1085,
-        placeNameId: 233,
-        icon: "60442"
-      },
-      {
-        x: 413,
-        y: 977,
-        placeNameId: 234,
-        icon: "60442"
-      },
-      {
-        x: 1233,
-        y: 1102,
-        placeNameId: 240,
-        icon: "60414"
-      },
-      {
-        x: 1260,
-        y: 1285,
-        placeNameId: 241,
-        icon: "60442"
-      },
-      {
-        x: 1748,
-        y: 1236,
-        placeNameId: 32,
-        icon: "60441"
-      },
-      {
-        x: 1309,
-        y: 821,
-        placeNameId: 350,
-        icon: "60441"
-      },
-      {
-        x: 680,
-        y: 1006,
-        placeNameId: 350,
-        icon: "60441"
-      },
-      {
-        x: 546,
-        y: 1311,
-        placeNameId: 33,
-        icon: "60441"
-      },
-      {
-        x: 1462,
-        y: 1118,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1438,
-        y: 1114,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1480,
-        y: 1113,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1452,
-        y: 1138,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1260,
-        y: 1269,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1242,
-        y: 1281,
-        placeNameId: 0,
-        icon: "60456"
-      },
-      {
-        x: 693,
-        y: 1159,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 682,
-        y: 1137,
-        placeNameId: 0,
-        icon: "60456"
-      },
-      {
-        x: 1462,
-        y: 1073,
-        placeNameId: 0,
-        icon: "60551"
-      }
-    ]
-  },
-  {
-    id: 140,
-    placeNameId: 42,
-    weatherRateId: 9,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 12,
-    markers: [
-      {
-        x: 848,
-        y: 1342,
-        placeNameId: 262,
-        icon: "60442"
-      },
-      {
-        x: 1253,
-        y: 1162,
-        placeNameId: 263,
-        icon: "60448"
-      },
-      {
-        x: 1079,
-        y: 1319,
-        placeNameId: 265,
-        icon: "60442"
-      },
-      {
-        x: 982,
-        y: 1341,
-        placeNameId: 375,
-        icon: "60442"
-      },
-      {
-        x: 948,
-        y: 1285,
-        placeNameId: 376,
-        icon: "60442"
-      },
-      {
-        x: 754,
-        y: 1446,
-        placeNameId: 266,
-        icon: "60448"
-      },
-      {
-        x: 1351,
-        y: 790,
-        placeNameId: 267,
-        icon: "60414"
-      },
-      {
-        x: 1122,
-        y: 838,
-        placeNameId: 268,
-        icon: "60442"
-      },
-      {
-        x: 1046,
-        y: 769,
-        placeNameId: 269,
-        icon: "60442"
-      },
-      {
-        x: 1115,
-        y: 804,
-        placeNameId: 271,
-        icon: "60448"
-      },
-      {
-        x: 729,
-        y: 850,
-        placeNameId: 272,
-        icon: "60448"
-      },
-      {
-        x: 846,
-        y: 738,
-        placeNameId: 273,
-        icon: "60442"
-      },
-      {
-        x: 583,
-        y: 660,
-        placeNameId: 274,
-        icon: "60448"
-      },
-      {
-        x: 837,
-        y: 290,
-        placeNameId: 275,
-        icon: "60442"
-      },
-      {
-        x: 703,
-        y: 286,
-        placeNameId: 276,
-        icon: "60442"
-      },
-      {
-        x: 594,
-        y: 311,
-        placeNameId: 277,
-        icon: "60442"
-      },
-      {
-        x: 218,
-        y: 160,
-        placeNameId: 349,
-        icon: "60442"
-      },
-      {
-        x: 1505,
-        y: 1187,
-        placeNameId: 40,
-        icon: "60441"
-      },
-      {
-        x: 1289,
-        y: 1008,
-        placeNameId: 43,
-        icon: "60441"
-      },
-      {
-        x: 697,
-        y: 930,
-        placeNameId: 370,
-        icon: "60456"
-      },
-      {
-        x: 722,
-        y: 1328,
-        placeNameId: 371,
-        icon: "60456"
-      },
-      {
-        x: 522,
-        y: 695,
-        placeNameId: 728,
-        icon: "60339"
-      },
-      {
-        x: 778,
-        y: 1398,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 733,
-        y: 1427,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 712,
-        y: 1415,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1235,
-        y: 1158,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1235,
-        y: 1187,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1092,
-        y: 795,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1088,
-        y: 835,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1072,
-        y: 787,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1068,
-        y: 760,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 717,
-        y: 876,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 611,
-        y: 697,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 557,
-        y: 644,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 567,
-        y: 680,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 553,
-        y: 683,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1059,
-        y: 758,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1489,
-        y: 1183,
-        placeNameId: 626,
-        icon: "60442"
-      },
-      {
-        x: 543,
-        y: 638,
-        placeNameId: 472,
-        icon: "60442"
-      },
-      {
-        x: 1340,
-        y: 1260,
-        placeNameId: 427,
-        icon: "60441"
-      },
-      {
-        x: 560,
-        y: 703,
-        placeNameId: 0,
-        icon: "60935"
-      }
-    ]
-  },
-  {
-    id: 141,
-    placeNameId: 43,
-    weatherRateId: 10,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -32,
-    markers: [
-      {
-        x: 866,
-        y: 1242,
-        placeNameId: 278,
-        icon: "60442"
-      },
-      {
-        x: 1008,
-        y: 1208,
-        placeNameId: 279,
-        icon: "60442"
-      },
-      {
-        x: 1084,
-        y: 1270,
-        placeNameId: 282,
-        icon: "60442"
-      },
-      {
-        x: 1088,
-        y: 1374,
-        placeNameId: 283,
-        icon: "60442"
-      },
-      {
-        x: 1032,
-        y: 1154,
-        placeNameId: 285,
-        icon: "60442"
-      },
-      {
-        x: 1260,
-        y: 1550,
-        placeNameId: 286,
-        icon: "60442"
-      },
-      {
-        x: 1250,
-        y: 1680,
-        placeNameId: 287,
-        icon: "60442"
-      },
-      {
-        x: 942,
-        y: 972,
-        placeNameId: 289,
-        icon: "60442"
-      },
-      {
-        x: 983,
-        y: 860,
-        placeNameId: 290,
-        icon: "60448"
-      },
-      {
-        x: 798,
-        y: 1140,
-        placeNameId: 291,
-        icon: "60442"
-      },
-      {
-        x: 768,
-        y: 916,
-        placeNameId: 292,
-        icon: "60442"
-      },
-      {
-        x: 1118,
-        y: 752,
-        placeNameId: 294,
-        icon: "60442"
-      },
-      {
-        x: 1138,
-        y: 646,
-        placeNameId: 295,
-        icon: "60442"
-      },
-      {
-        x: 1008,
-        y: 594,
-        placeNameId: 296,
-        icon: "60442"
-      },
-      {
-        x: 1344,
-        y: 910,
-        placeNameId: 297,
-        icon: "60442"
-      },
-      {
-        x: 1160,
-        y: 1002,
-        placeNameId: 298,
-        icon: "60442"
-      },
-      {
-        x: 996,
-        y: 520,
-        placeNameId: 46,
-        icon: "60441"
-      },
-      {
-        x: 1479,
-        y: 835,
-        placeNameId: 44,
-        icon: "60441"
-      },
-      {
-        x: 610,
-        y: 1124,
-        placeNameId: 42,
-        icon: "60441"
-      },
-      {
-        x: 1254,
-        y: 1688,
-        placeNameId: 45,
-        icon: "60441"
-      },
-      {
-        x: 906,
-        y: 1368,
-        placeNameId: 40,
-        icon: "60441"
-      },
-      {
-        x: 1024,
-        y: 1584,
-        placeNameId: 41,
-        icon: "60441"
-      },
-      {
-        x: 1025,
-        y: 868,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1036,
-        y: 853,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1012,
-        y: 873,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1012,
-        y: 878,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1004,
-        y: 857,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 926,
-        y: 984,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 748,
-        y: 650,
-        placeNameId: 377,
-        icon: "60414"
-      },
-      {
-        x: 909,
-        y: 1358,
-        placeNameId: 613,
-        icon: "60442"
-      },
-      {
-        x: 1042,
-        y: 1590,
-        placeNameId: 645,
-        icon: "60442"
-      },
-      {
-        x: 1139,
-        y: 632,
-        placeNameId: 0,
-        icon: "60910"
-      }
-    ]
-  },
-  {
-    id: 145,
-    placeNameId: 44,
-    weatherRateId: 11,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -66,
-    markers: [
-      {
-        x: 629,
-        y: 1141,
-        placeNameId: 300,
-        icon: "60448"
-      },
-      {
-        x: 690,
-        y: 784,
-        placeNameId: 301,
-        icon: "60442"
-      },
-      {
-        x: 515,
-        y: 1024,
-        placeNameId: 302,
-        icon: "60442"
-      },
-      {
-        x: 477,
-        y: 769,
-        placeNameId: 304,
-        icon: "60448"
-      },
-      {
-        x: 685,
-        y: 1453,
-        placeNameId: 305,
-        icon: "60414"
-      },
-      {
-        x: 947,
-        y: 1302,
-        placeNameId: 306,
-        icon: "60442"
-      },
-      {
-        x: 1043,
-        y: 1004,
-        placeNameId: 307,
-        icon: "60448"
-      },
-      {
-        x: 1209,
-        y: 689,
-        placeNameId: 309,
-        icon: "60442"
-      },
-      {
-        x: 1343,
-        y: 1039,
-        placeNameId: 310,
-        icon: "60442"
-      },
-      {
-        x: 1171,
-        y: 1432,
-        placeNameId: 311,
-        icon: "60442"
-      },
-      {
-        x: 1394,
-        y: 728,
-        placeNameId: 56,
-        icon: "60441"
-      },
-      {
-        x: 460,
-        y: 1366,
-        placeNameId: 43,
-        icon: "60441"
-      },
-      {
-        x: 846,
-        y: 1515,
-        placeNameId: 45,
-        icon: "60441"
-      },
-      {
-        x: 637,
-        y: 1166,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 600,
-        y: 1130,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 653,
-        y: 1122,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 642,
-        y: 1115,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 617,
-        y: 1120,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 641,
-        y: 1194,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 495,
-        y: 824,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 488,
-        y: 785,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1068,
-        y: 1016,
-        placeNameId: 0,
-        icon: "60412"
-      }
-    ]
-  },
-  {
-    id: 146,
-    placeNameId: 45,
-    weatherRateId: 12,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -23,
-    markers: [
-      {
-        x: 1213,
-        y: 573,
-        placeNameId: 312,
-        icon: "60414"
-      },
-      {
-        x: 890,
-        y: 607,
-        placeNameId: 313,
-        icon: "60448"
-      },
-      {
-        x: 1119,
-        y: 481,
-        placeNameId: 315,
-        icon: "60442"
-      },
-      {
-        x: 1061,
-        y: 881,
-        placeNameId: 316,
-        icon: "60442"
-      },
-      {
-        x: 844,
-        y: 1186,
-        placeNameId: 318,
-        icon: "60442"
-      },
-      {
-        x: 1194,
-        y: 1260,
-        placeNameId: 319,
-        icon: "60442"
-      },
-      {
-        x: 1486,
-        y: 926,
-        placeNameId: 320,
-        icon: "60449"
-      },
-      {
-        x: 558,
-        y: 1088,
-        placeNameId: 321,
-        icon: "60442"
-      },
-      {
-        x: 689,
-        y: 1285,
-        placeNameId: 322,
-        icon: "60442"
-      },
-      {
-        x: 725,
-        y: 1416,
-        placeNameId: 323,
-        icon: "60448"
-      },
-      {
-        x: 922,
-        y: 1750,
-        placeNameId: 324,
-        icon: "60442"
-      },
-      {
-        x: 593,
-        y: 594,
-        placeNameId: 43,
-        icon: "60441"
-      },
-      {
-        x: 995,
-        y: 258,
-        placeNameId: 44,
-        icon: "60441"
-      },
-      {
-        x: 865,
-        y: 607,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 844,
-        y: 614,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 839,
-        y: 597,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 868,
-        y: 587,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 697,
-        y: 1430,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 716,
-        y: 1444,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 711,
-        y: 1452,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 748,
-        y: 1453,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 749,
-        y: 1402,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 671,
-        y: 1282,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 554,
-        y: 1115,
-        placeNameId: 470,
-        icon: "60442"
-      },
-      {
-        x: 700,
-        y: 1262,
-        placeNameId: 471,
-        icon: "60442"
-      },
-      {
-        x: 1118,
-        y: 647,
-        placeNameId: 482,
-        icon: "60442"
-      },
-      {
-        x: 1112,
-        y: 655,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1121,
-        y: 640,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 554,
-        y: 1110,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 740,
-        y: 1262,
-        placeNameId: 0,
-        icon: "60467"
-      }
-    ]
-  },
-  {
-    id: 147,
-    placeNameId: 46,
-    weatherRateId: 13,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -39,
-    markers: [
-      {
-        x: 1043,
-        y: 1440,
-        placeNameId: 325,
-        icon: "60448"
-      },
-      {
-        x: 1071,
-        y: 1241,
-        placeNameId: 326,
-        icon: "60442"
-      },
-      {
-        x: 932,
-        y: 1264,
-        placeNameId: 327,
-        icon: "60442"
-      },
-      {
-        x: 1269,
-        y: 1086,
-        placeNameId: 328,
-        icon: "60442"
-      },
-      {
-        x: 1215,
-        y: 968,
-        placeNameId: 329,
-        icon: "60442"
-      },
-      {
-        x: 1157,
-        y: 1036,
-        placeNameId: 329,
-        icon: "60442"
-      },
-      {
-        x: 967,
-        y: 824,
-        placeNameId: 329,
-        icon: "60442"
-      },
-      {
-        x: 972,
-        y: 1042,
-        placeNameId: 331,
-        icon: "60448"
-      },
-      {
-        x: 723,
-        y: 666,
-        placeNameId: 332,
-        icon: "60442"
-      },
-      {
-        x: 728,
-        y: 798,
-        placeNameId: 333,
-        icon: "60414"
-      },
-      {
-        x: 1058,
-        y: 1541,
-        placeNameId: 43,
-        icon: "60441"
-      },
-      {
-        x: 1045,
-        y: 1478,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1080,
-        y: 1470,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 997,
-        y: 993,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 984,
-        y: 966,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 994,
-        y: 1499,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1021,
-        y: 1057,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 930,
-        y: 616,
-        placeNameId: 67,
-        icon: "60441"
-      },
-      {
-        x: 1084,
-        y: 1458,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 975,
-        y: 980,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 911,
-        y: 1054,
-        placeNameId: 430,
-        icon: "60414"
-      }
-    ]
-  },
-  {
-    id: 148,
-    placeNameId: 54,
-    weatherRateId: 3,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -40,
-    markers: [
-      {
-        x: 1151,
-        y: 725,
-        placeNameId: 52,
-        icon: "60441"
-      },
-      {
-        x: 1440,
-        y: 791,
-        placeNameId: 55,
-        icon: "60441"
-      },
-      {
-        x: 1185,
-        y: 1575,
-        placeNameId: 56,
-        icon: "60441"
-      },
-      {
-        x: 521,
-        y: 661,
-        placeNameId: 57,
-        icon: "60441"
-      },
-      {
-        x: 1151,
-        y: 745,
-        placeNameId: 87,
-        icon: "60442"
-      },
-      {
-        x: 721,
-        y: 752,
-        placeNameId: 88,
-        icon: "60442"
-      },
-      {
-        x: 1244,
-        y: 926,
-        placeNameId: 89,
-        icon: "60442"
-      },
-      {
-        x: 1107,
-        y: 921,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1112,
-        y: 941,
-        placeNameId: 90,
-        icon: "60448"
-      },
-      {
-        x: 1305,
-        y: 991,
-        placeNameId: 91,
-        icon: "60442"
-      },
-      {
-        x: 1481,
-        y: 961,
-        placeNameId: 92,
-        icon: "60442"
-      },
-      {
-        x: 1340,
-        y: 1160,
-        placeNameId: 93,
-        icon: "60442"
-      },
-      {
-        x: 1037,
-        y: 1059,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1062,
-        y: 1248,
-        placeNameId: 95,
-        icon: "60442"
-      },
-      {
-        x: 860,
-        y: 949,
-        placeNameId: 96,
-        icon: "60442"
-      },
-      {
-        x: 904,
-        y: 1372,
-        placeNameId: 97,
-        icon: "60414"
-      },
-      {
-        x: 1207,
-        y: 1350,
-        placeNameId: 98,
-        icon: "60442"
-      },
-      {
-        x: 1392,
-        y: 1455,
-        placeNameId: 99,
-        icon: "60442"
-      },
-      {
-        x: 959,
-        y: 1494,
-        placeNameId: 100,
-        icon: "60442"
-      },
-      {
-        x: 701,
-        y: 1212,
-        placeNameId: 419,
-        icon: "60442"
-      },
-      {
-        x: 432,
-        y: 1092,
-        placeNameId: 102,
-        icon: "60414"
-      },
-      {
-        x: 805,
-        y: 1059,
-        placeNameId: 103,
-        icon: "60442"
-      },
-      {
-        x: 623,
-        y: 1036,
-        placeNameId: 104,
-        icon: "60442"
-      },
-      {
-        x: 511,
-        y: 958,
-        placeNameId: 105,
-        icon: "60442"
-      },
-      {
-        x: 469,
-        y: 815,
-        placeNameId: 106,
-        icon: "60442"
-      },
-      {
-        x: 1007,
-        y: 1049,
-        placeNameId: 94,
-        icon: "60448"
-      },
-      {
-        x: 1040,
-        y: 1006,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1020,
-        y: 1075,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1200,
-        y: 1340,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1045,
-        y: 1107,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1346,
-        y: 717,
-        placeNameId: 348,
-        icon: "60442"
-      },
-      {
-        x: 800,
-        y: 904,
-        placeNameId: 439,
-        icon: "60442"
-      },
-      {
-        x: 725,
-        y: 738,
-        placeNameId: 473,
-        icon: "60442"
-      },
-      {
-        x: 1242,
-        y: 1349,
-        placeNameId: 475,
-        icon: "60456"
-      },
-      {
-        x: 971,
-        y: 1090,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 713,
-        y: 740,
-        placeNameId: 0,
-        icon: "60467"
-      }
-    ]
-  },
-  {
-    id: 152,
-    placeNameId: 55,
-    weatherRateId: 4,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -36,
-    markers: [
-      {
-        x: 511,
-        y: 1314,
-        placeNameId: 54,
-        icon: "60441"
-      },
-      {
-        x: 862,
-        y: 1474,
-        placeNameId: 56,
-        icon: "60441"
-      },
-      {
-        x: 446,
-        y: 1094,
-        placeNameId: 155,
-        icon: "60456"
-      },
-      {
-        x: 812,
-        y: 1267,
-        placeNameId: 158,
-        icon: "60442"
-      },
-      {
-        x: 778,
-        y: 1330,
-        placeNameId: 107,
-        icon: "60448"
-      },
-      {
-        x: 745,
-        y: 1392,
-        placeNameId: 108,
-        icon: "60442"
-      },
-      {
-        x: 1049,
-        y: 1418,
-        placeNameId: 110,
-        icon: "60442"
-      },
-      {
-        x: 1053,
-        y: 1251,
-        placeNameId: 113,
-        icon: "60442"
-      },
-      {
-        x: 1076,
-        y: 1545,
-        placeNameId: 111,
-        icon: "60442"
-      },
-      {
-        x: 830,
-        y: 791,
-        placeNameId: 112,
-        icon: "60442"
-      },
-      {
-        x: 1247,
-        y: 934,
-        placeNameId: 77,
-        icon: "60555"
-      },
-      {
-        x: 1409,
-        y: 575,
-        placeNameId: 114,
-        icon: "60442"
-      },
-      {
-        x: 991,
-        y: 481,
-        placeNameId: 115,
-        icon: "60442"
-      },
-      {
-        x: 1562,
-        y: 688,
-        placeNameId: 116,
-        icon: "60442"
-      },
-      {
-        x: 1187,
-        y: 467,
-        placeNameId: 117,
-        icon: "60442"
-      },
-      {
-        x: 802,
-        y: 1323,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 808,
-        y: 1326,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1040,
-        y: 1248,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 535,
-        y: 1200,
-        placeNameId: 159,
-        icon: "60442"
-      },
-      {
-        x: 838,
-        y: 1322,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 448,
-        y: 1125,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 827,
-        y: 1301,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 545,
-        y: 1226,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1069,
-        y: 1268,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1070,
-        y: 1516,
-        placeNameId: 1857,
-        icon: "60414"
-      },
-      {
-        x: 1051,
-        y: 1425,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1057,
-        y: 1425,
-        placeNameId: 2406,
-        icon: "60441"
-      }
-    ]
-  },
-  {
-    id: 153,
-    placeNameId: 56,
-    weatherRateId: 5,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -4,
-    markers: [
-      {
-        x: 656,
-        y: 780,
-        placeNameId: 54,
-        icon: "60441"
-      },
-      {
-        x: 1300,
-        y: 764,
-        placeNameId: 55,
-        icon: "60441"
-      },
-      {
-        x: 732,
-        y: 826,
-        placeNameId: 118,
-        icon: "60442"
-      },
-      {
-        x: 842,
-        y: 975,
-        placeNameId: 119,
-        icon: "60448"
-      },
-      {
-        x: 932,
-        y: 854,
-        placeNameId: 120,
-        icon: "60414"
-      },
-      {
-        x: 796,
-        y: 1056,
-        placeNameId: 121,
-        icon: "60442"
-      },
-      {
-        x: 718,
-        y: 1110,
-        placeNameId: 122,
-        icon: "60442"
-      },
-      {
-        x: 793,
-        y: 1380,
-        placeNameId: 123,
-        icon: "60453"
-      },
-      {
-        x: 660,
-        y: 1480,
-        placeNameId: 125,
-        icon: "60414"
-      },
-      {
-        x: 688,
-        y: 1642,
-        placeNameId: 127,
-        icon: "60442"
-      },
-      {
-        x: 1204,
-        y: 1192,
-        placeNameId: 128,
-        icon: "60414"
-      },
-      {
-        x: 1203,
-        y: 953,
-        placeNameId: 129,
-        icon: "60453"
-      },
-      {
-        x: 1082,
-        y: 826,
-        placeNameId: 130,
-        icon: "60442"
-      },
-      {
-        x: 1345,
-        y: 1000,
-        placeNameId: 131,
-        icon: "60442"
-      },
-      {
-        x: 1462,
-        y: 964,
-        placeNameId: 132,
-        icon: "60442"
-      },
-      {
-        x: 1644,
-        y: 1102,
-        placeNameId: 133,
-        icon: "60442"
-      },
-      {
-        x: 860,
-        y: 944,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 849,
-        y: 940,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1290,
-        y: 815,
-        placeNameId: 589,
-        icon: "60442"
-      },
-      {
-        x: 1218,
-        y: 971,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 824,
-        y: 1398,
-        placeNameId: 0,
-        icon: "60448"
-      },
-      {
-        x: 1232,
-        y: 988,
-        placeNameId: 0,
-        icon: "60448"
-      },
-      {
-        x: 1186,
-        y: 964,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 820,
-        y: 965,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1195,
-        y: 977,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 818,
-        y: 1365,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1233,
-        y: 955,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1225,
-        y: 960,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 810,
-        y: 1395,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 803,
-        y: 1391,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 757,
-        y: 1703,
-        placeNameId: 44,
-        icon: "60441"
-      },
-      {
-        x: 1206,
-        y: 988,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1205,
-        y: 983,
-        placeNameId: 0,
-        icon: "60935"
-      }
-    ]
-  },
-  {
-    id: 154,
-    placeNameId: 57,
-    weatherRateId: 6,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -82,
-    markers: [
-      {
-        x: 1472,
-        y: 1226,
-        placeNameId: 135,
-        icon: "60442"
-      },
-      {
-        x: 1340,
-        y: 1388,
-        placeNameId: 136,
-        icon: "60448"
-      },
-      {
-        x: 1376,
-        y: 1241,
-        placeNameId: 137,
-        icon: "60442"
-      },
-      {
-        x: 1424,
-        y: 1103,
-        placeNameId: 138,
-        icon: "60442"
-      },
-      {
-        x: 1376,
-        y: 934,
-        placeNameId: 139,
-        icon: "60448"
-      },
-      {
-        x: 980,
-        y: 1252,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1000,
-        y: 1202,
-        placeNameId: 141,
-        icon: "60442"
-      },
-      {
-        x: 716,
-        y: 1217,
-        placeNameId: 142,
-        icon: "60442"
-      },
-      {
-        x: 771,
-        y: 1411,
-        placeNameId: 143,
-        icon: "60442"
-      },
-      {
-        x: 1123,
-        y: 1189,
-        placeNameId: 144,
-        icon: "60442"
-      },
-      {
-        x: 991,
-        y: 970,
-        placeNameId: 145,
-        icon: "60442"
-      },
-      {
-        x: 1087,
-        y: 1156,
-        placeNameId: 146,
-        icon: "60442"
-      },
-      {
-        x: 1031,
-        y: 1543,
-        placeNameId: 54,
-        icon: "60441"
-      },
-      {
-        x: 1480,
-        y: 1220,
-        placeNameId: 53,
-        icon: "60441"
-      },
-      {
-        x: 1385,
-        y: 957,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1446,
-        y: 907,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1447,
-        y: 903,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1443,
-        y: 899,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1240,
-        y: 1360,
-        placeNameId: 160,
-        icon: "60442"
-      },
-      {
-        x: 1000,
-        y: 1292,
-        placeNameId: 140,
-        icon: "60448"
-      },
-      {
-        x: 1356,
-        y: 1358,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1344,
-        y: 950,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1024,
-        y: 1262,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1033,
-        y: 1243,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1035,
-        y: 1248,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 986,
-        y: 1269,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 628,
-        y: 1182,
-        placeNameId: 63,
-        icon: "60441"
-      },
-      {
-        x: 1469,
-        y: 957,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1196,
-        y: 1085,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1198,
-        y: 1089,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1184,
-        y: 1104,
-        placeNameId: 1385,
-        icon: "60442"
-      }
-    ]
-  },
-  {
-    id: 155,
-    placeNameId: 63,
-    weatherRateId: 21,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 133,
-    markers: [
-      {
-        x: 1237,
-        y: 1383,
-        placeNameId: 385,
-        icon: "60448"
-      },
-      {
-        x: 1499,
-        y: 1505,
-        placeNameId: 386,
-        icon: "60442"
-      },
-      {
-        x: 1259,
-        y: 1144,
-        placeNameId: 387,
-        icon: "60442"
-      },
-      {
-        x: 1255,
-        y: 825,
-        placeNameId: 388,
-        icon: "60448"
-      },
-      {
-        x: 1319,
-        y: 685,
-        placeNameId: 389,
-        icon: "60442"
-      },
-      {
-        x: 1294,
-        y: 451,
-        placeNameId: 390,
-        icon: "60442"
-      },
-      {
-        x: 1570,
-        y: 579,
-        placeNameId: 391,
-        icon: "60442"
-      },
-      {
-        x: 1533,
-        y: 323,
-        placeNameId: 392,
-        icon: "60442"
-      },
-      {
-        x: 1682,
-        y: 997,
-        placeNameId: 393,
-        icon: "60450"
-      },
-      {
-        x: 685,
-        y: 1703,
-        placeNameId: 394,
-        icon: "60414"
-      },
-      {
-        x: 791,
-        y: 1718,
-        placeNameId: 395,
-        icon: "60442"
-      },
-      {
-        x: 332,
-        y: 1394,
-        placeNameId: 396,
-        icon: "60442"
-      },
-      {
-        x: 323,
-        y: 1531,
-        placeNameId: 397,
-        icon: "60442"
-      },
-      {
-        x: 615,
-        y: 1105,
-        placeNameId: 398,
-        icon: "60442"
-      },
-      {
-        x: 963,
-        y: 1372,
-        placeNameId: 399,
-        icon: "60414"
-      },
-      {
-        x: 927,
-        y: 766,
-        placeNameId: 400,
-        icon: "60442"
-      },
-      {
-        x: 342,
-        y: 507,
-        placeNameId: 401,
-        icon: "60414"
-      },
-      {
-        x: 587,
-        y: 773,
-        placeNameId: 402,
-        icon: "60448"
-      },
-      {
-        x: 170,
-        y: 721,
-        placeNameId: 403,
-        icon: "60442"
-      },
-      {
-        x: 104,
-        y: 1012,
-        placeNameId: 404,
-        icon: "60414"
-      },
-      {
-        x: 1247,
-        y: 789,
-        placeNameId: 0,
-        icon: "60453"
-      },
-      {
-        x: 1034,
-        y: 1606,
-        placeNameId: 57,
-        icon: "60441"
-      },
-      {
-        x: 800,
-        y: 1732,
-        placeNameId: 67,
-        icon: "60441"
-      },
-      {
-        x: 1267,
-        y: 770,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1260,
-        y: 1345,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 612,
-        y: 749,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1273,
-        y: 760,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1238,
-        y: 1360,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 599,
-        y: 754,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1222,
-        y: 855,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1255,
-        y: 1339,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 550,
-        y: 803,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1275,
-        y: 795,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 858,
-        y: 697,
-        placeNameId: 2300,
-        icon: "60441"
-      },
-      {
-        x: 862,
-        y: 689,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1289,
-        y: 800,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1289,
-        y: 790,
-        placeNameId: 1429,
-        icon: "60442"
-      },
-      {
-        x: 1630,
-        y: 721,
-        placeNameId: 1792,
-        icon: "60414"
-      }
-    ]
-  },
-  {
-    id: 156,
-    placeNameId: 67,
-    weatherRateId: 22,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -30,
-    markers: [
-      {
-        x: 1064,
-        y: 356,
-        placeNameId: 411,
-        icon: "60453"
-      },
-      {
-        x: 866,
-        y: 386,
-        placeNameId: 412,
-        icon: "60442"
-      },
-      {
-        x: 639,
-        y: 601,
-        placeNameId: 413,
-        icon: "60442"
-      },
-      {
-        x: 871,
-        y: 831,
-        placeNameId: 414,
-        icon: "60442"
-      },
-      {
-        x: 516,
-        y: 601,
-        placeNameId: 415,
-        icon: "60442"
-      },
-      {
-        x: 1457,
-        y: 590,
-        placeNameId: 416,
-        icon: "60448"
-      },
-      {
-        x: 1364,
-        y: 655,
-        placeNameId: 418,
-        icon: "60414"
-      },
-      {
-        x: 1143,
-        y: 264,
-        placeNameId: 63,
-        icon: "60441"
-      },
-      {
-        x: 611,
-        y: 924,
-        placeNameId: 46,
-        icon: "60441"
-      },
-      {
-        x: 1454,
-        y: 570,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1041,
-        y: 296,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1074,
-        y: 376,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1084,
-        y: 365,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1453,
-        y: 561,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1087,
-        y: 284,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1091,
-        y: 284,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1048,
-        y: 384,
-        placeNameId: 943,
-        icon: "60442"
-      },
-      {
-        x: 1597,
-        y: 765,
-        placeNameId: 941,
-        icon: "60442"
-      },
-      {
-        x: 1042,
-        y: 296,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1752,
-        y: 966,
-        placeNameId: 420,
-        icon: "60428"
-      },
-      {
-        x: 1036,
-        y: 289,
-        placeNameId: 0,
-        icon: "60425"
-      },
-      {
-        x: 1059,
-        y: 262,
-        placeNameId: 0,
-        icon: "60425"
-      },
-      {
-        x: 1061,
-        y: 289,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1050,
-        y: 296,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1065,
-        y: 227,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1052,
-        y: 248,
-        placeNameId: 1392,
-        icon: "60442"
-      },
-      {
-        x: 1063,
-        y: 229,
-        placeNameId: 1393,
-        icon: "60442"
-      },
-      {
-        x: 1042,
-        y: 369,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 1056,
-        y: 194,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1071,
-        y: 287,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1075,
-        y: 287,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1045,
-        y: 393,
-        placeNameId: 481,
-        icon: "60442"
-      },
-      {
-        x: 1082,
-        y: 244,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1019,
-        y: 225,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1375,
-        y: 653,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1083,
-        y: 284,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1066,
-        y: 286,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1060,
-        y: 194,
-        placeNameId: 0,
-        icon: "60412"
-      }
-    ]
-  },
-  {
-    id: 180,
-    placeNameId: 350,
-    weatherRateId: 24,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -10,
-    markers: [
-      {
-        x: 727,
-        y: 445,
-        placeNameId: 235,
-        icon: "60442"
-      },
-      {
-        x: 710,
-        y: 761,
-        placeNameId: 236,
-        icon: "60442"
-      },
-      {
-        x: 907,
-        y: 811,
-        placeNameId: 237,
-        icon: "60453"
-      },
-      {
-        x: 1097,
-        y: 481,
-        placeNameId: 238,
-        icon: "60451"
-      },
-      {
-        x: 1220,
-        y: 778,
-        placeNameId: 242,
-        icon: "60442"
-      },
-      {
-        x: 698,
-        y: 940,
-        placeNameId: 34,
-        icon: "60441"
-      },
-      {
-        x: 1277,
-        y: 775,
-        placeNameId: 34,
-        icon: "60441"
-      },
-      {
-        x: 887,
-        y: 811,
-        placeNameId: 0,
-        icon: "60448"
-      },
-      {
-        x: 923,
-        y: 822,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 917,
-        y: 833,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1034,
-        y: 854,
-        placeNameId: 944,
-        icon: "60442"
-      },
-      {
-        x: 1032,
-        y: 842,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1043,
-        y: 834,
-        placeNameId: 0,
-        icon: "60434"
-      }
-    ]
-  },
-  {
-    id: 397,
-    placeNameId: 2200,
-    weatherRateId: 49,
-    sizeFactor: 95,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 54,
-    markers: [
-      {
-        x: 1483,
-        y: 1738,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1503,
-        y: 1707,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1504,
-        y: 1704,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1464,
-        y: 1728,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 771,
-        y: 1039,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 741,
-        y: 1026,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 222,
-        y: 404,
-        placeNameId: 2000,
-        icon: "60441"
-      },
-      {
-        x: 874,
-        y: 1716,
-        placeNameId: 2001,
-        icon: "60441"
-      },
-      {
-        x: 1466,
-        y: 1874,
-        placeNameId: 2300,
-        icon: "60441"
-      },
-      {
-        x: 1458,
-        y: 158,
-        placeNameId: 2100,
-        icon: "60441"
-      },
-      {
-        x: 1450,
-        y: 302,
-        placeNameId: 2224,
-        icon: "60442"
-      },
-      {
-        x: 1690,
-        y: 418,
-        placeNameId: 2225,
-        icon: "60442"
-      },
-      {
-        x: 1450,
-        y: 494,
-        placeNameId: 2207,
-        icon: "60442"
-      },
-      {
-        x: 1682,
-        y: 812,
-        placeNameId: 2208,
-        icon: "60442"
-      },
-      {
-        x: 1370,
-        y: 1054,
-        placeNameId: 2221,
-        icon: "60442"
-      },
-      {
-        x: 1754,
-        y: 1256,
-        placeNameId: 2222,
-        icon: "60442"
-      },
-      {
-        x: 1598,
-        y: 1202,
-        placeNameId: 2218,
-        icon: "60442"
-      },
-      {
-        x: 1618,
-        y: 1234,
-        placeNameId: 2217,
-        icon: "60442"
-      },
-      {
-        x: 1510,
-        y: 1296,
-        placeNameId: 2215,
-        icon: "60442"
-      },
-      {
-        x: 1212,
-        y: 1294,
-        placeNameId: 2216,
-        icon: "60442"
-      },
-      {
-        x: 1474,
-        y: 1697,
-        placeNameId: 2204,
-        icon: "60453"
-      },
-      {
-        x: 1130,
-        y: 1124,
-        placeNameId: 2209,
-        icon: "60442"
-      },
-      {
-        x: 926,
-        y: 1074,
-        placeNameId: 2228,
-        icon: "60442"
-      },
-      {
-        x: 918,
-        y: 1494,
-        placeNameId: 2213,
-        icon: "60442"
-      },
-      {
-        x: 766,
-        y: 1012,
-        placeNameId: 2220,
-        icon: "60448"
-      },
-      {
-        x: 456,
-        y: 816,
-        placeNameId: 2212,
-        icon: "60442"
-      },
-      {
-        x: 372,
-        y: 424,
-        placeNameId: 2227,
-        icon: "60442"
-      },
-      {
-        x: 534,
-        y: 260,
-        placeNameId: 2219,
-        icon: "60442"
-      },
-      {
-        x: 940,
-        y: 266,
-        placeNameId: 2214,
-        icon: "60414"
-      },
-      {
-        x: 1458,
-        y: 188,
-        placeNameId: 2237,
-        icon: "60442"
-      }
-    ]
-  },
-  {
-    id: 398,
-    placeNameId: 2000,
-    weatherRateId: 50,
-    sizeFactor: 95,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -157,
-    markers: [
-      {
-        x: 1546,
-        y: 1090,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1476,
-        y: 1068,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1479,
-        y: 1047,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1514,
-        y: 1076,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1499,
-        y: 1062,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 1105,
-        y: 876,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1087,
-        y: 873,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 825,
-        y: 1179,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 1856,
-        y: 1356,
-        placeNameId: 2200,
-        icon: "60441"
-      },
-      {
-        x: 254,
-        y: 1574,
-        placeNameId: 2001,
-        icon: "60441"
-      },
-      {
-        x: 366,
-        y: 226,
-        placeNameId: 2002,
-        icon: "60441"
-      },
-      {
-        x: 1276,
-        y: 1770,
-        placeNameId: 2005,
-        icon: "60601"
-      },
-      {
-        x: 1450,
-        y: 222,
-        placeNameId: 2029,
-        icon: "60442"
-      },
-      {
-        x: 1530,
-        y: 1052,
-        placeNameId: 2018,
-        icon: "60453"
-      },
-      {
-        x: 1188,
-        y: 1008,
-        placeNameId: 2022,
-        icon: "60442"
-      },
-      {
-        x: 1476,
-        y: 1826,
-        placeNameId: 2023,
-        icon: "60442"
-      },
-      {
-        x: 1274,
-        y: 1896,
-        placeNameId: 2024,
-        icon: "60442"
-      },
-      {
-        x: 1088,
-        y: 880,
-        placeNameId: 2021,
-        icon: "60442"
-      },
-      {
-        x: 1046,
-        y: 748,
-        placeNameId: 2055,
-        icon: "60442"
-      },
-      {
-        x: 898,
-        y: 438,
-        placeNameId: 2064,
-        icon: "60442"
-      },
-      {
-        x: 824,
-        y: 518,
-        placeNameId: 2028,
-        icon: "60442"
-      },
-      {
-        x: 350,
-        y: 224,
-        placeNameId: 2030,
-        icon: "60442"
-      },
-      {
-        x: 364,
-        y: 260,
-        placeNameId: 2007,
-        icon: "60414"
-      },
-      {
-        x: 734,
-        y: 1056,
-        placeNameId: 2025,
-        icon: "60453"
-      },
-      {
-        x: 522,
-        y: 1804,
-        placeNameId: 2061,
-        icon: "60442"
-      },
-      {
-        x: 365,
-        y: 222,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1072,
-        y: 862,
-        placeNameId: 0,
-        icon: "60935"
-      }
-    ]
-  },
-  {
-    id: 399,
-    placeNameId: 2001,
-    weatherRateId: 51,
-    sizeFactor: 95,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 38,
-    markers: [
-      {
-        x: 976,
-        y: 831,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 979,
-        y: 839,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 508,
-        y: 528,
-        placeNameId: 2082,
-        icon: "60441"
-      },
-      {
-        x: 804,
-        y: 418,
-        placeNameId: 2082,
-        icon: "60441"
-      },
-      {
-        x: 1888,
-        y: 1206,
-        placeNameId: 2000,
-        icon: "60441"
-      },
-      {
-        x: 1754,
-        y: 1512,
-        placeNameId: 2200,
-        icon: "60441"
-      },
-      {
-        x: 1462,
-        y: 1030,
-        placeNameId: 2032,
-        icon: "60442"
-      },
-      {
-        x: 1412,
-        y: 1358,
-        placeNameId: 2065,
-        icon: "60442"
-      },
-      {
-        x: 1410,
-        y: 1760,
-        placeNameId: 2038,
-        icon: "60414"
-      },
-      {
-        x: 988,
-        y: 836,
-        placeNameId: 2067,
-        icon: "60448"
-      },
-      {
-        x: 1056,
-        y: 1752,
-        placeNameId: 2037,
-        icon: "60442"
-      },
-      {
-        x: 433,
-        y: 1079,
-        placeNameId: 2034,
-        icon: "60414"
-      },
-      {
-        x: 278,
-        y: 1550,
-        placeNameId: 2070,
-        icon: "60442"
-      },
-      {
-        x: 558,
-        y: 1726,
-        placeNameId: 2036,
-        icon: "60442"
-      },
-      {
-        x: 1658,
-        y: 696,
-        placeNameId: 2089,
-        icon: "60442"
-      },
-      {
-        x: 1389,
-        y: 816,
-        placeNameId: 3590,
-        icon: "60414"
-      }
-    ]
-  },
-  {
-    id: 400,
-    placeNameId: 2002,
-    weatherRateId: 52,
-    sizeFactor: 95,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -81,
-    markers: [
-      {
-        x: 1276,
-        y: 1561,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 1302,
-        y: 1577,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1302,
-        y: 1571,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 976,
-        y: 1163,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 933,
-        y: 1204,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 529,
-        y: 1368,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 1212,
-        y: 1692,
-        placeNameId: 2000,
-        icon: "60441"
-      },
-      {
-        x: 711,
-        y: 1307,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 272,
-        y: 372,
-        placeNameId: 2079,
-        icon: "60442"
-      },
-      {
-        x: 814,
-        y: 386,
-        placeNameId: 2048,
-        icon: "60442"
-      },
-      {
-        x: 1308,
-        y: 442,
-        placeNameId: 2049,
-        icon: "60442"
-      },
-      {
-        x: 312,
-        y: 858,
-        placeNameId: 2078,
-        icon: "60442"
-      },
-      {
-        x: 922,
-        y: 772,
-        placeNameId: 2047,
-        icon: "60442"
-      },
-      {
-        x: 1554,
-        y: 682,
-        placeNameId: 2044,
-        icon: "60442"
-      },
-      {
-        x: 1586,
-        y: 988,
-        placeNameId: 2043,
-        icon: "60442"
-      },
-      {
-        x: 466,
-        y: 1322,
-        placeNameId: 2046,
-        icon: "60453"
-      },
-      {
-        x: 946,
-        y: 1218,
-        placeNameId: 2045,
-        icon: "60448"
-      },
-      {
-        x: 326,
-        y: 1696,
-        placeNameId: 2051,
-        icon: "60442"
-      },
-      {
-        x: 762,
-        y: 1744,
-        placeNameId: 2080,
-        icon: "60442"
-      },
-      {
-        x: 1278,
-        y: 1580,
-        placeNameId: 2042,
-        icon: "60453"
-      },
-      {
-        x: 323,
-        y: 1273,
-        placeNameId: 2090,
-        icon: "60414"
-      },
-      {
-        x: 653,
-        y: 1297,
-        placeNameId: 2095,
-        icon: "60442"
-      },
-      {
-        x: 706,
-        y: 1306,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1194,
-        y: 1696,
-        placeNameId: 1888,
-        icon: "60414"
-      }
-    ]
-  },
-  {
-    id: 401,
-    placeNameId: 2100,
-    weatherRateId: 53,
-    sizeFactor: 95,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -241,
-    markers: [
-      {
-        x: 425,
-        y: 1484,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 406,
-        y: 1520,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 406,
-        y: 1526,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 450,
-        y: 1529,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 422,
-        y: 1522,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 434,
-        y: 721,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 491,
-        y: 609,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 491,
-        y: 629,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 287,
-        y: 630,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 180,
-        y: 178,
-        placeNameId: 2200,
-        icon: "60441"
-      },
-      {
-        x: 126,
-        y: 746,
-        placeNameId: 2301,
-        icon: "60441"
-      },
-      {
-        x: 255,
-        y: 1180,
-        placeNameId: 2301,
-        icon: "60441"
-      },
-      {
-        x: 325,
-        y: 1462,
-        placeNameId: 2301,
-        icon: "60441"
-      },
-      {
-        x: 420,
-        y: 1840,
-        placeNameId: 2301,
-        icon: "60441"
-      },
-      {
-        x: 1858,
-        y: 324,
-        placeNameId: 2130,
-        icon: "60414"
-      },
-      {
-        x: 810,
-        y: 1050,
-        placeNameId: 2108,
-        icon: "60600"
-      },
-      {
-        x: 1286,
-        y: 892,
-        placeNameId: 2107,
-        icon: "60600"
-      },
-      {
-        x: 1750,
-        y: 1100,
-        placeNameId: 2104,
-        icon: "60600"
-      },
-      {
-        x: 314,
-        y: 344,
-        placeNameId: 2128,
-        icon: "60442"
-      },
-      {
-        x: 694,
-        y: 308,
-        placeNameId: 2129,
-        icon: "60442"
-      },
-      {
-        x: 1360,
-        y: 288,
-        placeNameId: 2159,
-        icon: "60442"
-      },
-      {
-        x: 494,
-        y: 428,
-        placeNameId: 2156,
-        icon: "60442"
-      },
-      {
-        x: 450,
-        y: 626,
-        placeNameId: 2123,
-        icon: "60453"
-      },
-      {
-        x: 798,
-        y: 786,
-        placeNameId: 2126,
-        icon: "60442"
-      },
-      {
-        x: 1722,
-        y: 644,
-        placeNameId: 2127,
-        icon: "60442"
-      },
-      {
-        x: 1660,
-        y: 888,
-        placeNameId: 2121,
-        icon: "60442"
-      },
-      {
-        x: 456,
-        y: 1174,
-        placeNameId: 2160,
-        icon: "60442"
-      },
-      {
-        x: 880,
-        y: 1148,
-        placeNameId: 2125,
-        icon: "60442"
-      },
-      {
-        x: 1366,
-        y: 1268,
-        placeNameId: 2122,
-        icon: "60442"
-      },
-      {
-        x: 314,
-        y: 1502,
-        placeNameId: 2115,
-        icon: "60442"
-      },
-      {
-        x: 442,
-        y: 1548,
-        placeNameId: 2116,
-        icon: "60453"
-      },
-      {
-        x: 732,
-        y: 1726,
-        placeNameId: 2117,
-        icon: "60442"
-      },
-      {
-        x: 1136,
-        y: 1494,
-        placeNameId: 2118,
-        icon: "60442"
-      },
-      {
-        x: 1296,
-        y: 1726,
-        placeNameId: 2154,
-        icon: "60442"
-      },
-      {
-        x: 1454,
-        y: 1834,
-        placeNameId: 2120,
-        icon: "60442"
-      },
-      {
-        x: 1692,
-        y: 1768,
-        placeNameId: 2119,
-        icon: "60442"
-      },
-      {
-        x: 268,
-        y: 636,
-        placeNameId: 2240,
-        icon: "60442"
-      },
-      {
-        x: 1166,
-        y: 200,
-        placeNameId: 2181,
-        icon: "60428"
-      },
-      {
-        x: 249,
-        y: 231,
-        placeNameId: 1803,
-        icon: "60442"
-      }
-    ]
-  },
-  {
-    id: 402,
-    placeNameId: 2101,
-    weatherRateId: 54,
-    sizeFactor: 95,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -601,
-    markers: [
-      {
-        x: 425,
-        y: 502,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 418,
-        y: 498,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 193,
-        y: 390,
-        placeNameId: 2301,
-        icon: "60441"
-      },
-      {
-        x: 338,
-        y: 454,
-        placeNameId: 2131,
-        icon: "60453"
-      },
-      {
-        x: 818,
-        y: 466,
-        placeNameId: 2162,
-        icon: "60442"
-      },
-      {
-        x: 886,
-        y: 548,
-        placeNameId: 2134,
-        icon: "60442"
-      },
-      {
-        x: 454,
-        y: 656,
-        placeNameId: 2161,
-        icon: "60442"
-      },
-      {
-        x: 688,
-        y: 696,
-        placeNameId: 2132,
-        icon: "60442"
-      },
-      {
-        x: 878,
-        y: 726,
-        placeNameId: 2133,
-        icon: "60442"
-      },
-      {
-        x: 264,
-        y: 738,
-        placeNameId: 2177,
-        icon: "60442"
-      },
-      {
-        x: 402,
-        y: 974,
-        placeNameId: 2175,
-        icon: "60442"
-      },
-      {
-        x: 988,
-        y: 1022,
-        placeNameId: 2147,
-        icon: "60414"
-      },
-      {
-        x: 1028,
-        y: 1018,
-        placeNameId: 2174,
-        icon: "60442"
-      },
-      {
-        x: 390,
-        y: 1410,
-        placeNameId: 2145,
-        icon: "60442"
-      },
-      {
-        x: 292,
-        y: 1626,
-        placeNameId: 2173,
-        icon: "60442"
-      },
-      {
-        x: 512,
-        y: 1706,
-        placeNameId: 2172,
-        icon: "60442"
-      },
-      {
-        x: 734,
-        y: 1652,
-        placeNameId: 2146,
-        icon: "60442"
-      },
-      {
-        x: 858,
-        y: 1470,
-        placeNameId: 2144,
-        icon: "60442"
-      },
-      {
-        x: 968,
-        y: 1376,
-        placeNameId: 2176,
-        icon: "60442"
-      },
-      {
-        x: 1024,
-        y: 1816,
-        placeNameId: 2148,
-        icon: "60414"
-      },
-      {
-        x: 1138,
-        y: 1316,
-        placeNameId: 2170,
-        icon: "60442"
-      },
-      {
-        x: 1222,
-        y: 1550,
-        placeNameId: 2143,
-        icon: "60442"
-      },
-      {
-        x: 1554,
-        y: 1754,
-        placeNameId: 2142,
-        icon: "60442"
-      },
-      {
-        x: 1830,
-        y: 1832,
-        placeNameId: 2180,
-        icon: "60442"
-      },
-      {
-        x: 1884,
-        y: 1140,
-        placeNameId: 2140,
-        icon: "60442"
-      },
-      {
-        x: 1784,
-        y: 1130,
-        placeNameId: 2141,
-        icon: "60442"
-      },
-      {
-        x: 1592,
-        y: 1096,
-        placeNameId: 2139,
-        icon: "60442"
-      },
-      {
-        x: 1798,
-        y: 824,
-        placeNameId: 2113,
-        icon: "60442"
-      },
-      {
-        x: 1648,
-        y: 686,
-        placeNameId: 2166,
-        icon: "60442"
-      },
-      {
-        x: 1762,
-        y: 560,
-        placeNameId: 2138,
-        icon: "60442"
-      },
-      {
-        x: 1814,
-        y: 334,
-        placeNameId: 2136,
-        icon: "60442"
-      },
-      {
-        x: 1784,
-        y: 212,
-        placeNameId: 2136,
-        icon: "60442"
-      },
-      {
-        x: 1382,
-        y: 394,
-        placeNameId: 2137,
-        icon: "60442"
-      },
-      {
-        x: 1230,
-        y: 438,
-        placeNameId: 2135,
-        icon: "60442"
-      },
-      {
-        x: 1310,
-        y: 614,
-        placeNameId: 2164,
-        icon: "60442"
-      },
-      {
-        x: 292,
-        y: 487,
-        placeNameId: 0,
-        icon: "60412"
-      }
-    ]
-  },
-  {
-    id: 612,
-    placeNameId: 2406,
-    weatherRateId: 79,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 12,
-    markers: [
-      {
-        x: 421,
-        y: 553,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 390,
-        y: 498,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 360,
-        y: 491,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 933,
-        y: 1235,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 954,
-        y: 1234,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1486,
-        y: 1254,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1481,
-        y: 1246,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1434,
-        y: 1246,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1304,
-        y: 944,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1313,
-        y: 988,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 387,
-        y: 533,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 430,
-        y: 550,
-        placeNameId: 2614,
-        icon: "60442"
-      },
-      {
-        x: 620,
-        y: 960,
-        placeNameId: 2615,
-        icon: "60442"
-      },
-      {
-        x: 290,
-        y: 842,
-        placeNameId: 2618,
-        icon: "60442"
-      },
-      {
-        x: 360,
-        y: 1260,
-        placeNameId: 2620,
-        icon: "60442"
-      },
-      {
-        x: 358,
-        y: 1398,
-        placeNameId: 2622,
-        icon: "60442"
-      },
-      {
-        x: 835,
-        y: 890,
-        placeNameId: 2623,
-        icon: "60448"
-      },
-      {
-        x: 630,
-        y: 1515,
-        placeNameId: 2624,
-        icon: "60442"
-      },
-      {
-        x: 922,
-        y: 777,
-        placeNameId: 2625,
-        icon: "60442"
-      },
-      {
-        x: 1110,
-        y: 335,
-        placeNameId: 2627,
-        icon: "60442"
-      },
-      {
-        x: 1029,
-        y: 303,
-        placeNameId: 2628,
-        icon: "60442"
-      },
-      {
-        x: 1197,
-        y: 747,
-        placeNameId: 2631,
-        icon: "60442"
-      },
-      {
-        x: 1027,
-        y: 1277,
-        placeNameId: 2632,
-        icon: "60442"
-      },
-      {
-        x: 1440,
-        y: 1270,
-        placeNameId: 2634,
-        icon: "60453"
-      },
-      {
-        x: 1342,
-        y: 955,
-        placeNameId: 2635,
-        icon: "60442"
-      },
-      {
-        x: 1711,
-        y: 1185,
-        placeNameId: 2636,
-        icon: "60442"
-      },
-      {
-        x: 1467,
-        y: 1670,
-        placeNameId: 2640,
-        icon: "60442"
-      },
-      {
-        x: 1716,
-        y: 810,
-        placeNameId: 2637,
-        icon: "60603"
-      },
-      {
-        x: 355,
-        y: 495,
-        placeNameId: 55,
-        icon: "60441"
-      },
-      {
-        x: 1507,
-        y: 473,
-        placeNameId: 2403,
-        icon: "60441"
-      },
-      {
-        x: 1875,
-        y: 1385,
-        placeNameId: 2407,
-        icon: "60441"
-      },
-      {
-        x: 395,
-        y: 515,
-        placeNameId: 2613,
-        icon: "60453"
-      },
-      {
-        x: 1001,
-        y: 1261,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1029,
-        y: 1292,
-        placeNameId: 0,
-        icon: "60434"
-      }
-    ]
-  },
-  {
-    id: 613,
-    placeNameId: 2409,
-    weatherRateId: 83,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -2,
-    markers: [
-      {
-        x: 1890,
-        y: 1838,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1523,
-        y: 1780,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 248,
-        y: 522,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1068,
-        y: 461,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1117,
-        y: 412,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1132,
-        y: 406,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1149,
-        y: 428,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 1342,
-        y: 816,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1348,
-        y: 801,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1347,
-        y: 795,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1001,
-        y: 970,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 989,
-        y: 952,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1142,
-        y: 392,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1874,
-        y: 1876,
-        placeNameId: 2760,
-        icon: "60442"
-      },
-      {
-        x: 1778,
-        y: 1520,
-        placeNameId: 2761,
-        icon: "60442"
-      },
-      {
-        x: 1134,
-        y: 1764,
-        placeNameId: 2762,
-        icon: "60442"
-      },
-      {
-        x: 1502,
-        y: 1796,
-        placeNameId: 2766,
-        icon: "60442"
-      },
-      {
-        x: 1678,
-        y: 902,
-        placeNameId: 2767,
-        icon: "60442"
-      },
-      {
-        x: 1384,
-        y: 762,
-        placeNameId: 2769,
-        icon: "60453"
-      },
-      {
-        x: 1534,
-        y: 212,
-        placeNameId: 2770,
-        icon: "60442"
-      },
-      {
-        x: 1582,
-        y: 396,
-        placeNameId: 2771,
-        icon: "60442"
-      },
-      {
-        x: 982,
-        y: 908,
-        placeNameId: 2772,
-        icon: "60448"
-      },
-      {
-        x: 1084,
-        y: 230,
-        placeNameId: 2773,
-        icon: "60442"
-      },
-      {
-        x: 1112,
-        y: 440,
-        placeNameId: 2774,
-        icon: "60453"
-      },
-      {
-        x: 1062,
-        y: 350,
-        placeNameId: 2775,
-        icon: "60442"
-      },
-      {
-        x: 812,
-        y: 170,
-        placeNameId: 2776,
-        icon: "60442"
-      },
-      {
-        x: 1150,
-        y: 172,
-        placeNameId: 2777,
-        icon: "60442"
-      },
-      {
-        x: 65,
-        y: 1785,
-        placeNameId: 2779,
-        icon: "60414"
-      },
-      {
-        x: 785,
-        y: 1228,
-        placeNameId: 2780,
-        icon: "60442"
-      },
-      {
-        x: 1896,
-        y: 265,
-        placeNameId: 2781,
-        icon: "60442"
-      },
-      {
-        x: 743,
-        y: 737,
-        placeNameId: 2782,
-        icon: "60442"
-      },
-      {
-        x: 1238,
-        y: 1151,
-        placeNameId: 2783,
-        icon: "60442"
-      },
-      {
-        x: 950,
-        y: 1187,
-        placeNameId: 2784,
-        icon: "60442"
-      },
-      {
-        x: 287,
-        y: 577,
-        placeNameId: 2785,
-        icon: "60448"
-      },
-      {
-        x: 296,
-        y: 1178,
-        placeNameId: 2786,
-        icon: "60604"
-      },
-      {
-        x: 365,
-        y: 1283,
-        placeNameId: 2787,
-        icon: "60442"
-      },
-      {
-        x: 200,
-        y: 1100,
-        placeNameId: 2788,
-        icon: "60442"
-      },
-      {
-        x: 294,
-        y: 166,
-        placeNameId: 2411,
-        icon: "60441"
-      },
-      {
-        x: 166,
-        y: 774,
-        placeNameId: 2410,
-        icon: "60441"
-      },
-      {
-        x: 1918,
-        y: 1920,
-        placeNameId: 2404,
-        icon: "60441"
-      },
-      {
-        x: 1411,
-        y: 794,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1124,
-        y: 471,
-        placeNameId: 0,
-        icon: "60456"
-      },
-      {
-        x: 1569,
-        y: 1857,
-        placeNameId: 0,
-        icon: "60456"
-      },
-      {
-        x: 1309,
-        y: 1873,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1298,
-        y: 1868,
-        placeNameId: 2762,
-        icon: "60414"
-      },
-      {
-        x: 1366,
-        y: 718,
-        placeNameId: 0,
-        icon: "60927"
-      },
-      {
-        x: 1017,
-        y: 412,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1012,
-        y: 419,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1372,
-        y: 718,
-        placeNameId: 0,
-        icon: "60935"
-      }
-    ]
-  },
-  {
-    id: 614,
-    placeNameId: 2410,
-    weatherRateId: 84,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -2,
-    markers: [
-      {
-        x: 1493,
-        y: 947,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1497,
-        y: 922,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1463,
-        y: 856,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1300,
-        y: 647,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1295,
-        y: 643,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 740,
-        y: 1514,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 530,
-        y: 1567,
-        placeNameId: 2843,
-        icon: "60456"
-      },
-      {
-        x: 1300,
-        y: 620,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1239,
-        y: 631,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1194,
-        y: 602,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1437,
-        y: 947,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1785,
-        y: 805,
-        placeNameId: 2789,
-        icon: "60442"
-      },
-      {
-        x: 1857,
-        y: 947,
-        placeNameId: 2790,
-        icon: "60442"
-      },
-      {
-        x: 1733,
-        y: 692,
-        placeNameId: 2791,
-        icon: "60442"
-      },
-      {
-        x: 1457,
-        y: 933,
-        placeNameId: 2793,
-        icon: "60453"
-      },
-      {
-        x: 991,
-        y: 1575,
-        placeNameId: 2796,
-        icon: "60442"
-      },
-      {
-        x: 1376,
-        y: 1401,
-        placeNameId: 2797,
-        icon: "60442"
-      },
-      {
-        x: 1352,
-        y: 1240,
-        placeNameId: 2798,
-        icon: "60442"
-      },
-      {
-        x: 1470,
-        y: 1713,
-        placeNameId: 2799,
-        icon: "60442"
-      },
-      {
-        x: 733,
-        y: 1547,
-        placeNameId: 2800,
-        icon: "60442"
-      },
-      {
-        x: 553,
-        y: 1323,
-        placeNameId: 2801,
-        icon: "60442"
-      },
-      {
-        x: 829,
-        y: 971,
-        placeNameId: 2802,
-        icon: "60442"
-      },
-      {
-        x: 1696,
-        y: 1887,
-        placeNameId: 2804,
-        icon: "60442"
-      },
-      {
-        x: 1269,
-        y: 620,
-        placeNameId: 2805,
-        icon: "60453"
-      },
-      {
-        x: 1539,
-        y: 320,
-        placeNameId: 2806,
-        icon: "60442"
-      },
-      {
-        x: 1358,
-        y: 259,
-        placeNameId: 2807,
-        icon: "60442"
-      },
-      {
-        x: 794,
-        y: 481,
-        placeNameId: 2808,
-        icon: "60442"
-      },
-      {
-        x: 695,
-        y: 672,
-        placeNameId: 2809,
-        icon: "60442"
-      },
-      {
-        x: 656,
-        y: 662,
-        placeNameId: 2810,
-        icon: "60414"
-      },
-      {
-        x: 745,
-        y: 309,
-        placeNameId: 2811,
-        icon: "60442"
-      },
-      {
-        x: 621,
-        y: 385,
-        placeNameId: 2812,
-        icon: "60442"
-      },
-      {
-        x: 1538,
-        y: 154,
-        placeNameId: 2411,
-        icon: "60441"
-      },
-      {
-        x: 1862,
-        y: 595,
-        placeNameId: 2409,
-        icon: "60441"
-      },
-      {
-        x: 539,
-        y: 1295,
-        placeNameId: 2801,
-        icon: "60414"
-      },
-      {
-        x: 1360,
-        y: 489,
-        placeNameId: 2851,
-        icon: "60414"
-      }
-    ]
-  },
-  {
-    id: 620,
-    placeNameId: 2407,
-    weatherRateId: 80,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 46,
-    markers: [
-      {
-        x: 1073,
-        y: 295,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1180,
-        y: 236,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1174,
-        y: 232,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1127,
-        y: 242,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 934,
-        y: 501,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 765,
-        y: 1745,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 777,
-        y: 1775,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 770,
-        y: 1782,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 894,
-        y: 1214,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 898,
-        y: 1209,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1337,
-        y: 1403,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1303,
-        y: 1788,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1097,
-        y: 258,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1135,
-        y: 275,
-        placeNameId: 2646,
-        icon: "60453"
-      },
-      {
-        x: 753,
-        y: 1770,
-        placeNameId: 2660,
-        icon: "60453"
-      },
-      {
-        x: 400,
-        y: 313,
-        placeNameId: 2641,
-        icon: "60442"
-      },
-      {
-        x: 950,
-        y: 500,
-        placeNameId: 2643,
-        icon: "60442"
-      },
-      {
-        x: 740,
-        y: 755,
-        placeNameId: 2644,
-        icon: "60442"
-      },
-      {
-        x: 765,
-        y: 900,
-        placeNameId: 2645,
-        icon: "60442"
-      },
-      {
-        x: 1385,
-        y: 340,
-        placeNameId: 2648,
-        icon: "60442"
-      },
-      {
-        x: 1600,
-        y: 240,
-        placeNameId: 2649,
-        icon: "60442"
-      },
-      {
-        x: 1590,
-        y: 290,
-        placeNameId: 2651,
-        icon: "60442"
-      },
-      {
-        x: 1770,
-        y: 600,
-        placeNameId: 2652,
-        icon: "60442"
-      },
-      {
-        x: 1555,
-        y: 800,
-        placeNameId: 2653,
-        icon: "60442"
-      },
-      {
-        x: 1070,
-        y: 930,
-        placeNameId: 2654,
-        icon: "60442"
-      },
-      {
-        x: 1325,
-        y: 995,
-        placeNameId: 2656,
-        icon: "60442"
-      },
-      {
-        x: 710,
-        y: 1530,
-        placeNameId: 2657,
-        icon: "60442"
-      },
-      {
-        x: 160,
-        y: 1760,
-        placeNameId: 2659,
-        icon: "60442"
-      },
-      {
-        x: 1010,
-        y: 1785,
-        placeNameId: 2661,
-        icon: "60442"
-      },
-      {
-        x: 1015,
-        y: 1155,
-        placeNameId: 2662,
-        icon: "60442"
-      },
-      {
-        x: 425,
-        y: 1825,
-        placeNameId: 2663,
-        icon: "60442"
-      },
-      {
-        x: 1040,
-        y: 1610,
-        placeNameId: 2664,
-        icon: "60442"
-      },
-      {
-        x: 1457,
-        y: 1523,
-        placeNameId: 2665,
-        icon: "60414"
-      },
-      {
-        x: 1365,
-        y: 1385,
-        placeNameId: 2666,
-        icon: "60442"
-      },
-      {
-        x: 1330,
-        y: 1775,
-        placeNameId: 2669,
-        icon: "60442"
-      },
-      {
-        x: 340,
-        y: 230,
-        placeNameId: 2403,
-        icon: "60441"
-      },
-      {
-        x: 185,
-        y: 1265,
-        placeNameId: 2406,
-        icon: "60441"
-      },
-      {
-        x: 1615,
-        y: 1450,
-        placeNameId: 2408,
-        icon: "60441"
-      }
-    ]
-  },
-  {
-    id: 621,
-    placeNameId: 2408,
-    weatherRateId: 81,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -2,
-    markers: [
-      {
-        x: 514,
-        y: 1045,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 479,
-        y: 1015,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 478,
-        y: 1023,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1660,
-        y: 1693,
-        placeNameId: 593,
-        icon: "60311"
-      },
-      {
-        x: 1657,
-        y: 1666,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1652,
-        y: 1659,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1702,
-        y: 1485,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1704,
-        y: 1535,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1492,
-        y: 1608,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1522,
-        y: 1608,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 381,
-        y: 986,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 373,
-        y: 1005,
-        placeNameId: 2670,
-        icon: "60453"
-      },
-      {
-        x: 1640,
-        y: 1675,
-        placeNameId: 2693,
-        icon: "60453"
-      },
-      {
-        x: 420,
-        y: 1280,
-        placeNameId: 2671,
-        icon: "60442"
-      },
-      {
-        x: 330,
-        y: 1465,
-        placeNameId: 2673,
-        icon: "60442"
-      },
-      {
-        x: 645,
-        y: 1745,
-        placeNameId: 2674,
-        icon: "60442"
-      },
-      {
-        x: 1095,
-        y: 1775,
-        placeNameId: 2675,
-        icon: "60442"
-      },
-      {
-        x: 980,
-        y: 1700,
-        placeNameId: 2676,
-        icon: "60442"
-      },
-      {
-        x: 765,
-        y: 1750,
-        placeNameId: 2677,
-        icon: "60442"
-      },
-      {
-        x: 915,
-        y: 1650,
-        placeNameId: 2679,
-        icon: "60442"
-      },
-      {
-        x: 180,
-        y: 1300,
-        placeNameId: 2681,
-        icon: "60442"
-      },
-      {
-        x: 155,
-        y: 1785,
-        placeNameId: 2682,
-        icon: "60442"
-      },
-      {
-        x: 840,
-        y: 1475,
-        placeNameId: 2686,
-        icon: "60442"
-      },
-      {
-        x: 1020,
-        y: 860,
-        placeNameId: 2687,
-        icon: "60442"
-      },
-      {
-        x: 740,
-        y: 1190,
-        placeNameId: 2685,
-        icon: "60442"
-      },
-      {
-        x: 980,
-        y: 760,
-        placeNameId: 2688,
-        icon: "60442"
-      },
-      {
-        x: 1060,
-        y: 1285,
-        placeNameId: 2689,
-        icon: "60442"
-      },
-      {
-        x: 1070,
-        y: 1090,
-        placeNameId: 2690,
-        icon: "60442"
-      },
-      {
-        x: 1610,
-        y: 1094,
-        placeNameId: 2691,
-        icon: "60414"
-      },
-      {
-        x: 1520,
-        y: 1620,
-        placeNameId: 2694,
-        icon: "60442"
-      },
-      {
-        x: 1532,
-        y: 1800,
-        placeNameId: 2695,
-        icon: "60442"
-      },
-      {
-        x: 1675,
-        y: 360,
-        placeNameId: 2696,
-        icon: "60442"
-      },
-      {
-        x: 1635,
-        y: 425,
-        placeNameId: 2697,
-        icon: "60442"
-      },
-      {
-        x: 1333,
-        y: 478,
-        placeNameId: 2698,
-        icon: "60442"
-      },
-      {
-        x: 1123,
-        y: 395,
-        placeNameId: 2699,
-        icon: "60442"
-      },
-      {
-        x: 1075,
-        y: 213,
-        placeNameId: 2700,
-        icon: "60442"
-      },
-      {
-        x: 750,
-        y: 342,
-        placeNameId: 2702,
-        icon: "60442"
-      },
-      {
-        x: 646,
-        y: 382,
-        placeNameId: 2703,
-        icon: "60442"
-      },
-      {
-        x: 270,
-        y: 365,
-        placeNameId: 2704,
-        icon: "60442"
-      },
-      {
-        x: 245,
-        y: 1005,
-        placeNameId: 2407,
-        icon: "60441"
-      },
-      {
-        x: 1279,
-        y: 1012,
-        placeNameId: 2367,
-        icon: "60414"
-      },
-      {
-        x: 1772,
-        y: 1555,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 490,
-        y: 977,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1769,
-        y: 1567,
-        placeNameId: 3710,
-        icon: "60441"
-      },
-      {
-        x: 1761,
-        y: 1563,
-        placeNameId: 0,
-        icon: "60352"
-      }
-    ]
-  },
-  {
-    id: 622,
-    placeNameId: 2411,
-    weatherRateId: 85,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 1,
-    markers: [
-      {
-        x: 1593,
-        y: 1294,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1587,
-        y: 1402,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1566,
-        y: 1342,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1567,
-        y: 1406,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1598,
-        y: 1402,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1596,
-        y: 1345,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1596,
-        y: 1327,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1577,
-        y: 1399,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1579,
-        y: 1333,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1525,
-        y: 560,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1512,
-        y: 519,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1110,
-        y: 987,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1122,
-        y: 1048,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1115,
-        y: 1048,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1086,
-        y: 1065,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1090,
-        y: 1016,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 542,
-        y: 1626,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1609,
-        y: 1394,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1580,
-        y: 1363,
-        placeNameId: 2814,
-        icon: "60453"
-      },
-      {
-        x: 1609,
-        y: 1200,
-        placeNameId: 2815,
-        icon: "60442"
-      },
-      {
-        x: 1762,
-        y: 830,
-        placeNameId: 2816,
-        icon: "60442"
-      },
-      {
-        x: 1316,
-        y: 1304,
-        placeNameId: 2820,
-        icon: "60442"
-      },
-      {
-        x: 1533,
-        y: 526,
-        placeNameId: 2821,
-        icon: "60442"
-      },
-      {
-        x: 1102,
-        y: 1057,
-        placeNameId: 2822,
-        icon: "60453"
-      },
-      {
-        x: 1191,
-        y: 1045,
-        placeNameId: 2824,
-        icon: "60442"
-      },
-      {
-        x: 1353,
-        y: 344,
-        placeNameId: 2827,
-        icon: "60442"
-      },
-      {
-        x: 1268,
-        y: 468,
-        placeNameId: 2829,
-        icon: "60442"
-      },
-      {
-        x: 959,
-        y: 571,
-        placeNameId: 2832,
-        icon: "60442"
-      },
-      {
-        x: 515,
-        y: 505,
-        placeNameId: 2833,
-        icon: "60414"
-      },
-      {
-        x: 642,
-        y: 590,
-        placeNameId: 2834,
-        icon: "60442"
-      },
-      {
-        x: 573,
-        y: 944,
-        placeNameId: 2835,
-        icon: "60442"
-      },
-      {
-        x: 357,
-        y: 1434,
-        placeNameId: 2836,
-        icon: "60442"
-      },
-      {
-        x: 696,
-        y: 1275,
-        placeNameId: 2837,
-        icon: "60442"
-      },
-      {
-        x: 927,
-        y: 1621,
-        placeNameId: 2838,
-        icon: "60442"
-      },
-      {
-        x: 571,
-        y: 1621,
-        placeNameId: 2842,
-        icon: "60442"
-      },
-      {
-        x: 866,
-        y: 1892,
-        placeNameId: 2410,
-        icon: "60441"
-      },
-      {
-        x: 1568,
-        y: 1724,
-        placeNameId: 2409,
-        icon: "60441"
-      },
-      {
-        x: 240,
-        y: 1127,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 269,
-        y: 1141,
-        placeNameId: 2850,
-        icon: "60453"
-      },
-      {
-        x: 255,
-        y: 1162,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 322,
-        y: 1136,
-        placeNameId: 0,
-        icon: "60447"
-      },
-      {
-        x: 396,
-        y: 1124,
-        placeNameId: 0,
-        icon: "60446"
-      }
-    ]
-  },
   {
     id: 732,
     placeNameId: 2414,
@@ -6394,1518 +667,6 @@ const zones: IZoneData[] = [
     ]
   },
   {
-    id: 813,
-    placeNameId: 2953,
-    weatherRateId: 106,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -2,
-    markers: [
-      {
-        x: 1200,
-        y: 1075,
-        placeNameId: 3040,
-        icon: "60442"
-      },
-      {
-        x: 1570,
-        y: 1355,
-        placeNameId: 3041,
-        icon: "60442"
-      },
-      {
-        x: 1778,
-        y: 995,
-        placeNameId: 3044,
-        icon: "60453"
-      },
-      {
-        x: 1770,
-        y: 900,
-        placeNameId: 3045,
-        icon: "60442"
-      },
-      {
-        x: 1580,
-        y: 1665,
-        placeNameId: 3046,
-        icon: "60442"
-      },
-      {
-        x: 872,
-        y: 900,
-        placeNameId: 3047,
-        icon: "60442"
-      },
-      {
-        x: 825,
-        y: 580,
-        placeNameId: 3048,
-        icon: "60442"
-      },
-      {
-        x: 1650,
-        y: 400,
-        placeNameId: 3049,
-        icon: "60442"
-      },
-      {
-        x: 1719,
-        y: 300,
-        placeNameId: 3050,
-        icon: "60414"
-      },
-      {
-        x: 650,
-        y: 350,
-        placeNameId: 3051,
-        icon: "60442"
-      },
-      {
-        x: 1321,
-        y: 459,
-        placeNameId: 3052,
-        icon: "60442"
-      },
-      {
-        x: 1260,
-        y: 790,
-        placeNameId: 3054,
-        icon: "60442"
-      },
-      {
-        x: 1060,
-        y: 700,
-        placeNameId: 3055,
-        icon: "60442"
-      },
-      {
-        x: 370,
-        y: 425,
-        placeNameId: 3056,
-        icon: "60442"
-      },
-      {
-        x: 290,
-        y: 795,
-        placeNameId: 3057,
-        icon: "60453"
-      },
-      {
-        x: 650,
-        y: 765,
-        placeNameId: 3058,
-        icon: "60442"
-      },
-      {
-        x: 1120,
-        y: 1685,
-        placeNameId: 3060,
-        icon: "60442"
-      },
-      {
-        x: 1000,
-        y: 1720,
-        placeNameId: 3061,
-        icon: "60442"
-      },
-      {
-        x: 905,
-        y: 1760,
-        placeNameId: 3062,
-        icon: "60442"
-      },
-      {
-        x: 800,
-        y: 1780,
-        placeNameId: 3063,
-        icon: "60442"
-      },
-      {
-        x: 400,
-        y: 1260,
-        placeNameId: 3064,
-        icon: "60442"
-      },
-      {
-        x: 290,
-        y: 1115,
-        placeNameId: 3065,
-        icon: "60442"
-      },
-      {
-        x: 500,
-        y: 1020,
-        placeNameId: 3066,
-        icon: "60442"
-      },
-      {
-        x: 400,
-        y: 1835,
-        placeNameId: 3068,
-        icon: "60442"
-      },
-      {
-        x: 690,
-        y: 145,
-        placeNameId: 2956,
-        icon: "60441"
-      },
-      {
-        x: 1555,
-        y: 1890,
-        placeNameId: 2955,
-        icon: "60441"
-      },
-      {
-        x: 1905,
-        y: 735,
-        placeNameId: 2957,
-        icon: "60441"
-      },
-      {
-        x: 1855,
-        y: 1430,
-        placeNameId: 2951,
-        icon: "60441"
-      },
-      {
-        x: 1738,
-        y: 977,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1748,
-        y: 1002,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1687,
-        y: 963,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 883,
-        y: 895,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 238,
-        y: 804,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 238,
-        y: 795,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 334,
-        y: 758,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 434,
-        y: 850,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 895,
-        y: 1732,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 900,
-        y: 1672,
-        placeNameId: 3385,
-        icon: "60414"
-      },
-      {
-        x: 424,
-        y: 606,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 401,
-        y: 621,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 421,
-        y: 594,
-        placeNameId: 3574,
-        icon: "60442"
-      }
-    ]
-  },
-  {
-    id: 814,
-    placeNameId: 2954,
-    weatherRateId: 107,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 0,
-    markers: [
-      {
-        x: 1650,
-        y: 1575,
-        placeNameId: 3074,
-        icon: "60442"
-      },
-      {
-        x: 1692,
-        y: 1313,
-        placeNameId: 3075,
-        icon: "60453"
-      },
-      {
-        x: 1710,
-        y: 1305,
-        placeNameId: 3076,
-        icon: "60442"
-      },
-      {
-        x: 1700,
-        y: 1060,
-        placeNameId: 3077,
-        icon: "60442"
-      },
-      {
-        x: 1410,
-        y: 985,
-        placeNameId: 3078,
-        icon: "60442"
-      },
-      {
-        x: 1515,
-        y: 1065,
-        placeNameId: 3079,
-        icon: "60442"
-      },
-      {
-        x: 1475,
-        y: 1315,
-        placeNameId: 3081,
-        icon: "60442"
-      },
-      {
-        x: 1425,
-        y: 1085,
-        placeNameId: 3082,
-        icon: "60442"
-      },
-      {
-        x: 1186,
-        y: 1239,
-        placeNameId: 3084,
-        icon: "60442"
-      },
-      {
-        x: 1190,
-        y: 1760,
-        placeNameId: 3085,
-        icon: "60442"
-      },
-      {
-        x: 1195,
-        y: 1900,
-        placeNameId: 3086,
-        icon: "60442"
-      },
-      {
-        x: 1320,
-        y: 1370,
-        placeNameId: 3088,
-        icon: "60442"
-      },
-      {
-        x: 995,
-        y: 1725,
-        placeNameId: 3089,
-        icon: "60442"
-      },
-      {
-        x: 825,
-        y: 1800,
-        placeNameId: 3090,
-        icon: "60442"
-      },
-      {
-        x: 730,
-        y: 1210,
-        placeNameId: 3091,
-        icon: "60442"
-      },
-      {
-        x: 555,
-        y: 1555,
-        placeNameId: 3092,
-        icon: "60442"
-      },
-      {
-        x: 485,
-        y: 1665,
-        placeNameId: 3093,
-        icon: "60442"
-      },
-      {
-        x: 780,
-        y: 1410,
-        placeNameId: 3094,
-        icon: "60453"
-      },
-      {
-        x: 230,
-        y: 1460,
-        placeNameId: 3095,
-        icon: "60442"
-      },
-      {
-        x: 310,
-        y: 1655,
-        placeNameId: 3096,
-        icon: "60442"
-      },
-      {
-        x: 555,
-        y: 1125,
-        placeNameId: 3097,
-        icon: "60442"
-      },
-      {
-        x: 555,
-        y: 1040,
-        placeNameId: 3098,
-        icon: "60442"
-      },
-      {
-        x: 295,
-        y: 1715,
-        placeNameId: 3099,
-        icon: "60442"
-      },
-      {
-        x: 265,
-        y: 1900,
-        placeNameId: 3101,
-        icon: "60442"
-      },
-      {
-        x: 555,
-        y: 955,
-        placeNameId: 3102,
-        icon: "60442"
-      },
-      {
-        x: 895,
-        y: 825,
-        placeNameId: 3103,
-        icon: "60448"
-      },
-      {
-        x: 965,
-        y: 585,
-        placeNameId: 3104,
-        icon: "60442"
-      },
-      {
-        x: 598,
-        y: 400,
-        placeNameId: 3105,
-        icon: "60453"
-      },
-      {
-        x: 854,
-        y: 214,
-        placeNameId: 2997,
-        icon: "60414"
-      },
-      {
-        x: 1395,
-        y: 870,
-        placeNameId: 3109,
-        icon: "60442"
-      },
-      {
-        x: 1270,
-        y: 635,
-        placeNameId: 3110,
-        icon: "60442"
-      },
-      {
-        x: 1650,
-        y: 850,
-        placeNameId: 3111,
-        icon: "60442"
-      },
-      {
-        x: 1695,
-        y: 460,
-        placeNameId: 3112,
-        icon: "60442"
-      },
-      {
-        x: 1545,
-        y: 640,
-        placeNameId: 3113,
-        icon: "60442"
-      },
-      {
-        x: 1830,
-        y: 1300,
-        placeNameId: 2951,
-        icon: "60441"
-      },
-      {
-        x: 1200,
-        y: 1925,
-        placeNameId: 2952,
-        icon: "60441"
-      },
-      {
-        x: 765,
-        y: 1375,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 1708,
-        y: 1316,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1675,
-        y: 1323,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1717,
-        y: 1332,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 800,
-        y: 1396,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 714,
-        y: 1390,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 569,
-        y: 1082,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 569,
-        y: 1007,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 528,
-        y: 1610,
-        placeNameId: 2958,
-        icon: "60441"
-      },
-      {
-        x: 611,
-        y: 424,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 549,
-        y: 383,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 545,
-        y: 393,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 592,
-        y: 386,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1716,
-        y: 1322,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 787,
-        y: 1370,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 568,
-        y: 402,
-        placeNameId: 3354,
-        icon: "60442"
-      },
-      {
-        x: 1665,
-        y: 830,
-        placeNameId: 3355,
-        icon: "60442"
-      },
-      {
-        x: 523,
-        y: 1604,
-        placeNameId: 0,
-        icon: "60456"
-      },
-      {
-        x: 1825,
-        y: 1295,
-        placeNameId: 0,
-        icon: "60352"
-      },
-      {
-        x: 1762,
-        y: 941,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 485,
-        y: 1763,
-        placeNameId: 3467,
-        icon: "60414"
-      },
-      {
-        x: 529,
-        y: 1629,
-        placeNameId: 0,
-        icon: "60456"
-      },
-      {
-        x: 1716,
-        y: 858,
-        placeNameId: 3492,
-        icon: "60428"
-      },
-      {
-        x: 1730,
-        y: 867,
-        placeNameId: 0,
-        icon: "60467"
-      }
-    ]
-  },
-  {
-    id: 815,
-    placeNameId: 2955,
-    weatherRateId: 108,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -117,
-    markers: [
-      {
-        x: 1695,
-        y: 370,
-        placeNameId: 3119,
-        icon: "60448"
-      },
-      {
-        x: 1490,
-        y: 700,
-        placeNameId: 3121,
-        icon: "60442"
-      },
-      {
-        x: 1270,
-        y: 800,
-        placeNameId: 3122,
-        icon: "60453"
-      },
-      {
-        x: 1210,
-        y: 800,
-        placeNameId: 3123,
-        icon: "60442"
-      },
-      {
-        x: 1155,
-        y: 670,
-        placeNameId: 3124,
-        icon: "60442"
-      },
-      {
-        x: 1175,
-        y: 930,
-        placeNameId: 3125,
-        icon: "60442"
-      },
-      {
-        x: 1660,
-        y: 675,
-        placeNameId: 3126,
-        icon: "60442"
-      },
-      {
-        x: 1545,
-        y: 810,
-        placeNameId: 3127,
-        icon: "60442"
-      },
-      {
-        x: 1505,
-        y: 960,
-        placeNameId: 3128,
-        icon: "60442"
-      },
-      {
-        x: 1423,
-        y: 1332,
-        placeNameId: 3129,
-        icon: "60453"
-      },
-      {
-        x: 1380,
-        y: 1545,
-        placeNameId: 3130,
-        icon: "60442"
-      },
-      {
-        x: 1005,
-        y: 445,
-        placeNameId: 3132,
-        icon: "60442"
-      },
-      {
-        x: 605,
-        y: 450,
-        placeNameId: 3133,
-        icon: "60448"
-      },
-      {
-        x: 1005,
-        y: 845,
-        placeNameId: 3134,
-        icon: "60442"
-      },
-      {
-        x: 513,
-        y: 811,
-        placeNameId: 3135,
-        icon: "60453"
-      },
-      {
-        x: 1000,
-        y: 1010,
-        placeNameId: 3136,
-        icon: "60442"
-      },
-      {
-        x: 985,
-        y: 1270,
-        placeNameId: 3137,
-        icon: "60442"
-      },
-      {
-        x: 455,
-        y: 1085,
-        placeNameId: 3138,
-        icon: "60442"
-      },
-      {
-        x: 516,
-        y: 1514,
-        placeNameId: 3139,
-        icon: "60414"
-      },
-      {
-        x: 705,
-        y: 1445,
-        placeNameId: 3140,
-        icon: "60442"
-      },
-      {
-        x: 1115,
-        y: 1400,
-        placeNameId: 3141,
-        icon: "60442"
-      },
-      {
-        x: 1180,
-        y: 1725,
-        placeNameId: 3142,
-        icon: "60442"
-      },
-      {
-        x: 1715,
-        y: 365,
-        placeNameId: 2951,
-        icon: "60441"
-      },
-      {
-        x: 370,
-        y: 340,
-        placeNameId: 2953,
-        icon: "60441"
-      },
-      {
-        x: 1339,
-        y: 833,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1342,
-        y: 807,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1323,
-        y: 787,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1305,
-        y: 739,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1306,
-        y: 785,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 1312,
-        y: 838,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1305,
-        y: 759,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 589,
-        y: 443,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 492,
-        y: 788,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 531,
-        y: 739,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 1410,
-        y: 1299,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 1409,
-        y: 1535,
-        placeNameId: 3143,
-        icon: "60441"
-      },
-      {
-        x: 1404,
-        y: 1530,
-        placeNameId: 0,
-        icon: "60352"
-      },
-      {
-        x: 549,
-        y: 786,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 849,
-        y: 1241,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1710,
-        y: 360,
-        placeNameId: 0,
-        icon: "60352"
-      },
-      {
-        x: 1284,
-        y: 770,
-        placeNameId: 0,
-        icon: "60935"
-      }
-    ]
-  },
-  {
-    id: 816,
-    placeNameId: 2956,
-    weatherRateId: 109,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 0,
-    markers: [
-      {
-        x: 680,
-        y: 1535,
-        placeNameId: 3147,
-        icon: "60453"
-      },
-      {
-        x: 990,
-        y: 1795,
-        placeNameId: 3148,
-        icon: "60442"
-      },
-      {
-        x: 1160,
-        y: 1480,
-        placeNameId: 3149,
-        icon: "60414"
-      },
-      {
-        x: 430,
-        y: 800,
-        placeNameId: 3150,
-        icon: "60442"
-      },
-      {
-        x: 60,
-        y: 1010,
-        placeNameId: 3151,
-        icon: "60442"
-      },
-      {
-        x: 1456,
-        y: 1348,
-        placeNameId: 3152,
-        icon: "60442"
-      },
-      {
-        x: 672,
-        y: 727,
-        placeNameId: 3153,
-        icon: "60442"
-      },
-      {
-        x: 910,
-        y: 1039,
-        placeNameId: 3154,
-        icon: "60442"
-      },
-      {
-        x: 952,
-        y: 167,
-        placeNameId: 3156,
-        icon: "60453"
-      },
-      {
-        x: 1405,
-        y: 337,
-        placeNameId: 3157,
-        icon: "60453"
-      },
-      {
-        x: 1145,
-        y: 565,
-        placeNameId: 3158,
-        icon: "60442"
-      },
-      {
-        x: 1660,
-        y: 200,
-        placeNameId: 3159,
-        icon: "60442"
-      },
-      {
-        x: 1530,
-        y: 885,
-        placeNameId: 3160,
-        icon: "60442"
-      },
-      {
-        x: 1635,
-        y: 1225,
-        placeNameId: 3161,
-        icon: "60442"
-      },
-      {
-        x: 1695,
-        y: 1365,
-        placeNameId: 3162,
-        icon: "60442"
-      },
-      {
-        x: 1095,
-        y: 921,
-        placeNameId: 3163,
-        icon: "60442"
-      },
-      {
-        x: 865,
-        y: 715,
-        placeNameId: 3164,
-        icon: "60442"
-      },
-      {
-        x: 328,
-        y: 1863,
-        placeNameId: 2953,
-        icon: "60441"
-      },
-      {
-        x: 704,
-        y: 1554,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 694,
-        y: 1562,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 591,
-        y: 1573,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 979,
-        y: 167,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 938,
-        y: 161,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1074,
-        y: 173,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 1375,
-        y: 376,
-        placeNameId: 2238,
-        icon: "60311"
-      },
-      {
-        x: 1156,
-        y: 790,
-        placeNameId: 3360,
-        icon: "60442"
-      },
-      {
-        x: 980,
-        y: 1764,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 755,
-        y: 1470,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 562,
-        y: 1610,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 576,
-        y: 1593,
-        placeNameId: 0,
-        icon: "60935"
-      }
-    ]
-  },
-  {
-    id: 817,
-    placeNameId: 2957,
-    weatherRateId: 110,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 0,
-    markers: [
-      {
-        x: 620,
-        y: 1580,
-        placeNameId: 3169,
-        icon: "60442"
-      },
-      {
-        x: 921,
-        y: 1321,
-        placeNameId: 3170,
-        icon: "60453"
-      },
-      {
-        x: 950,
-        y: 1450,
-        placeNameId: 3171,
-        icon: "60442"
-      },
-      {
-        x: 795,
-        y: 965,
-        placeNameId: 3172,
-        icon: "60442"
-      },
-      {
-        x: 715,
-        y: 830,
-        placeNameId: 3173,
-        icon: "60442"
-      },
-      {
-        x: 368,
-        y: 916,
-        placeNameId: 3174,
-        icon: "60442"
-      },
-      {
-        x: 264,
-        y: 684,
-        placeNameId: 3175,
-        icon: "60442"
-      },
-      {
-        x: 330,
-        y: 1235,
-        placeNameId: 3176,
-        icon: "60442"
-      },
-      {
-        x: 360,
-        y: 1510,
-        placeNameId: 3177,
-        icon: "60442"
-      },
-      {
-        x: 240,
-        y: 1280,
-        placeNameId: 3178,
-        icon: "60442"
-      },
-      {
-        x: 1405,
-        y: 830,
-        placeNameId: 3179,
-        icon: "60453"
-      },
-      {
-        x: 1475,
-        y: 825,
-        placeNameId: 3180,
-        icon: "60442"
-      },
-      {
-        x: 1195,
-        y: 1365,
-        placeNameId: 3181,
-        icon: "60442"
-      },
-      {
-        x: 1588,
-        y: 1172,
-        placeNameId: 3182,
-        icon: "60442"
-      },
-      {
-        x: 1172,
-        y: 1675,
-        placeNameId: 3183,
-        icon: "60442"
-      },
-      {
-        x: 1195,
-        y: 550,
-        placeNameId: 3185,
-        icon: "60442"
-      },
-      {
-        x: 1140,
-        y: 515,
-        placeNameId: 3186,
-        icon: "60442"
-      },
-      {
-        x: 1145,
-        y: 595,
-        placeNameId: 3187,
-        icon: "60442"
-      },
-      {
-        x: 1250,
-        y: 510,
-        placeNameId: 3188,
-        icon: "60442"
-      },
-      {
-        x: 1250,
-        y: 600,
-        placeNameId: 3189,
-        icon: "60442"
-      },
-      {
-        x: 1195,
-        y: 380,
-        placeNameId: 3190,
-        icon: "60442"
-      },
-      {
-        x: 1145,
-        y: 150,
-        placeNameId: 3191,
-        icon: "60442"
-      },
-      {
-        x: 205,
-        y: 1775,
-        placeNameId: 2953,
-        icon: "60441"
-      },
-      {
-        x: 1879,
-        y: 635,
-        placeNameId: 3018,
-        icon: "60414"
-      },
-      {
-        x: 918,
-        y: 1293,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 938,
-        y: 1305,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1360,
-        y: 875,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1338,
-        y: 851,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1333,
-        y: 856,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1530,
-        y: 756,
-        placeNameId: 3374,
-        icon: "60311"
-      },
-      {
-        x: 789,
-        y: 1690,
-        placeNameId: 3361,
-        icon: "60442"
-      },
-      {
-        x: 560,
-        y: 1220,
-        placeNameId: 3363,
-        icon: "60442"
-      },
-      {
-        x: 434,
-        y: 996,
-        placeNameId: 3365,
-        icon: "60442"
-      },
-      {
-        x: 1136,
-        y: 864,
-        placeNameId: 3366,
-        icon: "60442"
-      },
-      {
-        x: 1266,
-        y: 898,
-        placeNameId: 3367,
-        icon: "60442"
-      },
-      {
-        x: 1610,
-        y: 640,
-        placeNameId: 3368,
-        icon: "60442"
-      },
-      {
-        x: 448,
-        y: 1332,
-        placeNameId: 3178,
-        icon: "60442"
-      },
-      {
-        x: 446,
-        y: 1454,
-        placeNameId: 3178,
-        icon: "60442"
-      },
-      {
-        x: 900,
-        y: 1295,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1816,
-        y: 806,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 1807,
-        y: 837,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1816,
-        y: 826,
-        placeNameId: 3472,
-        icon: "60442"
-      }
-    ]
-  },
-  {
-    id: 818,
-    placeNameId: 2958,
-    weatherRateId: 111,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 548,
-    markers: [
-      {
-        x: 1585,
-        y: 825,
-        placeNameId: 3195,
-        icon: "60453"
-      },
-      {
-        x: 505,
-        y: 225,
-        placeNameId: 3196,
-        icon: "60442"
-      },
-      {
-        x: 1675,
-        y: 1215,
-        placeNameId: 3197,
-        icon: "60442"
-      },
-      {
-        x: 1920,
-        y: 855,
-        placeNameId: 3198,
-        icon: "60442"
-      },
-      {
-        x: 1830,
-        y: 286,
-        placeNameId: 3199,
-        icon: "60442"
-      },
-      {
-        x: 1080,
-        y: 590,
-        placeNameId: 3200,
-        icon: "60442"
-      },
-      {
-        x: 1635,
-        y: 1480,
-        placeNameId: 3201,
-        icon: "60442"
-      },
-      {
-        x: 340,
-        y: 702,
-        placeNameId: 3202,
-        icon: "60442"
-      },
-      {
-        x: 405,
-        y: 1075,
-        placeNameId: 3203,
-        icon: "60442"
-      },
-      {
-        x: 466,
-        y: 1424,
-        placeNameId: 3204,
-        icon: "60442"
-      },
-      {
-        x: 882,
-        y: 1242,
-        placeNameId: 3205,
-        icon: "60453"
-      },
-      {
-        x: 285,
-        y: 1530,
-        placeNameId: 3206,
-        icon: "60442"
-      },
-      {
-        x: 640,
-        y: 1300,
-        placeNameId: 3207,
-        icon: "60442"
-      },
-      {
-        x: 1020,
-        y: 1285,
-        placeNameId: 3208,
-        icon: "60442"
-      },
-      {
-        x: 1340,
-        y: 1685,
-        placeNameId: 3209,
-        icon: "60442"
-      },
-      {
-        x: 662,
-        y: 1740,
-        placeNameId: 3210,
-        icon: "60442"
-      },
-      {
-        x: 1288,
-        y: 141,
-        placeNameId: 2954,
-        icon: "60441"
-      },
-      {
-        x: 597,
-        y: 1882,
-        placeNameId: 3194,
-        icon: "60414"
-      },
-      {
-        x: 953,
-        y: 1609,
-        placeNameId: 3007,
-        icon: "60414"
-      },
-      {
-        x: 1548,
-        y: 817,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1017,
-        y: 1320,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1039,
-        y: 1270,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1150,
-        y: 886,
-        placeNameId: 3369,
-        icon: "60442"
-      },
-      {
-        x: 1302,
-        y: 1274,
-        placeNameId: 3370,
-        icon: "60442"
-      },
-      {
-        x: 413,
-        y: 1118,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 420,
-        y: 1136,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1662,
-        y: 1236,
-        placeNameId: 0,
-        icon: "60935"
-      }
-    ]
-  },
-  {
     id: 827,
     placeNameId: 2545,
     weatherRateId: 100,
@@ -8011,1266 +772,128 @@ const zones: IZoneData[] = [
         icon: "60959"
       }
     ]
-  },
-  {
-    id: 956,
-    placeNameId: 3708,
-    weatherRateId: 131,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -225,
-    markers: [
-      {
-        x: 791,
-        y: 1364,
-        placeNameId: 4028,
-        icon: "60414"
-      },
-      {
-        x: 1005,
-        y: 160,
-        placeNameId: 3830,
-        icon: "60442"
-      },
-      {
-        x: 985,
-        y: 260,
-        placeNameId: 3831,
-        icon: "60442"
-      },
-      {
-        x: 838,
-        y: 205,
-        placeNameId: 3832,
-        icon: "60442"
-      },
-      {
-        x: 1467,
-        y: 545,
-        placeNameId: 3833,
-        icon: "60453"
-      },
-      {
-        x: 1550,
-        y: 476,
-        placeNameId: 3834,
-        icon: "60442"
-      },
-      {
-        x: 1700,
-        y: 481,
-        placeNameId: 3835,
-        icon: "60442"
-      },
-      {
-        x: 1555,
-        y: 390,
-        placeNameId: 3836,
-        icon: "60442"
-      },
-      {
-        x: 1820,
-        y: 620,
-        placeNameId: 3837,
-        icon: "60442"
-      },
-      {
-        x: 1800,
-        y: 1040,
-        placeNameId: 3838,
-        icon: "60442"
-      },
-      {
-        x: 1401,
-        y: 287,
-        placeNameId: 3840,
-        icon: "60442"
-      },
-      {
-        x: 1475,
-        y: 923,
-        placeNameId: 3842,
-        icon: "60442"
-      },
-      {
-        x: 1350,
-        y: 1020,
-        placeNameId: 3843,
-        icon: "60442"
-      },
-      {
-        x: 1290,
-        y: 875,
-        placeNameId: 3844,
-        icon: "60442"
-      },
-      {
-        x: 1057,
-        y: 715,
-        placeNameId: 3845,
-        icon: "60442"
-      },
-      {
-        x: 968,
-        y: 355,
-        placeNameId: 3846,
-        icon: "60442"
-      },
-      {
-        x: 750,
-        y: 605,
-        placeNameId: 3847,
-        icon: "60442"
-      },
-      {
-        x: 1170,
-        y: 1325,
-        placeNameId: 3849,
-        icon: "60442"
-      },
-      {
-        x: 1032,
-        y: 975,
-        placeNameId: 3850,
-        icon: "60453"
-      },
-      {
-        x: 660,
-        y: 875,
-        placeNameId: 3851,
-        icon: "60442"
-      },
-      {
-        x: 294,
-        y: 1326,
-        placeNameId: 3852,
-        icon: "60453"
-      },
-      {
-        x: 660,
-        y: 1750,
-        placeNameId: 3853,
-        icon: "60442"
-      },
-      {
-        x: 1010,
-        y: 1640,
-        placeNameId: 3854,
-        icon: "60442"
-      },
-      {
-        x: 750,
-        y: 1325,
-        placeNameId: 3855,
-        icon: "60442"
-      },
-      {
-        x: 368,
-        y: 1332,
-        placeNameId: 0,
-        icon: "60935"
-      },
-      {
-        x: 994,
-        y: 197,
-        placeNameId: 3706,
-        icon: "60467"
-      },
-      {
-        x: 996,
-        y: 294,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1002,
-        y: 292,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1418,
-        y: 524,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1447,
-        y: 521,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 1448,
-        y: 597,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1442,
-        y: 592,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1385,
-        y: 629,
-        placeNameId: 0,
-        icon: "60447"
-      },
-      {
-        x: 1377,
-        y: 632,
-        placeNameId: 0,
-        icon: "60446"
-      },
-      {
-        x: 1386,
-        y: 1326,
-        placeNameId: 0,
-        icon: "60447"
-      },
-      {
-        x: 1253,
-        y: 1322,
-        placeNameId: 0,
-        icon: "60446"
-      },
-      {
-        x: 400,
-        y: 1326,
-        placeNameId: 0,
-        icon: "60447"
-      },
-      {
-        x: 411,
-        y: 1329,
-        placeNameId: 0,
-        icon: "60446"
-      },
-      {
-        x: 327,
-        y: 1296,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 260,
-        y: 1317,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 260,
-        y: 1323,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 997,
-        y: 1632,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1012,
-        y: 1017,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 994,
-        y: 1041,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1057,
-        y: 953,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1051,
-        y: 947,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 689,
-        y: 1336,
-        placeNameId: 3712,
-        icon: "60467"
-      }
-    ]
-  },
-  {
-    id: 957,
-    placeNameId: 3709,
-    weatherRateId: 132,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -1,
-    markers: [
-      {
-        x: 387,
-        y: 360,
-        placeNameId: 3736,
-        icon: "60414"
-      },
-      {
-        x: 1221,
-        y: 1788,
-        placeNameId: 4015,
-        icon: "60414"
-      },
-      {
-        x: 1220,
-        y: 1652,
-        placeNameId: 3880,
-        icon: "60453"
-      },
-      {
-        x: 1364,
-        y: 1821,
-        placeNameId: 3881,
-        icon: "60442"
-      },
-      {
-        x: 965,
-        y: 1865,
-        placeNameId: 3882,
-        icon: "60442"
-      },
-      {
-        x: 775,
-        y: 1550,
-        placeNameId: 3884,
-        icon: "60442"
-      },
-      {
-        x: 498,
-        y: 1060,
-        placeNameId: 3886,
-        icon: "60453"
-      },
-      {
-        x: 1065,
-        y: 900,
-        placeNameId: 3887,
-        icon: "60442"
-      },
-      {
-        x: 640,
-        y: 500,
-        placeNameId: 3888,
-        icon: "60442"
-      },
-      {
-        x: 950,
-        y: 325,
-        placeNameId: 3889,
-        icon: "60442"
-      },
-      {
-        x: 1570,
-        y: 375,
-        placeNameId: 3893,
-        icon: "60442"
-      },
-      {
-        x: 1428,
-        y: 777,
-        placeNameId: 3894,
-        icon: "60453"
-      },
-      {
-        x: 1140,
-        y: 675,
-        placeNameId: 3895,
-        icon: "60442"
-      },
-      {
-        x: 1013,
-        y: 702,
-        placeNameId: 3896,
-        icon: "60442"
-      },
-      {
-        x: 1170,
-        y: 1180,
-        placeNameId: 3898,
-        icon: "60442"
-      },
-      {
-        x: 1630,
-        y: 1280,
-        placeNameId: 3899,
-        icon: "60442"
-      },
-      {
-        x: 1775,
-        y: 780,
-        placeNameId: 3900,
-        icon: "60442"
-      },
-      {
-        x: 1190,
-        y: 1659,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1189,
-        y: 1648,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1200,
-        y: 1707,
-        placeNameId: 0,
-        icon: "60581"
-      },
-      {
-        x: 1156,
-        y: 1629,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 554,
-        y: 1056,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 463,
-        y: 1113,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 515,
-        y: 1109,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1456,
-        y: 814,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1420,
-        y: 809,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1456,
-        y: 786,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1598,
-        y: 344,
-        placeNameId: 3707,
-        icon: "60441"
-      },
-      {
-        x: 1249,
-        y: 1656,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 420,
-        y: 1830,
-        placeNameId: 4027,
-        icon: "60442"
-      }
-    ]
-  },
-  {
-    id: 958,
-    placeNameId: 3710,
-    weatherRateId: 133,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -20,
-    markers: [
-      {
-        x: 498,
-        y: 344,
-        placeNameId: 4118,
-        icon: "60414"
-      },
-      {
-        x: 540,
-        y: 351,
-        placeNameId: 0,
-        icon: "60446"
-      },
-      {
-        x: 536,
-        y: 342,
-        placeNameId: 0,
-        icon: "60447"
-      },
-      {
-        x: 536,
-        y: 332,
-        placeNameId: 4024,
-        icon: "60441"
-      },
-      {
-        x: 616,
-        y: 1504,
-        placeNameId: 3903,
-        icon: "60453"
-      },
-      {
-        x: 770,
-        y: 1225,
-        placeNameId: 3904,
-        icon: "60442"
-      },
-      {
-        x: 1100,
-        y: 1425,
-        placeNameId: 3905,
-        icon: "60442"
-      },
-      {
-        x: 1610,
-        y: 1200,
-        placeNameId: 3906,
-        icon: "60442"
-      },
-      {
-        x: 1160,
-        y: 1670,
-        placeNameId: 3908,
-        icon: "60442"
-      },
-      {
-        x: 1437,
-        y: 1600,
-        placeNameId: 3909,
-        icon: "60442"
-      },
-      {
-        x: 500,
-        y: 375,
-        placeNameId: 3911,
-        icon: "60442"
-      },
-      {
-        x: 570,
-        y: 680,
-        placeNameId: 3912,
-        icon: "60442"
-      },
-      {
-        x: 1105,
-        y: 1140,
-        placeNameId: 3913,
-        icon: "60442"
-      },
-      {
-        x: 1350,
-        y: 1100,
-        placeNameId: 3914,
-        icon: "60442"
-      },
-      {
-        x: 1542,
-        y: 845,
-        placeNameId: 3915,
-        icon: "60453"
-      },
-      {
-        x: 800,
-        y: 380,
-        placeNameId: 3918,
-        icon: "60442"
-      },
-      {
-        x: 1110,
-        y: 580,
-        placeNameId: 3919,
-        icon: "60442"
-      },
-      {
-        x: 1433,
-        y: 450,
-        placeNameId: 3920,
-        icon: "60442"
-      },
-      {
-        x: 525,
-        y: 1661,
-        placeNameId: 2408,
-        icon: "60441"
-      },
-      {
-        x: 598,
-        y: 1481,
-        placeNameId: 0,
-        icon: "60551"
-      },
-      {
-        x: 594,
-        y: 1475,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 594,
-        y: 1470,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 690,
-        y: 1498,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1533,
-        y: 610,
-        placeNameId: 0,
-        icon: "60311"
-      },
-      {
-        x: 1516,
-        y: 822,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1516,
-        y: 831,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 529,
-        y: 1654,
-        placeNameId: 0,
-        icon: "60352"
-      }
-    ]
-  },
-  {
-    id: 959,
-    placeNameId: 3711,
-    weatherRateId: 135,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 0,
-    markers: [
-      {
-        x: 360,
-        y: 1752,
-        placeNameId: 4024,
-        icon: "60441"
-      },
-      {
-        x: 1227,
-        y: 1431,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1019,
-        y: 810,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 457,
-        y: 1674,
-        placeNameId: 3949,
-        icon: "60453"
-      },
-      {
-        x: 600,
-        y: 1600,
-        placeNameId: 3950,
-        icon: "60442"
-      },
-      {
-        x: 835,
-        y: 1420,
-        placeNameId: 3952,
-        icon: "60442"
-      },
-      {
-        x: 1055,
-        y: 1534,
-        placeNameId: 3953,
-        icon: "60442"
-      },
-      {
-        x: 1208,
-        y: 1440,
-        placeNameId: 3954,
-        icon: "60442"
-      },
-      {
-        x: 1500,
-        y: 1550,
-        placeNameId: 3955,
-        icon: "60442"
-      },
-      {
-        x: 1025,
-        y: 1325,
-        placeNameId: 3956,
-        icon: "60442"
-      },
-      {
-        x: 1025,
-        y: 1440,
-        placeNameId: 3957,
-        icon: "60442"
-      },
-      {
-        x: 840,
-        y: 1205,
-        placeNameId: 3959,
-        icon: "60442"
-      },
-      {
-        x: 1085,
-        y: 1119,
-        placeNameId: 3960,
-        icon: "60442"
-      },
-      {
-        x: 1230,
-        y: 1255,
-        placeNameId: 3961,
-        icon: "60442"
-      },
-      {
-        x: 520,
-        y: 1050,
-        placeNameId: 3962,
-        icon: "60442"
-      },
-      {
-        x: 1250,
-        y: 960,
-        placeNameId: 3963,
-        icon: "60442"
-      },
-      {
-        x: 1650,
-        y: 1200,
-        placeNameId: 3965,
-        icon: "60442"
-      },
-      {
-        x: 1023,
-        y: 511,
-        placeNameId: 3966,
-        icon: "60453"
-      },
-      {
-        x: 538,
-        y: 1090,
-        placeNameId: 3770,
-        icon: "60414"
-      },
-      {
-        x: 997,
-        y: 443,
-        placeNameId: 0,
-        icon: "60446"
-      },
-      {
-        x: 1023,
-        y: 340,
-        placeNameId: 0,
-        icon: "60447"
-      },
-      {
-        x: 597,
-        y: 1585,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1004,
-        y: 561,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1004,
-        y: 568,
-        placeNameId: 0,
-        icon: "60434"
-      }
-    ]
-  },
-  {
-    id: 960,
-    placeNameId: 3712,
-    weatherRateId: 136,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: 44,
-    markers: [
-      {
-        x: 700,
-        y: 1650,
-        placeNameId: 3971,
-        icon: "60442"
-      },
-      {
-        x: 1025,
-        y: 1550,
-        placeNameId: 3972,
-        icon: "60442"
-      },
-      {
-        x: 480,
-        y: 1290,
-        placeNameId: 3973,
-        icon: "60453"
-      },
-      {
-        x: 550,
-        y: 1000,
-        placeNameId: 3974,
-        icon: "60442"
-      },
-      {
-        x: 675,
-        y: 510,
-        placeNameId: 3976,
-        icon: "60442"
-      },
-      {
-        x: 790,
-        y: 725,
-        placeNameId: 3977,
-        icon: "60442"
-      },
-      {
-        x: 1085,
-        y: 365,
-        placeNameId: 3978,
-        icon: "60453"
-      },
-      {
-        x: 1225,
-        y: 365,
-        placeNameId: 3979,
-        icon: "60442"
-      },
-      {
-        x: 1462,
-        y: 706,
-        placeNameId: 3980,
-        icon: "60442"
-      },
-      {
-        x: 1536,
-        y: 1165,
-        placeNameId: 3982,
-        icon: "60442"
-      },
-      {
-        x: 1659,
-        y: 1270,
-        placeNameId: 3984,
-        icon: "60442"
-      },
-      {
-        x: 1830,
-        y: 1220,
-        placeNameId: 3985,
-        icon: "60442"
-      },
-      {
-        x: 1625,
-        y: 1480,
-        placeNameId: 3986,
-        icon: "60442"
-      },
-      {
-        x: 1713,
-        y: 1250,
-        placeNameId: 3987,
-        icon: "60442"
-      },
-      {
-        x: 1150,
-        y: 1300,
-        placeNameId: 3989,
-        icon: "60442"
-      },
-      {
-        x: 1025,
-        y: 1025,
-        placeNameId: 3990,
-        icon: "60442"
-      },
-      {
-        x: 1693,
-        y: 1396,
-        placeNameId: 3783,
-        icon: "60414"
-      },
-      {
-        x: 1675,
-        y: 1025,
-        placeNameId: 4026,
-        icon: "60442"
-      },
-      {
-        x: 659,
-        y: 1641,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 649,
-        y: 1639,
-        placeNameId: 3708,
-        icon: "60467"
-      },
-      {
-        x: 1491,
-        y: 1351,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 1489,
-        y: 1429,
-        placeNameId: 4029,
-        icon: "60442"
-      },
-      {
-        x: 1020,
-        y: 1012,
-        placeNameId: 4100,
-        icon: "60414"
-      },
-      {
-        x: 414,
-        y: 816,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 554,
-        y: 762,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1471,
-        y: 706,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1545,
-        y: 1165,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1668,
-        y: 1270,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1722,
-        y: 1250,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1516,
-        y: 1389,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1498,
-        y: 1429,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 1515,
-        y: 1355,
-        placeNameId: 3983,
-        icon: "60453"
-      }
-    ]
-  },
-  {
-    id: 961,
-    placeNameId: 3713,
-    weatherRateId: 134,
-    sizeFactor: 100,
-    offsetX: 0,
-    offsetY: 0,
-    offsetZ: -161,
-    markers: [
-      {
-        x: 1300,
-        y: 1840,
-        placeNameId: 3926,
-        icon: "60442"
-      },
-      {
-        x: 1240,
-        y: 1649,
-        placeNameId: 3927,
-        icon: "60442"
-      },
-      {
-        x: 1182,
-        y: 1150,
-        placeNameId: 3928,
-        icon: "60453"
-      },
-      {
-        x: 390,
-        y: 1566,
-        placeNameId: 3929,
-        icon: "60453"
-      },
-      {
-        x: 783,
-        y: 1730,
-        placeNameId: 3930,
-        icon: "60442"
-      },
-      {
-        x: 1630,
-        y: 1070,
-        placeNameId: 3931,
-        icon: "60442"
-      },
-      {
-        x: 1650,
-        y: 1400,
-        placeNameId: 3932,
-        icon: "60442"
-      },
-      {
-        x: 828,
-        y: 1010,
-        placeNameId: 3933,
-        icon: "60442"
-      },
-      {
-        x: 682,
-        y: 1055,
-        placeNameId: 3935,
-        icon: "60442"
-      },
-      {
-        x: 350,
-        y: 660,
-        placeNameId: 3936,
-        icon: "60442"
-      },
-      {
-        x: 166,
-        y: 895,
-        placeNameId: 3937,
-        icon: "60442"
-      },
-      {
-        x: 493,
-        y: 802,
-        placeNameId: 3938,
-        icon: "60453"
-      },
-      {
-        x: 541,
-        y: 657,
-        placeNameId: 3939,
-        icon: "60442"
-      },
-      {
-        x: 677,
-        y: 477,
-        placeNameId: 3942,
-        icon: "60442"
-      },
-      {
-        x: 600,
-        y: 240,
-        placeNameId: 3943,
-        icon: "60442"
-      },
-      {
-        x: 813,
-        y: 370,
-        placeNameId: 3944,
-        icon: "60442"
-      },
-      {
-        x: 1200,
-        y: 450,
-        placeNameId: 3946,
-        icon: "60442"
-      },
-      {
-        x: 1625,
-        y: 700,
-        placeNameId: 3947,
-        icon: "60442"
-      },
-      {
-        x: 953,
-        y: 399,
-        placeNameId: 3948,
-        icon: "60442"
-      },
-      {
-        x: 1833,
-        y: 780,
-        placeNameId: 3769,
-        icon: "60467"
-      },
-      {
-        x: 1164,
-        y: 1188,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 1170,
-        y: 1188,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 429,
-        y: 1567,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 428,
-        y: 1573,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 453,
-        y: 789,
-        placeNameId: 0,
-        icon: "60412"
-      },
-      {
-        x: 459,
-        y: 789,
-        placeNameId: 0,
-        icon: "60434"
-      },
-      {
-        x: 186,
-        y: 962,
-        placeNameId: 0,
-        icon: "60446"
-      },
-      {
-        x: 169,
-        y: 950,
-        placeNameId: 0,
-        icon: "60447"
-      },
-      {
-        x: 176,
-        y: 846,
-        placeNameId: 0,
-        icon: "60446"
-      },
-      {
-        x: 186,
-        y: 818,
-        placeNameId: 0,
-        icon: "60447"
-      },
-      {
-        x: 1305,
-        y: 1857,
-        placeNameId: 3223,
-        icon: "60441"
-      },
-      {
-        x: 837,
-        y: 1010,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 691,
-        y: 1055,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 550,
-        y: 657,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 686,
-        y: 477,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 822,
-        y: 370,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 962,
-        y: 399,
-        placeNameId: 0,
-        icon: "60467"
-      },
-      {
-        x: 612,
-        y: 259,
-        placeNameId: 3759,
-        icon: "60414"
-      }
-    ]
   }
 ];
 
 const fieldZones: IFieldZoneData[] = [
   {
     id: 134,
+    placeNameId: 30,
+    weatherRateId: 16,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -1,
+    markers: [
+      {
+        x: 980,
+        y: 1166,
+        placeNameId: 179,
+        icon: "60442"
+      },
+      {
+        x: 1214,
+        y: 1296,
+        placeNameId: 183,
+        icon: "60442"
+      },
+      {
+        x: 1207,
+        y: 788,
+        placeNameId: 184,
+        icon: "60448"
+      },
+      {
+        x: 966,
+        y: 942,
+        placeNameId: 185,
+        icon: "60442"
+      },
+      {
+        x: 882,
+        y: 810,
+        placeNameId: 187,
+        icon: "60442"
+      },
+      {
+        x: 1036,
+        y: 714,
+        placeNameId: 188,
+        icon: "60442"
+      },
+      {
+        x: 724,
+        y: 836,
+        placeNameId: 190,
+        icon: "60442"
+      },
+      {
+        x: 832,
+        y: 378,
+        placeNameId: 191,
+        icon: "60442"
+      },
+      {
+        x: 1012,
+        y: 568,
+        placeNameId: 192,
+        icon: "60442"
+      },
+      {
+        x: 532,
+        y: 710,
+        placeNameId: 194,
+        icon: "60442"
+      },
+      {
+        x: 980,
+        y: 1186,
+        placeNameId: 29,
+        icon: "60441"
+      },
+      {
+        x: 1232,
+        y: 1312,
+        placeNameId: 31,
+        icon: "60441"
+      },
+      {
+        x: 859,
+        y: 290,
+        placeNameId: 32,
+        icon: "60441"
+      },
+      {
+        x: 650,
+        y: 422,
+        placeNameId: 33,
+        icon: "60441"
+      },
+      {
+        x: 1215,
+        y: 828,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1220,
+        y: 815,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1255,
+        y: 767,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1228,
+        y: 816,
+        placeNameId: 0,
+        icon: "60434"
+      }
+    ],
     elite: {
       S: {
         id: 2962,
@@ -9461,6 +1084,188 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 135,
+    placeNameId: 31,
+    weatherRateId: 17,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -1,
+    markers: [
+      {
+        x: 1239,
+        y: 1125,
+        placeNameId: 195,
+        icon: "60442"
+      },
+      {
+        x: 1307,
+        y: 1052,
+        placeNameId: 196,
+        icon: "60442"
+      },
+      {
+        x: 985,
+        y: 1143,
+        placeNameId: 198,
+        icon: "60442"
+      },
+      {
+        x: 1112,
+        y: 1371,
+        placeNameId: 199,
+        icon: "60442"
+      },
+      {
+        x: 1555,
+        y: 956,
+        placeNameId: 200,
+        icon: "60448"
+      },
+      {
+        x: 1695,
+        y: 815,
+        placeNameId: 201,
+        icon: "60442"
+      },
+      {
+        x: 1349,
+        y: 707,
+        placeNameId: 202,
+        icon: "60442"
+      },
+      {
+        x: 1545,
+        y: 590,
+        placeNameId: 204,
+        icon: "60442"
+      },
+      {
+        x: 1175,
+        y: 1631,
+        placeNameId: 337,
+        icon: "60448"
+      },
+      {
+        x: 890,
+        y: 1716,
+        placeNameId: 338,
+        icon: "60442"
+      },
+      {
+        x: 1010,
+        y: 1870,
+        placeNameId: 339,
+        icon: "60442"
+      },
+      {
+        x: 1041,
+        y: 1697,
+        placeNameId: 340,
+        icon: "60442"
+      },
+      {
+        x: 1130,
+        y: 1959,
+        placeNameId: 341,
+        icon: "60442"
+      },
+      {
+        x: 973,
+        y: 1140,
+        placeNameId: 28,
+        icon: "60441"
+      },
+      {
+        x: 1250,
+        y: 678,
+        placeNameId: 30,
+        icon: "60441"
+      },
+      {
+        x: 1594,
+        y: 497,
+        placeNameId: 32,
+        icon: "60441"
+      },
+      {
+        x: 1719,
+        y: 634,
+        placeNameId: 32,
+        icon: "60441"
+      },
+      {
+        x: 1526,
+        y: 945,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1583,
+        y: 974,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1180,
+        y: 1697,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1070,
+        y: 1628,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1224,
+        y: 1699,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1019,
+        y: 1887,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 979,
+        y: 1871,
+        placeNameId: 0,
+        icon: "60456"
+      },
+      {
+        x: 1514,
+        y: 945,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1210,
+        y: 1680,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1622,
+        y: 916,
+        placeNameId: 425,
+        icon: "60441"
+      },
+      {
+        x: 1292,
+        y: 1738,
+        placeNameId: 460,
+        icon: "60456"
+      },
+      {
+        x: 1302,
+        y: 1758,
+        placeNameId: 1377,
+        icon: "60414"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -9624,6 +1429,170 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 137,
+    placeNameId: 32,
+    weatherRateId: 18,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 7,
+    markers: [
+      {
+        x: 1403,
+        y: 1667,
+        placeNameId: 205,
+        icon: "60442"
+      },
+      {
+        x: 1564,
+        y: 1444,
+        placeNameId: 206,
+        icon: "60448"
+      },
+      {
+        x: 1631,
+        y: 1412,
+        placeNameId: 208,
+        icon: "60456"
+      },
+      {
+        x: 1247,
+        y: 1457,
+        placeNameId: 209,
+        icon: "60442"
+      },
+      {
+        x: 1369,
+        y: 1115,
+        placeNameId: 210,
+        icon: "60456"
+      },
+      {
+        x: 1521,
+        y: 1104,
+        placeNameId: 211,
+        icon: "60442"
+      },
+      {
+        x: 685,
+        y: 1180,
+        placeNameId: 212,
+        icon: "60414"
+      },
+      {
+        x: 650,
+        y: 1461,
+        placeNameId: 213,
+        icon: "60442"
+      },
+      {
+        x: 683,
+        y: 1329,
+        placeNameId: 214,
+        icon: "60442"
+      },
+      {
+        x: 1046,
+        y: 1246,
+        placeNameId: 215,
+        icon: "60456"
+      },
+      {
+        x: 963,
+        y: 1022,
+        placeNameId: 216,
+        icon: "60448"
+      },
+      {
+        x: 1287,
+        y: 1022,
+        placeNameId: 217,
+        icon: "60442"
+      },
+      {
+        x: 911,
+        y: 1071,
+        placeNameId: 30,
+        icon: "60441"
+      },
+      {
+        x: 892,
+        y: 1764,
+        placeNameId: 31,
+        icon: "60441"
+      },
+      {
+        x: 1271,
+        y: 1868,
+        placeNameId: 31,
+        icon: "60441"
+      },
+      {
+        x: 1103,
+        y: 909,
+        placeNameId: 34,
+        icon: "60441"
+      },
+      {
+        x: 1514,
+        y: 1491,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1447,
+        y: 1471,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1490,
+        y: 1512,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1005,
+        y: 1027,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1039,
+        y: 1047,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 988,
+        y: 987,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1550,
+        y: 1497,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 971,
+        y: 999,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1010,
+        y: 1281,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1782,
+        y: 1506,
+        placeNameId: 229,
+        icon: "60442"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -9871,6 +1840,236 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 138,
+    placeNameId: 33,
+    weatherRateId: 19,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -44,
+    markers: [
+      {
+        x: 1688,
+        y: 1553,
+        placeNameId: 218,
+        icon: "60448"
+      },
+      {
+        x: 1595,
+        y: 1355,
+        placeNameId: 219,
+        icon: "60442"
+      },
+      {
+        x: 1458,
+        y: 1487,
+        placeNameId: 220,
+        icon: "60442"
+      },
+      {
+        x: 1362,
+        y: 1023,
+        placeNameId: 222,
+        icon: "60414"
+      },
+      {
+        x: 1285,
+        y: 1276,
+        placeNameId: 223,
+        icon: "60448"
+      },
+      {
+        x: 1086,
+        y: 1083,
+        placeNameId: 224,
+        icon: "60442"
+      },
+      {
+        x: 1112,
+        y: 956,
+        placeNameId: 225,
+        icon: "60442"
+      },
+      {
+        x: 1041,
+        y: 944,
+        placeNameId: 226,
+        icon: "60442"
+      },
+      {
+        x: 928,
+        y: 1080,
+        placeNameId: 227,
+        icon: "60442"
+      },
+      {
+        x: 670,
+        y: 605,
+        placeNameId: 365,
+        icon: "60442"
+      },
+      {
+        x: 969,
+        y: 943,
+        placeNameId: 364,
+        icon: "60442"
+      },
+      {
+        x: 881,
+        y: 1012,
+        placeNameId: 364,
+        icon: "60442"
+      },
+      {
+        x: 1338,
+        y: 1373,
+        placeNameId: 368,
+        icon: "60456"
+      },
+      {
+        x: 601,
+        y: 788,
+        placeNameId: 362,
+        icon: "60442"
+      },
+      {
+        x: 1836,
+        y: 1414,
+        placeNameId: 30,
+        icon: "60441"
+      },
+      {
+        x: 1435,
+        y: 1012,
+        placeNameId: 34,
+        icon: "60441"
+      },
+      {
+        x: 1676,
+        y: 1537,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1694,
+        y: 1512,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1690,
+        y: 1520,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1284,
+        y: 1242,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1323,
+        y: 1256,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1265,
+        y: 1255,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1250,
+        y: 1255,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1079,
+        y: 1085,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1302,
+        y: 1253,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1044,
+        y: 962,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 932,
+        y: 1108,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 733,
+        y: 1430,
+        placeNameId: 461,
+        icon: "60456"
+      },
+      {
+        x: 802,
+        y: 816,
+        placeNameId: 363,
+        icon: "60554"
+      },
+      {
+        x: 721,
+        y: 1740,
+        placeNameId: 228,
+        icon: "60442"
+      },
+      {
+        x: 751,
+        y: 1491,
+        placeNameId: 230,
+        icon: "60414"
+      },
+      {
+        x: 800,
+        y: 1032,
+        placeNameId: 945,
+        icon: "60442"
+      },
+      {
+        x: 800,
+        y: 1070,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 804,
+        y: 1051,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 864,
+        y: 726,
+        placeNameId: 949,
+        icon: "60442"
+      },
+      {
+        x: 236,
+        y: 1702,
+        placeNameId: 946,
+        icon: "60442"
+      },
+      {
+        x: 1366,
+        y: 1170,
+        placeNameId: 147,
+        icon: "60442"
+      }
+    ],
     elite: {
       S: {
         id: 2965,
@@ -10054,6 +2253,134 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 139,
+    placeNameId: 34,
+    weatherRateId: 20,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -15,
+    markers: [
+      {
+        x: 1448,
+        y: 1085,
+        placeNameId: 239,
+        icon: "60448"
+      },
+      {
+        x: 697,
+        y: 1142,
+        placeNameId: 231,
+        icon: "60442"
+      },
+      {
+        x: 502,
+        y: 1128,
+        placeNameId: 232,
+        icon: "60442"
+      },
+      {
+        x: 602,
+        y: 1085,
+        placeNameId: 233,
+        icon: "60442"
+      },
+      {
+        x: 413,
+        y: 977,
+        placeNameId: 234,
+        icon: "60442"
+      },
+      {
+        x: 1233,
+        y: 1102,
+        placeNameId: 240,
+        icon: "60414"
+      },
+      {
+        x: 1260,
+        y: 1285,
+        placeNameId: 241,
+        icon: "60442"
+      },
+      {
+        x: 1748,
+        y: 1236,
+        placeNameId: 32,
+        icon: "60441"
+      },
+      {
+        x: 1309,
+        y: 821,
+        placeNameId: 350,
+        icon: "60441"
+      },
+      {
+        x: 680,
+        y: 1006,
+        placeNameId: 350,
+        icon: "60441"
+      },
+      {
+        x: 546,
+        y: 1311,
+        placeNameId: 33,
+        icon: "60441"
+      },
+      {
+        x: 1462,
+        y: 1118,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1438,
+        y: 1114,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1480,
+        y: 1113,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1452,
+        y: 1138,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1260,
+        y: 1269,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1242,
+        y: 1281,
+        placeNameId: 0,
+        icon: "60456"
+      },
+      {
+        x: 693,
+        y: 1159,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 682,
+        y: 1137,
+        placeNameId: 0,
+        icon: "60456"
+      },
+      {
+        x: 1462,
+        y: 1073,
+        placeNameId: 0,
+        icon: "60551"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -10196,6 +2523,260 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 140,
+    placeNameId: 42,
+    weatherRateId: 9,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 12,
+    markers: [
+      {
+        x: 848,
+        y: 1342,
+        placeNameId: 262,
+        icon: "60442"
+      },
+      {
+        x: 1253,
+        y: 1162,
+        placeNameId: 263,
+        icon: "60448"
+      },
+      {
+        x: 1079,
+        y: 1319,
+        placeNameId: 265,
+        icon: "60442"
+      },
+      {
+        x: 982,
+        y: 1341,
+        placeNameId: 375,
+        icon: "60442"
+      },
+      {
+        x: 948,
+        y: 1285,
+        placeNameId: 376,
+        icon: "60442"
+      },
+      {
+        x: 754,
+        y: 1446,
+        placeNameId: 266,
+        icon: "60448"
+      },
+      {
+        x: 1351,
+        y: 790,
+        placeNameId: 267,
+        icon: "60414"
+      },
+      {
+        x: 1122,
+        y: 838,
+        placeNameId: 268,
+        icon: "60442"
+      },
+      {
+        x: 1046,
+        y: 769,
+        placeNameId: 269,
+        icon: "60442"
+      },
+      {
+        x: 1115,
+        y: 804,
+        placeNameId: 271,
+        icon: "60448"
+      },
+      {
+        x: 729,
+        y: 850,
+        placeNameId: 272,
+        icon: "60448"
+      },
+      {
+        x: 846,
+        y: 738,
+        placeNameId: 273,
+        icon: "60442"
+      },
+      {
+        x: 583,
+        y: 660,
+        placeNameId: 274,
+        icon: "60448"
+      },
+      {
+        x: 837,
+        y: 290,
+        placeNameId: 275,
+        icon: "60442"
+      },
+      {
+        x: 703,
+        y: 286,
+        placeNameId: 276,
+        icon: "60442"
+      },
+      {
+        x: 594,
+        y: 311,
+        placeNameId: 277,
+        icon: "60442"
+      },
+      {
+        x: 218,
+        y: 160,
+        placeNameId: 349,
+        icon: "60442"
+      },
+      {
+        x: 1505,
+        y: 1187,
+        placeNameId: 40,
+        icon: "60441"
+      },
+      {
+        x: 1289,
+        y: 1008,
+        placeNameId: 43,
+        icon: "60441"
+      },
+      {
+        x: 697,
+        y: 930,
+        placeNameId: 370,
+        icon: "60456"
+      },
+      {
+        x: 722,
+        y: 1328,
+        placeNameId: 371,
+        icon: "60456"
+      },
+      {
+        x: 522,
+        y: 695,
+        placeNameId: 728,
+        icon: "60339"
+      },
+      {
+        x: 778,
+        y: 1398,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 733,
+        y: 1427,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 712,
+        y: 1415,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1235,
+        y: 1158,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1235,
+        y: 1187,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1092,
+        y: 795,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1088,
+        y: 835,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1072,
+        y: 787,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1068,
+        y: 760,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 717,
+        y: 876,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 611,
+        y: 697,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 557,
+        y: 644,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 567,
+        y: 680,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 553,
+        y: 683,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1059,
+        y: 758,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1489,
+        y: 1183,
+        placeNameId: 626,
+        icon: "60442"
+      },
+      {
+        x: 543,
+        y: 638,
+        placeNameId: 472,
+        icon: "60442"
+      },
+      {
+        x: 1340,
+        y: 1260,
+        placeNameId: 427,
+        icon: "60441"
+      },
+      {
+        x: 560,
+        y: 703,
+        placeNameId: 0,
+        icon: "60935"
+      }
+    ],
     elite: {
       S: {
         id: 2957,
@@ -10372,6 +2953,206 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 141,
+    placeNameId: 43,
+    weatherRateId: 10,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -32,
+    markers: [
+      {
+        x: 866,
+        y: 1242,
+        placeNameId: 278,
+        icon: "60442"
+      },
+      {
+        x: 1008,
+        y: 1208,
+        placeNameId: 279,
+        icon: "60442"
+      },
+      {
+        x: 1084,
+        y: 1270,
+        placeNameId: 282,
+        icon: "60442"
+      },
+      {
+        x: 1088,
+        y: 1374,
+        placeNameId: 283,
+        icon: "60442"
+      },
+      {
+        x: 1032,
+        y: 1154,
+        placeNameId: 285,
+        icon: "60442"
+      },
+      {
+        x: 1260,
+        y: 1550,
+        placeNameId: 286,
+        icon: "60442"
+      },
+      {
+        x: 1250,
+        y: 1680,
+        placeNameId: 287,
+        icon: "60442"
+      },
+      {
+        x: 942,
+        y: 972,
+        placeNameId: 289,
+        icon: "60442"
+      },
+      {
+        x: 983,
+        y: 860,
+        placeNameId: 290,
+        icon: "60448"
+      },
+      {
+        x: 798,
+        y: 1140,
+        placeNameId: 291,
+        icon: "60442"
+      },
+      {
+        x: 768,
+        y: 916,
+        placeNameId: 292,
+        icon: "60442"
+      },
+      {
+        x: 1118,
+        y: 752,
+        placeNameId: 294,
+        icon: "60442"
+      },
+      {
+        x: 1138,
+        y: 646,
+        placeNameId: 295,
+        icon: "60442"
+      },
+      {
+        x: 1008,
+        y: 594,
+        placeNameId: 296,
+        icon: "60442"
+      },
+      {
+        x: 1344,
+        y: 910,
+        placeNameId: 297,
+        icon: "60442"
+      },
+      {
+        x: 1160,
+        y: 1002,
+        placeNameId: 298,
+        icon: "60442"
+      },
+      {
+        x: 996,
+        y: 520,
+        placeNameId: 46,
+        icon: "60441"
+      },
+      {
+        x: 1479,
+        y: 835,
+        placeNameId: 44,
+        icon: "60441"
+      },
+      {
+        x: 610,
+        y: 1124,
+        placeNameId: 42,
+        icon: "60441"
+      },
+      {
+        x: 1254,
+        y: 1688,
+        placeNameId: 45,
+        icon: "60441"
+      },
+      {
+        x: 906,
+        y: 1368,
+        placeNameId: 40,
+        icon: "60441"
+      },
+      {
+        x: 1024,
+        y: 1584,
+        placeNameId: 41,
+        icon: "60441"
+      },
+      {
+        x: 1025,
+        y: 868,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1036,
+        y: 853,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1012,
+        y: 873,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1012,
+        y: 878,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1004,
+        y: 857,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 926,
+        y: 984,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 748,
+        y: 650,
+        placeNameId: 377,
+        icon: "60414"
+      },
+      {
+        x: 909,
+        y: 1358,
+        placeNameId: 613,
+        icon: "60442"
+      },
+      {
+        x: 1042,
+        y: 1590,
+        placeNameId: 645,
+        icon: "60442"
+      },
+      {
+        x: 1139,
+        y: 632,
+        placeNameId: 0,
+        icon: "60910"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -10556,6 +3337,146 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 145,
+    placeNameId: 44,
+    weatherRateId: 11,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -66,
+    markers: [
+      {
+        x: 629,
+        y: 1141,
+        placeNameId: 300,
+        icon: "60448"
+      },
+      {
+        x: 690,
+        y: 784,
+        placeNameId: 301,
+        icon: "60442"
+      },
+      {
+        x: 515,
+        y: 1024,
+        placeNameId: 302,
+        icon: "60442"
+      },
+      {
+        x: 477,
+        y: 769,
+        placeNameId: 304,
+        icon: "60448"
+      },
+      {
+        x: 685,
+        y: 1453,
+        placeNameId: 305,
+        icon: "60414"
+      },
+      {
+        x: 947,
+        y: 1302,
+        placeNameId: 306,
+        icon: "60442"
+      },
+      {
+        x: 1043,
+        y: 1004,
+        placeNameId: 307,
+        icon: "60448"
+      },
+      {
+        x: 1209,
+        y: 689,
+        placeNameId: 309,
+        icon: "60442"
+      },
+      {
+        x: 1343,
+        y: 1039,
+        placeNameId: 310,
+        icon: "60442"
+      },
+      {
+        x: 1171,
+        y: 1432,
+        placeNameId: 311,
+        icon: "60442"
+      },
+      {
+        x: 1394,
+        y: 728,
+        placeNameId: 56,
+        icon: "60441"
+      },
+      {
+        x: 460,
+        y: 1366,
+        placeNameId: 43,
+        icon: "60441"
+      },
+      {
+        x: 846,
+        y: 1515,
+        placeNameId: 45,
+        icon: "60441"
+      },
+      {
+        x: 637,
+        y: 1166,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 600,
+        y: 1130,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 653,
+        y: 1122,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 642,
+        y: 1115,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 617,
+        y: 1120,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 641,
+        y: 1194,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 495,
+        y: 824,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 488,
+        y: 785,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1068,
+        y: 1016,
+        placeNameId: 0,
+        icon: "60412"
+      }
+    ],
     elite: {
       S: {
         id: 2959,
@@ -10816,6 +3737,194 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 146,
+    placeNameId: 45,
+    weatherRateId: 12,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -23,
+    markers: [
+      {
+        x: 1213,
+        y: 573,
+        placeNameId: 312,
+        icon: "60414"
+      },
+      {
+        x: 890,
+        y: 607,
+        placeNameId: 313,
+        icon: "60448"
+      },
+      {
+        x: 1119,
+        y: 481,
+        placeNameId: 315,
+        icon: "60442"
+      },
+      {
+        x: 1061,
+        y: 881,
+        placeNameId: 316,
+        icon: "60442"
+      },
+      {
+        x: 844,
+        y: 1186,
+        placeNameId: 318,
+        icon: "60442"
+      },
+      {
+        x: 1194,
+        y: 1260,
+        placeNameId: 319,
+        icon: "60442"
+      },
+      {
+        x: 1486,
+        y: 926,
+        placeNameId: 320,
+        icon: "60449"
+      },
+      {
+        x: 558,
+        y: 1088,
+        placeNameId: 321,
+        icon: "60442"
+      },
+      {
+        x: 689,
+        y: 1285,
+        placeNameId: 322,
+        icon: "60442"
+      },
+      {
+        x: 725,
+        y: 1416,
+        placeNameId: 323,
+        icon: "60448"
+      },
+      {
+        x: 922,
+        y: 1750,
+        placeNameId: 324,
+        icon: "60442"
+      },
+      {
+        x: 593,
+        y: 594,
+        placeNameId: 43,
+        icon: "60441"
+      },
+      {
+        x: 995,
+        y: 258,
+        placeNameId: 44,
+        icon: "60441"
+      },
+      {
+        x: 865,
+        y: 607,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 844,
+        y: 614,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 839,
+        y: 597,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 868,
+        y: 587,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 697,
+        y: 1430,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 716,
+        y: 1444,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 711,
+        y: 1452,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 748,
+        y: 1453,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 749,
+        y: 1402,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 671,
+        y: 1282,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 554,
+        y: 1115,
+        placeNameId: 470,
+        icon: "60442"
+      },
+      {
+        x: 700,
+        y: 1262,
+        placeNameId: 471,
+        icon: "60442"
+      },
+      {
+        x: 1118,
+        y: 647,
+        placeNameId: 482,
+        icon: "60442"
+      },
+      {
+        x: 1112,
+        y: 655,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1121,
+        y: 640,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 554,
+        y: 1110,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 740,
+        y: 1262,
+        placeNameId: 0,
+        icon: "60467"
+      }
+    ],
     elite: {
       S: {
         id: 2960,
@@ -11132,6 +4241,140 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 147,
+    placeNameId: 46,
+    weatherRateId: 13,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -39,
+    markers: [
+      {
+        x: 1043,
+        y: 1440,
+        placeNameId: 325,
+        icon: "60448"
+      },
+      {
+        x: 1071,
+        y: 1241,
+        placeNameId: 326,
+        icon: "60442"
+      },
+      {
+        x: 932,
+        y: 1264,
+        placeNameId: 327,
+        icon: "60442"
+      },
+      {
+        x: 1269,
+        y: 1086,
+        placeNameId: 328,
+        icon: "60442"
+      },
+      {
+        x: 1215,
+        y: 968,
+        placeNameId: 329,
+        icon: "60442"
+      },
+      {
+        x: 1157,
+        y: 1036,
+        placeNameId: 329,
+        icon: "60442"
+      },
+      {
+        x: 967,
+        y: 824,
+        placeNameId: 329,
+        icon: "60442"
+      },
+      {
+        x: 972,
+        y: 1042,
+        placeNameId: 331,
+        icon: "60448"
+      },
+      {
+        x: 723,
+        y: 666,
+        placeNameId: 332,
+        icon: "60442"
+      },
+      {
+        x: 728,
+        y: 798,
+        placeNameId: 333,
+        icon: "60414"
+      },
+      {
+        x: 1058,
+        y: 1541,
+        placeNameId: 43,
+        icon: "60441"
+      },
+      {
+        x: 1045,
+        y: 1478,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1080,
+        y: 1470,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 997,
+        y: 993,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 984,
+        y: 966,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 994,
+        y: 1499,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1021,
+        y: 1057,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 930,
+        y: 616,
+        placeNameId: 67,
+        icon: "60441"
+      },
+      {
+        x: 1084,
+        y: 1458,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 975,
+        y: 980,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 911,
+        y: 1054,
+        placeNameId: 430,
+        icon: "60414"
+      }
+    ],
     elite: {
       S: {
         id: 2961,
@@ -11273,6 +4516,230 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 148,
+    placeNameId: 54,
+    weatherRateId: 3,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -40,
+    markers: [
+      {
+        x: 1151,
+        y: 725,
+        placeNameId: 52,
+        icon: "60441"
+      },
+      {
+        x: 1440,
+        y: 791,
+        placeNameId: 55,
+        icon: "60441"
+      },
+      {
+        x: 1185,
+        y: 1575,
+        placeNameId: 56,
+        icon: "60441"
+      },
+      {
+        x: 521,
+        y: 661,
+        placeNameId: 57,
+        icon: "60441"
+      },
+      {
+        x: 1151,
+        y: 745,
+        placeNameId: 87,
+        icon: "60442"
+      },
+      {
+        x: 721,
+        y: 752,
+        placeNameId: 88,
+        icon: "60442"
+      },
+      {
+        x: 1244,
+        y: 926,
+        placeNameId: 89,
+        icon: "60442"
+      },
+      {
+        x: 1107,
+        y: 921,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1112,
+        y: 941,
+        placeNameId: 90,
+        icon: "60448"
+      },
+      {
+        x: 1305,
+        y: 991,
+        placeNameId: 91,
+        icon: "60442"
+      },
+      {
+        x: 1481,
+        y: 961,
+        placeNameId: 92,
+        icon: "60442"
+      },
+      {
+        x: 1340,
+        y: 1160,
+        placeNameId: 93,
+        icon: "60442"
+      },
+      {
+        x: 1037,
+        y: 1059,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1062,
+        y: 1248,
+        placeNameId: 95,
+        icon: "60442"
+      },
+      {
+        x: 860,
+        y: 949,
+        placeNameId: 96,
+        icon: "60442"
+      },
+      {
+        x: 904,
+        y: 1372,
+        placeNameId: 97,
+        icon: "60414"
+      },
+      {
+        x: 1207,
+        y: 1350,
+        placeNameId: 98,
+        icon: "60442"
+      },
+      {
+        x: 1392,
+        y: 1455,
+        placeNameId: 99,
+        icon: "60442"
+      },
+      {
+        x: 959,
+        y: 1494,
+        placeNameId: 100,
+        icon: "60442"
+      },
+      {
+        x: 701,
+        y: 1212,
+        placeNameId: 419,
+        icon: "60442"
+      },
+      {
+        x: 432,
+        y: 1092,
+        placeNameId: 102,
+        icon: "60414"
+      },
+      {
+        x: 805,
+        y: 1059,
+        placeNameId: 103,
+        icon: "60442"
+      },
+      {
+        x: 623,
+        y: 1036,
+        placeNameId: 104,
+        icon: "60442"
+      },
+      {
+        x: 511,
+        y: 958,
+        placeNameId: 105,
+        icon: "60442"
+      },
+      {
+        x: 469,
+        y: 815,
+        placeNameId: 106,
+        icon: "60442"
+      },
+      {
+        x: 1007,
+        y: 1049,
+        placeNameId: 94,
+        icon: "60448"
+      },
+      {
+        x: 1040,
+        y: 1006,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1020,
+        y: 1075,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1200,
+        y: 1340,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1045,
+        y: 1107,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1346,
+        y: 717,
+        placeNameId: 348,
+        icon: "60442"
+      },
+      {
+        x: 800,
+        y: 904,
+        placeNameId: 439,
+        icon: "60442"
+      },
+      {
+        x: 725,
+        y: 738,
+        placeNameId: 473,
+        icon: "60442"
+      },
+      {
+        x: 1242,
+        y: 1349,
+        placeNameId: 475,
+        icon: "60456"
+      },
+      {
+        x: 971,
+        y: 1090,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 713,
+        y: 740,
+        placeNameId: 0,
+        icon: "60467"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -11460,6 +4927,176 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 152,
+    placeNameId: 55,
+    weatherRateId: 4,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -36,
+    markers: [
+      {
+        x: 511,
+        y: 1314,
+        placeNameId: 54,
+        icon: "60441"
+      },
+      {
+        x: 862,
+        y: 1474,
+        placeNameId: 56,
+        icon: "60441"
+      },
+      {
+        x: 446,
+        y: 1094,
+        placeNameId: 155,
+        icon: "60456"
+      },
+      {
+        x: 812,
+        y: 1267,
+        placeNameId: 158,
+        icon: "60442"
+      },
+      {
+        x: 778,
+        y: 1330,
+        placeNameId: 107,
+        icon: "60448"
+      },
+      {
+        x: 745,
+        y: 1392,
+        placeNameId: 108,
+        icon: "60442"
+      },
+      {
+        x: 1049,
+        y: 1418,
+        placeNameId: 110,
+        icon: "60442"
+      },
+      {
+        x: 1053,
+        y: 1251,
+        placeNameId: 113,
+        icon: "60442"
+      },
+      {
+        x: 1076,
+        y: 1545,
+        placeNameId: 111,
+        icon: "60442"
+      },
+      {
+        x: 830,
+        y: 791,
+        placeNameId: 112,
+        icon: "60442"
+      },
+      {
+        x: 1247,
+        y: 934,
+        placeNameId: 77,
+        icon: "60555"
+      },
+      {
+        x: 1409,
+        y: 575,
+        placeNameId: 114,
+        icon: "60442"
+      },
+      {
+        x: 991,
+        y: 481,
+        placeNameId: 115,
+        icon: "60442"
+      },
+      {
+        x: 1562,
+        y: 688,
+        placeNameId: 116,
+        icon: "60442"
+      },
+      {
+        x: 1187,
+        y: 467,
+        placeNameId: 117,
+        icon: "60442"
+      },
+      {
+        x: 802,
+        y: 1323,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 808,
+        y: 1326,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1040,
+        y: 1248,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 535,
+        y: 1200,
+        placeNameId: 159,
+        icon: "60442"
+      },
+      {
+        x: 838,
+        y: 1322,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 448,
+        y: 1125,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 827,
+        y: 1301,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 545,
+        y: 1226,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1069,
+        y: 1268,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1070,
+        y: 1516,
+        placeNameId: 1857,
+        icon: "60414"
+      },
+      {
+        x: 1051,
+        y: 1425,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1057,
+        y: 1425,
+        placeNameId: 2406,
+        icon: "60441"
+      }
+    ],
     elite: {
       S: {
         id: 2954,
@@ -11730,6 +5367,212 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 153,
+    placeNameId: 56,
+    weatherRateId: 5,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -4,
+    markers: [
+      {
+        x: 656,
+        y: 780,
+        placeNameId: 54,
+        icon: "60441"
+      },
+      {
+        x: 1300,
+        y: 764,
+        placeNameId: 55,
+        icon: "60441"
+      },
+      {
+        x: 732,
+        y: 826,
+        placeNameId: 118,
+        icon: "60442"
+      },
+      {
+        x: 842,
+        y: 975,
+        placeNameId: 119,
+        icon: "60448"
+      },
+      {
+        x: 932,
+        y: 854,
+        placeNameId: 120,
+        icon: "60414"
+      },
+      {
+        x: 796,
+        y: 1056,
+        placeNameId: 121,
+        icon: "60442"
+      },
+      {
+        x: 718,
+        y: 1110,
+        placeNameId: 122,
+        icon: "60442"
+      },
+      {
+        x: 793,
+        y: 1380,
+        placeNameId: 123,
+        icon: "60453"
+      },
+      {
+        x: 660,
+        y: 1480,
+        placeNameId: 125,
+        icon: "60414"
+      },
+      {
+        x: 688,
+        y: 1642,
+        placeNameId: 127,
+        icon: "60442"
+      },
+      {
+        x: 1204,
+        y: 1192,
+        placeNameId: 128,
+        icon: "60414"
+      },
+      {
+        x: 1203,
+        y: 953,
+        placeNameId: 129,
+        icon: "60453"
+      },
+      {
+        x: 1082,
+        y: 826,
+        placeNameId: 130,
+        icon: "60442"
+      },
+      {
+        x: 1345,
+        y: 1000,
+        placeNameId: 131,
+        icon: "60442"
+      },
+      {
+        x: 1462,
+        y: 964,
+        placeNameId: 132,
+        icon: "60442"
+      },
+      {
+        x: 1644,
+        y: 1102,
+        placeNameId: 133,
+        icon: "60442"
+      },
+      {
+        x: 860,
+        y: 944,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 849,
+        y: 940,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1290,
+        y: 815,
+        placeNameId: 589,
+        icon: "60442"
+      },
+      {
+        x: 1218,
+        y: 971,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 824,
+        y: 1398,
+        placeNameId: 0,
+        icon: "60448"
+      },
+      {
+        x: 1232,
+        y: 988,
+        placeNameId: 0,
+        icon: "60448"
+      },
+      {
+        x: 1186,
+        y: 964,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 820,
+        y: 965,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1195,
+        y: 977,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 818,
+        y: 1365,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1233,
+        y: 955,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1225,
+        y: 960,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 810,
+        y: 1395,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 803,
+        y: 1391,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 757,
+        y: 1703,
+        placeNameId: 44,
+        icon: "60441"
+      },
+      {
+        x: 1206,
+        y: 988,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1205,
+        y: 983,
+        placeNameId: 0,
+        icon: "60935"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -11952,6 +5795,200 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 154,
+    placeNameId: 57,
+    weatherRateId: 6,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -82,
+    markers: [
+      {
+        x: 1472,
+        y: 1226,
+        placeNameId: 135,
+        icon: "60442"
+      },
+      {
+        x: 1340,
+        y: 1388,
+        placeNameId: 136,
+        icon: "60448"
+      },
+      {
+        x: 1376,
+        y: 1241,
+        placeNameId: 137,
+        icon: "60442"
+      },
+      {
+        x: 1424,
+        y: 1103,
+        placeNameId: 138,
+        icon: "60442"
+      },
+      {
+        x: 1376,
+        y: 934,
+        placeNameId: 139,
+        icon: "60448"
+      },
+      {
+        x: 980,
+        y: 1252,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1000,
+        y: 1202,
+        placeNameId: 141,
+        icon: "60442"
+      },
+      {
+        x: 716,
+        y: 1217,
+        placeNameId: 142,
+        icon: "60442"
+      },
+      {
+        x: 771,
+        y: 1411,
+        placeNameId: 143,
+        icon: "60442"
+      },
+      {
+        x: 1123,
+        y: 1189,
+        placeNameId: 144,
+        icon: "60442"
+      },
+      {
+        x: 991,
+        y: 970,
+        placeNameId: 145,
+        icon: "60442"
+      },
+      {
+        x: 1087,
+        y: 1156,
+        placeNameId: 146,
+        icon: "60442"
+      },
+      {
+        x: 1031,
+        y: 1543,
+        placeNameId: 54,
+        icon: "60441"
+      },
+      {
+        x: 1480,
+        y: 1220,
+        placeNameId: 53,
+        icon: "60441"
+      },
+      {
+        x: 1385,
+        y: 957,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1446,
+        y: 907,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1447,
+        y: 903,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1443,
+        y: 899,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1240,
+        y: 1360,
+        placeNameId: 160,
+        icon: "60442"
+      },
+      {
+        x: 1000,
+        y: 1292,
+        placeNameId: 140,
+        icon: "60448"
+      },
+      {
+        x: 1356,
+        y: 1358,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1344,
+        y: 950,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1024,
+        y: 1262,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1033,
+        y: 1243,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1035,
+        y: 1248,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 986,
+        y: 1269,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 628,
+        y: 1182,
+        placeNameId: 63,
+        icon: "60441"
+      },
+      {
+        x: 1469,
+        y: 957,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1196,
+        y: 1085,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1198,
+        y: 1089,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1184,
+        y: 1104,
+        placeNameId: 1385,
+        icon: "60442"
+      }
+    ],
     elite: {
       S: {
         id: 2956,
@@ -12117,6 +6154,242 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 155,
+    placeNameId: 63,
+    weatherRateId: 21,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 133,
+    markers: [
+      {
+        x: 1237,
+        y: 1383,
+        placeNameId: 385,
+        icon: "60448"
+      },
+      {
+        x: 1499,
+        y: 1505,
+        placeNameId: 386,
+        icon: "60442"
+      },
+      {
+        x: 1259,
+        y: 1144,
+        placeNameId: 387,
+        icon: "60442"
+      },
+      {
+        x: 1255,
+        y: 825,
+        placeNameId: 388,
+        icon: "60448"
+      },
+      {
+        x: 1319,
+        y: 685,
+        placeNameId: 389,
+        icon: "60442"
+      },
+      {
+        x: 1294,
+        y: 451,
+        placeNameId: 390,
+        icon: "60442"
+      },
+      {
+        x: 1570,
+        y: 579,
+        placeNameId: 391,
+        icon: "60442"
+      },
+      {
+        x: 1533,
+        y: 323,
+        placeNameId: 392,
+        icon: "60442"
+      },
+      {
+        x: 1682,
+        y: 997,
+        placeNameId: 393,
+        icon: "60450"
+      },
+      {
+        x: 685,
+        y: 1703,
+        placeNameId: 394,
+        icon: "60414"
+      },
+      {
+        x: 791,
+        y: 1718,
+        placeNameId: 395,
+        icon: "60442"
+      },
+      {
+        x: 332,
+        y: 1394,
+        placeNameId: 396,
+        icon: "60442"
+      },
+      {
+        x: 323,
+        y: 1531,
+        placeNameId: 397,
+        icon: "60442"
+      },
+      {
+        x: 615,
+        y: 1105,
+        placeNameId: 398,
+        icon: "60442"
+      },
+      {
+        x: 963,
+        y: 1372,
+        placeNameId: 399,
+        icon: "60414"
+      },
+      {
+        x: 927,
+        y: 766,
+        placeNameId: 400,
+        icon: "60442"
+      },
+      {
+        x: 342,
+        y: 507,
+        placeNameId: 401,
+        icon: "60414"
+      },
+      {
+        x: 587,
+        y: 773,
+        placeNameId: 402,
+        icon: "60448"
+      },
+      {
+        x: 170,
+        y: 721,
+        placeNameId: 403,
+        icon: "60442"
+      },
+      {
+        x: 104,
+        y: 1012,
+        placeNameId: 404,
+        icon: "60414"
+      },
+      {
+        x: 1247,
+        y: 789,
+        placeNameId: 0,
+        icon: "60453"
+      },
+      {
+        x: 1034,
+        y: 1606,
+        placeNameId: 57,
+        icon: "60441"
+      },
+      {
+        x: 800,
+        y: 1732,
+        placeNameId: 67,
+        icon: "60441"
+      },
+      {
+        x: 1267,
+        y: 770,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1260,
+        y: 1345,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 612,
+        y: 749,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1273,
+        y: 760,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1238,
+        y: 1360,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 599,
+        y: 754,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1222,
+        y: 855,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1255,
+        y: 1339,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 550,
+        y: 803,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1275,
+        y: 795,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 858,
+        y: 697,
+        placeNameId: 2300,
+        icon: "60441"
+      },
+      {
+        x: 862,
+        y: 689,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1289,
+        y: 800,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1289,
+        y: 790,
+        placeNameId: 1429,
+        icon: "60442"
+      },
+      {
+        x: 1630,
+        y: 721,
+        placeNameId: 1792,
+        icon: "60414"
+      }
+    ],
     elite: {
       S: {
         id: 2968,
@@ -12562,6 +6835,242 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 156,
+    placeNameId: 67,
+    weatherRateId: 22,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -30,
+    markers: [
+      {
+        x: 1064,
+        y: 356,
+        placeNameId: 411,
+        icon: "60453"
+      },
+      {
+        x: 866,
+        y: 386,
+        placeNameId: 412,
+        icon: "60442"
+      },
+      {
+        x: 639,
+        y: 601,
+        placeNameId: 413,
+        icon: "60442"
+      },
+      {
+        x: 871,
+        y: 831,
+        placeNameId: 414,
+        icon: "60442"
+      },
+      {
+        x: 516,
+        y: 601,
+        placeNameId: 415,
+        icon: "60442"
+      },
+      {
+        x: 1457,
+        y: 590,
+        placeNameId: 416,
+        icon: "60448"
+      },
+      {
+        x: 1364,
+        y: 655,
+        placeNameId: 418,
+        icon: "60414"
+      },
+      {
+        x: 1143,
+        y: 264,
+        placeNameId: 63,
+        icon: "60441"
+      },
+      {
+        x: 611,
+        y: 924,
+        placeNameId: 46,
+        icon: "60441"
+      },
+      {
+        x: 1454,
+        y: 570,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1041,
+        y: 296,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1074,
+        y: 376,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1084,
+        y: 365,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1453,
+        y: 561,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1087,
+        y: 284,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1091,
+        y: 284,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1048,
+        y: 384,
+        placeNameId: 943,
+        icon: "60442"
+      },
+      {
+        x: 1597,
+        y: 765,
+        placeNameId: 941,
+        icon: "60442"
+      },
+      {
+        x: 1042,
+        y: 296,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1752,
+        y: 966,
+        placeNameId: 420,
+        icon: "60428"
+      },
+      {
+        x: 1036,
+        y: 289,
+        placeNameId: 0,
+        icon: "60425"
+      },
+      {
+        x: 1059,
+        y: 262,
+        placeNameId: 0,
+        icon: "60425"
+      },
+      {
+        x: 1061,
+        y: 289,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1050,
+        y: 296,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1065,
+        y: 227,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1052,
+        y: 248,
+        placeNameId: 1392,
+        icon: "60442"
+      },
+      {
+        x: 1063,
+        y: 229,
+        placeNameId: 1393,
+        icon: "60442"
+      },
+      {
+        x: 1042,
+        y: 369,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 1056,
+        y: 194,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1071,
+        y: 287,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1075,
+        y: 287,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1045,
+        y: 393,
+        placeNameId: 481,
+        icon: "60442"
+      },
+      {
+        x: 1082,
+        y: 244,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1019,
+        y: 225,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1375,
+        y: 653,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1083,
+        y: 284,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1066,
+        y: 286,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1060,
+        y: 194,
+        placeNameId: 0,
+        icon: "60412"
+      }
+    ],
     elite: {
       S: {
         id: 2969,
@@ -12822,6 +7331,92 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 180,
+    placeNameId: 350,
+    weatherRateId: 24,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -10,
+    markers: [
+      {
+        x: 727,
+        y: 445,
+        placeNameId: 235,
+        icon: "60442"
+      },
+      {
+        x: 710,
+        y: 761,
+        placeNameId: 236,
+        icon: "60442"
+      },
+      {
+        x: 907,
+        y: 811,
+        placeNameId: 237,
+        icon: "60453"
+      },
+      {
+        x: 1097,
+        y: 481,
+        placeNameId: 238,
+        icon: "60451"
+      },
+      {
+        x: 1220,
+        y: 778,
+        placeNameId: 242,
+        icon: "60442"
+      },
+      {
+        x: 698,
+        y: 940,
+        placeNameId: 34,
+        icon: "60441"
+      },
+      {
+        x: 1277,
+        y: 775,
+        placeNameId: 34,
+        icon: "60441"
+      },
+      {
+        x: 887,
+        y: 811,
+        placeNameId: 0,
+        icon: "60448"
+      },
+      {
+        x: 923,
+        y: 822,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 917,
+        y: 833,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1034,
+        y: 854,
+        placeNameId: 944,
+        icon: "60442"
+      },
+      {
+        x: 1032,
+        y: 842,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1043,
+        y: 834,
+        placeNameId: 0,
+        icon: "60434"
+      }
+    ],
     elite: {
       S: {
         id: 2967,
@@ -13005,6 +7600,194 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 397,
+    placeNameId: 2200,
+    weatherRateId: 49,
+    sizeFactor: 95,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 54,
+    markers: [
+      {
+        x: 1483,
+        y: 1738,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1503,
+        y: 1707,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1504,
+        y: 1704,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1464,
+        y: 1728,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 771,
+        y: 1039,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 741,
+        y: 1026,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 222,
+        y: 404,
+        placeNameId: 2000,
+        icon: "60441"
+      },
+      {
+        x: 874,
+        y: 1716,
+        placeNameId: 2001,
+        icon: "60441"
+      },
+      {
+        x: 1466,
+        y: 1874,
+        placeNameId: 2300,
+        icon: "60441"
+      },
+      {
+        x: 1458,
+        y: 158,
+        placeNameId: 2100,
+        icon: "60441"
+      },
+      {
+        x: 1450,
+        y: 302,
+        placeNameId: 2224,
+        icon: "60442"
+      },
+      {
+        x: 1690,
+        y: 418,
+        placeNameId: 2225,
+        icon: "60442"
+      },
+      {
+        x: 1450,
+        y: 494,
+        placeNameId: 2207,
+        icon: "60442"
+      },
+      {
+        x: 1682,
+        y: 812,
+        placeNameId: 2208,
+        icon: "60442"
+      },
+      {
+        x: 1370,
+        y: 1054,
+        placeNameId: 2221,
+        icon: "60442"
+      },
+      {
+        x: 1754,
+        y: 1256,
+        placeNameId: 2222,
+        icon: "60442"
+      },
+      {
+        x: 1598,
+        y: 1202,
+        placeNameId: 2218,
+        icon: "60442"
+      },
+      {
+        x: 1618,
+        y: 1234,
+        placeNameId: 2217,
+        icon: "60442"
+      },
+      {
+        x: 1510,
+        y: 1296,
+        placeNameId: 2215,
+        icon: "60442"
+      },
+      {
+        x: 1212,
+        y: 1294,
+        placeNameId: 2216,
+        icon: "60442"
+      },
+      {
+        x: 1474,
+        y: 1697,
+        placeNameId: 2204,
+        icon: "60453"
+      },
+      {
+        x: 1130,
+        y: 1124,
+        placeNameId: 2209,
+        icon: "60442"
+      },
+      {
+        x: 926,
+        y: 1074,
+        placeNameId: 2228,
+        icon: "60442"
+      },
+      {
+        x: 918,
+        y: 1494,
+        placeNameId: 2213,
+        icon: "60442"
+      },
+      {
+        x: 766,
+        y: 1012,
+        placeNameId: 2220,
+        icon: "60448"
+      },
+      {
+        x: 456,
+        y: 816,
+        placeNameId: 2212,
+        icon: "60442"
+      },
+      {
+        x: 372,
+        y: 424,
+        placeNameId: 2227,
+        icon: "60442"
+      },
+      {
+        x: 534,
+        y: 260,
+        placeNameId: 2219,
+        icon: "60442"
+      },
+      {
+        x: 940,
+        y: 266,
+        placeNameId: 2214,
+        icon: "60414"
+      },
+      {
+        x: 1458,
+        y: 188,
+        placeNameId: 2237,
+        icon: "60442"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -13204,6 +7987,176 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 398,
+    placeNameId: 2000,
+    weatherRateId: 50,
+    sizeFactor: 95,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -157,
+    markers: [
+      {
+        x: 1546,
+        y: 1090,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1476,
+        y: 1068,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1479,
+        y: 1047,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1514,
+        y: 1076,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1499,
+        y: 1062,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 1105,
+        y: 876,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1087,
+        y: 873,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 825,
+        y: 1179,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 1856,
+        y: 1356,
+        placeNameId: 2200,
+        icon: "60441"
+      },
+      {
+        x: 254,
+        y: 1574,
+        placeNameId: 2001,
+        icon: "60441"
+      },
+      {
+        x: 366,
+        y: 226,
+        placeNameId: 2002,
+        icon: "60441"
+      },
+      {
+        x: 1276,
+        y: 1770,
+        placeNameId: 2005,
+        icon: "60601"
+      },
+      {
+        x: 1450,
+        y: 222,
+        placeNameId: 2029,
+        icon: "60442"
+      },
+      {
+        x: 1530,
+        y: 1052,
+        placeNameId: 2018,
+        icon: "60453"
+      },
+      {
+        x: 1188,
+        y: 1008,
+        placeNameId: 2022,
+        icon: "60442"
+      },
+      {
+        x: 1476,
+        y: 1826,
+        placeNameId: 2023,
+        icon: "60442"
+      },
+      {
+        x: 1274,
+        y: 1896,
+        placeNameId: 2024,
+        icon: "60442"
+      },
+      {
+        x: 1088,
+        y: 880,
+        placeNameId: 2021,
+        icon: "60442"
+      },
+      {
+        x: 1046,
+        y: 748,
+        placeNameId: 2055,
+        icon: "60442"
+      },
+      {
+        x: 898,
+        y: 438,
+        placeNameId: 2064,
+        icon: "60442"
+      },
+      {
+        x: 824,
+        y: 518,
+        placeNameId: 2028,
+        icon: "60442"
+      },
+      {
+        x: 350,
+        y: 224,
+        placeNameId: 2030,
+        icon: "60442"
+      },
+      {
+        x: 364,
+        y: 260,
+        placeNameId: 2007,
+        icon: "60414"
+      },
+      {
+        x: 734,
+        y: 1056,
+        placeNameId: 2025,
+        icon: "60453"
+      },
+      {
+        x: 522,
+        y: 1804,
+        placeNameId: 2061,
+        icon: "60442"
+      },
+      {
+        x: 365,
+        y: 222,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1072,
+        y: 862,
+        placeNameId: 0,
+        icon: "60935"
+      }
+    ],
     elite: {
       S: {
         id: 4375,
@@ -13377,6 +8330,110 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 399,
+    placeNameId: 2001,
+    weatherRateId: 51,
+    sizeFactor: 95,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 38,
+    markers: [
+      {
+        x: 976,
+        y: 831,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 979,
+        y: 839,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 508,
+        y: 528,
+        placeNameId: 2082,
+        icon: "60441"
+      },
+      {
+        x: 804,
+        y: 418,
+        placeNameId: 2082,
+        icon: "60441"
+      },
+      {
+        x: 1888,
+        y: 1206,
+        placeNameId: 2000,
+        icon: "60441"
+      },
+      {
+        x: 1754,
+        y: 1512,
+        placeNameId: 2200,
+        icon: "60441"
+      },
+      {
+        x: 1462,
+        y: 1030,
+        placeNameId: 2032,
+        icon: "60442"
+      },
+      {
+        x: 1412,
+        y: 1358,
+        placeNameId: 2065,
+        icon: "60442"
+      },
+      {
+        x: 1410,
+        y: 1760,
+        placeNameId: 2038,
+        icon: "60414"
+      },
+      {
+        x: 988,
+        y: 836,
+        placeNameId: 2067,
+        icon: "60448"
+      },
+      {
+        x: 1056,
+        y: 1752,
+        placeNameId: 2037,
+        icon: "60442"
+      },
+      {
+        x: 433,
+        y: 1079,
+        placeNameId: 2034,
+        icon: "60414"
+      },
+      {
+        x: 278,
+        y: 1550,
+        placeNameId: 2070,
+        icon: "60442"
+      },
+      {
+        x: 558,
+        y: 1726,
+        placeNameId: 2036,
+        icon: "60442"
+      },
+      {
+        x: 1658,
+        y: 696,
+        placeNameId: 2089,
+        icon: "60442"
+      },
+      {
+        x: 1389,
+        y: 816,
+        placeNameId: 3590,
+        icon: "60414"
+      }
+    ],
     elite: {
       S: {
         id: 4376,
@@ -13561,6 +8618,158 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 400,
+    placeNameId: 2002,
+    weatherRateId: 52,
+    sizeFactor: 95,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -81,
+    markers: [
+      {
+        x: 1276,
+        y: 1561,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 1302,
+        y: 1577,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1302,
+        y: 1571,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 976,
+        y: 1163,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 933,
+        y: 1204,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 529,
+        y: 1368,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 1212,
+        y: 1692,
+        placeNameId: 2000,
+        icon: "60441"
+      },
+      {
+        x: 711,
+        y: 1307,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 272,
+        y: 372,
+        placeNameId: 2079,
+        icon: "60442"
+      },
+      {
+        x: 814,
+        y: 386,
+        placeNameId: 2048,
+        icon: "60442"
+      },
+      {
+        x: 1308,
+        y: 442,
+        placeNameId: 2049,
+        icon: "60442"
+      },
+      {
+        x: 312,
+        y: 858,
+        placeNameId: 2078,
+        icon: "60442"
+      },
+      {
+        x: 922,
+        y: 772,
+        placeNameId: 2047,
+        icon: "60442"
+      },
+      {
+        x: 1554,
+        y: 682,
+        placeNameId: 2044,
+        icon: "60442"
+      },
+      {
+        x: 1586,
+        y: 988,
+        placeNameId: 2043,
+        icon: "60442"
+      },
+      {
+        x: 466,
+        y: 1322,
+        placeNameId: 2046,
+        icon: "60453"
+      },
+      {
+        x: 946,
+        y: 1218,
+        placeNameId: 2045,
+        icon: "60448"
+      },
+      {
+        x: 326,
+        y: 1696,
+        placeNameId: 2051,
+        icon: "60442"
+      },
+      {
+        x: 762,
+        y: 1744,
+        placeNameId: 2080,
+        icon: "60442"
+      },
+      {
+        x: 1278,
+        y: 1580,
+        placeNameId: 2042,
+        icon: "60453"
+      },
+      {
+        x: 323,
+        y: 1273,
+        placeNameId: 2090,
+        icon: "60414"
+      },
+      {
+        x: 653,
+        y: 1297,
+        placeNameId: 2095,
+        icon: "60442"
+      },
+      {
+        x: 706,
+        y: 1306,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1194,
+        y: 1696,
+        placeNameId: 1888,
+        icon: "60414"
+      }
+    ],
     elite: {
       S: {
         id: 4377,
@@ -13745,6 +8954,248 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 401,
+    placeNameId: 2100,
+    weatherRateId: 53,
+    sizeFactor: 95,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -241,
+    markers: [
+      {
+        x: 425,
+        y: 1484,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 406,
+        y: 1520,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 406,
+        y: 1526,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 450,
+        y: 1529,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 422,
+        y: 1522,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 434,
+        y: 721,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 491,
+        y: 609,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 491,
+        y: 629,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 287,
+        y: 630,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 180,
+        y: 178,
+        placeNameId: 2200,
+        icon: "60441"
+      },
+      {
+        x: 126,
+        y: 746,
+        placeNameId: 2301,
+        icon: "60441"
+      },
+      {
+        x: 255,
+        y: 1180,
+        placeNameId: 2301,
+        icon: "60441"
+      },
+      {
+        x: 325,
+        y: 1462,
+        placeNameId: 2301,
+        icon: "60441"
+      },
+      {
+        x: 420,
+        y: 1840,
+        placeNameId: 2301,
+        icon: "60441"
+      },
+      {
+        x: 1858,
+        y: 324,
+        placeNameId: 2130,
+        icon: "60414"
+      },
+      {
+        x: 810,
+        y: 1050,
+        placeNameId: 2108,
+        icon: "60600"
+      },
+      {
+        x: 1286,
+        y: 892,
+        placeNameId: 2107,
+        icon: "60600"
+      },
+      {
+        x: 1750,
+        y: 1100,
+        placeNameId: 2104,
+        icon: "60600"
+      },
+      {
+        x: 314,
+        y: 344,
+        placeNameId: 2128,
+        icon: "60442"
+      },
+      {
+        x: 694,
+        y: 308,
+        placeNameId: 2129,
+        icon: "60442"
+      },
+      {
+        x: 1360,
+        y: 288,
+        placeNameId: 2159,
+        icon: "60442"
+      },
+      {
+        x: 494,
+        y: 428,
+        placeNameId: 2156,
+        icon: "60442"
+      },
+      {
+        x: 450,
+        y: 626,
+        placeNameId: 2123,
+        icon: "60453"
+      },
+      {
+        x: 798,
+        y: 786,
+        placeNameId: 2126,
+        icon: "60442"
+      },
+      {
+        x: 1722,
+        y: 644,
+        placeNameId: 2127,
+        icon: "60442"
+      },
+      {
+        x: 1660,
+        y: 888,
+        placeNameId: 2121,
+        icon: "60442"
+      },
+      {
+        x: 456,
+        y: 1174,
+        placeNameId: 2160,
+        icon: "60442"
+      },
+      {
+        x: 880,
+        y: 1148,
+        placeNameId: 2125,
+        icon: "60442"
+      },
+      {
+        x: 1366,
+        y: 1268,
+        placeNameId: 2122,
+        icon: "60442"
+      },
+      {
+        x: 314,
+        y: 1502,
+        placeNameId: 2115,
+        icon: "60442"
+      },
+      {
+        x: 442,
+        y: 1548,
+        placeNameId: 2116,
+        icon: "60453"
+      },
+      {
+        x: 732,
+        y: 1726,
+        placeNameId: 2117,
+        icon: "60442"
+      },
+      {
+        x: 1136,
+        y: 1494,
+        placeNameId: 2118,
+        icon: "60442"
+      },
+      {
+        x: 1296,
+        y: 1726,
+        placeNameId: 2154,
+        icon: "60442"
+      },
+      {
+        x: 1454,
+        y: 1834,
+        placeNameId: 2120,
+        icon: "60442"
+      },
+      {
+        x: 1692,
+        y: 1768,
+        placeNameId: 2119,
+        icon: "60442"
+      },
+      {
+        x: 268,
+        y: 636,
+        placeNameId: 2240,
+        icon: "60442"
+      },
+      {
+        x: 1166,
+        y: 200,
+        placeNameId: 2181,
+        icon: "60428"
+      },
+      {
+        x: 249,
+        y: 231,
+        placeNameId: 1803,
+        icon: "60442"
+      }
+    ],
     elite: {
       S: {
         id: 4378,
@@ -13957,6 +9408,230 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 402,
+    placeNameId: 2101,
+    weatherRateId: 54,
+    sizeFactor: 95,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -601,
+    markers: [
+      {
+        x: 425,
+        y: 502,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 418,
+        y: 498,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 193,
+        y: 390,
+        placeNameId: 2301,
+        icon: "60441"
+      },
+      {
+        x: 338,
+        y: 454,
+        placeNameId: 2131,
+        icon: "60453"
+      },
+      {
+        x: 818,
+        y: 466,
+        placeNameId: 2162,
+        icon: "60442"
+      },
+      {
+        x: 886,
+        y: 548,
+        placeNameId: 2134,
+        icon: "60442"
+      },
+      {
+        x: 454,
+        y: 656,
+        placeNameId: 2161,
+        icon: "60442"
+      },
+      {
+        x: 688,
+        y: 696,
+        placeNameId: 2132,
+        icon: "60442"
+      },
+      {
+        x: 878,
+        y: 726,
+        placeNameId: 2133,
+        icon: "60442"
+      },
+      {
+        x: 264,
+        y: 738,
+        placeNameId: 2177,
+        icon: "60442"
+      },
+      {
+        x: 402,
+        y: 974,
+        placeNameId: 2175,
+        icon: "60442"
+      },
+      {
+        x: 988,
+        y: 1022,
+        placeNameId: 2147,
+        icon: "60414"
+      },
+      {
+        x: 1028,
+        y: 1018,
+        placeNameId: 2174,
+        icon: "60442"
+      },
+      {
+        x: 390,
+        y: 1410,
+        placeNameId: 2145,
+        icon: "60442"
+      },
+      {
+        x: 292,
+        y: 1626,
+        placeNameId: 2173,
+        icon: "60442"
+      },
+      {
+        x: 512,
+        y: 1706,
+        placeNameId: 2172,
+        icon: "60442"
+      },
+      {
+        x: 734,
+        y: 1652,
+        placeNameId: 2146,
+        icon: "60442"
+      },
+      {
+        x: 858,
+        y: 1470,
+        placeNameId: 2144,
+        icon: "60442"
+      },
+      {
+        x: 968,
+        y: 1376,
+        placeNameId: 2176,
+        icon: "60442"
+      },
+      {
+        x: 1024,
+        y: 1816,
+        placeNameId: 2148,
+        icon: "60414"
+      },
+      {
+        x: 1138,
+        y: 1316,
+        placeNameId: 2170,
+        icon: "60442"
+      },
+      {
+        x: 1222,
+        y: 1550,
+        placeNameId: 2143,
+        icon: "60442"
+      },
+      {
+        x: 1554,
+        y: 1754,
+        placeNameId: 2142,
+        icon: "60442"
+      },
+      {
+        x: 1830,
+        y: 1832,
+        placeNameId: 2180,
+        icon: "60442"
+      },
+      {
+        x: 1884,
+        y: 1140,
+        placeNameId: 2140,
+        icon: "60442"
+      },
+      {
+        x: 1784,
+        y: 1130,
+        placeNameId: 2141,
+        icon: "60442"
+      },
+      {
+        x: 1592,
+        y: 1096,
+        placeNameId: 2139,
+        icon: "60442"
+      },
+      {
+        x: 1798,
+        y: 824,
+        placeNameId: 2113,
+        icon: "60442"
+      },
+      {
+        x: 1648,
+        y: 686,
+        placeNameId: 2166,
+        icon: "60442"
+      },
+      {
+        x: 1762,
+        y: 560,
+        placeNameId: 2138,
+        icon: "60442"
+      },
+      {
+        x: 1814,
+        y: 334,
+        placeNameId: 2136,
+        icon: "60442"
+      },
+      {
+        x: 1784,
+        y: 212,
+        placeNameId: 2136,
+        icon: "60442"
+      },
+      {
+        x: 1382,
+        y: 394,
+        placeNameId: 2137,
+        icon: "60442"
+      },
+      {
+        x: 1230,
+        y: 438,
+        placeNameId: 2135,
+        icon: "60442"
+      },
+      {
+        x: 1310,
+        y: 614,
+        placeNameId: 2164,
+        icon: "60442"
+      },
+      {
+        x: 292,
+        y: 487,
+        placeNameId: 0,
+        icon: "60412"
+      }
+    ],
     elite: {
       S: {
         id: 4380,
@@ -14130,6 +9805,218 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 612,
+    placeNameId: 2406,
+    weatherRateId: 79,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 12,
+    markers: [
+      {
+        x: 421,
+        y: 553,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 390,
+        y: 498,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 360,
+        y: 491,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 933,
+        y: 1235,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 954,
+        y: 1234,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1486,
+        y: 1254,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1481,
+        y: 1246,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1434,
+        y: 1246,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1304,
+        y: 944,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1313,
+        y: 988,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 387,
+        y: 533,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 430,
+        y: 550,
+        placeNameId: 2614,
+        icon: "60442"
+      },
+      {
+        x: 620,
+        y: 960,
+        placeNameId: 2615,
+        icon: "60442"
+      },
+      {
+        x: 290,
+        y: 842,
+        placeNameId: 2618,
+        icon: "60442"
+      },
+      {
+        x: 360,
+        y: 1260,
+        placeNameId: 2620,
+        icon: "60442"
+      },
+      {
+        x: 358,
+        y: 1398,
+        placeNameId: 2622,
+        icon: "60442"
+      },
+      {
+        x: 835,
+        y: 890,
+        placeNameId: 2623,
+        icon: "60448"
+      },
+      {
+        x: 630,
+        y: 1515,
+        placeNameId: 2624,
+        icon: "60442"
+      },
+      {
+        x: 922,
+        y: 777,
+        placeNameId: 2625,
+        icon: "60442"
+      },
+      {
+        x: 1110,
+        y: 335,
+        placeNameId: 2627,
+        icon: "60442"
+      },
+      {
+        x: 1029,
+        y: 303,
+        placeNameId: 2628,
+        icon: "60442"
+      },
+      {
+        x: 1197,
+        y: 747,
+        placeNameId: 2631,
+        icon: "60442"
+      },
+      {
+        x: 1027,
+        y: 1277,
+        placeNameId: 2632,
+        icon: "60442"
+      },
+      {
+        x: 1440,
+        y: 1270,
+        placeNameId: 2634,
+        icon: "60453"
+      },
+      {
+        x: 1342,
+        y: 955,
+        placeNameId: 2635,
+        icon: "60442"
+      },
+      {
+        x: 1711,
+        y: 1185,
+        placeNameId: 2636,
+        icon: "60442"
+      },
+      {
+        x: 1467,
+        y: 1670,
+        placeNameId: 2640,
+        icon: "60442"
+      },
+      {
+        x: 1716,
+        y: 810,
+        placeNameId: 2637,
+        icon: "60603"
+      },
+      {
+        x: 355,
+        y: 495,
+        placeNameId: 55,
+        icon: "60441"
+      },
+      {
+        x: 1507,
+        y: 473,
+        placeNameId: 2403,
+        icon: "60441"
+      },
+      {
+        x: 1875,
+        y: 1385,
+        placeNameId: 2407,
+        icon: "60441"
+      },
+      {
+        x: 395,
+        y: 515,
+        placeNameId: 2613,
+        icon: "60453"
+      },
+      {
+        x: 1001,
+        y: 1261,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1029,
+        y: 1292,
+        placeNameId: 0,
+        icon: "60434"
+      }
+    ],
     elite: {
       S: {
         id: 5987,
@@ -14300,6 +10187,308 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 613,
+    placeNameId: 2409,
+    weatherRateId: 83,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -2,
+    markers: [
+      {
+        x: 1890,
+        y: 1838,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1523,
+        y: 1780,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 248,
+        y: 522,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1068,
+        y: 461,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1117,
+        y: 412,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1132,
+        y: 406,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1149,
+        y: 428,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 1342,
+        y: 816,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1348,
+        y: 801,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1347,
+        y: 795,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1001,
+        y: 970,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 989,
+        y: 952,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1142,
+        y: 392,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1874,
+        y: 1876,
+        placeNameId: 2760,
+        icon: "60442"
+      },
+      {
+        x: 1778,
+        y: 1520,
+        placeNameId: 2761,
+        icon: "60442"
+      },
+      {
+        x: 1134,
+        y: 1764,
+        placeNameId: 2762,
+        icon: "60442"
+      },
+      {
+        x: 1502,
+        y: 1796,
+        placeNameId: 2766,
+        icon: "60442"
+      },
+      {
+        x: 1678,
+        y: 902,
+        placeNameId: 2767,
+        icon: "60442"
+      },
+      {
+        x: 1384,
+        y: 762,
+        placeNameId: 2769,
+        icon: "60453"
+      },
+      {
+        x: 1534,
+        y: 212,
+        placeNameId: 2770,
+        icon: "60442"
+      },
+      {
+        x: 1582,
+        y: 396,
+        placeNameId: 2771,
+        icon: "60442"
+      },
+      {
+        x: 982,
+        y: 908,
+        placeNameId: 2772,
+        icon: "60448"
+      },
+      {
+        x: 1084,
+        y: 230,
+        placeNameId: 2773,
+        icon: "60442"
+      },
+      {
+        x: 1112,
+        y: 440,
+        placeNameId: 2774,
+        icon: "60453"
+      },
+      {
+        x: 1062,
+        y: 350,
+        placeNameId: 2775,
+        icon: "60442"
+      },
+      {
+        x: 812,
+        y: 170,
+        placeNameId: 2776,
+        icon: "60442"
+      },
+      {
+        x: 1150,
+        y: 172,
+        placeNameId: 2777,
+        icon: "60442"
+      },
+      {
+        x: 65,
+        y: 1785,
+        placeNameId: 2779,
+        icon: "60414"
+      },
+      {
+        x: 785,
+        y: 1228,
+        placeNameId: 2780,
+        icon: "60442"
+      },
+      {
+        x: 1896,
+        y: 265,
+        placeNameId: 2781,
+        icon: "60442"
+      },
+      {
+        x: 743,
+        y: 737,
+        placeNameId: 2782,
+        icon: "60442"
+      },
+      {
+        x: 1238,
+        y: 1151,
+        placeNameId: 2783,
+        icon: "60442"
+      },
+      {
+        x: 950,
+        y: 1187,
+        placeNameId: 2784,
+        icon: "60442"
+      },
+      {
+        x: 287,
+        y: 577,
+        placeNameId: 2785,
+        icon: "60448"
+      },
+      {
+        x: 296,
+        y: 1178,
+        placeNameId: 2786,
+        icon: "60604"
+      },
+      {
+        x: 365,
+        y: 1283,
+        placeNameId: 2787,
+        icon: "60442"
+      },
+      {
+        x: 200,
+        y: 1100,
+        placeNameId: 2788,
+        icon: "60442"
+      },
+      {
+        x: 294,
+        y: 166,
+        placeNameId: 2411,
+        icon: "60441"
+      },
+      {
+        x: 166,
+        y: 774,
+        placeNameId: 2410,
+        icon: "60441"
+      },
+      {
+        x: 1918,
+        y: 1920,
+        placeNameId: 2404,
+        icon: "60441"
+      },
+      {
+        x: 1411,
+        y: 794,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1124,
+        y: 471,
+        placeNameId: 0,
+        icon: "60456"
+      },
+      {
+        x: 1569,
+        y: 1857,
+        placeNameId: 0,
+        icon: "60456"
+      },
+      {
+        x: 1309,
+        y: 1873,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1298,
+        y: 1868,
+        placeNameId: 2762,
+        icon: "60414"
+      },
+      {
+        x: 1366,
+        y: 718,
+        placeNameId: 0,
+        icon: "60927"
+      },
+      {
+        x: 1017,
+        y: 412,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1012,
+        y: 419,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1372,
+        y: 718,
+        placeNameId: 0,
+        icon: "60935"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -14429,6 +10618,224 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 614,
+    placeNameId: 2410,
+    weatherRateId: 84,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -2,
+    markers: [
+      {
+        x: 1493,
+        y: 947,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1497,
+        y: 922,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1463,
+        y: 856,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1300,
+        y: 647,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1295,
+        y: 643,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 740,
+        y: 1514,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 530,
+        y: 1567,
+        placeNameId: 2843,
+        icon: "60456"
+      },
+      {
+        x: 1300,
+        y: 620,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1239,
+        y: 631,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1194,
+        y: 602,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1437,
+        y: 947,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1785,
+        y: 805,
+        placeNameId: 2789,
+        icon: "60442"
+      },
+      {
+        x: 1857,
+        y: 947,
+        placeNameId: 2790,
+        icon: "60442"
+      },
+      {
+        x: 1733,
+        y: 692,
+        placeNameId: 2791,
+        icon: "60442"
+      },
+      {
+        x: 1457,
+        y: 933,
+        placeNameId: 2793,
+        icon: "60453"
+      },
+      {
+        x: 991,
+        y: 1575,
+        placeNameId: 2796,
+        icon: "60442"
+      },
+      {
+        x: 1376,
+        y: 1401,
+        placeNameId: 2797,
+        icon: "60442"
+      },
+      {
+        x: 1352,
+        y: 1240,
+        placeNameId: 2798,
+        icon: "60442"
+      },
+      {
+        x: 1470,
+        y: 1713,
+        placeNameId: 2799,
+        icon: "60442"
+      },
+      {
+        x: 733,
+        y: 1547,
+        placeNameId: 2800,
+        icon: "60442"
+      },
+      {
+        x: 553,
+        y: 1323,
+        placeNameId: 2801,
+        icon: "60442"
+      },
+      {
+        x: 829,
+        y: 971,
+        placeNameId: 2802,
+        icon: "60442"
+      },
+      {
+        x: 1696,
+        y: 1887,
+        placeNameId: 2804,
+        icon: "60442"
+      },
+      {
+        x: 1269,
+        y: 620,
+        placeNameId: 2805,
+        icon: "60453"
+      },
+      {
+        x: 1539,
+        y: 320,
+        placeNameId: 2806,
+        icon: "60442"
+      },
+      {
+        x: 1358,
+        y: 259,
+        placeNameId: 2807,
+        icon: "60442"
+      },
+      {
+        x: 794,
+        y: 481,
+        placeNameId: 2808,
+        icon: "60442"
+      },
+      {
+        x: 695,
+        y: 672,
+        placeNameId: 2809,
+        icon: "60442"
+      },
+      {
+        x: 656,
+        y: 662,
+        placeNameId: 2810,
+        icon: "60414"
+      },
+      {
+        x: 745,
+        y: 309,
+        placeNameId: 2811,
+        icon: "60442"
+      },
+      {
+        x: 621,
+        y: 385,
+        placeNameId: 2812,
+        icon: "60442"
+      },
+      {
+        x: 1538,
+        y: 154,
+        placeNameId: 2411,
+        icon: "60441"
+      },
+      {
+        x: 1862,
+        y: 595,
+        placeNameId: 2409,
+        icon: "60441"
+      },
+      {
+        x: 539,
+        y: 1295,
+        placeNameId: 2801,
+        icon: "60414"
+      },
+      {
+        x: 1360,
+        y: 489,
+        placeNameId: 2851,
+        icon: "60414"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -14561,6 +10968,242 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 620,
+    placeNameId: 2407,
+    weatherRateId: 80,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 46,
+    markers: [
+      {
+        x: 1073,
+        y: 295,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1180,
+        y: 236,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1174,
+        y: 232,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1127,
+        y: 242,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 934,
+        y: 501,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 765,
+        y: 1745,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 777,
+        y: 1775,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 770,
+        y: 1782,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 894,
+        y: 1214,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 898,
+        y: 1209,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1337,
+        y: 1403,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1303,
+        y: 1788,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1097,
+        y: 258,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1135,
+        y: 275,
+        placeNameId: 2646,
+        icon: "60453"
+      },
+      {
+        x: 753,
+        y: 1770,
+        placeNameId: 2660,
+        icon: "60453"
+      },
+      {
+        x: 400,
+        y: 313,
+        placeNameId: 2641,
+        icon: "60442"
+      },
+      {
+        x: 950,
+        y: 500,
+        placeNameId: 2643,
+        icon: "60442"
+      },
+      {
+        x: 740,
+        y: 755,
+        placeNameId: 2644,
+        icon: "60442"
+      },
+      {
+        x: 765,
+        y: 900,
+        placeNameId: 2645,
+        icon: "60442"
+      },
+      {
+        x: 1385,
+        y: 340,
+        placeNameId: 2648,
+        icon: "60442"
+      },
+      {
+        x: 1600,
+        y: 240,
+        placeNameId: 2649,
+        icon: "60442"
+      },
+      {
+        x: 1590,
+        y: 290,
+        placeNameId: 2651,
+        icon: "60442"
+      },
+      {
+        x: 1770,
+        y: 600,
+        placeNameId: 2652,
+        icon: "60442"
+      },
+      {
+        x: 1555,
+        y: 800,
+        placeNameId: 2653,
+        icon: "60442"
+      },
+      {
+        x: 1070,
+        y: 930,
+        placeNameId: 2654,
+        icon: "60442"
+      },
+      {
+        x: 1325,
+        y: 995,
+        placeNameId: 2656,
+        icon: "60442"
+      },
+      {
+        x: 710,
+        y: 1530,
+        placeNameId: 2657,
+        icon: "60442"
+      },
+      {
+        x: 160,
+        y: 1760,
+        placeNameId: 2659,
+        icon: "60442"
+      },
+      {
+        x: 1010,
+        y: 1785,
+        placeNameId: 2661,
+        icon: "60442"
+      },
+      {
+        x: 1015,
+        y: 1155,
+        placeNameId: 2662,
+        icon: "60442"
+      },
+      {
+        x: 425,
+        y: 1825,
+        placeNameId: 2663,
+        icon: "60442"
+      },
+      {
+        x: 1040,
+        y: 1610,
+        placeNameId: 2664,
+        icon: "60442"
+      },
+      {
+        x: 1457,
+        y: 1523,
+        placeNameId: 2665,
+        icon: "60414"
+      },
+      {
+        x: 1365,
+        y: 1385,
+        placeNameId: 2666,
+        icon: "60442"
+      },
+      {
+        x: 1330,
+        y: 1775,
+        placeNameId: 2669,
+        icon: "60442"
+      },
+      {
+        x: 340,
+        y: 230,
+        placeNameId: 2403,
+        icon: "60441"
+      },
+      {
+        x: 185,
+        y: 1265,
+        placeNameId: 2406,
+        icon: "60441"
+      },
+      {
+        x: 1615,
+        y: 1450,
+        placeNameId: 2408,
+        icon: "60441"
+      }
+    ],
     elite: {
       S: {
         id: 5988,
@@ -14717,6 +11360,284 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 621,
+    placeNameId: 2408,
+    weatherRateId: 81,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -2,
+    markers: [
+      {
+        x: 514,
+        y: 1045,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 479,
+        y: 1015,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 478,
+        y: 1023,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1660,
+        y: 1693,
+        placeNameId: 593,
+        icon: "60311"
+      },
+      {
+        x: 1657,
+        y: 1666,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1652,
+        y: 1659,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1702,
+        y: 1485,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1704,
+        y: 1535,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1492,
+        y: 1608,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1522,
+        y: 1608,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 381,
+        y: 986,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 373,
+        y: 1005,
+        placeNameId: 2670,
+        icon: "60453"
+      },
+      {
+        x: 1640,
+        y: 1675,
+        placeNameId: 2693,
+        icon: "60453"
+      },
+      {
+        x: 420,
+        y: 1280,
+        placeNameId: 2671,
+        icon: "60442"
+      },
+      {
+        x: 330,
+        y: 1465,
+        placeNameId: 2673,
+        icon: "60442"
+      },
+      {
+        x: 645,
+        y: 1745,
+        placeNameId: 2674,
+        icon: "60442"
+      },
+      {
+        x: 1095,
+        y: 1775,
+        placeNameId: 2675,
+        icon: "60442"
+      },
+      {
+        x: 980,
+        y: 1700,
+        placeNameId: 2676,
+        icon: "60442"
+      },
+      {
+        x: 765,
+        y: 1750,
+        placeNameId: 2677,
+        icon: "60442"
+      },
+      {
+        x: 915,
+        y: 1650,
+        placeNameId: 2679,
+        icon: "60442"
+      },
+      {
+        x: 180,
+        y: 1300,
+        placeNameId: 2681,
+        icon: "60442"
+      },
+      {
+        x: 155,
+        y: 1785,
+        placeNameId: 2682,
+        icon: "60442"
+      },
+      {
+        x: 840,
+        y: 1475,
+        placeNameId: 2686,
+        icon: "60442"
+      },
+      {
+        x: 1020,
+        y: 860,
+        placeNameId: 2687,
+        icon: "60442"
+      },
+      {
+        x: 740,
+        y: 1190,
+        placeNameId: 2685,
+        icon: "60442"
+      },
+      {
+        x: 980,
+        y: 760,
+        placeNameId: 2688,
+        icon: "60442"
+      },
+      {
+        x: 1060,
+        y: 1285,
+        placeNameId: 2689,
+        icon: "60442"
+      },
+      {
+        x: 1070,
+        y: 1090,
+        placeNameId: 2690,
+        icon: "60442"
+      },
+      {
+        x: 1610,
+        y: 1094,
+        placeNameId: 2691,
+        icon: "60414"
+      },
+      {
+        x: 1520,
+        y: 1620,
+        placeNameId: 2694,
+        icon: "60442"
+      },
+      {
+        x: 1532,
+        y: 1800,
+        placeNameId: 2695,
+        icon: "60442"
+      },
+      {
+        x: 1675,
+        y: 360,
+        placeNameId: 2696,
+        icon: "60442"
+      },
+      {
+        x: 1635,
+        y: 425,
+        placeNameId: 2697,
+        icon: "60442"
+      },
+      {
+        x: 1333,
+        y: 478,
+        placeNameId: 2698,
+        icon: "60442"
+      },
+      {
+        x: 1123,
+        y: 395,
+        placeNameId: 2699,
+        icon: "60442"
+      },
+      {
+        x: 1075,
+        y: 213,
+        placeNameId: 2700,
+        icon: "60442"
+      },
+      {
+        x: 750,
+        y: 342,
+        placeNameId: 2702,
+        icon: "60442"
+      },
+      {
+        x: 646,
+        y: 382,
+        placeNameId: 2703,
+        icon: "60442"
+      },
+      {
+        x: 270,
+        y: 365,
+        placeNameId: 2704,
+        icon: "60442"
+      },
+      {
+        x: 245,
+        y: 1005,
+        placeNameId: 2407,
+        icon: "60441"
+      },
+      {
+        x: 1279,
+        y: 1012,
+        placeNameId: 2367,
+        icon: "60414"
+      },
+      {
+        x: 1772,
+        y: 1555,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 490,
+        y: 977,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1769,
+        y: 1567,
+        placeNameId: 3710,
+        icon: "60441"
+      },
+      {
+        x: 1761,
+        y: 1563,
+        placeNameId: 0,
+        icon: "60352"
+      }
+    ],
     elite: {
       S: {
         id: 5989,
@@ -14883,6 +11804,266 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 622,
+    placeNameId: 2411,
+    weatherRateId: 85,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 1,
+    markers: [
+      {
+        x: 1593,
+        y: 1294,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1587,
+        y: 1402,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1566,
+        y: 1342,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1567,
+        y: 1406,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1598,
+        y: 1402,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1596,
+        y: 1345,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1596,
+        y: 1327,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1577,
+        y: 1399,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1579,
+        y: 1333,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1525,
+        y: 560,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1512,
+        y: 519,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1110,
+        y: 987,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1122,
+        y: 1048,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1115,
+        y: 1048,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1086,
+        y: 1065,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1090,
+        y: 1016,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 542,
+        y: 1626,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1609,
+        y: 1394,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1580,
+        y: 1363,
+        placeNameId: 2814,
+        icon: "60453"
+      },
+      {
+        x: 1609,
+        y: 1200,
+        placeNameId: 2815,
+        icon: "60442"
+      },
+      {
+        x: 1762,
+        y: 830,
+        placeNameId: 2816,
+        icon: "60442"
+      },
+      {
+        x: 1316,
+        y: 1304,
+        placeNameId: 2820,
+        icon: "60442"
+      },
+      {
+        x: 1533,
+        y: 526,
+        placeNameId: 2821,
+        icon: "60442"
+      },
+      {
+        x: 1102,
+        y: 1057,
+        placeNameId: 2822,
+        icon: "60453"
+      },
+      {
+        x: 1191,
+        y: 1045,
+        placeNameId: 2824,
+        icon: "60442"
+      },
+      {
+        x: 1353,
+        y: 344,
+        placeNameId: 2827,
+        icon: "60442"
+      },
+      {
+        x: 1268,
+        y: 468,
+        placeNameId: 2829,
+        icon: "60442"
+      },
+      {
+        x: 959,
+        y: 571,
+        placeNameId: 2832,
+        icon: "60442"
+      },
+      {
+        x: 515,
+        y: 505,
+        placeNameId: 2833,
+        icon: "60414"
+      },
+      {
+        x: 642,
+        y: 590,
+        placeNameId: 2834,
+        icon: "60442"
+      },
+      {
+        x: 573,
+        y: 944,
+        placeNameId: 2835,
+        icon: "60442"
+      },
+      {
+        x: 357,
+        y: 1434,
+        placeNameId: 2836,
+        icon: "60442"
+      },
+      {
+        x: 696,
+        y: 1275,
+        placeNameId: 2837,
+        icon: "60442"
+      },
+      {
+        x: 927,
+        y: 1621,
+        placeNameId: 2838,
+        icon: "60442"
+      },
+      {
+        x: 571,
+        y: 1621,
+        placeNameId: 2842,
+        icon: "60442"
+      },
+      {
+        x: 866,
+        y: 1892,
+        placeNameId: 2410,
+        icon: "60441"
+      },
+      {
+        x: 1568,
+        y: 1724,
+        placeNameId: 2409,
+        icon: "60441"
+      },
+      {
+        x: 240,
+        y: 1127,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 269,
+        y: 1141,
+        placeNameId: 2850,
+        icon: "60453"
+      },
+      {
+        x: 255,
+        y: 1162,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 322,
+        y: 1136,
+        placeNameId: 0,
+        icon: "60447"
+      },
+      {
+        x: 396,
+        y: 1124,
+        placeNameId: 0,
+        icon: "60446"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -15040,6 +12221,260 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 813,
+    placeNameId: 2953,
+    weatherRateId: 106,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -2,
+    markers: [
+      {
+        x: 1200,
+        y: 1075,
+        placeNameId: 3040,
+        icon: "60442"
+      },
+      {
+        x: 1570,
+        y: 1355,
+        placeNameId: 3041,
+        icon: "60442"
+      },
+      {
+        x: 1778,
+        y: 995,
+        placeNameId: 3044,
+        icon: "60453"
+      },
+      {
+        x: 1770,
+        y: 900,
+        placeNameId: 3045,
+        icon: "60442"
+      },
+      {
+        x: 1580,
+        y: 1665,
+        placeNameId: 3046,
+        icon: "60442"
+      },
+      {
+        x: 872,
+        y: 900,
+        placeNameId: 3047,
+        icon: "60442"
+      },
+      {
+        x: 825,
+        y: 580,
+        placeNameId: 3048,
+        icon: "60442"
+      },
+      {
+        x: 1650,
+        y: 400,
+        placeNameId: 3049,
+        icon: "60442"
+      },
+      {
+        x: 1719,
+        y: 300,
+        placeNameId: 3050,
+        icon: "60414"
+      },
+      {
+        x: 650,
+        y: 350,
+        placeNameId: 3051,
+        icon: "60442"
+      },
+      {
+        x: 1321,
+        y: 459,
+        placeNameId: 3052,
+        icon: "60442"
+      },
+      {
+        x: 1260,
+        y: 790,
+        placeNameId: 3054,
+        icon: "60442"
+      },
+      {
+        x: 1060,
+        y: 700,
+        placeNameId: 3055,
+        icon: "60442"
+      },
+      {
+        x: 370,
+        y: 425,
+        placeNameId: 3056,
+        icon: "60442"
+      },
+      {
+        x: 290,
+        y: 795,
+        placeNameId: 3057,
+        icon: "60453"
+      },
+      {
+        x: 650,
+        y: 765,
+        placeNameId: 3058,
+        icon: "60442"
+      },
+      {
+        x: 1120,
+        y: 1685,
+        placeNameId: 3060,
+        icon: "60442"
+      },
+      {
+        x: 1000,
+        y: 1720,
+        placeNameId: 3061,
+        icon: "60442"
+      },
+      {
+        x: 905,
+        y: 1760,
+        placeNameId: 3062,
+        icon: "60442"
+      },
+      {
+        x: 800,
+        y: 1780,
+        placeNameId: 3063,
+        icon: "60442"
+      },
+      {
+        x: 400,
+        y: 1260,
+        placeNameId: 3064,
+        icon: "60442"
+      },
+      {
+        x: 290,
+        y: 1115,
+        placeNameId: 3065,
+        icon: "60442"
+      },
+      {
+        x: 500,
+        y: 1020,
+        placeNameId: 3066,
+        icon: "60442"
+      },
+      {
+        x: 400,
+        y: 1835,
+        placeNameId: 3068,
+        icon: "60442"
+      },
+      {
+        x: 690,
+        y: 145,
+        placeNameId: 2956,
+        icon: "60441"
+      },
+      {
+        x: 1555,
+        y: 1890,
+        placeNameId: 2955,
+        icon: "60441"
+      },
+      {
+        x: 1905,
+        y: 735,
+        placeNameId: 2957,
+        icon: "60441"
+      },
+      {
+        x: 1855,
+        y: 1430,
+        placeNameId: 2951,
+        icon: "60441"
+      },
+      {
+        x: 1738,
+        y: 977,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1748,
+        y: 1002,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1687,
+        y: 963,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 883,
+        y: 895,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 238,
+        y: 804,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 238,
+        y: 795,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 334,
+        y: 758,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 434,
+        y: 850,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 895,
+        y: 1732,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 900,
+        y: 1672,
+        placeNameId: 3385,
+        icon: "60414"
+      },
+      {
+        x: 424,
+        y: 606,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 401,
+        y: 621,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 421,
+        y: 594,
+        placeNameId: 3574,
+        icon: "60442"
+      }
+    ],
     elite: {
       S: {
         id: 8905,
@@ -15237,6 +12672,374 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 814,
+    placeNameId: 2954,
+    weatherRateId: 107,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 0,
+    markers: [
+      {
+        x: 1650,
+        y: 1575,
+        placeNameId: 3074,
+        icon: "60442"
+      },
+      {
+        x: 1692,
+        y: 1313,
+        placeNameId: 3075,
+        icon: "60453"
+      },
+      {
+        x: 1710,
+        y: 1305,
+        placeNameId: 3076,
+        icon: "60442"
+      },
+      {
+        x: 1700,
+        y: 1060,
+        placeNameId: 3077,
+        icon: "60442"
+      },
+      {
+        x: 1410,
+        y: 985,
+        placeNameId: 3078,
+        icon: "60442"
+      },
+      {
+        x: 1515,
+        y: 1065,
+        placeNameId: 3079,
+        icon: "60442"
+      },
+      {
+        x: 1475,
+        y: 1315,
+        placeNameId: 3081,
+        icon: "60442"
+      },
+      {
+        x: 1425,
+        y: 1085,
+        placeNameId: 3082,
+        icon: "60442"
+      },
+      {
+        x: 1186,
+        y: 1239,
+        placeNameId: 3084,
+        icon: "60442"
+      },
+      {
+        x: 1190,
+        y: 1760,
+        placeNameId: 3085,
+        icon: "60442"
+      },
+      {
+        x: 1195,
+        y: 1900,
+        placeNameId: 3086,
+        icon: "60442"
+      },
+      {
+        x: 1320,
+        y: 1370,
+        placeNameId: 3088,
+        icon: "60442"
+      },
+      {
+        x: 995,
+        y: 1725,
+        placeNameId: 3089,
+        icon: "60442"
+      },
+      {
+        x: 825,
+        y: 1800,
+        placeNameId: 3090,
+        icon: "60442"
+      },
+      {
+        x: 730,
+        y: 1210,
+        placeNameId: 3091,
+        icon: "60442"
+      },
+      {
+        x: 555,
+        y: 1555,
+        placeNameId: 3092,
+        icon: "60442"
+      },
+      {
+        x: 485,
+        y: 1665,
+        placeNameId: 3093,
+        icon: "60442"
+      },
+      {
+        x: 780,
+        y: 1410,
+        placeNameId: 3094,
+        icon: "60453"
+      },
+      {
+        x: 230,
+        y: 1460,
+        placeNameId: 3095,
+        icon: "60442"
+      },
+      {
+        x: 310,
+        y: 1655,
+        placeNameId: 3096,
+        icon: "60442"
+      },
+      {
+        x: 555,
+        y: 1125,
+        placeNameId: 3097,
+        icon: "60442"
+      },
+      {
+        x: 555,
+        y: 1040,
+        placeNameId: 3098,
+        icon: "60442"
+      },
+      {
+        x: 295,
+        y: 1715,
+        placeNameId: 3099,
+        icon: "60442"
+      },
+      {
+        x: 265,
+        y: 1900,
+        placeNameId: 3101,
+        icon: "60442"
+      },
+      {
+        x: 555,
+        y: 955,
+        placeNameId: 3102,
+        icon: "60442"
+      },
+      {
+        x: 895,
+        y: 825,
+        placeNameId: 3103,
+        icon: "60448"
+      },
+      {
+        x: 965,
+        y: 585,
+        placeNameId: 3104,
+        icon: "60442"
+      },
+      {
+        x: 598,
+        y: 400,
+        placeNameId: 3105,
+        icon: "60453"
+      },
+      {
+        x: 854,
+        y: 214,
+        placeNameId: 2997,
+        icon: "60414"
+      },
+      {
+        x: 1395,
+        y: 870,
+        placeNameId: 3109,
+        icon: "60442"
+      },
+      {
+        x: 1270,
+        y: 635,
+        placeNameId: 3110,
+        icon: "60442"
+      },
+      {
+        x: 1650,
+        y: 850,
+        placeNameId: 3111,
+        icon: "60442"
+      },
+      {
+        x: 1695,
+        y: 460,
+        placeNameId: 3112,
+        icon: "60442"
+      },
+      {
+        x: 1545,
+        y: 640,
+        placeNameId: 3113,
+        icon: "60442"
+      },
+      {
+        x: 1830,
+        y: 1300,
+        placeNameId: 2951,
+        icon: "60441"
+      },
+      {
+        x: 1200,
+        y: 1925,
+        placeNameId: 2952,
+        icon: "60441"
+      },
+      {
+        x: 765,
+        y: 1375,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 1708,
+        y: 1316,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1675,
+        y: 1323,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1717,
+        y: 1332,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 800,
+        y: 1396,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 714,
+        y: 1390,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 569,
+        y: 1082,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 569,
+        y: 1007,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 528,
+        y: 1610,
+        placeNameId: 2958,
+        icon: "60441"
+      },
+      {
+        x: 611,
+        y: 424,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 549,
+        y: 383,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 545,
+        y: 393,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 592,
+        y: 386,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1716,
+        y: 1322,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 787,
+        y: 1370,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 568,
+        y: 402,
+        placeNameId: 3354,
+        icon: "60442"
+      },
+      {
+        x: 1665,
+        y: 830,
+        placeNameId: 3355,
+        icon: "60442"
+      },
+      {
+        x: 523,
+        y: 1604,
+        placeNameId: 0,
+        icon: "60456"
+      },
+      {
+        x: 1825,
+        y: 1295,
+        placeNameId: 0,
+        icon: "60352"
+      },
+      {
+        x: 1762,
+        y: 941,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 485,
+        y: 1763,
+        placeNameId: 3467,
+        icon: "60414"
+      },
+      {
+        x: 529,
+        y: 1629,
+        placeNameId: 0,
+        icon: "60456"
+      },
+      {
+        x: 1716,
+        y: 858,
+        placeNameId: 3492,
+        icon: "60428"
+      },
+      {
+        x: 1730,
+        y: 867,
+        placeNameId: 0,
+        icon: "60467"
+      }
+    ],
     elite: {
       S: {
         id: 8910,
@@ -15430,6 +13233,260 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 815,
+    placeNameId: 2955,
+    weatherRateId: 108,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -117,
+    markers: [
+      {
+        x: 1695,
+        y: 370,
+        placeNameId: 3119,
+        icon: "60448"
+      },
+      {
+        x: 1490,
+        y: 700,
+        placeNameId: 3121,
+        icon: "60442"
+      },
+      {
+        x: 1270,
+        y: 800,
+        placeNameId: 3122,
+        icon: "60453"
+      },
+      {
+        x: 1210,
+        y: 800,
+        placeNameId: 3123,
+        icon: "60442"
+      },
+      {
+        x: 1155,
+        y: 670,
+        placeNameId: 3124,
+        icon: "60442"
+      },
+      {
+        x: 1175,
+        y: 930,
+        placeNameId: 3125,
+        icon: "60442"
+      },
+      {
+        x: 1660,
+        y: 675,
+        placeNameId: 3126,
+        icon: "60442"
+      },
+      {
+        x: 1545,
+        y: 810,
+        placeNameId: 3127,
+        icon: "60442"
+      },
+      {
+        x: 1505,
+        y: 960,
+        placeNameId: 3128,
+        icon: "60442"
+      },
+      {
+        x: 1423,
+        y: 1332,
+        placeNameId: 3129,
+        icon: "60453"
+      },
+      {
+        x: 1380,
+        y: 1545,
+        placeNameId: 3130,
+        icon: "60442"
+      },
+      {
+        x: 1005,
+        y: 445,
+        placeNameId: 3132,
+        icon: "60442"
+      },
+      {
+        x: 605,
+        y: 450,
+        placeNameId: 3133,
+        icon: "60448"
+      },
+      {
+        x: 1005,
+        y: 845,
+        placeNameId: 3134,
+        icon: "60442"
+      },
+      {
+        x: 513,
+        y: 811,
+        placeNameId: 3135,
+        icon: "60453"
+      },
+      {
+        x: 1000,
+        y: 1010,
+        placeNameId: 3136,
+        icon: "60442"
+      },
+      {
+        x: 985,
+        y: 1270,
+        placeNameId: 3137,
+        icon: "60442"
+      },
+      {
+        x: 455,
+        y: 1085,
+        placeNameId: 3138,
+        icon: "60442"
+      },
+      {
+        x: 516,
+        y: 1514,
+        placeNameId: 3139,
+        icon: "60414"
+      },
+      {
+        x: 705,
+        y: 1445,
+        placeNameId: 3140,
+        icon: "60442"
+      },
+      {
+        x: 1115,
+        y: 1400,
+        placeNameId: 3141,
+        icon: "60442"
+      },
+      {
+        x: 1180,
+        y: 1725,
+        placeNameId: 3142,
+        icon: "60442"
+      },
+      {
+        x: 1715,
+        y: 365,
+        placeNameId: 2951,
+        icon: "60441"
+      },
+      {
+        x: 370,
+        y: 340,
+        placeNameId: 2953,
+        icon: "60441"
+      },
+      {
+        x: 1339,
+        y: 833,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1342,
+        y: 807,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1323,
+        y: 787,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1305,
+        y: 739,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1306,
+        y: 785,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 1312,
+        y: 838,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1305,
+        y: 759,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 589,
+        y: 443,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 492,
+        y: 788,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 531,
+        y: 739,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 1410,
+        y: 1299,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 1409,
+        y: 1535,
+        placeNameId: 3143,
+        icon: "60441"
+      },
+      {
+        x: 1404,
+        y: 1530,
+        placeNameId: 0,
+        icon: "60352"
+      },
+      {
+        x: 549,
+        y: 786,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 849,
+        y: 1241,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1710,
+        y: 360,
+        placeNameId: 0,
+        icon: "60352"
+      },
+      {
+        x: 1284,
+        y: 770,
+        placeNameId: 0,
+        icon: "60935"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -15628,6 +13685,194 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 816,
+    placeNameId: 2956,
+    weatherRateId: 109,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 0,
+    markers: [
+      {
+        x: 680,
+        y: 1535,
+        placeNameId: 3147,
+        icon: "60453"
+      },
+      {
+        x: 990,
+        y: 1795,
+        placeNameId: 3148,
+        icon: "60442"
+      },
+      {
+        x: 1160,
+        y: 1480,
+        placeNameId: 3149,
+        icon: "60414"
+      },
+      {
+        x: 430,
+        y: 800,
+        placeNameId: 3150,
+        icon: "60442"
+      },
+      {
+        x: 60,
+        y: 1010,
+        placeNameId: 3151,
+        icon: "60442"
+      },
+      {
+        x: 1456,
+        y: 1348,
+        placeNameId: 3152,
+        icon: "60442"
+      },
+      {
+        x: 672,
+        y: 727,
+        placeNameId: 3153,
+        icon: "60442"
+      },
+      {
+        x: 910,
+        y: 1039,
+        placeNameId: 3154,
+        icon: "60442"
+      },
+      {
+        x: 952,
+        y: 167,
+        placeNameId: 3156,
+        icon: "60453"
+      },
+      {
+        x: 1405,
+        y: 337,
+        placeNameId: 3157,
+        icon: "60453"
+      },
+      {
+        x: 1145,
+        y: 565,
+        placeNameId: 3158,
+        icon: "60442"
+      },
+      {
+        x: 1660,
+        y: 200,
+        placeNameId: 3159,
+        icon: "60442"
+      },
+      {
+        x: 1530,
+        y: 885,
+        placeNameId: 3160,
+        icon: "60442"
+      },
+      {
+        x: 1635,
+        y: 1225,
+        placeNameId: 3161,
+        icon: "60442"
+      },
+      {
+        x: 1695,
+        y: 1365,
+        placeNameId: 3162,
+        icon: "60442"
+      },
+      {
+        x: 1095,
+        y: 921,
+        placeNameId: 3163,
+        icon: "60442"
+      },
+      {
+        x: 865,
+        y: 715,
+        placeNameId: 3164,
+        icon: "60442"
+      },
+      {
+        x: 328,
+        y: 1863,
+        placeNameId: 2953,
+        icon: "60441"
+      },
+      {
+        x: 704,
+        y: 1554,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 694,
+        y: 1562,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 591,
+        y: 1573,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 979,
+        y: 167,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 938,
+        y: 161,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1074,
+        y: 173,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 1375,
+        y: 376,
+        placeNameId: 2238,
+        icon: "60311"
+      },
+      {
+        x: 1156,
+        y: 790,
+        placeNameId: 3360,
+        icon: "60442"
+      },
+      {
+        x: 980,
+        y: 1764,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 755,
+        y: 1470,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 562,
+        y: 1610,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 576,
+        y: 1593,
+        placeNameId: 0,
+        icon: "60935"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -15819,6 +14064,266 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 817,
+    placeNameId: 2957,
+    weatherRateId: 110,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 0,
+    markers: [
+      {
+        x: 620,
+        y: 1580,
+        placeNameId: 3169,
+        icon: "60442"
+      },
+      {
+        x: 921,
+        y: 1321,
+        placeNameId: 3170,
+        icon: "60453"
+      },
+      {
+        x: 950,
+        y: 1450,
+        placeNameId: 3171,
+        icon: "60442"
+      },
+      {
+        x: 795,
+        y: 965,
+        placeNameId: 3172,
+        icon: "60442"
+      },
+      {
+        x: 715,
+        y: 830,
+        placeNameId: 3173,
+        icon: "60442"
+      },
+      {
+        x: 368,
+        y: 916,
+        placeNameId: 3174,
+        icon: "60442"
+      },
+      {
+        x: 264,
+        y: 684,
+        placeNameId: 3175,
+        icon: "60442"
+      },
+      {
+        x: 330,
+        y: 1235,
+        placeNameId: 3176,
+        icon: "60442"
+      },
+      {
+        x: 360,
+        y: 1510,
+        placeNameId: 3177,
+        icon: "60442"
+      },
+      {
+        x: 240,
+        y: 1280,
+        placeNameId: 3178,
+        icon: "60442"
+      },
+      {
+        x: 1405,
+        y: 830,
+        placeNameId: 3179,
+        icon: "60453"
+      },
+      {
+        x: 1475,
+        y: 825,
+        placeNameId: 3180,
+        icon: "60442"
+      },
+      {
+        x: 1195,
+        y: 1365,
+        placeNameId: 3181,
+        icon: "60442"
+      },
+      {
+        x: 1588,
+        y: 1172,
+        placeNameId: 3182,
+        icon: "60442"
+      },
+      {
+        x: 1172,
+        y: 1675,
+        placeNameId: 3183,
+        icon: "60442"
+      },
+      {
+        x: 1195,
+        y: 550,
+        placeNameId: 3185,
+        icon: "60442"
+      },
+      {
+        x: 1140,
+        y: 515,
+        placeNameId: 3186,
+        icon: "60442"
+      },
+      {
+        x: 1145,
+        y: 595,
+        placeNameId: 3187,
+        icon: "60442"
+      },
+      {
+        x: 1250,
+        y: 510,
+        placeNameId: 3188,
+        icon: "60442"
+      },
+      {
+        x: 1250,
+        y: 600,
+        placeNameId: 3189,
+        icon: "60442"
+      },
+      {
+        x: 1195,
+        y: 380,
+        placeNameId: 3190,
+        icon: "60442"
+      },
+      {
+        x: 1145,
+        y: 150,
+        placeNameId: 3191,
+        icon: "60442"
+      },
+      {
+        x: 205,
+        y: 1775,
+        placeNameId: 2953,
+        icon: "60441"
+      },
+      {
+        x: 1879,
+        y: 635,
+        placeNameId: 3018,
+        icon: "60414"
+      },
+      {
+        x: 918,
+        y: 1293,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 938,
+        y: 1305,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1360,
+        y: 875,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1338,
+        y: 851,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1333,
+        y: 856,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1530,
+        y: 756,
+        placeNameId: 3374,
+        icon: "60311"
+      },
+      {
+        x: 789,
+        y: 1690,
+        placeNameId: 3361,
+        icon: "60442"
+      },
+      {
+        x: 560,
+        y: 1220,
+        placeNameId: 3363,
+        icon: "60442"
+      },
+      {
+        x: 434,
+        y: 996,
+        placeNameId: 3365,
+        icon: "60442"
+      },
+      {
+        x: 1136,
+        y: 864,
+        placeNameId: 3366,
+        icon: "60442"
+      },
+      {
+        x: 1266,
+        y: 898,
+        placeNameId: 3367,
+        icon: "60442"
+      },
+      {
+        x: 1610,
+        y: 640,
+        placeNameId: 3368,
+        icon: "60442"
+      },
+      {
+        x: 448,
+        y: 1332,
+        placeNameId: 3178,
+        icon: "60442"
+      },
+      {
+        x: 446,
+        y: 1454,
+        placeNameId: 3178,
+        icon: "60442"
+      },
+      {
+        x: 900,
+        y: 1295,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1816,
+        y: 806,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 1807,
+        y: 837,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1816,
+        y: 826,
+        placeNameId: 3472,
+        icon: "60442"
+      }
+    ],
     elite: {
       S: {
         id: 8890,
@@ -15995,6 +14500,176 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 818,
+    placeNameId: 2958,
+    weatherRateId: 111,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 548,
+    markers: [
+      {
+        x: 1585,
+        y: 825,
+        placeNameId: 3195,
+        icon: "60453"
+      },
+      {
+        x: 505,
+        y: 225,
+        placeNameId: 3196,
+        icon: "60442"
+      },
+      {
+        x: 1675,
+        y: 1215,
+        placeNameId: 3197,
+        icon: "60442"
+      },
+      {
+        x: 1920,
+        y: 855,
+        placeNameId: 3198,
+        icon: "60442"
+      },
+      {
+        x: 1830,
+        y: 286,
+        placeNameId: 3199,
+        icon: "60442"
+      },
+      {
+        x: 1080,
+        y: 590,
+        placeNameId: 3200,
+        icon: "60442"
+      },
+      {
+        x: 1635,
+        y: 1480,
+        placeNameId: 3201,
+        icon: "60442"
+      },
+      {
+        x: 340,
+        y: 702,
+        placeNameId: 3202,
+        icon: "60442"
+      },
+      {
+        x: 405,
+        y: 1075,
+        placeNameId: 3203,
+        icon: "60442"
+      },
+      {
+        x: 466,
+        y: 1424,
+        placeNameId: 3204,
+        icon: "60442"
+      },
+      {
+        x: 882,
+        y: 1242,
+        placeNameId: 3205,
+        icon: "60453"
+      },
+      {
+        x: 285,
+        y: 1530,
+        placeNameId: 3206,
+        icon: "60442"
+      },
+      {
+        x: 640,
+        y: 1300,
+        placeNameId: 3207,
+        icon: "60442"
+      },
+      {
+        x: 1020,
+        y: 1285,
+        placeNameId: 3208,
+        icon: "60442"
+      },
+      {
+        x: 1340,
+        y: 1685,
+        placeNameId: 3209,
+        icon: "60442"
+      },
+      {
+        x: 662,
+        y: 1740,
+        placeNameId: 3210,
+        icon: "60442"
+      },
+      {
+        x: 1288,
+        y: 141,
+        placeNameId: 2954,
+        icon: "60441"
+      },
+      {
+        x: 597,
+        y: 1882,
+        placeNameId: 3194,
+        icon: "60414"
+      },
+      {
+        x: 953,
+        y: 1609,
+        placeNameId: 3007,
+        icon: "60414"
+      },
+      {
+        x: 1548,
+        y: 817,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1017,
+        y: 1320,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1039,
+        y: 1270,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1150,
+        y: 886,
+        placeNameId: 3369,
+        icon: "60442"
+      },
+      {
+        x: 1302,
+        y: 1274,
+        placeNameId: 3370,
+        icon: "60442"
+      },
+      {
+        x: 413,
+        y: 1118,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 420,
+        y: 1136,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1662,
+        y: 1236,
+        placeNameId: 0,
+        icon: "60935"
+      }
+    ],
     elite: {
       S: {
         id: 8895,
@@ -16188,6 +14863,296 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 956,
+    placeNameId: 3708,
+    weatherRateId: 131,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -225,
+    markers: [
+      {
+        x: 791,
+        y: 1364,
+        placeNameId: 4028,
+        icon: "60414"
+      },
+      {
+        x: 1005,
+        y: 160,
+        placeNameId: 3830,
+        icon: "60442"
+      },
+      {
+        x: 985,
+        y: 260,
+        placeNameId: 3831,
+        icon: "60442"
+      },
+      {
+        x: 838,
+        y: 205,
+        placeNameId: 3832,
+        icon: "60442"
+      },
+      {
+        x: 1467,
+        y: 545,
+        placeNameId: 3833,
+        icon: "60453"
+      },
+      {
+        x: 1550,
+        y: 476,
+        placeNameId: 3834,
+        icon: "60442"
+      },
+      {
+        x: 1700,
+        y: 481,
+        placeNameId: 3835,
+        icon: "60442"
+      },
+      {
+        x: 1555,
+        y: 390,
+        placeNameId: 3836,
+        icon: "60442"
+      },
+      {
+        x: 1820,
+        y: 620,
+        placeNameId: 3837,
+        icon: "60442"
+      },
+      {
+        x: 1800,
+        y: 1040,
+        placeNameId: 3838,
+        icon: "60442"
+      },
+      {
+        x: 1401,
+        y: 287,
+        placeNameId: 3840,
+        icon: "60442"
+      },
+      {
+        x: 1475,
+        y: 923,
+        placeNameId: 3842,
+        icon: "60442"
+      },
+      {
+        x: 1350,
+        y: 1020,
+        placeNameId: 3843,
+        icon: "60442"
+      },
+      {
+        x: 1290,
+        y: 875,
+        placeNameId: 3844,
+        icon: "60442"
+      },
+      {
+        x: 1057,
+        y: 715,
+        placeNameId: 3845,
+        icon: "60442"
+      },
+      {
+        x: 968,
+        y: 355,
+        placeNameId: 3846,
+        icon: "60442"
+      },
+      {
+        x: 750,
+        y: 605,
+        placeNameId: 3847,
+        icon: "60442"
+      },
+      {
+        x: 1170,
+        y: 1325,
+        placeNameId: 3849,
+        icon: "60442"
+      },
+      {
+        x: 1032,
+        y: 975,
+        placeNameId: 3850,
+        icon: "60453"
+      },
+      {
+        x: 660,
+        y: 875,
+        placeNameId: 3851,
+        icon: "60442"
+      },
+      {
+        x: 294,
+        y: 1326,
+        placeNameId: 3852,
+        icon: "60453"
+      },
+      {
+        x: 660,
+        y: 1750,
+        placeNameId: 3853,
+        icon: "60442"
+      },
+      {
+        x: 1010,
+        y: 1640,
+        placeNameId: 3854,
+        icon: "60442"
+      },
+      {
+        x: 750,
+        y: 1325,
+        placeNameId: 3855,
+        icon: "60442"
+      },
+      {
+        x: 368,
+        y: 1332,
+        placeNameId: 0,
+        icon: "60935"
+      },
+      {
+        x: 994,
+        y: 197,
+        placeNameId: 3706,
+        icon: "60467"
+      },
+      {
+        x: 996,
+        y: 294,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1002,
+        y: 292,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1418,
+        y: 524,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1447,
+        y: 521,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 1448,
+        y: 597,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1442,
+        y: 592,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1385,
+        y: 629,
+        placeNameId: 0,
+        icon: "60447"
+      },
+      {
+        x: 1377,
+        y: 632,
+        placeNameId: 0,
+        icon: "60446"
+      },
+      {
+        x: 1386,
+        y: 1326,
+        placeNameId: 0,
+        icon: "60447"
+      },
+      {
+        x: 1253,
+        y: 1322,
+        placeNameId: 0,
+        icon: "60446"
+      },
+      {
+        x: 400,
+        y: 1326,
+        placeNameId: 0,
+        icon: "60447"
+      },
+      {
+        x: 411,
+        y: 1329,
+        placeNameId: 0,
+        icon: "60446"
+      },
+      {
+        x: 327,
+        y: 1296,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 260,
+        y: 1317,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 260,
+        y: 1323,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 997,
+        y: 1632,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1012,
+        y: 1017,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 994,
+        y: 1041,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1057,
+        y: 953,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1051,
+        y: 947,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 689,
+        y: 1336,
+        placeNameId: 3712,
+        icon: "60467"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -16330,6 +15295,194 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 957,
+    placeNameId: 3709,
+    weatherRateId: 132,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -1,
+    markers: [
+      {
+        x: 387,
+        y: 360,
+        placeNameId: 3736,
+        icon: "60414"
+      },
+      {
+        x: 1221,
+        y: 1788,
+        placeNameId: 4015,
+        icon: "60414"
+      },
+      {
+        x: 1220,
+        y: 1652,
+        placeNameId: 3880,
+        icon: "60453"
+      },
+      {
+        x: 1364,
+        y: 1821,
+        placeNameId: 3881,
+        icon: "60442"
+      },
+      {
+        x: 965,
+        y: 1865,
+        placeNameId: 3882,
+        icon: "60442"
+      },
+      {
+        x: 775,
+        y: 1550,
+        placeNameId: 3884,
+        icon: "60442"
+      },
+      {
+        x: 498,
+        y: 1060,
+        placeNameId: 3886,
+        icon: "60453"
+      },
+      {
+        x: 1065,
+        y: 900,
+        placeNameId: 3887,
+        icon: "60442"
+      },
+      {
+        x: 640,
+        y: 500,
+        placeNameId: 3888,
+        icon: "60442"
+      },
+      {
+        x: 950,
+        y: 325,
+        placeNameId: 3889,
+        icon: "60442"
+      },
+      {
+        x: 1570,
+        y: 375,
+        placeNameId: 3893,
+        icon: "60442"
+      },
+      {
+        x: 1428,
+        y: 777,
+        placeNameId: 3894,
+        icon: "60453"
+      },
+      {
+        x: 1140,
+        y: 675,
+        placeNameId: 3895,
+        icon: "60442"
+      },
+      {
+        x: 1013,
+        y: 702,
+        placeNameId: 3896,
+        icon: "60442"
+      },
+      {
+        x: 1170,
+        y: 1180,
+        placeNameId: 3898,
+        icon: "60442"
+      },
+      {
+        x: 1630,
+        y: 1280,
+        placeNameId: 3899,
+        icon: "60442"
+      },
+      {
+        x: 1775,
+        y: 780,
+        placeNameId: 3900,
+        icon: "60442"
+      },
+      {
+        x: 1190,
+        y: 1659,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1189,
+        y: 1648,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1200,
+        y: 1707,
+        placeNameId: 0,
+        icon: "60581"
+      },
+      {
+        x: 1156,
+        y: 1629,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 554,
+        y: 1056,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 463,
+        y: 1113,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 515,
+        y: 1109,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1456,
+        y: 814,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1420,
+        y: 809,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1456,
+        y: 786,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1598,
+        y: 344,
+        placeNameId: 3707,
+        icon: "60441"
+      },
+      {
+        x: 1249,
+        y: 1656,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 420,
+        y: 1830,
+        placeNameId: 4027,
+        icon: "60442"
+      }
+    ],
     elite: {
       S: {
         id: 10618,
@@ -16467,6 +15620,176 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 958,
+    placeNameId: 3710,
+    weatherRateId: 133,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -20,
+    markers: [
+      {
+        x: 498,
+        y: 344,
+        placeNameId: 4118,
+        icon: "60414"
+      },
+      {
+        x: 540,
+        y: 351,
+        placeNameId: 0,
+        icon: "60446"
+      },
+      {
+        x: 536,
+        y: 342,
+        placeNameId: 0,
+        icon: "60447"
+      },
+      {
+        x: 536,
+        y: 332,
+        placeNameId: 4024,
+        icon: "60441"
+      },
+      {
+        x: 616,
+        y: 1504,
+        placeNameId: 3903,
+        icon: "60453"
+      },
+      {
+        x: 770,
+        y: 1225,
+        placeNameId: 3904,
+        icon: "60442"
+      },
+      {
+        x: 1100,
+        y: 1425,
+        placeNameId: 3905,
+        icon: "60442"
+      },
+      {
+        x: 1610,
+        y: 1200,
+        placeNameId: 3906,
+        icon: "60442"
+      },
+      {
+        x: 1160,
+        y: 1670,
+        placeNameId: 3908,
+        icon: "60442"
+      },
+      {
+        x: 1437,
+        y: 1600,
+        placeNameId: 3909,
+        icon: "60442"
+      },
+      {
+        x: 500,
+        y: 375,
+        placeNameId: 3911,
+        icon: "60442"
+      },
+      {
+        x: 570,
+        y: 680,
+        placeNameId: 3912,
+        icon: "60442"
+      },
+      {
+        x: 1105,
+        y: 1140,
+        placeNameId: 3913,
+        icon: "60442"
+      },
+      {
+        x: 1350,
+        y: 1100,
+        placeNameId: 3914,
+        icon: "60442"
+      },
+      {
+        x: 1542,
+        y: 845,
+        placeNameId: 3915,
+        icon: "60453"
+      },
+      {
+        x: 800,
+        y: 380,
+        placeNameId: 3918,
+        icon: "60442"
+      },
+      {
+        x: 1110,
+        y: 580,
+        placeNameId: 3919,
+        icon: "60442"
+      },
+      {
+        x: 1433,
+        y: 450,
+        placeNameId: 3920,
+        icon: "60442"
+      },
+      {
+        x: 525,
+        y: 1661,
+        placeNameId: 2408,
+        icon: "60441"
+      },
+      {
+        x: 598,
+        y: 1481,
+        placeNameId: 0,
+        icon: "60551"
+      },
+      {
+        x: 594,
+        y: 1475,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 594,
+        y: 1470,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 690,
+        y: 1498,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1533,
+        y: 610,
+        placeNameId: 0,
+        icon: "60311"
+      },
+      {
+        x: 1516,
+        y: 822,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1516,
+        y: 831,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 529,
+        y: 1654,
+        placeNameId: 0,
+        icon: "60352"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -16602,6 +15925,158 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 959,
+    placeNameId: 3711,
+    weatherRateId: 135,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 0,
+    markers: [
+      {
+        x: 360,
+        y: 1752,
+        placeNameId: 4024,
+        icon: "60441"
+      },
+      {
+        x: 1227,
+        y: 1431,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1019,
+        y: 810,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 457,
+        y: 1674,
+        placeNameId: 3949,
+        icon: "60453"
+      },
+      {
+        x: 600,
+        y: 1600,
+        placeNameId: 3950,
+        icon: "60442"
+      },
+      {
+        x: 835,
+        y: 1420,
+        placeNameId: 3952,
+        icon: "60442"
+      },
+      {
+        x: 1055,
+        y: 1534,
+        placeNameId: 3953,
+        icon: "60442"
+      },
+      {
+        x: 1208,
+        y: 1440,
+        placeNameId: 3954,
+        icon: "60442"
+      },
+      {
+        x: 1500,
+        y: 1550,
+        placeNameId: 3955,
+        icon: "60442"
+      },
+      {
+        x: 1025,
+        y: 1325,
+        placeNameId: 3956,
+        icon: "60442"
+      },
+      {
+        x: 1025,
+        y: 1440,
+        placeNameId: 3957,
+        icon: "60442"
+      },
+      {
+        x: 840,
+        y: 1205,
+        placeNameId: 3959,
+        icon: "60442"
+      },
+      {
+        x: 1085,
+        y: 1119,
+        placeNameId: 3960,
+        icon: "60442"
+      },
+      {
+        x: 1230,
+        y: 1255,
+        placeNameId: 3961,
+        icon: "60442"
+      },
+      {
+        x: 520,
+        y: 1050,
+        placeNameId: 3962,
+        icon: "60442"
+      },
+      {
+        x: 1250,
+        y: 960,
+        placeNameId: 3963,
+        icon: "60442"
+      },
+      {
+        x: 1650,
+        y: 1200,
+        placeNameId: 3965,
+        icon: "60442"
+      },
+      {
+        x: 1023,
+        y: 511,
+        placeNameId: 3966,
+        icon: "60453"
+      },
+      {
+        x: 538,
+        y: 1090,
+        placeNameId: 3770,
+        icon: "60414"
+      },
+      {
+        x: 997,
+        y: 443,
+        placeNameId: 0,
+        icon: "60446"
+      },
+      {
+        x: 1023,
+        y: 340,
+        placeNameId: 0,
+        icon: "60447"
+      },
+      {
+        x: 597,
+        y: 1585,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1004,
+        y: 561,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1004,
+        y: 568,
+        placeNameId: 0,
+        icon: "60434"
+      }
+    ],
     elite: {
       S: {
         id: 10620,
@@ -16743,6 +16218,206 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 960,
+    placeNameId: 3712,
+    weatherRateId: 136,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: 44,
+    markers: [
+      {
+        x: 700,
+        y: 1650,
+        placeNameId: 3971,
+        icon: "60442"
+      },
+      {
+        x: 1025,
+        y: 1550,
+        placeNameId: 3972,
+        icon: "60442"
+      },
+      {
+        x: 480,
+        y: 1290,
+        placeNameId: 3973,
+        icon: "60453"
+      },
+      {
+        x: 550,
+        y: 1000,
+        placeNameId: 3974,
+        icon: "60442"
+      },
+      {
+        x: 675,
+        y: 510,
+        placeNameId: 3976,
+        icon: "60442"
+      },
+      {
+        x: 790,
+        y: 725,
+        placeNameId: 3977,
+        icon: "60442"
+      },
+      {
+        x: 1085,
+        y: 365,
+        placeNameId: 3978,
+        icon: "60453"
+      },
+      {
+        x: 1225,
+        y: 365,
+        placeNameId: 3979,
+        icon: "60442"
+      },
+      {
+        x: 1462,
+        y: 706,
+        placeNameId: 3980,
+        icon: "60442"
+      },
+      {
+        x: 1536,
+        y: 1165,
+        placeNameId: 3982,
+        icon: "60442"
+      },
+      {
+        x: 1659,
+        y: 1270,
+        placeNameId: 3984,
+        icon: "60442"
+      },
+      {
+        x: 1830,
+        y: 1220,
+        placeNameId: 3985,
+        icon: "60442"
+      },
+      {
+        x: 1625,
+        y: 1480,
+        placeNameId: 3986,
+        icon: "60442"
+      },
+      {
+        x: 1713,
+        y: 1250,
+        placeNameId: 3987,
+        icon: "60442"
+      },
+      {
+        x: 1150,
+        y: 1300,
+        placeNameId: 3989,
+        icon: "60442"
+      },
+      {
+        x: 1025,
+        y: 1025,
+        placeNameId: 3990,
+        icon: "60442"
+      },
+      {
+        x: 1693,
+        y: 1396,
+        placeNameId: 3783,
+        icon: "60414"
+      },
+      {
+        x: 1675,
+        y: 1025,
+        placeNameId: 4026,
+        icon: "60442"
+      },
+      {
+        x: 659,
+        y: 1641,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 649,
+        y: 1639,
+        placeNameId: 3708,
+        icon: "60467"
+      },
+      {
+        x: 1491,
+        y: 1351,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 1489,
+        y: 1429,
+        placeNameId: 4029,
+        icon: "60442"
+      },
+      {
+        x: 1020,
+        y: 1012,
+        placeNameId: 4100,
+        icon: "60414"
+      },
+      {
+        x: 414,
+        y: 816,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 554,
+        y: 762,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1471,
+        y: 706,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1545,
+        y: 1165,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1668,
+        y: 1270,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1722,
+        y: 1250,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1516,
+        y: 1389,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1498,
+        y: 1429,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 1515,
+        y: 1355,
+        placeNameId: 3983,
+        icon: "60453"
+      }
+    ],
     filter: true,
     elite: {
       S: {
@@ -16881,6 +16556,242 @@ const fieldZones: IFieldZoneData[] = [
   },
   {
     id: 961,
+    placeNameId: 3713,
+    weatherRateId: 134,
+    sizeFactor: 100,
+    offsetX: 0,
+    offsetY: 0,
+    offsetZ: -161,
+    markers: [
+      {
+        x: 1300,
+        y: 1840,
+        placeNameId: 3926,
+        icon: "60442"
+      },
+      {
+        x: 1240,
+        y: 1649,
+        placeNameId: 3927,
+        icon: "60442"
+      },
+      {
+        x: 1182,
+        y: 1150,
+        placeNameId: 3928,
+        icon: "60453"
+      },
+      {
+        x: 390,
+        y: 1566,
+        placeNameId: 3929,
+        icon: "60453"
+      },
+      {
+        x: 783,
+        y: 1730,
+        placeNameId: 3930,
+        icon: "60442"
+      },
+      {
+        x: 1630,
+        y: 1070,
+        placeNameId: 3931,
+        icon: "60442"
+      },
+      {
+        x: 1650,
+        y: 1400,
+        placeNameId: 3932,
+        icon: "60442"
+      },
+      {
+        x: 828,
+        y: 1010,
+        placeNameId: 3933,
+        icon: "60442"
+      },
+      {
+        x: 682,
+        y: 1055,
+        placeNameId: 3935,
+        icon: "60442"
+      },
+      {
+        x: 350,
+        y: 660,
+        placeNameId: 3936,
+        icon: "60442"
+      },
+      {
+        x: 166,
+        y: 895,
+        placeNameId: 3937,
+        icon: "60442"
+      },
+      {
+        x: 493,
+        y: 802,
+        placeNameId: 3938,
+        icon: "60453"
+      },
+      {
+        x: 541,
+        y: 657,
+        placeNameId: 3939,
+        icon: "60442"
+      },
+      {
+        x: 677,
+        y: 477,
+        placeNameId: 3942,
+        icon: "60442"
+      },
+      {
+        x: 600,
+        y: 240,
+        placeNameId: 3943,
+        icon: "60442"
+      },
+      {
+        x: 813,
+        y: 370,
+        placeNameId: 3944,
+        icon: "60442"
+      },
+      {
+        x: 1200,
+        y: 450,
+        placeNameId: 3946,
+        icon: "60442"
+      },
+      {
+        x: 1625,
+        y: 700,
+        placeNameId: 3947,
+        icon: "60442"
+      },
+      {
+        x: 953,
+        y: 399,
+        placeNameId: 3948,
+        icon: "60442"
+      },
+      {
+        x: 1833,
+        y: 780,
+        placeNameId: 3769,
+        icon: "60467"
+      },
+      {
+        x: 1164,
+        y: 1188,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 1170,
+        y: 1188,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 429,
+        y: 1567,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 428,
+        y: 1573,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 453,
+        y: 789,
+        placeNameId: 0,
+        icon: "60412"
+      },
+      {
+        x: 459,
+        y: 789,
+        placeNameId: 0,
+        icon: "60434"
+      },
+      {
+        x: 186,
+        y: 962,
+        placeNameId: 0,
+        icon: "60446"
+      },
+      {
+        x: 169,
+        y: 950,
+        placeNameId: 0,
+        icon: "60447"
+      },
+      {
+        x: 176,
+        y: 846,
+        placeNameId: 0,
+        icon: "60446"
+      },
+      {
+        x: 186,
+        y: 818,
+        placeNameId: 0,
+        icon: "60447"
+      },
+      {
+        x: 1305,
+        y: 1857,
+        placeNameId: 3223,
+        icon: "60441"
+      },
+      {
+        x: 837,
+        y: 1010,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 691,
+        y: 1055,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 550,
+        y: 657,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 686,
+        y: 477,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 822,
+        y: 370,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 962,
+        y: 399,
+        placeNameId: 0,
+        icon: "60467"
+      },
+      {
+        x: 612,
+        y: 259,
+        placeNameId: 3759,
+        icon: "60414"
+      }
+    ],
     elite: {
       S: {
         id: 10621,
@@ -17030,10 +16941,12 @@ const fieldZones: IFieldZoneData[] = [
 ];
 
 export {
+  IExVersionData,
   IRegionData,
   IMarkerData,
   IZoneData,
   IFieldZoneData,
+  exVersions,
   regionCssMap,
   huntRegions,
   weatherRegions,

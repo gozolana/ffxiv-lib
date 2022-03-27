@@ -1,5 +1,5 @@
-import { EorzeaDate, TEorzeaDateCategory } from "../entities/eodate";
-import { EorzeaPeriod } from "../entities/eoperiod";
+import { EorzeaDate, TEorzeaDateCategory } from "../entities/eorzeaDate";
+import { EorzeaPeriod } from "../entities/eorzeaPeriod";
 import { weatherProvider } from "./weatherProvider";
 
 const TWeatherRate = {

@@ -21,6 +21,7 @@ const TIcon = {
   BronzeCoffer: "060911",
   PlotGreen: "060403",
   PlotWhite: "060444",
+  Pin: "060442",
   PlotYellow: "060424",
   PlotRed: "060422",
   TriangleGreen: "060358",

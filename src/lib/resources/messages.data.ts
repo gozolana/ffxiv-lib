@@ -7,6 +7,7 @@ interface IMessage {
     PlaceName?: { [id: number]: string };
     Weather?: { [id: number]: string };
     Region?: { [key: string]: string };
+    ExVersion?: { [id: number]: string };
   };
 };
 
@@ -277,6 +278,13 @@ const messages: IMessage = {
       Thanalan: "ザナラーン",
       Frontier: "辺境エリア",
       Eureka: "エウレカ"
+    },
+    ExVersion: {
+      0: "新生エオルゼア",
+      1: "蒼天のイシュガルド",
+      2: "紅蓮のリベレーター",
+      3: "漆黒のヴィランズ",
+      4: "暁月のフィナーレ"
     }
   },
   en: {
@@ -545,6 +553,13 @@ const messages: IMessage = {
       Thanalan: "Thanalan",
       Frontier: "Frontier",
       Eureka: "Eureka"
+    },
+    ExVersion: {
+      0: "A Realm Reborn",
+      1: "Heavensward",
+      2: "Stormblood",
+      3: "Shadowbringers",
+      4: "Endwalker"
     }
   },
   de: {
@@ -813,6 +828,13 @@ const messages: IMessage = {
       Thanalan: "Thanalan",
       Frontier: "Grenze",
       Eureka: "Eureka"
+    },
+    ExVersion: {
+      0: "A Realm Reborn",
+      1: "Heavensward",
+      2: "Stormblood",
+      3: "Shadowbringers",
+      4: "Endwalker"
     }
   },
   fr: {
@@ -1081,6 +1103,13 @@ const messages: IMessage = {
       Thanalan: "Thanalan",
       Frontier: "Frontière",
       Eureka: "Eureka"
+    },
+    ExVersion: {
+      0: "A Realm Reborn",
+      1: "Heavensward",
+      2: "Stormblood",
+      3: "Shadowbringers",
+      4: "Endwalker"
     }
   }
 };
