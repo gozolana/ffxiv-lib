@@ -1,8 +1,10 @@
-import { copyFileSync, mkdirSync, writeFileSync } from "fs";
-import { resolve } from "path";
+import { copyFileSync, mkdirSync, readdirSync, writeFileSync } from "fs";
+import { extname, resolve } from "path";
 import { readCsv } from "./csvReader";
 
 const outputPath = "./src/addon/resources/icons.data.ts";
+const outputPath2 = "./src/lib/resources/icons.data.ts";
+const outputPath3 = "./src/assets/icons/preview.htm";
 
 const outPath = resolve(`./src/assets/icons`);
 mkdirSync(outPath, { recursive: true });
@@ -43,6 +45,14 @@ const myIcons = new Map<string, string>([
   ["Num6", "060923"],
   ["Num7", "060924"],
   ["Num8", "060925"],
+]);
+
+const myIcons2 = new Map<string, string>([
+  ["SS", "SS"],
+  ["SB", "SB"],
+  ["CheckMine", "CheckMine"],
+  ["CheckOthers", "CheckOthers"],
+  ["CheckUnknown", "CheckUnknown"],
 ]);
 
 const SIZE = 32;
@@ -139,12 +149,16 @@ function hexagon(color: string): string {
   )}" fill="${color}" stroke="black" />`;
 }
 
+function check(color: string): string {
+  return `<path d="M 7,11 L 13,17 L 24,6 L 29,11 L 13,27 L 2,16 Z" fill="${color}" stroke="black" />`;
+}
+
 function generateSvgIcons(outPath: string): string {
   const items: {
     filename: string;
     content: string;
   }[] = [];
-  const imports: string[] = ["const elite: { [flag: number]: string } = {};"];
+  const imports: string[] = [];
   for (let flag = 1; flag < 32; flag++) {
     const filename = `${flag.toString(2).padStart(5, "0")}.svg`;
     const colors: string[] = [];
@@ -156,7 +170,7 @@ function generateSvgIcons(outPath: string): string {
     let svg: string = "";
     switch (colors.length) {
       case 5:
-        svg = `<g  stroke="black">
+        svg = `<g stroke="black">
     <path d="${path(234, 306)}" fill="${colors[0]}" />
     <path d="${path(162, 243)}" fill="${colors[1]}" />
     <path d="${path(306, 18)}" fill="${colors[2]}" />
@@ -202,14 +216,35 @@ function generateSvgIcons(outPath: string): string {
     content: rhombus("#607d8b"),
   });
   imports.push(
-    `const ss = new URL('../../assets/icons/ss.svg', import.meta.url).href;`
+    `icon["SS"] = new URL('../../assets/icons/ss.svg', import.meta.url).href;`
   );
   items.push({
     filename: `ss.svg`,
     content: hexagon("#607d8b"),
   });
   imports.push(
-    `const sb = new URL('../../assets/icons/sb.svg', import.meta.url).href;`
+    `icon["SB"] = new URL('../../assets/icons/ss.svg', import.meta.url).href;`
+  );
+  items.push({
+    filename: `checkLime.svg`,
+    content: check("lime"),
+  });
+  imports.push(
+    `icon["CheckMine"] = new URL('../../assets/icons/checkLime.svg', import.meta.url).href;`
+  );
+  items.push({
+    filename: `checkRoyalBlue.svg`,
+    content: check("royalblue"),
+  });
+  imports.push(
+    `icon["CheckOthers"] = new URL('../../assets/icons/checkRoyalBlue.svg', import.meta.url).href;`
+  );
+  items.push({
+    filename: `checkGrey.svg`,
+    content: check("grey"),
+  });
+  imports.push(
+    `icon["CheckUnknown"] = new URL('../../assets/icons/checkGrey.svg', import.meta.url).href;`
   );
   items.forEach((item) => {
     const outString = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
@@ -224,11 +259,15 @@ function generateSvgIcons(outPath: string): string {
   return imports.join("\n");
 }
 
-function generatePngIcons(outPath: string, basePath: string, iconSet: Set<string>): string {
-  const imports: string[] = ["const icon: { [name: string]: string } = {};"];
+function generatePngIcons(
+  outPath: string,
+  basePath: string,
+  iconSet: Set<string>
+): string {
+  const imports: string[] = [];
   for (let icon of iconSet) {
     const filename = `${icon}.png`;
-    const folder = icon.substring(0, 3) + '000';
+    const folder = icon.substring(0, 3) + "000";
     const source = `${basePath}/ui/icon/${folder}/${filename}`;
     const dest = `${outPath}/${filename}`;
     // copy file
@@ -261,7 +300,22 @@ async function retrieveIconStringSet(basePath: string): Promise<Set<string>> {
   return new Set([...weathers, ...symbols]);
 }
 
-function writeIconsJson(includeSvg: string, includePng: string, types: Map<string, string>) {
+function writeIconsJson(includeSvg: string, includePng: string) {
+  const output = `// THIS CODE IS AUTO GENERATED.
+// DO NOT EDIT.
+
+const elite: { [flag: number]: string } = {};
+const icon: { [name: string]: string } = {};
+${includeSvg}
+${includePng}
+
+export { elite, icon };
+`;
+
+  writeFileSync(outputPath, output);
+}
+
+function writeIconsJson2(types: Map<string, string>) {
   let iconType: any = {};
   types.forEach((key, value) => {
     iconType[value] = key;
@@ -270,21 +324,62 @@ function writeIconsJson(includeSvg: string, includePng: string, types: Map<strin
     /\"([0-9a-zA-Z]+)\": /g,
     "$1: "
   );
-  
+
   const output = `// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
-
-${includeSvg}
-
-${includePng}
 
 const TIcon = ${iconType} as const;
 type TIcon = typeof TIcon[keyof typeof TIcon];
 
-export { TIcon, elite, ss, sb, icon };
+export { TIcon };
 `;
 
-  writeFileSync(outputPath, output);
+  writeFileSync(outputPath2, output);
+}
+
+function writePreview() {
+  const imagefiles = readdirSync(outPath, { withFileTypes: true })
+    .filter((dirent) => dirent.isFile())
+    .map((dirent) => dirent.name);
+
+  const svgRows = imagefiles
+    .filter((filename) => extname(filename).toLowerCase() === ".svg")
+    .map(
+      (filename) =>
+        `      <li><img class="middle" src="./${filename}" />${filename}</li>`
+    );
+
+  const pngRows = imagefiles
+    .filter((filename) => extname(filename).toLowerCase() === ".png")
+    .map(
+      (filename) =>
+        `      <li><img class="middle" src="./${filename}" />${filename}</li>`
+    );
+
+  const rows = [...svgRows, ...pngRows].join("\n");
+
+  const output = `<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style rel="stylesheet" type="text/css">
+      img.middle {
+        vertical-align: middle;
+      }
+    </style>
+    <title>Icons Preview</title>
+  </head>
+  <body>
+    <ul>
+${rows}
+    </ul>
+  </body>
+</html>
+`;
+
+  writeFileSync(outputPath3, output);
 }
 
 async function generateIcons(basePath: string) {
@@ -292,7 +387,9 @@ async function generateIcons(basePath: string) {
   const iconSet = await retrieveIconStringSet(basePath);
   myIcons.forEach((value) => iconSet.add(value));
   const importDefs2 = generatePngIcons(outPath, basePath, iconSet);
-  writeIconsJson(importDefs, importDefs2, myIcons);
+  writeIconsJson(importDefs, importDefs2);
+  writeIconsJson2(new Map([...myIcons, ...myIcons2]));
+  writePreview();
 }
 
 export { generateIcons };

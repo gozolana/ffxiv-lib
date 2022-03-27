@@ -2,6 +2,7 @@
 // DO NOT EDIT.
 
 const elite: { [flag: number]: string } = {};
+const icon: { [name: string]: string } = {};
 elite[1] = new URL('../../assets/icons/00001.svg', import.meta.url).href;
 elite[2] = new URL('../../assets/icons/00010.svg', import.meta.url).href;
 elite[3] = new URL('../../assets/icons/00011.svg', import.meta.url).href;
@@ -33,10 +34,11 @@ elite[28] = new URL('../../assets/icons/11100.svg', import.meta.url).href;
 elite[29] = new URL('../../assets/icons/11101.svg', import.meta.url).href;
 elite[30] = new URL('../../assets/icons/11110.svg', import.meta.url).href;
 elite[31] = new URL('../../assets/icons/11111.svg', import.meta.url).href;
-const ss = new URL('../../assets/icons/ss.svg', import.meta.url).href;
-const sb = new URL('../../assets/icons/sb.svg', import.meta.url).href;
-
-const icon: { [name: string]: string } = {};
+icon["SS"] = new URL('../../assets/icons/ss.svg}', import.meta.url).href;
+icon["SB"] = new URL('../../assets/icons/ss.svg}', import.meta.url).href;
+icon["CheckMine"] = new URL('../../assets/icons/checkLime.svg}', import.meta.url).href;
+icon["CheckOthers"] = new URL('../../assets/icons/checkRoyalBlue.svg}', import.meta.url).href;
+icon["CheckUnknown"] = new URL('../../assets/icons/checkGrey.svg}', import.meta.url).href;
 icon["060201"] = new URL('../../assets/icons/060201.png', import.meta.url).href;
 icon["060202"] = new URL('../../assets/icons/060202.png', import.meta.url).href;
 icon["060203"] = new URL('../../assets/icons/060203.png', import.meta.url).href;
@@ -238,43 +240,4 @@ icon["060923"] = new URL('../../assets/icons/060923.png', import.meta.url).href;
 icon["060924"] = new URL('../../assets/icons/060924.png', import.meta.url).href;
 icon["060925"] = new URL('../../assets/icons/060925.png', import.meta.url).href;
 
-const TIcon = {
-  Mob: "060004",
-  PartyMember: "060421",
-  Player: "060443",
-  Mining: "060437",
-  Quarrying: "060438",
-  Logging: "060432",
-  Harvesting: "060433",
-  Fishing: "060445",
-  Up: "060954",
-  Down: "060955",
-  CairnOfReturn: "060905",
-  CairnOfReturnActive: "060906",
-  CairnOfPassage: "060907",
-  CairnOfPassageActive: "060908",
-  GoldCoffer: "060913",
-  SilverCoffer: "060912",
-  BronzeCoffer: "060911",
-  PlotGreen: "060403",
-  PlotWhite: "060444",
-  PlotYellow: "060424",
-  PlotRed: "060422",
-  TriangleGreen: "060358",
-  TriangleBlue: "060361",
-  TriangleYellow: "060360",
-  TriangleRed: "060359",
-  TrapYellow: "060402",
-  TrapRed: "060401",
-  Num1: "060918",
-  Num2: "060919",
-  Num3: "060920",
-  Num4: "060921",
-  Num5: "060922",
-  Num6: "060923",
-  Num7: "060924",
-  Num8: "060925"
-} as const;
-type TIcon = typeof TIcon[keyof typeof TIcon];
-
-export { TIcon, elite, ss, sb, icon };
+export { elite, icon };

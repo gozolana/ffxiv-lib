@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+  <filter id="h" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2" />
+  </filter>
+  <path d="M 7,11 L 13,17 L 24,6 L 29,11 L 13,27 L 2,16 Z" fill="royalblue" stroke="black" />
+  <circle cx="7" cy="7" r="4" fill="white" filter="url(#h)" />
+</svg>

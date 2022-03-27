@@ -9,7 +9,7 @@ const TEorzeaDateCategory = {
   SECONDS: 6,
   MILLISECONDS: 7,
 } as const;
-type TDateCategory = typeof TEorzeaDateCategory[keyof typeof TEorzeaDateCategory];
+type TEorzeaDateCategory = typeof TEorzeaDateCategory[keyof typeof TEorzeaDateCategory];
 
 class EorzeaDate {
   year: number;
@@ -87,7 +87,7 @@ class EorzeaDate {
     return new Date(this.epoch);
   }
 
-  add(value: number, cat: TDateCategory): EorzeaDate {
+  add(value: number, cat: TEorzeaDateCategory): EorzeaDate {
     let Y = this.year + (cat === TEorzeaDateCategory.YEARS ? value : 0);
     let M = this.month + Y * 12 + (cat === TEorzeaDateCategory.MONTHS ? value : 0);
     let D = this.day + M * 32 + (cat === TEorzeaDateCategory.DAYS ? value : 0);
@@ -114,7 +114,7 @@ class EorzeaDate {
     return this;
   }
 
-  subtract(value: number, cat: TDateCategory): EorzeaDate {
+  subtract(value: number, cat: TEorzeaDateCategory): EorzeaDate {
     return this.add(-value, cat);
   }
 }

@@ -1,0 +1,48 @@
+// THIS CODE IS AUTO GENERATED.
+// DO NOT EDIT.
+
+const TIcon = {
+  Mob: "060004",
+  PartyMember: "060421",
+  Player: "060443",
+  Mining: "060437",
+  Quarrying: "060438",
+  Logging: "060432",
+  Harvesting: "060433",
+  Fishing: "060445",
+  Up: "060954",
+  Down: "060955",
+  CairnOfReturn: "060905",
+  CairnOfReturnActive: "060906",
+  CairnOfPassage: "060907",
+  CairnOfPassageActive: "060908",
+  GoldCoffer: "060913",
+  SilverCoffer: "060912",
+  BronzeCoffer: "060911",
+  PlotGreen: "060403",
+  PlotWhite: "060444",
+  PlotYellow: "060424",
+  PlotRed: "060422",
+  TriangleGreen: "060358",
+  TriangleBlue: "060361",
+  TriangleYellow: "060360",
+  TriangleRed: "060359",
+  TrapYellow: "060402",
+  TrapRed: "060401",
+  Num1: "060918",
+  Num2: "060919",
+  Num3: "060920",
+  Num4: "060921",
+  Num5: "060922",
+  Num6: "060923",
+  Num7: "060924",
+  Num8: "060925",
+  SS: "SS",
+  SB: "SB",
+  CheckMine: "CheckMine",
+  CheckOthers: "CheckOthers",
+  CheckUnknown: "CheckUnknown"
+} as const;
+type TIcon = typeof TIcon[keyof typeof TIcon];
+
+export { TIcon };
