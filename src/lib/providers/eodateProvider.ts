@@ -1,6 +1,6 @@
 import { EorzeaDate, TEorzeaDateCategory } from "../entities/eorzeaDate";
 import { EorzeaPeriod } from "../entities/eorzeaPeriod";
-import { WeatherProvider } from "./WeatherProvider";
+import { WeatherProvider } from "./weatherProvider";
 
 const TWeatherRate = {
   SouthShroud: 3,
