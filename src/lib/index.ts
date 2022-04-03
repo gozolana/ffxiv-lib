@@ -5,6 +5,7 @@ export * from "./entities/exVersion";
 export * from "./entities/fieldZone";
 export * from "./entities/icon";
 export * from "./entities/lang";
+export * from "./entities/marker";
 export * from "./entities/mob";
 export * from "./entities/region";
 export * from "./entities/weather";
