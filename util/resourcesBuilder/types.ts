@@ -1,6 +1,7 @@
 interface IExpansion {
-  id: string;
-  version: string;
+  id: number;
+  version: number;
+  locationClusteringThreshold: number;
   ccs: string;
 }
 

@@ -31,12 +31,7 @@ interface IRegionData {
   readonly zoneIds: number[];
 }
 
-const exVersionHeaders = [
-  "id",
-  "name",
-  undefined,
-  undefined,
-];
+const exVersionHeaders = ["id", "name", undefined, undefined];
 
 const territoryTypeHeaders = [
   "id",
@@ -216,10 +211,17 @@ async function generateZones(
     };
   });
 
-  const exVersions = await readCsv(basePath, "ExVersion", exVersionHeaders, "en");
+  const exVersions = await readCsv(
+    basePath,
+    "ExVersion",
+    exVersionHeaders,
+    "en"
+  );
   let exVersionIdByType: any = {};
   exVersions.forEach((exVersion) => {
-    exVersionIdByType[exVersion.name.replace(/ /g, '')] = parseInt(exVersion.id);
+    exVersionIdByType[exVersion.name.replace(/ /g, "")] = parseInt(
+      exVersion.id
+    );
   });
   const cssByRegionKey: { [key: string]: string } = {};
   inputRegions.regions.forEach((region) => {
@@ -229,21 +231,21 @@ async function generateZones(
     huntRegions: IRegionData[];
     weatherRegions: IRegionData[];
   } = {
-    huntRegions: inputRegions.huntRegions.map(r=>{
+    huntRegions: inputRegions.huntRegions.map((r) => {
       return {
         key: r.key,
         css: cssByRegionKey[r.key],
-        zoneIds: r.zoneIds
-      }
+        zoneIds: r.zoneIds,
+      };
     }),
-    weatherRegions: inputRegions.weatherRegions.map(r=>{
+    weatherRegions: inputRegions.weatherRegions.map((r) => {
       return {
         key: r.key,
         css: cssByRegionKey[r.key],
-        zoneIds: r.zoneIds
-      }
+        zoneIds: r.zoneIds,
+      };
     }),
-  }
+  };
 
   const allZones = territoryTypes.map((tt) => {
     return {
@@ -263,27 +265,28 @@ async function generateZones(
     zones: allZones.filter(
       (zone) => !Object.keys(inputFieldZones).map(Number).includes(zone.id)
     ),
-    fieldZones:     allZones
-    .filter((zone) =>
-      Object.keys(inputFieldZones).map(Number).includes(zone.id)
-    )
-    .map((zone) => {
-      return Object.assign(zone, inputFieldZones[zone.id.toString()]);
-    }),
-  }
-  
+    fieldZones: allZones
+      .filter((zone) =>
+        Object.keys(inputFieldZones).map(Number).includes(zone.id)
+      )
+      .map((zone) => {
+        return Object.assign(zone, inputFieldZones[zone.id.toString()]);
+      }),
+  };
+
   const content = `// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
 const TExVersion = ${JSON.stringify(exVersionIdByType, null, 2).replace(
-  /\"([a-zA-Z]+)\": /g,
-  "$1: "
-)} as const;
+    /\"([a-zA-Z]+)\": /g,
+    "$1: "
+  )} as const;
 type TExVersion = typeof TExVersion[keyof typeof TExVersion];
 
 interface IExVersionData {
   readonly id: number;
   readonly version: number;
+  readonly locationClusteringThreshold: number;
   readonly css: string;
 }
 
@@ -335,7 +338,11 @@ interface IRegionData {
   readonly zoneIds: number[];
 }
 
-const exVersions: IExVersionData[] = ${JSON.stringify(inputExpansions, null, 2)  .replace(  /\"([a-zA-Z]+)\": /g,  "$1: ")};
+const exVersions: IExVersionData[] = ${JSON.stringify(
+    inputExpansions,
+    null,
+    2
+  ).replace(/\"([a-zA-Z]+)\": /g, "$1: ")};
 
 const zoneData: {
   zones: IZoneData[];
@@ -345,7 +352,10 @@ const zoneData: {
 const regionData: {
   huntRegions: IRegionData[];
   weatherRegions: IRegionData[];
-} = ${JSON.stringify(regionData, null, 2).replace(/\"([a-zA-Z]+)\": /g, "$1: ")};
+} = ${JSON.stringify(regionData, null, 2).replace(
+    /\"([a-zA-Z]+)\": /g,
+    "$1: "
+  )};
 
 export {
   TExVersion,

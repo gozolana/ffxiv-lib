@@ -4,6 +4,7 @@ import { IExVersionData, TExVersion } from "../resources/zones.data";
 interface IExVersion {
   readonly id: number;
   readonly version: number;
+  readonly locationClusteringThreshold: number;
   readonly css: string;
   readonly name: string;
   readonly tts: string;
@@ -13,11 +14,13 @@ class ExVersion implements IExVersion {
   constructor(data: IExVersionData) {
     this.id = data.id;
     this.version = data.version;
+    this.locationClusteringThreshold = data.locationClusteringThreshold;
     this.css = data.css;
   }
 
   readonly id: number;
   readonly version: number;
+  readonly locationClusteringThreshold: number;
   readonly css: string;
   get name(): string {
     return MessageProvider.getExVersion(this.id);

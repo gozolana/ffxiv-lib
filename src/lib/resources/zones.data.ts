@@ -13,6 +13,7 @@ type TExVersion = typeof TExVersion[keyof typeof TExVersion];
 interface IExVersionData {
   readonly id: number;
   readonly version: number;
+  readonly locationClusteringThreshold: number;
   readonly css: string;
 }
 
@@ -68,26 +69,31 @@ const exVersions: IExVersionData[] = [
   {
     id: 0,
     version: 2,
+    locationClusteringThreshold: 0.15,
     css: "lime lighten-4"
   },
   {
     id: 1,
     version: 3,
+    locationClusteringThreshold: 0.9,
     css: "blue lighten-4"
   },
   {
     id: 2,
     version: 4,
+    locationClusteringThreshold: 0.9,
     css: "red lighten-4"
   },
   {
     id: 3,
     version: 5,
+    locationClusteringThreshold: 0.9,
     css: "blue-grey lighten-4"
   },
   {
     id: 4,
     version: 6,
+    locationClusteringThreshold: 0.9,
     css: "amber lighten-3"
   }
 ];
