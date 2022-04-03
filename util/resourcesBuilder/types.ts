@@ -4,9 +4,8 @@ interface IExpansion {
   ccs: string;
 }
 
-interface IIdentifierWithRespawn {
-  id: number;
-  respawnMinutes: {
+interface IRespawnData {
+  [id: string]: {
     min: number;
     max: number;
   };
@@ -24,20 +23,15 @@ interface IFieldZoneInfo {
   [id: string]: {
     filter?: boolean;
     elite: {
-      S: IIdentifierWithRespawn;
-      A: IIdentifierWithRespawn;
-      A2?: IIdentifierWithRespawn;
-      B: number;
-      B2?: number;
+      ids: number[];
       locations: ILocationWithFlag[];
     };
     ss?: {
-      S: number;
-      B: number;
+      ids: number[];
       locations: ILocationWithFlag[];
     };
     fate?: {
-      F: number;
+      ids: number[];
     };
   }
 }
@@ -85,5 +79,6 @@ export {
   IExpansion,
   IFieldZoneInfo,
   IRegionsJson,
+  IRespawnData,
   ITextToSpeechJson,
 };

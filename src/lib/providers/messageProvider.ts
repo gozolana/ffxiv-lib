@@ -2,7 +2,7 @@ import { langs, TLang } from "../entities/lang";
 import { IMessage, messages, tts } from "../resources/messages.data";
 
 class MessageProvider {
-  constructor(messages: IMessage, tts: IMessage) {
+  constructor() {
     this._messages = messages;
     this._tts = tts;
   }
@@ -115,6 +115,6 @@ class MessageProvider {
     return result ?? `Region<${key}>`;
   }
 }
-const messageProvider = new MessageProvider(messages, tts);
 
-export { messageProvider };
+const messageProvider = new MessageProvider();
+export { messageProvider as MessageProvider };

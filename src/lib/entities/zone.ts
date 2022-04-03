@@ -1,11 +1,14 @@
-import { messageProvider } from "../providers/messageProvider";
-import { IZoneData, IMarkerData } from "../resources/zones.data";
+import { ExVersionProvider } from "../providers/exVersionProvider";
+import { MessageProvider } from "../providers/messageProvider";
+import { IZoneData } from "../resources/zones.data";
+import { ExVersion } from "./exVersion";
 import { IMarker, Marker } from "./marker";
 
 interface IZone {
   readonly id: number;
   readonly name: string;
   readonly names: string[];
+  readonly exVersion: ExVersion;
   toLocalPosXY(pos: { x: number; y: number }): [number, number];
   toLocalPosXYZ(pos: {
     x: number;
@@ -30,6 +33,7 @@ class Zone implements IZone {
     this.offsetY = data.offsetY;
     this.offsetZ = data.offsetZ;
     this.sizeFactor = data.sizeFactor;
+    this.exVersionId = data.exVersionId;
     this.weatherRateId = data.weatherRateId;
     this.markers = data.markers.map((marker) => new Marker(marker, this));
   }
@@ -40,13 +44,14 @@ class Zone implements IZone {
   private offsetY: number;
   private offsetZ: number;
   private sizeFactor: number;
+  private exVersionId: number;
   private weatherRateId: number;
   private markers: IMarker[];
   get name() {
-    return messageProvider.getPlaceName(this.placeNameId);
+    return MessageProvider.getPlaceName(this.placeNameId);
   }
   get names() {
-    return messageProvider.getPlaceNames(this.placeNameId);
+    return MessageProvider.getPlaceNames(this.placeNameId);
   }
   get scale() {
     return {
@@ -57,6 +62,9 @@ class Zone implements IZone {
       yMax: 4096.0 / this.sizeFactor + 1.0,
       yRange: 4096.0 / this.sizeFactor
     }
+  }
+  get exVersion(): ExVersion {
+    return ExVersionProvider.findExVersion(this.exVersionId)!;
   }
 
   toLocalPosXY(pos: { x: number; y: number }): [number, number] {

@@ -3,6 +3,7 @@ import { generateZones } from "./resourcesBuilder/generateZones";
 import { generateIcons } from "./resourcesBuilder/generateIcons";
 import { MessageIdSet } from "./resourcesBuilder/types";
 import { generateMessages } from "./resourcesBuilder/generateMessages";
+import { generateMobs } from "./resourcesBuilder/generateMobs";
 
 const basePath = "./ThirdParty/SaintCoinach.Cmd/2022.03.01.0000.0000";
 
@@ -15,6 +16,7 @@ const messageIdSet: MessageIdSet = {
 async function main() {
   await generateWorlds(basePath);
   await generateIcons(basePath);
+  await generateMobs(messageIdSet);
   await generateZones(basePath, messageIdSet);
   await generateMessages(basePath, messageIdSet);
 }

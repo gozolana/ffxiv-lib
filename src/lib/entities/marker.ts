@@ -1,4 +1,4 @@
-import { messageProvider } from "../providers/messageProvider";
+import { MessageProvider } from "../providers/messageProvider";
 import { IMarkerData } from "../resources/zones.data";
 import { IZone } from "./zone";
 
@@ -20,7 +20,7 @@ class Marker implements IMarker {
   readonly x: number;
   readonly y: number;
   get name() {
-    return messageProvider.getPlaceName(this.placeNameId);
+    return MessageProvider.getPlaceName(this.placeNameId);
   }
   readonly icon: string;
 }

@@ -1,17 +1,6 @@
 import { IFieldZoneData } from "../resources/zones.data";
 import { IZone, Zone } from "./zone";
 
-const TMobRank = {
-  S: 1,
-  A: 2,
-  B: 3,
-  SS: 4,
-  SB: 5,
-  F: 6,
-  None: 999,
-} as const;
-type TMobRank = typeof TMobRank[keyof typeof TMobRank];
-
 interface IEliteLocation {
   label: string;
   x: number;
@@ -25,7 +14,7 @@ interface ISSLocation {
   x: number;
   y: number;
   z: number;
-  flag: string;
+  icon: string;
 }
 /*
 enum TMapImage {
@@ -48,93 +37,67 @@ const TImageSize = {
 } as const;
 type TImageSize = typeof TImageSize[keyof typeof TImageSize];
 
-/*
-enum TImageSize {
-  Small = 512,
-  Middle = 1024,
-  Large = 2048,
-}
-*/
-
 interface IFieldZone extends IZone {
-  getMobRank(mobId: number): TMobRank;
-  getEliteLocations(filterFlag: number): IEliteLocation[];
-  getSSLocations(filterFlag: number): ISSLocation[];
   getMapImageUrl(type: TMapImage, size: TImageSize): string;
+  readonly filter?: boolean;
+  readonly elite: {
+    readonly ids: number[];
+    readonly locations: IEliteLocation[];
+  };
+  readonly ss?: {
+    readonly ids: number[];
+    readonly locations: ISSLocation[];
+  };
+  readonly fate?: {
+    readonly ids: number[];
+  };
 }
 
 class FieldZone extends Zone implements IFieldZone {
-  eliteLocations: IEliteLocation[];
-  ssLocations: ISSLocation[];
-  mobRankMap: Map<number, TMobRank>;
+  elite: {
+    ids: number[];
+    locations: IEliteLocation[];
+  };
+  ss?: {
+    ids: number[];
+    locations: ISSLocation[];
+  };
+  fate?: {
+    ids: number[];
+  };
   constructor(data: IFieldZoneData) {
     super(data);
-    this.mobRankMap = new Map();
-    this.mobRankMap.set(data.elite.S.id, TMobRank.S);
-    this.mobRankMap.set(data.elite.A.id, TMobRank.A);
-    this.mobRankMap.set(data.elite.B, TMobRank.B);
-    if (data.elite.A2 && data.elite.B2) {
-      this.mobRankMap.set(data.elite.A2.id, TMobRank.A);
-      this.mobRankMap.set(data.elite.B2, TMobRank.B);
-    }
-    if (data.ss && data.ss.S && data.ss.B) {
-      this.mobRankMap.set(data.ss.S, TMobRank.SS);
-      this.mobRankMap.set(data.ss.B, TMobRank.SB);
-    }
-    if (data.fate) {
-      this.mobRankMap.set(data.fate.F, TMobRank.F);
-    }
-    this.eliteLocations = data.elite.locations.map((loc) => {
-      const flagString5Digits =
-        loc.flag.length === 5
-          ? loc.flag
-          : `${loc.flag.slice(0, 2)}0${loc.flag.slice(2, 1)}0`;
-      return {
-        label: loc.label,
-        x: loc.x,
-        y: loc.y,
-        z: loc.z,
-        flag: parseInt(flagString5Digits, 2),
-      };
-    });
-    this.ssLocations =
-      data.ss?.locations.map((loc) => {
+    this.elite = {
+      ids: data.elite.ids,
+      locations: data.elite.locations.map((loc) => {
+        const flagString5Digits =
+          loc.flag.length === 5
+            ? loc.flag
+            : `${loc.flag.slice(0, 2)}0${loc.flag.slice(2, 1)}0`;
         return {
           label: loc.label,
           x: loc.x,
           y: loc.y,
           z: loc.z,
-          flag: loc.flag === "10" ? "ss" : "sb",
+          flag: parseInt(flagString5Digits, 2),
         };
-      }) ?? [];
-  }
+      }),
+    };
 
-  getMobRank(mobId: number): TMobRank {
-    return this.mobRankMap.get(mobId) ?? TMobRank.None;
-  }
+    this.ss = data.ss ? {
+      ids: data.ss.ids,
+      locations: data.ss.locations.map((loc) => {
+        return {
+          label: loc.label,
+          x: loc.x,
+          y: loc.y,
+          z: loc.z,
+          icon: loc.flag === "10" ? "ss" : "sb",
+        };
+      })
+    } : undefined;
 
-  getEliteLocations(filterFlag: number): IEliteLocation[] {
-    return this.eliteLocations.map((loc) => {
-      return {
-        label: loc.label,
-        x: loc.x,
-        y: loc.y,
-        z: loc.z,
-        flag: loc.flag & filterFlag,
-      };
-    });
-  }
-
-  getSSLocations(filterFlag: number): ISSLocation[] {
-    return this.ssLocations.map((loc) => {
-      return {
-        label: loc.label,
-        x: loc.x,
-        y: loc.y,
-        z: loc.z,
-        flag: loc.flag,
-      };
-    });
+    this.fate = data.fate;
   }
 
   getMapImageUrl(imageType: TMapImage, imageSize: TImageSize): string {
@@ -150,4 +113,4 @@ class FieldZone extends Zone implements IFieldZone {
   }
 }
 
-export { TMobRank, TMapImage, TImageSize, IFieldZone, FieldZone };
+export { TMapImage, TImageSize, IFieldZone, FieldZone };

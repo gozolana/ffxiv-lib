@@ -1,11 +1,11 @@
-import { messageProvider } from "../providers/messageProvider";
+import { MessageProvider } from "../providers/messageProvider";
 import { TWeather, IWeatherData } from "../resources/weathers.data";
 
 interface IWeather {
   readonly id: number;
+  readonly icon: string;
   readonly name: string;
   readonly tts: string;
-  readonly icon: string;
 }
 
 class Weather implements IWeather {
@@ -13,14 +13,16 @@ class Weather implements IWeather {
     this.id = data.id;
     this.icon = data.icon;
   }
+
   readonly id: number;
+  readonly icon: string;
+
   get name(): string {
-    return messageProvider.getWeather(this.id);
+    return MessageProvider.getWeather(this.id);
   }
   get tts(): string {
-    return messageProvider.getWeather(this.id, true);
+    return MessageProvider.getWeather(this.id, true);
   }
-  readonly icon: string;
 }
 
 export { TWeather, IWeather, Weather };

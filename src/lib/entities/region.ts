@@ -1,38 +1,39 @@
-import { messageProvider } from "../providers/messageProvider";
-import { zoneProvider } from "../providers/zoneProvider";
-import { IRegionData, regionCssMap } from "../resources/zones.data";
+import { MessageProvider } from "../providers/messageProvider";
+import { ZoneProvider } from "../providers/zoneProvider";
+import { IRegionData } from "../resources/zones.data";
 
 interface IRegion {
   readonly key: string;
-  readonly name: string;
+  readonly css: string;
   readonly zones: {
     readonly id: number;
     readonly name: string;
   }[];
+  readonly name: string;
   readonly tts: string;
-  readonly css: string;
 }
 
 class Region implements IRegion {
-  readonly key: string;
-  readonly css: string;
-  readonly zones: { readonly id: number; readonly name: string }[];
   constructor(data: IRegionData) {
     this.key = data.key;
-    this.css = regionCssMap[this.key];
+    this.css = data.css;
     this.zones = data.zoneIds.map((zoneId) => {
-      const zone = zoneProvider.findZone(zoneId);
+      const zone = ZoneProvider.findZone(zoneId);
       return {
         id: zoneId,
         name: zone ? zone.name : "",
       };
     });
   }
+
+  readonly key: string;
+  readonly css: string;
+  readonly zones: { readonly id: number; readonly name: string }[];
   get name(): string {
-    return messageProvider.getRegion(this.key);
+    return MessageProvider.getRegion(this.key);
   }
   get tts(): string {
-    return messageProvider.getRegion(this.key, true);
+    return MessageProvider.getRegion(this.key, true);
   }
 }
 

@@ -1,9 +1,12 @@
-import { IExVersionData } from "../resources/zones.data";
+import { MessageProvider } from "../providers/messageProvider";
+import { IExVersionData, TExVersion } from "../resources/zones.data";
 
 interface IExVersion {
   readonly id: number;
   readonly version: number;
   readonly css: string;
+  readonly name: string;
+  readonly tts: string;
 }
 
 class ExVersion implements IExVersion {
@@ -16,6 +19,12 @@ class ExVersion implements IExVersion {
   readonly id: number;
   readonly version: number;
   readonly css: string;
+  get name(): string {
+    return MessageProvider.getExVersion(this.id);
+  }
+  get tts(): string {
+    return MessageProvider.getExVersion(this.id, true);
+  }
 }
 
-export { IExVersion, ExVersion };
+export { TExVersion, IExVersion, ExVersion };

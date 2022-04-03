@@ -1,30 +1,21 @@
 import {
   weathers,
   weatherRates,
-  IWeatherData,
   IWeatherRateData,
 } from "../resources/weathers.data";
 import { TWeather, IWeather, Weather } from "../entities/weather";
-import { IRegionData, weatherRegions } from "../resources/zones.data";
-import { IRegion, Region } from "../entities/region";
 
 class WeatherProvider {
-  constructor(
-    weathers: IWeatherData[],
-    weatherRates: IWeatherRateData[],
-    weatherRegions: IRegionData[]
-  ) {
-    this.weatherMap = new Map(
+  constructor() {
+    this.weatherById = new Map(
       weathers.map((weather) => [weather.id, new Weather(weather)])
     );
-    this.weatherRateMap = new Map(
+    this.weatherRateById = new Map(
       weatherRates.map((weatherRate) => [weatherRate.id, weatherRate])
     );
-    this.regions = weatherRegions.map((wr) => new Region(wr));
   }
-  private weatherMap: Map<number, IWeather>;
-  private weatherRateMap: Map<number, IWeatherRateData>;
-  readonly regions: IRegion[];
+  private weatherById: Map<number, IWeather>;
+  private weatherRateById: Map<number, IWeatherRateData>;
 
   isSunny(weatherId: number): boolean {
     return [
@@ -40,7 +31,7 @@ class WeatherProvider {
   }
 
   findWeather(weatherId: number): IWeather | undefined {
-    return this.weatherMap.get(weatherId);
+    return this.weatherById.get(weatherId);
   }
 
   getWeatherAt(timestamp: number, weatherRateId: number): IWeather {
@@ -55,7 +46,7 @@ class WeatherProvider {
       var step2 = ((step1 >>> 8) ^ step1) >>> 0;
       return step2 % 100;
     }
-    const weatherRate = this.weatherRateMap.get(weatherRateId);
+    const weatherRate = this.weatherRateById.get(weatherRateId);
     if (!weatherRate) {
       throw `invalid weatherRateId ${weatherRateId}`;
     }
@@ -76,17 +67,9 @@ class WeatherProvider {
   }
 
   getWeathers(): IWeather[] {
-    return [...this.weatherMap.values()];
-  }
-
-  getWeatherRegions(): IRegion[] {
-    return weatherRegions.map((wr) => new Region(wr));
+    return [...this.weatherById.values()];
   }
 }
-const weatherProvider = new WeatherProvider(
-  weathers,
-  weatherRates,
-  weatherRegions
-);
 
-export { weatherProvider };
+const weatherProvider = new WeatherProvider();
+export { weatherProvider as WeatherProvider };

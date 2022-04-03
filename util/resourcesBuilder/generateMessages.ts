@@ -12,7 +12,7 @@ const inputTTS: ITextToSpeechJson = parse(
   readFileSync("./data/tts.jsonc").toString()
 );
 
-const expansionHeaders = [
+const exVersionHeaders = [
   "id",
   "name",
   undefined,
@@ -108,7 +108,7 @@ async function generateMessages(
   const exVersions = await Promise.all(
     Object.keys(message).map(async (lang) => {
       const results: { [key: string]: string } = {};
-      (await readCsv(basePath, "ExVersion", expansionHeaders, lang))
+      (await readCsv(basePath, "ExVersion", exVersionHeaders, lang))
         .forEach((exVersion) => {
           results[exVersion.id] = exVersion.name;
         });

@@ -1,6 +1,6 @@
 import { EorzeaDate, TEorzeaDateCategory } from "../entities/eorzeaDate";
 import { EorzeaPeriod } from "../entities/eorzeaPeriod";
-import { weatherProvider } from "./weatherProvider";
+import { WeatherProvider } from "./WeatherProvider";
 
 const TWeatherRate = {
   SouthShroud: 3,
@@ -27,7 +27,7 @@ class WeatherPeriod extends EorzeaPeriod {
     this.weatherRateId = weatherRateId;
   }
   get weatherId(): number {
-    return weatherProvider.getWeatherAt(this.start.epoch, this.weatherRateId)
+    return WeatherProvider.getWeatherAt(this.start.epoch, this.weatherRateId)
       .id;
   }
   get prev(): WeatherPeriod {
@@ -44,15 +44,15 @@ class ZonaSeekerPeriod extends EorzeaPeriod {
   constructor(date: Date) {
     let periodNext = new WeatherPeriod(date, TWeatherRate.WesternThanalan);
     //晴れ→雨の変曲点を算出
-    while (!weatherProvider.isSunny(periodNext.weatherId)) {
+    while (!WeatherProvider.isSunny(periodNext.weatherId)) {
       periodNext = periodNext.next;
     }
-    while (weatherProvider.isSunny(periodNext.weatherId)) {
+    while (WeatherProvider.isSunny(periodNext.weatherId)) {
       periodNext = periodNext.next;
     }
     let periodPrevious = periodNext.prev.prev;
     //let count = 1;
-    while (weatherProvider.isSunny(periodPrevious.weatherId)) {
+    while (WeatherProvider.isSunny(periodPrevious.weatherId)) {
       //count += 1;
       periodPrevious = periodPrevious.prev;
     }
@@ -67,7 +67,7 @@ class ZonaSeekerPeriod extends EorzeaPeriod {
   }
 }
 
-class EODateProvider {
+class EorzeaDateProvider {
   // spawnDateを含む or spawnDateの次に来るケロゲロス期間(x月16日17:00～x月20日04:59.999)を返す。
   getCroakadilePeriod(spawnDate = new Date()): EorzeaPeriod {
     const baseEODate: EorzeaDate = Object.assign(new EorzeaDate(spawnDate), {
@@ -151,15 +151,15 @@ class EODateProvider {
       constructor(date: Date) {
         let periodNext = new WeatherPeriod(date, TWeatherRate.EasternLaNoscea);
         //晴れ→雨の変曲点を算出
-        while (weatherProvider.isRainy(periodNext.weatherId)) {
+        while (WeatherProvider.isRainy(periodNext.weatherId)) {
           periodNext = periodNext.next;
         }
-        while (!weatherProvider.isRainy(periodNext.weatherId)) {
+        while (!WeatherProvider.isRainy(periodNext.weatherId)) {
           periodNext = periodNext.next;
         }
         let periodPrevious = periodNext.prev.prev;
         let count = 1;
-        while (!weatherProvider.isRainy(periodPrevious.weatherId)) {
+        while (!WeatherProvider.isRainy(periodPrevious.weatherId)) {
           count += 1;
           periodPrevious = periodPrevious.prev;
         }
@@ -210,15 +210,15 @@ class EODateProvider {
     class LaideronnettePeriod extends EorzeaPeriod {
       constructor(date: Date) {
         let periodNext = new WeatherPeriod(date, TWeatherRate.SouthShroud);
-        while (!weatherProvider.isRainy(periodNext.weatherId)) {
+        while (!WeatherProvider.isRainy(periodNext.weatherId)) {
           periodNext = periodNext.next;
         }
-        while (weatherProvider.isRainy(periodNext.weatherId)) {
+        while (WeatherProvider.isRainy(periodNext.weatherId)) {
           periodNext = periodNext.next;
         }
         let periodPrevious = periodNext.prev.prev;
         let count = 1;
-        while (weatherProvider.isRainy(periodPrevious.weatherId)) {
+        while (WeatherProvider.isRainy(periodPrevious.weatherId)) {
           count += 1;
           periodPrevious = periodPrevious.prev;
         }
@@ -284,7 +284,7 @@ class EODateProvider {
       }
       let wp = new WeatherPeriod(base.toDate(), TWeatherRate.Labyrinthos);
       let start = base.clone();
-      while (!weatherProvider.isSunny(wp.weatherId)) {
+      while (!WeatherProvider.isSunny(wp.weatherId)) {
         if (wp.start.hour === 16) {
           wp = wp.next.next; // 翌日のET0800
           start = Object.assign(wp.start.clone(), { hour: 9 });
@@ -302,7 +302,7 @@ class EODateProvider {
         end.subtract(7, TEorzeaDateCategory.HOURS); // 23:59 - 7 hours = 16:59
       } else if (
         wp.start.hour === 8 &&
-        weatherProvider.isSunny(wp.next.weatherId)
+        WeatherProvider.isSunny(wp.next.weatherId)
       ) {
         end.add(1, TEorzeaDateCategory.HOURS); // 15:59 + 1 hours = 16:59
       }
@@ -322,6 +322,5 @@ class EODateProvider {
   }
 }
 
-const eoDateProvider = new EODateProvider();
-
-export { eoDateProvider };
+const eorzeaDateProvider = new EorzeaDateProvider();
+export { eorzeaDateProvider as EorzeaDateProvider };
