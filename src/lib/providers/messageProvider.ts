@@ -22,23 +22,23 @@ class MessageProvider {
   getBNpcName(id: number, tts = false) {
     let result: string | undefined;
     if (tts) {
-      const ttsMap = this._tts[this._lang]?.BNpcName;
+      const ttsMap = this._tts[this._lang].BNpcName;
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id];
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang]?.BNpcName;
+      const messageMap = this._messages[this._lang].BNpcName;
       if (messageMap && messageMap[id]) {
         result = messageMap[id];
       }
     }
-    return result ?? `BNpcName<${id}>`;
+    return result ? result : `BNpcName<${id}>`;
   }
 
   getPlaceNames(id: number) {
     const results = langs.reduce<string[]>((acc, lang) => {
-      const messageMap = this._messages[lang]?.PlaceName;
+      const messageMap = this._messages[lang].PlaceName;
       if (messageMap && messageMap[id]) {
         acc.push(messageMap[id]);
       }
@@ -50,69 +50,69 @@ class MessageProvider {
   getPlaceName(id: number, tts = false) {
     let result: string | undefined;
     if (tts) {
-      const ttsMap = this._tts[this._lang]?.PlaceName;
+      const ttsMap = this._tts[this._lang].PlaceName;
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id];
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang]?.PlaceName;
+      const messageMap = this._messages[this._lang].PlaceName;
       if (messageMap && messageMap[id]) {
         result = messageMap[id];
       }
     }
-    return result ?? `PlaceName<${id}>`;
+    return result ? result : `PlaceName<${id}>`;
   }
 
   getExVersion(id: number, tts = false) {
     let result: string | undefined;
     if (tts) {
-      const ttsMap = this._tts[this._lang]?.ExVersion;
+      const ttsMap = this._tts[this._lang].ExVersion;
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id];
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang]?.ExVersion;
+      const messageMap = this._messages[this._lang].ExVersion;
       if (messageMap && messageMap[id]) {
         result = messageMap[id];
       }
     }
-    return result ?? `ExVersion<${id}>`;
+    return result ? result : `ExVersion<${id}>`;
   }
 
   getWeather(id: number, tts = false) {
     let result: string | undefined;
     if (tts) {
-      const ttsMap = this._tts[this._lang]?.Weather;
+      const ttsMap = this._tts[this._lang].Weather;
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id];
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang]?.Weather;
+      const messageMap = this._messages[this._lang].Weather;
       if (messageMap && messageMap[id]) {
         result = messageMap[id];
       }
     }
-    return result ?? `Weather<${id}>`;
+    return result ? result : `Weather<${id}>`;
   }
 
   getRegion(key: string, tts = false) {
     let result: string | undefined;
     if (tts) {
-      const ttsMap = this._tts[this._lang]?.Region;
+      const ttsMap = this._tts[this._lang].Region;
       if (ttsMap && ttsMap[key]) {
         result = ttsMap[key];
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang]?.Region;
+      const messageMap = this._messages[this._lang].Region;
       if (messageMap && messageMap[key]) {
         result = messageMap[key];
       }
     }
-    return result ?? `Region<${key}>`;
+    return result ? result : `Region<${key}>`;
   }
 }
 

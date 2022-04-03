@@ -20,7 +20,9 @@ class Mob implements IMob {
     this.rank = data.rank;
     this.category = data.category;
     this.zoneIds = data.zoneIds;
-    this.respawnMinutes = data.respawnMinutes ?? { min: 0, max: 0 };
+    this.respawnMinutes = data.respawnMinutes
+      ? data.respawnMinutes
+      : { min: 0, max: 0 };
   }
   id: number;
   rank: TMobRank;
