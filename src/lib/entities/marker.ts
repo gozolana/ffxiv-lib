@@ -12,7 +12,10 @@ interface IMarker {
 class Marker implements IMarker {
   constructor(data: IMarkerData, zone: IZone) {
     this.placeNameId = data.placeNameId;
-    [this.x, this.y] = zone.toLocalPosXY(data);
+    //[this.x, this.y] = zone.toLocalPosXY(data);
+    //暫定：OffsetやSizeFactorは気にしなくてよい？
+    this.x = data.x / 50 + 1.0;
+    this.y = data.y / 50 + 1.0;
     this.icon = data.icon;
   }
 
