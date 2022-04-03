@@ -1,6 +1,6 @@
 import { ExVersionProvider } from "../providers/exVersionProvider";
 import { MessageProvider } from "../providers/messageProvider";
-import { WeatherProvider } from "../providers/WeatherProvider";
+import { WeatherProvider } from "../providers/weatherProvider";
 import { IZoneData } from "../resources/zones.data";
 import { ExVersion } from "./exVersion";
 import { IMarker, Marker } from "./marker";
