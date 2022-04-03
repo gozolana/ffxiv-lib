@@ -28,9 +28,8 @@ class ZoneProvider {
     return this.fieldZoneById.get(id);
   }
 
-  // Field Zone の zoneId を優先度順(新エリア→旧エリア)で並べて返す
-  getFieldZoneIds(): number[] {
-    return this.huntRegions.map((hr) => hr.zones.map((zone) => zone.id)).flat();
+  getFieldZones(): IFieldZone[] {
+    return [...this.fieldZoneById.values()];
   }
 }
 

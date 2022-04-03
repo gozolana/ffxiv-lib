@@ -41,11 +41,17 @@ interface IFieldZone extends IZone {
   getMapImageUrl(type: TMapImage, size: TImageSize): string;
   readonly filter?: boolean;
   readonly elite: {
+    readonly length: number;
     readonly ids: number[];
+    readonly sId: number;
+    readonly aIds: number[];
+    readonly bIds: number[];
     readonly locations: IEliteLocation[];
   };
   readonly ss?: {
     readonly ids: number[];
+    readonly sId: number;
+    readonly bId: number;
     readonly locations: ISSLocation[];
   };
   readonly fate?: {
@@ -54,24 +60,34 @@ interface IFieldZone extends IZone {
 }
 
 class FieldZone extends Zone implements IFieldZone {
-  elite: {
-    ids: number[];
-    locations: IEliteLocation[];
+  readonly filter?: boolean;
+  readonly elite: {
+    readonly length: number;
+    readonly ids: number[];
+    readonly sId: number;
+    readonly aIds: number[];
+    readonly bIds: number[];
+    readonly locations: IEliteLocation[];
   };
-  ss?: {
-    ids: number[];
-    locations: ISSLocation[];
+  readonly ss?: {
+    readonly ids: number[];
+    readonly sId: number;
+    readonly bId: number;
+    readonly locations: ISSLocation[];
   };
-  fate?: {
-    ids: number[];
+  readonly fate?: {
+    readonly ids: number[];
   };
   constructor(data: IFieldZoneData) {
     super(data);
+    this.filter = data.filter;
+    const eliteLength = data.elite.ids.length;
     this.elite = {
+      length: eliteLength,
       ids: data.elite.ids,
       locations: data.elite.locations.map((loc) => {
         const flagString5Digits =
-          loc.flag.length === 5
+          eliteLength === 5
             ? loc.flag
             : `${loc.flag.slice(0, 2)}0${loc.flag.slice(2, 1)}0`;
         return {
@@ -82,20 +98,33 @@ class FieldZone extends Zone implements IFieldZone {
           flag: parseInt(flagString5Digits, 2),
         };
       }),
+      sId: data.elite.ids[0],
+      aIds:
+        eliteLength === 5
+          ? data.elite.ids.slice(1, 1)
+          : data.elite.ids.slice(1, 0),
+      bIds:
+        eliteLength === 5
+          ? data.elite.ids.slice(3, 1)
+          : data.elite.ids.slice(2, 0),
     };
 
-    this.ss = data.ss ? {
-      ids: data.ss.ids,
-      locations: data.ss.locations.map((loc) => {
-        return {
-          label: loc.label,
-          x: loc.x,
-          y: loc.y,
-          z: loc.z,
-          icon: loc.flag === "10" ? "ss" : "sb",
-        };
-      })
-    } : undefined;
+    this.ss = data.ss
+      ? {
+          ids: data.ss.ids,
+          locations: data.ss.locations.map((loc) => {
+            return {
+              label: loc.label,
+              x: loc.x,
+              y: loc.y,
+              z: loc.z,
+              icon: loc.flag === "10" ? "ss" : "sb",
+            };
+          }),
+          sId: data.ss.ids[0],
+          bId: data.ss.ids[1],
+        }
+      : undefined;
 
     this.fate = data.fate;
   }
