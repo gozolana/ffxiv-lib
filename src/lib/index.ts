@@ -14,6 +14,7 @@ export * from "./providers/eodateProvider";
 export * from "./providers/exVersionProvider";
 export * from "./providers/messageProvider";
 export * from "./providers/mobProvider";
+export * from "./providers/regionProvider";
 export * from "./providers/weatherProvider";
 export * from "./providers/worldProvider";
 export * from "./providers/zoneProvider";
