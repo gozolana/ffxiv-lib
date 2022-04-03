@@ -1,8 +1,10 @@
 import { ExVersionProvider } from "../providers/exVersionProvider";
 import { MessageProvider } from "../providers/messageProvider";
+import { WeatherProvider } from "../providers/WeatherProvider";
 import { IZoneData } from "../resources/zones.data";
 import { ExVersion } from "./exVersion";
 import { IMarker, Marker } from "./marker";
+import { Weather } from "./weather";
 
 interface IZone {
   readonly id: number;
@@ -23,6 +25,8 @@ interface IZone {
     yMax: number;
     yRange: number;
   }
+  getWeatherAt(timestamp: number): Weather;
+  readonly markers: IMarker[];
 }
 
 class Zone implements IZone {
@@ -46,7 +50,7 @@ class Zone implements IZone {
   private sizeFactor: number;
   private exVersionId: number;
   private weatherRateId: number;
-  private markers: IMarker[];
+  readonly markers: IMarker[];
   get name() {
     return MessageProvider.getPlaceName(this.placeNameId);
   }
@@ -86,6 +90,10 @@ class Zone implements IZone {
       (pos.y - this.offsetY) / 50.0 + 2048.0 / this.sizeFactor + 1.0,
       (pos.z - this.offsetZ) / 100.0
     ];
+  }
+
+  getWeatherAt(timestamp: number): Weather {
+    return WeatherProvider.getWeatherAt(timestamp, this.weatherRateId);
   }
 }
 
