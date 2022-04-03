@@ -24,5 +24,4 @@ class IconProvider {
 }
 
 const iconProvider = new IconProvider();
-
-export { iconProvider };
+export { iconProvider as IconProvider };

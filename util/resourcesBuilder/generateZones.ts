@@ -205,7 +205,7 @@ async function generateZones(
           x: parseInt(marker.x),
           y: parseInt(marker.y),
           placeNameId: parseInt(marker.placeNameId),
-          icon: marker.icon,
+          icon: ("000000" + marker.icon).slice(-6),
         };
       }),
     };
