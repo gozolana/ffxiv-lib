@@ -2,6 +2,7 @@
 // DO NOT EDIT.
 
 const TIcon = {
+  Aetheryte: "060453",
   Mob: "060004",
   PartyMember: "060421",
   Player: "060443",
