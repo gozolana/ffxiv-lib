@@ -1,50 +1,9 @@
-import { readCsv } from './parseCsvs';
+import { retrieveBNpcNameMessages, retrieveExVersionMessages, retrievePlaceNameMessages, retrieveWeatherMessages } from './parseCsvs';
 import { writeFileSync } from 'fs';
 import { MessageIdSet } from './types';
 import { regionsJson, ttsJson } from './parseJsons';
 
 const outputPath = './src/lib/resources/messages.data.ts';
-
-const exVersionHeaders = ['id', 'name', undefined, undefined];
-
-const placeNameHeaders = [
-  'id',
-  'name',
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-];
-
-const bNpcNameHeaders = [
-  'id',
-  'name',
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-];
-
-const weatherHeaders = [
-  'id',
-  'icon',
-  'name',
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-];
 
 interface Message {
   BNpcName: Record<number, string>;
@@ -54,9 +13,7 @@ interface Message {
   ExVersion: Record<number, string>;
 }
 
-async function generateMessages(
-  messageIdSet: MessageIdSet
-): Promise<void> {
+async function generateMessages(messageIdSet: MessageIdSet): Promise<void> {
   const message: Record<string, Message> = {
     ja: {
       BNpcName: {},
@@ -88,84 +45,31 @@ async function generateMessages(
     },
   };
 
-  const exVersions = await Promise.all(
-    Object.keys(message).map(async (lang) => {
-      const results: Record<string, string> = {};
-      (await readCsv('ExVersion', exVersionHeaders, lang)).forEach(
-        (exVersion) => {
-          results[exVersion.id] = exVersion.name;
-        }
-      );
-      return {
-        lang: lang,
-        results: results,
-      };
-    })
-  );
-
+  const exVersions = await retrieveExVersionMessages(Object.keys(message));
   exVersions.forEach((obj) => {
     message[obj.lang].ExVersion = obj.results;
   });
 
-  const bnpcnames = await Promise.all(
-    Object.keys(message).map(async (lang) => {
-      const results: Record<string, string> = {};
-      (await readCsv('BNpcName', bNpcNameHeaders, lang))
-        .filter((bNpcName) =>
-          messageIdSet.bNpcNameIdSet.has(parseInt(bNpcName.id))
-        )
-        .forEach((bNpcName) => {
-          results[bNpcName.id] = bNpcName.name;
-        });
-      return {
-        lang: lang,
-        results: results,
-      };
-    })
+  const bnpcnames = await retrieveBNpcNameMessages(
+    Object.keys(message),
+    messageIdSet.bNpcNameIdSet
   );
-
   bnpcnames.forEach((obj) => {
     message[obj.lang].BNpcName = obj.results;
   });
 
-  const placenames = await Promise.all(
-    Object.keys(message).map(async (lang) => {
-      const results: Record<string, string> = {};
-      (await readCsv('PlaceName', placeNameHeaders, lang))
-        .filter((placeName) =>
-          messageIdSet.placeNameIdSet.has(parseInt(placeName['id']))
-        )
-        .forEach((placeName) => {
-          results[placeName.id] = placeName.name;
-        });
-      return {
-        lang: lang,
-        results: results,
-      };
-    })
+  const placenames = await retrievePlaceNameMessages(
+    Object.keys(message),
+    messageIdSet.placeNameIdSet
   );
-
   placenames.forEach((obj) => {
     message[obj.lang].PlaceName = obj.results;
   });
 
-  const weathers = await Promise.all(
-    Object.keys(message).map(async (lang) => {
-      const results: Record<string, string> = {};
-      (await readCsv('Weather', weatherHeaders, lang))
-        .filter((weather) =>
-          messageIdSet.weatherIdSet.has(parseInt(weather.id))
-        )
-        .forEach((weather) => {
-          results[weather.id] = weather.name;
-        });
-      return {
-        lang: lang,
-        results: results,
-      };
-    })
+  const weathers = await retrieveWeatherMessages(
+    Object.keys(message),
+    messageIdSet.weatherIdSet
   );
-
   weathers.forEach((obj) => {
     message[obj.lang].Weather = obj.results;
   });
@@ -176,11 +80,6 @@ async function generateMessages(
     message.de.Region[region.key] = region.name.de;
     message.fr.Region[region.key] = region.name.fr;
   });
-
-  const messageJson = JSON.stringify(message, null, 2).replace(
-    /\"([0-9a-zA-Z]+)\": /g,
-    '$1: '
-  );
 
   const output = `// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
@@ -193,7 +92,11 @@ interface Message {
   ExVersion: Record<number, string>;
 }
 
-const messages: Record<string, Message> = ${messageJson};
+const messages: Record<string, Message> = ${JSON.stringify(
+    message,
+    null,
+    2
+  ).replace(/\"([0-9a-zA-Z]+)\": /g, '$1: ')};
 
 const tts: Record<string, Partial<Message>> = ${JSON.stringify(
     ttsJson,

@@ -1,149 +1,50 @@
-import { readCsv } from './parseCsvs';
+import {
+  retrieveExVersions,
+  retrieveMapMarkers,
+  retrieveMaps,
+  retrieveTerritoryTypes,
+  retrieveTerritoryTypeTransients,
+} from './parseCsvs';
 import { writeFileSync } from 'fs';
 import { generateWeathers } from './generateWeathers';
-import {
-  MessageIdSet,
-} from './types';
+import { MessageIdSet } from './types';
 import { expansionsJson, fieldZonesJson, regionsJson } from './parseJsons';
-import { basePath } from './saintCoinachPath';
 
 const outputPath = './src/lib/resources/zones.data.ts';
 
-
-interface IRegionData {
-  readonly key: string;
-  readonly css: string;
-  readonly zoneIds: number[];
-}
-
-const exVersionHeaders = ['id', 'name', undefined, undefined];
-
-const territoryTypeHeaders = [
-  'id',
-  'name',
-  undefined,
-  undefined,
-  'placeName_region',
-  'placeName_zone',
-  'placeName',
-  'map',
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  'weatherRate',
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  'exVersion',
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-];
-
-const offsetZHeaders = ['id', 'offsetZ'];
-
-const mapHeaders = [
-  'id',
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  'mapMarkerId',
-  'name',
-  'sizeFactor',
-  'offsetX',
-  'offsetY',
-  'placeName_region',
-  'placeName',
-  'placeName2',
-  undefined,
-  undefined,
-  'territoryType',
-  undefined,
-  undefined,
-  undefined,
-];
-
-const mapMarkerHeaders = [
-  'key',
-  'x',
-  'y',
-  'icon',
-  'placeNameId',
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  'placeName2Id',
-  undefined,
-  undefined,
-];
-
-async function generateZones(
-  messageIdSet: MessageIdSet
-): Promise<void> {
+async function generateZones(messageIdSet: MessageIdSet): Promise<void> {
   const zoneIds: Set<number> = new Set<number>([
     ...regionsJson.huntRegions.map((r) => r.zoneIds).flat(),
     ...regionsJson.weatherRegions.map((r) => r.zoneIds).flat(),
   ]);
-  const territoryTypes = (
-    await readCsv('TerritoryType', territoryTypeHeaders)
-  ).filter((tt) => zoneIds.has(parseInt(tt.id)));
+  const territoryTypeRows = await retrieveTerritoryTypes(zoneIds);
+  const territoryTypeTransientRows = await retrieveTerritoryTypeTransients(
+    zoneIds
+  );
+  const mapMarkerRows = await retrieveMapMarkers();
+  const exVersionRows = await retrieveExVersions();
 
   const weatherRateIds: Set<number> = new Set<number>(
-    territoryTypes.map((tt) => parseInt(tt.weatherRate))
+    territoryTypeRows.map((tt) => parseInt(tt.weatherRate))
   );
   const placeNameIds: Set<number> = new Set<number>(
-    territoryTypes.map((tt) => parseInt(tt.placeName))
+    territoryTypeRows.map((tt) => parseInt(tt.placeName))
   );
   const mapIds: Set<number> = new Set<number>(
-    territoryTypes.map((tt) => parseInt(tt.map))
+    territoryTypeRows.map((tt) => parseInt(tt.map))
+  );
+  const mapRows = await retrieveMaps(mapIds);
+
+  const weatherIds: Set<number> = await generateWeathers(weatherRateIds);
+
+  const offsetZByZoneId: Record<string, number> = Object.fromEntries(
+    territoryTypeTransientRows.map((offsetZRow) => [
+      offsetZRow.id,
+      parseInt(offsetZRow.offsetZ),
+    ])
   );
 
-  const weatherIds: Set<number> = await generateWeathers(
-    weatherRateIds
-  );
-
-  const offsetZs = (
-    await readCsv('TerritoryTypeTransient', offsetZHeaders)
-  ).filter((offsetZ) => zoneIds.has(parseInt(offsetZ.id)));
-  const offsetZMap: Record<string, number> = {};
-  offsetZs.forEach(
-    (offsetZ) => (offsetZMap[offsetZ.id] = parseInt(offsetZ.offsetZ))
-  );
-
-  const mapMarkers = await readCsv('MapMarker', mapMarkerHeaders);
-
-  const maps = (await readCsv('Map', mapHeaders)).filter((map) =>
-    mapIds.has(parseInt(map.id))
-  );
-  const mapMap: Record<
+  const mapById: Record<
     string,
     {
       offsetX: number;
@@ -156,45 +57,47 @@ async function generateZones(
         icon: string;
       }[];
     }
-  > = {};
-  maps.forEach((map) => {
-    const markers = mapMarkers.filter(
-      (marker) =>
-        marker.key.split('.')[0] === map.mapMarkerId && marker.icon != '0'
-    );
-    mapMap[map.id] = {
-      offsetX: parseInt(map.offsetX),
-      offsetY: parseInt(map.offsetY),
-      sizeFactor: parseInt(map.sizeFactor),
-      markers: markers.map((marker) => {
-        return {
-          x: parseInt(marker.x),
-          y: parseInt(marker.y),
-          placeNameId: parseInt(marker.placeNameId),
-          icon: ('000000' + marker.icon).slice(-6),
-        };
-      }),
-    };
-  });
-
-  const exVersions = await readCsv(
-    'ExVersion',
-    exVersionHeaders,
-    'en'
+  > = Object.fromEntries(
+    mapRows.map((map) => {
+      const markers = mapMarkerRows.filter(
+        (marker) =>
+          marker.key.split('.')[0] === map.mapMarkerId && marker.icon != '0'
+      );
+      return [
+        map.id,
+        {
+          offsetX: parseInt(map.offsetX),
+          offsetY: parseInt(map.offsetY),
+          sizeFactor: parseInt(map.sizeFactor),
+          markers: markers.map((marker) => {
+            return {
+              x: parseInt(marker.x),
+              y: parseInt(marker.y),
+              placeNameId: parseInt(marker.placeNameId),
+              icon: ('000000' + marker.icon).slice(-6),
+            };
+          }),
+        },
+      ];
+    })
   );
-  let exVersionIdByType: any = {};
-  exVersions.forEach((exVersion) => {
-    exVersionIdByType[exVersion.name.replace(/ /g, '')] = parseInt(
-      exVersion.id
-    );
-  });
-  const cssByRegionKey: Record<string, string> = {};
-  regionsJson.regions.forEach((region) => {
-    cssByRegionKey[region.key] = region.css;
-  });
+
+  const exVersionIdByType: Record<string, number> = Object.fromEntries(
+    exVersionRows.map((row) => [row.name.replace(/ /g, ''), parseInt(row.id)])
+  );
+
+  const cssByRegionKey: Record<string, string> = Object.fromEntries(
+    regionsJson.regions.map((row) => [row.key, row.css])
+  );
+
+  type RegionData = {
+    key: string;
+    css: string;
+    zoneIds: number[];
+  };
   const regionData: {
-    huntRegions: IRegionData[];
-    weatherRegions: IRegionData[];
+    huntRegions: RegionData[];
+    weatherRegions: RegionData[];
   } = {
     huntRegions: regionsJson.huntRegions.map((r) => {
       return {
@@ -212,16 +115,16 @@ async function generateZones(
     }),
   };
 
-  const allZones = territoryTypes.map((tt) => {
+  const allZones = territoryTypeRows.map((tt) => {
     return {
       id: parseInt(tt.id),
       placeNameId: parseInt(tt.placeName),
       weatherRateId: parseInt(tt.weatherRate),
-      sizeFactor: mapMap[tt.map].sizeFactor,
-      offsetX: mapMap[tt.map].offsetX,
-      offsetY: mapMap[tt.map].offsetY,
-      offsetZ: offsetZMap[tt.id],
-      markers: mapMap[tt.map].markers,
+      sizeFactor: mapById[tt.map].sizeFactor,
+      offsetX: mapById[tt.map].offsetX,
+      offsetY: mapById[tt.map].offsetY,
+      offsetZ: offsetZByZoneId[tt.id],
+      markers: mapById[tt.map].markers,
       exVersionId: parseInt(tt.exVersion),
     };
   });

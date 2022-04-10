@@ -2,16 +2,6 @@ import { readFileSync } from 'fs';
 import { parse } from '@fast-csv/parse';
 import { basePath } from './saintCoinachPath';
 
-type IDataRow = Record<string, string>;
-
-async function readCsv(
-  table: string,
-  headers: readonly (string | undefined)[],
-  lang = ''
-): Promise<IDataRow[]> {
-  return await parseCsv<IDataRow>(table, headers, lang);
-}
-
 async function parseCsv<T>(
   table: string,
   headers: readonly (string | undefined)[],
@@ -39,12 +29,127 @@ async function parseCsv<T>(
   });
 }
 
+async function retrieveTerritoryTypes(zoneIds: Set<number>) {
+  const headers = [
+    'id',
+    'name',
+    undefined,
+    undefined,
+    'placeName_region',
+    'placeName_zone',
+    'placeName',
+    'map',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    'weatherRate',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    'exVersion',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+  ] as const;
+  type Row = Record<NonNullable<typeof headers[number]>, string>;
+  return (await parseCsv<Row>('TerritoryType', headers)).filter((tt) =>
+    zoneIds.has(parseInt(tt.id))
+  );
+}
+
+async function retrieveTerritoryTypeTransients(zoneIds: Set<number>) {
+  const headers = ['id', 'offsetZ'] as const;
+  type Row = Record<NonNullable<typeof headers[number]>, string>;
+  return (await parseCsv<Row>('TerritoryTypeTransient', headers)).filter(
+    (ttt) => zoneIds.has(parseInt(ttt.id))
+  );
+}
+
+async function retrieveExVersions() {
+  const headers = ['id', 'name', undefined, undefined] as const;
+  type Row = Record<NonNullable<typeof headers[number]>, string>;
+  return await parseCsv<Row>('ExVersion', headers, 'en');
+}
+
+async function retrieveMapMarkers() {
+  const headers = [
+    'key',
+    'x',
+    'y',
+    'icon',
+    'placeNameId',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    'placeName2Id',
+    undefined,
+    undefined,
+  ] as const;
+  type Row = Record<NonNullable<typeof headers[number]>, string>;
+  return await parseCsv<Row>('MapMarker', headers);
+}
+
+async function retrieveMaps(mapIds: Set<number>) {
+  const headers = [
+    'id',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    'mapMarkerId',
+    'name',
+    'sizeFactor',
+    'offsetX',
+    'offsetY',
+    'placeName_region',
+    'placeName',
+    'placeName2',
+    undefined,
+    undefined,
+    'territoryType',
+    undefined,
+    undefined,
+    undefined,
+  ] as const;
+  type Row = Record<NonNullable<typeof headers[number]>, string>;
+  return (await parseCsv<Row>('Map', headers)).filter((map) =>
+    mapIds.has(parseInt(map.id))
+  );
+}
+
 async function retrieveDataCenters() {
   const regionIds: Set<string> = new Set(['1', '2', '3', '4']);
-  const dcHeaders = ['id', 'name', 'regionId'] as const;
-  type DataCenterRow = Record<NonNullable<typeof dcHeaders[number]>, string>;
-  return (await parseCsv<DataCenterRow>('WorldDCGroupType', dcHeaders)).filter(
-    (dc) => regionIds.has(dc.regionId)
+  const headers = ['id', 'name', 'regionId'] as const;
+  type Row = Record<NonNullable<typeof headers[number]>, string>;
+  return (await parseCsv<Row>('WorldDCGroupType', headers)).filter((dc) =>
+    regionIds.has(dc.regionId)
   );
 }
 
@@ -134,4 +239,103 @@ async function retrieveWeathers(weatherIds: Set<number>) {
   );
 }
 
-export { readCsv, retrieveIconStrings, retrieveWeathers, retrieveWeatherRates, retrieveWorlds, retrieveDataCenters };
+async function retrieveMessages(
+  langs: string[],
+  table: string,
+  headers: readonly (string | undefined)[],
+  filterIds: Set<number> | undefined = undefined
+) {
+  return await Promise.all(
+    langs.map(async (lang) => {
+      return {
+        lang: lang,
+        results: Object.fromEntries(
+          (await parseCsv<Record<string, string>>(table, headers, lang))
+            .filter((row) =>
+              filterIds ? filterIds.has(parseInt(row.id)) : true
+            )
+            .map((row) => [row.id, row.name])
+        ),
+      };
+    })
+  );
+}
+
+async function retrieveExVersionMessages(langs: string[]) {
+  const headers = ['id', 'name', undefined, undefined] as const;
+  return await retrieveMessages(langs, 'ExVersion', headers);
+}
+
+async function retrieveBNpcNameMessages(
+  langs: string[],
+  filterIds: Set<number>
+) {
+  const headers = [
+    'id',
+    'name',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+  ] as const;
+  return await retrieveMessages(langs, 'BNpcName', headers, filterIds);
+}
+
+async function retrievePlaceNameMessages(
+  langs: string[],
+  filterIds: Set<number>
+) {
+  const headers = [
+    'id',
+    'name',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+  ] as const;
+  return await retrieveMessages(langs, 'PlaceName', headers, filterIds);
+}
+
+async function retrieveWeatherMessages(
+  langs: string[],
+  filterIds: Set<number>
+) {
+  const headers = [
+    'id',
+    'icon',
+    'name',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+  ] as const;
+  return await retrieveMessages(langs, 'Weather', headers, filterIds);
+}
+
+export {
+  retrieveTerritoryTypes,
+  retrieveTerritoryTypeTransients,
+  retrieveExVersions,
+  retrieveMaps,
+  retrieveMapMarkers,
+  retrieveIconStrings,
+  retrieveWeathers,
+  retrieveWeatherRates,
+  retrieveWorlds,
+  retrieveDataCenters,
+  retrieveExVersionMessages,
+  retrieveBNpcNameMessages,
+  retrievePlaceNameMessages,
+  retrieveWeatherMessages,
+};
