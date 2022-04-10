@@ -1,7 +1,7 @@
-import { IFieldZoneData } from "../resources/zones.data";
-import { IZone, Zone } from "./zone";
+import { FieldZoneData } from "../resources/zones.data";
+import { Zone, ZoneImpl } from "./zone";
 
-interface IEliteLocation {
+interface EliteLocation {
   label: string;
   x: number;
   y: number;
@@ -9,7 +9,7 @@ interface IEliteLocation {
   flag: number;
 }
 
-interface ISSLocation {
+interface SSLocation {
   label: string;
   x: number;
   y: number;
@@ -37,7 +37,7 @@ const TImageSize = {
 } as const;
 type TImageSize = typeof TImageSize[keyof typeof TImageSize];
 
-interface IFieldZone extends IZone {
+interface FieldZone extends Zone {
   getMapImageUrl(type: TMapImage, size: TImageSize): string;
   readonly filter?: boolean;
   readonly elite: {
@@ -46,20 +46,20 @@ interface IFieldZone extends IZone {
     readonly sId: number;
     readonly aIds: number[];
     readonly bIds: number[];
-    readonly locations: IEliteLocation[];
+    readonly locations: EliteLocation[];
   };
   readonly ss?: {
     readonly ids: number[];
     readonly sId: number;
     readonly bId: number;
-    readonly locations: ISSLocation[];
+    readonly locations: SSLocation[];
   };
   readonly fate?: {
     readonly ids: number[];
   };
 }
 
-class FieldZone extends Zone implements IFieldZone {
+class FieldZoneImpl extends ZoneImpl implements FieldZone {
   readonly filter?: boolean;
   readonly elite: {
     readonly length: number;
@@ -67,18 +67,18 @@ class FieldZone extends Zone implements IFieldZone {
     readonly sId: number;
     readonly aIds: number[];
     readonly bIds: number[];
-    readonly locations: IEliteLocation[];
+    readonly locations: EliteLocation[];
   };
   readonly ss?: {
     readonly ids: number[];
     readonly sId: number;
     readonly bId: number;
-    readonly locations: ISSLocation[];
+    readonly locations: SSLocation[];
   };
   readonly fate?: {
     readonly ids: number[];
   };
-  constructor(data: IFieldZoneData) {
+  constructor(data: FieldZoneData) {
     super(data);
     this.filter = data.filter;
     const eliteLength = data.elite.ids.length;
@@ -142,4 +142,4 @@ class FieldZone extends Zone implements IFieldZone {
   }
 }
 
-export { TMapImage, TImageSize, IFieldZone, FieldZone };
+export { TMapImage, TImageSize, FieldZone, FieldZoneImpl };

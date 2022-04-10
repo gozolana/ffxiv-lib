@@ -1,7 +1,7 @@
 import { MessageProvider } from "../providers/messageProvider";
-import { IMobData, TMobCategory, TMobRank } from "../resources/mobs.data";
+import { MobData, TMobCategory, TMobRank } from "../resources/mobs.data";
 
-interface IMob {
+interface Mob {
   readonly id: number;
   readonly name: string;
   readonly tts: string;
@@ -14,8 +14,8 @@ interface IMob {
   };
 }
 
-class Mob implements IMob {
-  constructor(data: IMobData) {
+class MobImpl implements Mob {
+  constructor(data: MobData) {
     this.id = data.id;
     this.rank = data.rank;
     this.category = data.category;
@@ -40,4 +40,4 @@ class Mob implements IMob {
   };
 }
 
-export { TMobCategory, TMobRank, IMob, Mob };
+export { TMobCategory, TMobRank, Mob, MobImpl };

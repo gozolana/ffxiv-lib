@@ -1,23 +1,10 @@
-import { parse } from "jsonc-parser";
-import { readFileSync, writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 import {
-  IFieldZoneInfo,
-  IRegionsJson,
-  IRespawnData,
   MessageIdSet,
 } from "./types";
+import { fieldZonesJson, regionsJson, respawnMinutesJson, RespawnMinutesData } from "./parseJsons";
 
 const outputPath = "./src/lib/resources/mobs.data.ts";
-
-const inputRespawnMinutes: IRespawnData = parse(
-  readFileSync("./data/respawnMinutes.jsonc").toString()
-);
-const inputFieldZones: IFieldZoneInfo = parse(
-  readFileSync("./data/fieldZones.jsonc").toString()
-);
-const inputRegions: IRegionsJson = parse(
-  readFileSync("./data/regions.jsonc").toString()
-);
 
 async function generateMobs(
   messageIdSet: MessageIdSet
@@ -39,7 +26,7 @@ async function generateMobs(
   } as const;
   type TMobRank = typeof TMobRank[keyof typeof TMobRank];
 
-  interface IMobData {
+  interface MobData {
     id: number;
     category: TMobCategory;
     rank: TMobRank;
@@ -51,15 +38,15 @@ async function generateMobs(
   }
 
   class MobMerge {
-    respawnMinutes: IRespawnData = {};
+    respawnMinutes: RespawnMinutesData = {};
     srankelites: number[] = [];
     arankelites: number[] = [];
     brankelites: number[] = [];
     specialelites: number[] = [];
     specialfates: number[] = [];
-    mobMap: { [id: number]: IMobData } = {};
-    constructor(  inputRespawnMinutes: IRespawnData      ) {
-      this.respawnMinutes = inputRespawnMinutes;
+    mobMap: Record<number, MobData> = {};
+    constructor(  respawnMinutes: RespawnMinutesData      ) {
+      this.respawnMinutes = respawnMinutes;
     }
     addSRankElite(id: number, zoneId: number) {
       const mobData = this.mobMap[id];
@@ -168,13 +155,13 @@ async function generateMobs(
     }
   }
 
-  const mobMerge = new MobMerge(inputRespawnMinutes);
+  const mobMerge = new MobMerge(respawnMinutesJson);
 
-  inputRegions.huntRegions
+  regionsJson.huntRegions
     .map((r) => r.zoneIds)
     .flat()
     .forEach((zoneId) => {
-      const zone = inputFieldZones[zoneId.toString()];
+      const zone = fieldZonesJson[zoneId.toString()];
       if (zone.elite.ids.length === 5) {
         mobMerge.addSRankElite(zone.elite.ids[0], zoneId);
         mobMerge.addARankElite(zone.elite.ids[1], zoneId);
@@ -221,7 +208,7 @@ const TMobRank = {
 } as const;
 type TMobRank = typeof TMobRank[keyof typeof TMobRank];
 
-interface IMobData {
+interface MobData {
   id: number;
   category: TMobCategory;
   rank: TMobRank;
@@ -233,7 +220,7 @@ interface IMobData {
 }
 
 const mobData: {
-  mobById: { [id: number]: IMobData };
+  mobById: Record<number, MobData>;
   sRanks: number[];
   aRanks: number[];
   bRanks: number[];
@@ -251,7 +238,7 @@ const mobData: {
 export {
   TMobRank,
   TMobCategory,
-  IMobData,
+  MobData,
   mobData
 };
 `;

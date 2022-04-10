@@ -1,15 +1,15 @@
-import { IExVersion, ExVersion } from "../entities/exVersion";
-import { exVersions } from "../resources/zones.data";
+import { ExVersion, ExVersionImpl } from '../entities/exVersion';
+import { exVersions } from '../resources/zones.data';
 
 class ExVersionProvider {
   constructor() {
     this.exVersionById = new Map(
-      exVersions.map((vrs) => [vrs.id, new ExVersion(vrs)])
+      exVersions.map((vrs) => [vrs.id, new ExVersionImpl(vrs)])
     );
   }
-  private exVersionById: Map<number, IExVersion>;
+  private exVersionById: Map<number, ExVersion>;
 
-  findExVersion(id: number): IExVersion | undefined {
+  findExVersion(id: number): ExVersion | undefined {
     return this.exVersionById.get(id);
   }
 }

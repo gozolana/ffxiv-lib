@@ -1,5 +1,5 @@
-import { langs, TLang } from "../entities/lang";
-import { IMessage, messages, tts } from "../resources/messages.data";
+import { langs, TLang } from '../entities/lang';
+import { Message, messages, tts } from '../resources/messages.data';
 
 class MessageProvider {
   constructor() {
@@ -7,9 +7,9 @@ class MessageProvider {
     this._tts = tts;
   }
 
-  private _lang: TLang = "ja";
-  private _messages: IMessage;
-  private _tts: IMessage;
+  private _lang: TLang = 'ja';
+  private _messages: Record<TLang, Message>;
+  private _tts: Record<TLang, Partial<Message>>;
 
   get lang(): TLang {
     return this._lang;

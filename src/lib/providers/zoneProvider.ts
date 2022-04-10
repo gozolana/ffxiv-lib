@@ -1,28 +1,28 @@
-import { IFieldZone, FieldZone } from "../entities/fieldZone";
-import { IZone, Zone } from "../entities/zone";
+import { FieldZone, FieldZoneImpl } from "../entities/fieldZone";
+import { Zone, ZoneImpl } from "../entities/zone";
 import { zoneData } from "../resources/zones.data";
 
 class ZoneProvider {
   constructor() {
     this.zoneById = new Map(
-      zoneData.zones.map((zone) => [zone.id, new Zone(zone)])
+      zoneData.zones.map((zone) => [zone.id, new ZoneImpl(zone)])
     );
     this.fieldZoneById = new Map(
-      zoneData.fieldZones.map((zone) => [zone.id, new FieldZone(zone)])
+      zoneData.fieldZones.map((zone) => [zone.id, new FieldZoneImpl(zone)])
     );
   }
-  private zoneById: Map<number, IZone>;
-  private fieldZoneById: Map<number, IFieldZone>;
+  private zoneById: Map<number, Zone>;
+  private fieldZoneById: Map<number, FieldZone>;
 
-  findZone(id: number): IZone | undefined {
+  findZone(id: number): Zone | undefined {
     return this.zoneById.get(id);
   }
 
-  findFieldZone(id: number): IFieldZone | undefined {
+  findFieldZone(id: number): FieldZone | undefined {
     return this.fieldZoneById.get(id);
   }
 
-  getFieldZones(): IFieldZone[] {
+  getFieldZones(): FieldZone[] {
     return [...this.fieldZoneById.values()];
   }
 }

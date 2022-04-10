@@ -1,64 +1,36 @@
-import { readCsv } from "./csvReader";
-import { writeFileSync } from "fs";
+import { retrieveDataCenters, retrieveWorlds } from './parseCsvs';
+import { writeFileSync } from 'fs';
 
-const outputPath = "./src/lib/resources/worlds.data.ts";
+const outputPath = './src/lib/resources/worlds.data.ts';
 
-const worldHeaders = [
-  "id",
-  undefined,
-  "name",
-  undefined,
-  undefined,
-  "dataCenterId",
-  "isPublic",
-];
+async function generateWorlds() {
+  const dataCenterRows = await retrieveDataCenters();
+  const dcIds: Set<string> = new Set(dataCenterRows.map((dc) => dc.id));
+  const worldRows = await retrieveWorlds(dcIds);
 
-const dcHeaders = ["id", "name", "regionId"];
-
-const regionIds: Set<string> = new Set(["1", "2", "3", "4"]);
-
-async function generateWorlds(basePath: string) {
-  const dcs = (await readCsv(basePath, "WorldDCGroupType", dcHeaders)).filter(
-    (dc) => regionIds.has(dc.regionId)
-  );
-  let dataCenterIdByType: any = {};
-  dcs.forEach((dc) => {
-    dataCenterIdByType[dc.name] = parseInt(dc.id);
+  const dataCenters = dataCenterRows.map((dc) => {
+    return {
+      id: parseInt(dc.id),
+      name: dc.name,
+      regionId: parseInt(dc.regionId),
+    };
   });
-  let dcsJson = JSON.stringify(
-    dcs.map((dc) => {
-      return {
-        id: parseInt(dc.id),
-        name: dc.name,
-        regionId: parseInt(dc.regionId),
-      };
-    }),
-    null,
-    2
-  ).replace(/\"([a-zA-Z]+)\": /g, "$1: ");
 
-  const dcIds: Set<string> = new Set(dcs.map((dc) => dc.id));
-
-  let worlds = (await readCsv(basePath, "World", worldHeaders)).filter(
-    (world) => {
-      return world["isPublic"] === "True" && dcIds.has(world["dataCenterId"]);
-    }
-  );
-  let worldIdByType: any = {};
-  worlds.forEach((world) => {
-    worldIdByType[world.name] = parseInt(world.id);
+  const worlds = worldRows.map((world) => {
+    return {
+      id: parseInt(world.id),
+      name: world.name,
+      dataCenterId: parseInt(world.dataCenterId),
+    };
   });
-  let worldsJson = JSON.stringify(
-    worlds.map((world) => {
-      return {
-        id: parseInt(world.id),
-        name: world.name,
-        dataCenterId: parseInt(world.dataCenterId),
-      };
-    }),
-    null,
-    2
-  ).replace(/\"([a-zA-Z]+)\": /g, "$1: ");
+
+  const dataCenterIdByType: Record<string, number> = Object.fromEntries(
+    dataCenters.map((dc) => [dc.name, dc.id])
+  );
+
+  const worldIdByType: Record<string, number> = Object.fromEntries(
+    worlds.map((world) => [world.name, world.id])
+  );
 
   const output = `// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
@@ -74,38 +46,45 @@ type TDataCenterRegion =
 
 const TDataCenter = ${JSON.stringify(dataCenterIdByType, null, 2).replace(
     /\"([a-zA-Z]+)\": /g,
-    "$1: "
+    '$1: '
   )} as const;
 type TDataCenter = typeof TDataCenter[keyof typeof TDataCenter];
 
 const TWorld = ${JSON.stringify(worldIdByType, null, 2).replace(
     /\"([a-zA-Z]+)\": /g,
-    "$1: "
+    '$1: '
   )} as const;
 type TWorld = typeof TWorld[keyof typeof TWorld];
 
-interface IDataCenterData {
-  readonly id: TDataCenter;
-  readonly name: string;
-  readonly regionId: TDataCenterRegion;
-}
+type DataCenterData = {
+  id: TDataCenter;
+  name: string;
+  regionId: TDataCenterRegion;
+};
 
-interface IWorldData {
-  readonly id: TWorld;
-  readonly name: string;
-  readonly dataCenterId: TDataCenter;
-}
+type WorldData = {
+  id: TWorld;
+  name: string;
+  dataCenterId: TDataCenter;
+};
 
-const dataCenters: IDataCenterData[] = ${dcsJson};
+const dataCenters: DataCenterData[] = ${JSON.stringify(
+    dataCenters,
+    null,
+    2
+  ).replace(/\"([a-zA-Z]+)\": /g, '$1: ')};
 
-const worlds: IWorldData[] = ${worldsJson};
+const worlds: WorldData[] = ${JSON.stringify(worlds, null, 2).replace(
+    /\"([a-zA-Z]+)\": /g,
+    '$1: '
+  )};
 
 export {
   TDataCenterRegion,
   TDataCenter,
   TWorld,
-  IWorldData,
-  IDataCenterData,
+  WorldData,
+  DataCenterData,
   dataCenters,
   worlds,
 };

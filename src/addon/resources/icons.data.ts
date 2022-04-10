@@ -1,8 +1,8 @@
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-const elite: { [flag: number]: string } = {};
-const icon: { [name: string]: string } = {};
+const elite: Record<number, string> = {};
+const icon: Record<string, string> = {};
 elite[1] = new URL('../../assets/icons/00001.svg', import.meta.url).href;
 elite[2] = new URL('../../assets/icons/00010.svg', import.meta.url).href;
 elite[3] = new URL('../../assets/icons/00011.svg', import.meta.url).href;

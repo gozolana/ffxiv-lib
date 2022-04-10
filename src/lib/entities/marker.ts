@@ -1,16 +1,16 @@
 import { MessageProvider } from "../providers/messageProvider";
-import { IMarkerData } from "../resources/zones.data";
-import { IZone } from "./zone";
+import { MarkerData } from "../resources/zones.data";
+import { Zone } from "./zone";
 
-interface IMarker {
+interface Marker {
   readonly x: number;
   readonly y: number;
   readonly name: string;
   readonly icon: string;
 }
 
-class Marker implements IMarker {
-  constructor(data: IMarkerData, zone: IZone) {
+class MarkerImpl implements Marker {
+  constructor(data: MarkerData, zone: Zone) {
     this.placeNameId = data.placeNameId;
     //[this.x, this.y] = zone.toLocalPosXY(data);
     //暫定：OffsetやSizeFactorは気にしなくてよい？
@@ -28,4 +28,4 @@ class Marker implements IMarker {
   readonly icon: string;
 }
 
-export { IMarker, Marker };
+export { Marker, MarkerImpl };

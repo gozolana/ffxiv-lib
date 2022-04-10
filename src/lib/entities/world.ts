@@ -1,16 +1,16 @@
-import { TWorld, TDataCenter, IWorldData } from "../resources/worlds.data";
+import { TWorld, TDataCenter, WorldData } from "../resources/worlds.data";
 
-interface IWorld {
+interface World {
   readonly id: TWorld;
   readonly name: string;
   readonly dataCenterId: TDataCenter;
   readonly longName: string;
   readonly dataCenterName: string;
-  compare(another: IWorld): number;
+  compare(another: World): number;
 }
 
-class World implements IWorld {
-  constructor(info: IWorldData) {
+class WorldImpl implements World {
+  constructor(info: WorldData) {
     this.id = info.id;
     this.name = info.name;
     this.dataCenterId = info.dataCenterId;
@@ -27,7 +27,7 @@ class World implements IWorld {
     );
     return Array.isArray(entry) ? entry[0] : "";
   }
-  compare(another: IWorld): number {
+  compare(another: World): number {
     let result = this.dataCenterName.localeCompare(another.dataCenterName);
     if (result === 0) {
       result = this.name.localeCompare(another.name);
@@ -36,4 +36,4 @@ class World implements IWorld {
   }
 }
 
-export { TWorld, IWorld, World };
+export { TWorld, World, WorldImpl };

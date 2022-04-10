@@ -24,12 +24,12 @@ const TWeather = {
 } as const;
 type TWeather = typeof TWeather[keyof typeof TWeather];
 
-interface IWeatherData {
+interface WeatherData {
   readonly id: number;
   readonly icon: string;
 }
 
-interface IWeatherRateData {
+interface WeatherRateData {
   readonly id: number;
   readonly rates: {
     readonly weatherId: number;
@@ -37,7 +37,7 @@ interface IWeatherRateData {
   }[];
 }
 
-const weathers: IWeatherData[] = [
+const weathers: WeatherData[] = [
   {
     id: 1,
     icon: "060201"
@@ -116,7 +116,7 @@ const weathers: IWeatherData[] = [
   }
 ];
 
-const weatherRates: IWeatherRateData[] = [
+const weatherRates: WeatherRateData[] = [
   {
     id: 3,
     rates: [
@@ -1330,8 +1330,8 @@ const weatherRates: IWeatherRateData[] = [
 
 export {
   TWeather,
-  IWeatherData,
-  IWeatherRateData,
+  WeatherData,
+  WeatherRateData,
   weathers,
   weatherRates,
 };

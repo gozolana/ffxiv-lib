@@ -1,59 +1,61 @@
-import { copyFileSync, mkdirSync, readdirSync, writeFileSync } from "fs";
-import { extname, resolve } from "path";
-import { readCsv } from "./csvReader";
+import { copyFileSync, mkdirSync, readdirSync, writeFileSync } from 'fs';
+import { extname, resolve } from 'path';
+import { retrieveIconStrings } from './parseCsvs';
+import { basePath } from './saintCoinachPath';
 
-const outputPath = "./src/addon/resources/icons.data.ts";
-const outputPath2 = "./src/lib/resources/icons.data.ts";
-const outputPath3 = "./src/assets/icons/preview.htm";
+const outputPath = './src/addon/resources/icons.data.ts';
+const outputPath2 = './src/lib/resources/icons.data.ts';
+const outputPath3 = './src/assets/icons/preview.htm';
 
 const outPath = resolve(`./src/assets/icons`);
 mkdirSync(outPath, { recursive: true });
 
 const myIcons = new Map<string, string>([
-  ["Mob", "060004"],
-  ["PartyMember", "060421"],
-  ["Player", "060443"],
-  ["Mining", "060437"],
-  ["Quarrying", "060438"],
-  ["Logging", "060432"],
-  ["Harvesting", "060433"],
-  ["Fishing", "060445"],
-  ["Up", "060954"],
-  ["Down", "060955"],
-  ["CairnOfReturn", "060905"],
-  ["CairnOfReturnActive", "060906"],
-  ["CairnOfPassage", "060907"],
-  ["CairnOfPassageActive", "060908"],
-  ["GoldCoffer", "060913"],
-  ["SilverCoffer", "060912"],
-  ["BronzeCoffer", "060911"],
-  ["PlotGreen", "060403"],
-  ["PlotWhite", "060444"],
-  ["Pin", "060442"],
-  ["PlotYellow", "060424"],
-  ["PlotRed", "060422"],
-  ["TriangleGreen", "060358"],
-  ["TriangleBlue", "060361"],
-  ["TriangleYellow", "060360"],
-  ["TriangleRed", "060359"],
-  ["TrapYellow", "060402"],
-  ["TrapRed", "060401"],
-  ["Num1", "060918"],
-  ["Num2", "060919"],
-  ["Num3", "060920"],
-  ["Num4", "060921"],
-  ["Num5", "060922"],
-  ["Num6", "060923"],
-  ["Num7", "060924"],
-  ["Num8", "060925"],
+  ['Aetheryte', '060453'],
+  ['Mob', '060004'],
+  ['PartyMember', '060421'],
+  ['Player', '060443'],
+  ['Mining', '060437'],
+  ['Quarrying', '060438'],
+  ['Logging', '060432'],
+  ['Harvesting', '060433'],
+  ['Fishing', '060445'],
+  ['Up', '060954'],
+  ['Down', '060955'],
+  ['CairnOfReturn', '060905'],
+  ['CairnOfReturnActive', '060906'],
+  ['CairnOfPassage', '060907'],
+  ['CairnOfPassageActive', '060908'],
+  ['GoldCoffer', '060913'],
+  ['SilverCoffer', '060912'],
+  ['BronzeCoffer', '060911'],
+  ['PlotGreen', '060403'],
+  ['PlotWhite', '060444'],
+  ['Pin', '060442'],
+  ['PlotYellow', '060424'],
+  ['PlotRed', '060422'],
+  ['TriangleGreen', '060358'],
+  ['TriangleBlue', '060361'],
+  ['TriangleYellow', '060360'],
+  ['TriangleRed', '060359'],
+  ['TrapYellow', '060402'],
+  ['TrapRed', '060401'],
+  ['Num1', '060918'],
+  ['Num2', '060919'],
+  ['Num3', '060920'],
+  ['Num4', '060921'],
+  ['Num5', '060922'],
+  ['Num6', '060923'],
+  ['Num7', '060924'],
+  ['Num8', '060925'],
 ]);
 
 const myIcons2 = new Map<string, string>([
-  ["SS", "SS"],
-  ["SB", "SB"],
-  ["CheckMine", "CheckMine"],
-  ["CheckOthers", "CheckOthers"],
-  ["CheckUnknown", "CheckUnknown"],
+  ['SS', 'SS'],
+  ['SB', 'SB'],
+  ['CheckMine', 'CheckMine'],
+  ['CheckOthers', 'CheckOthers'],
+  ['CheckUnknown', 'CheckUnknown'],
 ]);
 
 const SIZE = 32;
@@ -87,7 +89,7 @@ function rhombus(color: string): string {
     `${center}, ${center + radius}`,
   ];
   return `<polygon points="${points.join(
-    " "
+    ' '
   )}" fill="${color}" stroke="black" />`;
 }
 
@@ -95,58 +97,19 @@ function hexagon(color: string): string {
   const center = SIZE / 2.0;
   const outer = center * RATIO;
   const inner = Math.sqrt((outer * outer) / 3.0);
-  const points: string[] = [
-    `${(center + inner * Math.cos((0 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      inner * Math.sin((0 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + outer * Math.cos((30 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      outer * Math.sin((30 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + inner * Math.cos((60 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      inner * Math.sin((60 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + outer * Math.cos((90 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      outer * Math.sin((90 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + inner * Math.cos((120 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      inner * Math.sin((120 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + outer * Math.cos((150 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      outer * Math.sin((150 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + inner * Math.cos((180 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      inner * Math.sin((180 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + outer * Math.cos((210 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      outer * Math.sin((210 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + inner * Math.cos((240 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      inner * Math.sin((240 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + outer * Math.cos((270 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      outer * Math.sin((270 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + inner * Math.cos((300 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      inner * Math.sin((300 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-    `${(center + outer * Math.cos((330 * Math.PI) / 180.0)).toFixed(2)},${(
-      center +
-      outer * Math.sin((330 * Math.PI) / 180.0)
-    ).toFixed(2)}`,
-  ];
+  const radiuses: number[] = [];
+  for (let i = 0; i < 6; i++) {
+    radiuses.push(inner);
+    radiuses.push(outer);
+  }
+  const points: string[] = radiuses.map((radius, index) => {
+    const angle = index * 30;
+    const x = center + radius * Math.cos((angle * Math.PI) / 180.0);
+    const y = center + radius * Math.sin((angle * Math.PI) / 180.0);
+    return `${x.toFixed(2)},${y.toFixed(2)}`;
+  });
   return `<polygon points="${points.join(
-    " "
+    ' '
   )}" fill="${color}" stroke="black" />`;
 }
 
@@ -161,14 +124,14 @@ function generateSvgIcons(outPath: string): string {
   }[] = [];
   const imports: string[] = [];
   for (let flag = 1; flag < 32; flag++) {
-    const filename = `${flag.toString(2).padStart(5, "0")}.svg`;
+    const filename = `${flag.toString(2).padStart(5, '0')}.svg`;
     const colors: string[] = [];
-    if ((flag >> 4) & 1) colors.push("#f44336");
-    if ((flag >> 3) & 1) colors.push("#ffeb3b");
-    if ((flag >> 2) & 1) colors.push("#8bc34a");
-    if ((flag >> 1) & 1) colors.push("#2196f3");
-    if (flag & 1) colors.push("#9c27b0");
-    let svg: string = "";
+    if ((flag >> 4) & 1) colors.push('#f44336');
+    if ((flag >> 3) & 1) colors.push('#ffeb3b');
+    if ((flag >> 2) & 1) colors.push('#8bc34a');
+    if ((flag >> 1) & 1) colors.push('#2196f3');
+    if (flag & 1) colors.push('#9c27b0');
+    let svg: string = '';
     switch (colors.length) {
       case 5:
         svg = `<g stroke="black">
@@ -214,35 +177,35 @@ function generateSvgIcons(outPath: string): string {
   }
   items.push({
     filename: `sb.svg`,
-    content: rhombus("#607d8b"),
+    content: rhombus('#607d8b'),
   });
   imports.push(
     `icon["SS"] = new URL('../../assets/icons/ss.svg', import.meta.url).href;`
   );
   items.push({
     filename: `ss.svg`,
-    content: hexagon("#607d8b"),
+    content: hexagon('#607d8b'),
   });
   imports.push(
     `icon["SB"] = new URL('../../assets/icons/ss.svg', import.meta.url).href;`
   );
   items.push({
     filename: `checkLime.svg`,
-    content: check("lime"),
+    content: check('lime'),
   });
   imports.push(
     `icon["CheckMine"] = new URL('../../assets/icons/checkLime.svg', import.meta.url).href;`
   );
   items.push({
     filename: `checkRoyalBlue.svg`,
-    content: check("royalblue"),
+    content: check('royalblue'),
   });
   imports.push(
     `icon["CheckOthers"] = new URL('../../assets/icons/checkRoyalBlue.svg', import.meta.url).href;`
   );
   items.push({
     filename: `checkGrey.svg`,
-    content: check("grey"),
+    content: check('grey'),
   });
   imports.push(
     `icon["CheckUnknown"] = new URL('../../assets/icons/checkGrey.svg', import.meta.url).href;`
@@ -257,18 +220,17 @@ function generateSvgIcons(outPath: string): string {
 </svg>`;
     writeFileSync(`${outPath}/${item.filename}`, outString);
   });
-  return imports.join("\n");
+  return imports.join('\n');
 }
 
 function generatePngIcons(
   outPath: string,
-  basePath: string,
   iconSet: Set<string>
 ): string {
   const imports: string[] = [];
   for (let icon of iconSet) {
     const filename = `${icon}.png`;
-    const folder = icon.substring(0, 3) + "000";
+    const folder = icon.substring(0, 3) + '000';
     const source = `${basePath}/ui/icon/${folder}/${filename}`;
     const dest = `${outPath}/${filename}`;
     // copy file
@@ -277,36 +239,15 @@ function generatePngIcons(
       `icon["${icon}"] = new URL('../../assets/icons/${filename}', import.meta.url).href;`
     );
   }
-  return imports.join("\n");
-}
-
-async function retrieveIconStringSet(basePath: string): Promise<Set<string>> {
-  const weatherHeaders = [
-    "id",
-    "icon",
-    "name",
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-  ];
-  const weathers = (await readCsv(basePath, "Weather", weatherHeaders, "en"))
-    .filter((weather) => weather.icon.match(/(\d{6}).tex/))
-    .map((weather) => weather.icon.match(/(\d{6}).tex/)![1]);
-  const symbolHeaders = ["id", "icon", "placeNameId", undefined];
-  const symbols = (await readCsv(basePath, "MapSymbol", symbolHeaders))
-    .filter((symbol) => symbol.icon.match(/\d{5}/))
-    .map((symbol) => `0${symbol.icon}`);
-  return new Set([...weathers, ...symbols]);
+  return imports.join('\n');
 }
 
 function writeIconsJson(includeSvg: string, includePng: string) {
   const output = `// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-const elite: { [flag: number]: string } = {};
-const icon: { [name: string]: string } = {};
+const elite: Record<number, string> = {};
+const icon: Record<string, string> = {};
 ${includeSvg}
 ${includePng}
 
@@ -323,7 +264,7 @@ function writeIconsJson2(types: Map<string, string>) {
   });
   iconType = JSON.stringify(iconType, null, 2).replace(
     /\"([0-9a-zA-Z]+)\": /g,
-    "$1: "
+    '$1: '
   );
 
   const output = `// THIS CODE IS AUTO GENERATED.
@@ -344,20 +285,20 @@ function writePreview() {
     .map((dirent) => dirent.name);
 
   const svgRows = imagefiles
-    .filter((filename) => extname(filename).toLowerCase() === ".svg")
+    .filter((filename) => extname(filename).toLowerCase() === '.svg')
     .map(
       (filename) =>
         `      <li><img class="middle" src="./${filename}" />${filename}</li>`
     );
 
   const pngRows = imagefiles
-    .filter((filename) => extname(filename).toLowerCase() === ".png")
+    .filter((filename) => extname(filename).toLowerCase() === '.png')
     .map(
       (filename) =>
         `      <li><img class="middle" src="./${filename}" />${filename}</li>`
     );
 
-  const rows = [...svgRows, ...pngRows].join("\n");
+  const rows = [...svgRows, ...pngRows].join('\n');
 
   const output = `<!DOCTYPE html>
 <html lang="ja">
@@ -383,11 +324,11 @@ ${rows}
   writeFileSync(outputPath3, output);
 }
 
-async function generateIcons(basePath: string) {
+async function generateIcons() {
   const importDefs = generateSvgIcons(outPath);
-  const iconSet = await retrieveIconStringSet(basePath);
+  const iconSet = await retrieveIconStrings();
   myIcons.forEach((value) => iconSet.add(value));
-  const importDefs2 = generatePngIcons(outPath, basePath, iconSet);
+  const importDefs2 = generatePngIcons(outPath, iconSet);
   writeIconsJson(importDefs, importDefs2);
   writeIconsJson2(new Map([...myIcons, ...myIcons2]));
   writePreview();

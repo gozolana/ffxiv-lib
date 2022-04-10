@@ -1,12 +1,12 @@
 import { ExVersionProvider } from "../providers/exVersionProvider";
 import { MessageProvider } from "../providers/messageProvider";
 import { WeatherProvider } from "../providers/weatherProvider";
-import { IZoneData } from "../resources/zones.data";
+import { ZoneData } from "../resources/zones.data";
 import { ExVersion } from "./exVersion";
-import { IMarker, Marker } from "./marker";
-import { Weather } from "./weather";
+import { Marker, MarkerImpl } from "./marker";
+import { WeatherImpl } from "./weather";
 
-interface IZone {
+interface Zone {
   readonly id: number;
   readonly name: string;
   readonly names: string[];
@@ -25,12 +25,12 @@ interface IZone {
     yMax: number;
     yRange: number;
   }
-  getWeatherAt(timestamp: number): Weather;
-  readonly markers: IMarker[];
+  getWeatherAt(timestamp: number): WeatherImpl;
+  readonly markers: Marker[];
 }
 
-class Zone implements IZone {
-  constructor(data: IZoneData) {
+class ZoneImpl implements Zone {
+  constructor(data: ZoneData) {
     this.id = data.id;
     this.placeNameId = data.placeNameId;
     this.offsetX = data.offsetX;
@@ -39,7 +39,7 @@ class Zone implements IZone {
     this.sizeFactor = data.sizeFactor;
     this.exVersionId = data.exVersionId;
     this.weatherRateId = data.weatherRateId;
-    this.markers = data.markers.map((marker) => new Marker(marker, this));
+    this.markers = data.markers.map((marker) => new MarkerImpl(marker, this));
   }
 
   readonly id: number;
@@ -50,7 +50,7 @@ class Zone implements IZone {
   private sizeFactor: number;
   private exVersionId: number;
   private weatherRateId: number;
-  readonly markers: IMarker[];
+  readonly markers: Marker[];
   get name() {
     return MessageProvider.getPlaceName(this.placeNameId);
   }
@@ -92,9 +92,9 @@ class Zone implements IZone {
     ];
   }
 
-  getWeatherAt(timestamp: number): Weather {
+  getWeatherAt(timestamp: number): WeatherImpl {
     return WeatherProvider.getWeatherAt(timestamp, this.weatherRateId);
   }
 }
 
-export { IZone, Zone };
+export { Zone, ZoneImpl };

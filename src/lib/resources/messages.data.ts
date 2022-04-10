@@ -1,17 +1,15 @@
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-interface IMessage {
-  [lang: string]: {
-    BNpcName?: { [id: number]: string };
-    PlaceName?: { [id: number]: string };
-    Weather?: { [id: number]: string };
-    Region?: { [key: string]: string };
-    ExVersion?: { [id: number]: string };
-  };
-};
+interface Message {
+  BNpcName: Record<number, string>;
+  PlaceName: Record<number, string>;
+  Weather: Record<number, string>;
+  Region: Record<string, string>;
+  ExVersion: Record<number, string>;
+}
 
-const messages: IMessage = {
+const messages: Record<string, Message> = {
   ja: {
     BNpcName: {
       655: "ベヒーモス",
@@ -1114,7 +1112,7 @@ const messages: IMessage = {
   }
 };
 
-const tts: IMessage = {
+const tts: Record<string, Partial<Message>> = {
   ja: {
     BNpcName: {
       2926: "しかいのアルビン",
@@ -1201,4 +1199,4 @@ const tts: IMessage = {
   }
 };
 
-export { IMessage, messages, tts };
+export { Message, messages, tts };

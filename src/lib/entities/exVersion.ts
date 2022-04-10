@@ -1,7 +1,7 @@
-import { MessageProvider } from "../providers/messageProvider";
-import { IExVersionData, TExVersion } from "../resources/zones.data";
+import { MessageProvider } from '../providers/messageProvider';
+import { ExVersionData, TExVersion } from '../resources/zones.data';
 
-interface IExVersion {
+interface ExVersion {
   readonly id: number;
   readonly version: number;
   readonly locationClusteringThreshold: number;
@@ -10,8 +10,8 @@ interface IExVersion {
   readonly tts: string;
 }
 
-class ExVersion implements IExVersion {
-  constructor(data: IExVersionData) {
+class ExVersionImpl implements ExVersion {
+  constructor(data: ExVersionData) {
     this.id = data.id;
     this.version = data.version;
     this.locationClusteringThreshold = data.locationClusteringThreshold;
@@ -30,4 +30,4 @@ class ExVersion implements IExVersion {
   }
 }
 
-export { TExVersion, IExVersion, ExVersion };
+export { TExVersion, ExVersion, ExVersionImpl };

@@ -100,19 +100,19 @@ const TWorld = {
 } as const;
 type TWorld = typeof TWorld[keyof typeof TWorld];
 
-interface IDataCenterData {
-  readonly id: TDataCenter;
-  readonly name: string;
-  readonly regionId: TDataCenterRegion;
-}
+type DataCenterData = {
+  id: TDataCenter;
+  name: string;
+  regionId: TDataCenterRegion;
+};
 
-interface IWorldData {
-  readonly id: TWorld;
-  readonly name: string;
-  readonly dataCenterId: TDataCenter;
-}
+type WorldData = {
+  id: TWorld;
+  name: string;
+  dataCenterId: TDataCenter;
+};
 
-const dataCenters: IDataCenterData[] = [
+const dataCenters: DataCenterData[] = [
   {
     id: 1,
     name: "Elemental",
@@ -160,7 +160,7 @@ const dataCenters: IDataCenterData[] = [
   }
 ];
 
-const worlds: IWorldData[] = [
+const worlds: WorldData[] = [
   {
     id: 21,
     name: "Ravana",
@@ -532,8 +532,8 @@ export {
   TDataCenterRegion,
   TDataCenter,
   TWorld,
-  IWorldData,
-  IDataCenterData,
+  WorldData,
+  DataCenterData,
   dataCenters,
   worlds,
 };

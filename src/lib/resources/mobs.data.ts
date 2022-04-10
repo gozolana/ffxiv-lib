@@ -17,7 +17,7 @@ const TMobRank = {
 } as const;
 type TMobRank = typeof TMobRank[keyof typeof TMobRank];
 
-interface IMobData {
+interface MobData {
   id: number;
   category: TMobCategory;
   rank: TMobRank;
@@ -29,7 +29,7 @@ interface IMobData {
 }
 
 const mobData: {
-  mobById: { [id: number]: IMobData };
+  mobById: Record<number, MobData>;
   sRanks: number[];
   aRanks: number[];
   bRanks: number[];
@@ -1975,6 +1975,6 @@ const mobData: {
 export {
   TMobRank,
   TMobCategory,
-  IMobData,
+  MobData,
   mobData
 };

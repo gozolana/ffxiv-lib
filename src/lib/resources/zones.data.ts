@@ -10,21 +10,21 @@ const TExVersion = {
 } as const;
 type TExVersion = typeof TExVersion[keyof typeof TExVersion];
 
-interface IExVersionData {
+interface ExVersionData {
   readonly id: number;
   readonly version: number;
   readonly locationClusteringThreshold: number;
   readonly css: string;
 }
 
-interface IMarkerData {
+interface MarkerData {
   readonly x: number;
   readonly y: number;
   readonly placeNameId: number;
   readonly icon: string;
 }
 
-interface IZoneData {
+interface ZoneData {
   readonly id: number;
   readonly placeNameId: number;
   readonly weatherRateId: number;
@@ -32,11 +32,11 @@ interface IZoneData {
   readonly offsetX: number;
   readonly offsetY: number;
   readonly offsetZ: number;
-  readonly markers: IMarkerData[];
+  readonly markers: MarkerData[];
   readonly exVersionId: number;
 }
 
-interface ILocationWithFlag {
+interface LocationWithFlag {
   readonly label: string;
   readonly x: number;
   readonly y: number;
@@ -44,28 +44,28 @@ interface ILocationWithFlag {
   readonly flag: string;
 }
 
-interface IFieldZoneData extends IZoneData {
+interface FieldZoneData extends ZoneData {
   readonly filter?: boolean;
   readonly elite: {
     readonly ids: number[];
-    readonly locations: ILocationWithFlag[];
+    readonly locations: LocationWithFlag[];
   };
   readonly ss?: {
     readonly ids: number[];
-    readonly locations: ILocationWithFlag[];
+    readonly locations: LocationWithFlag[];
   };
   readonly fate?: {
     readonly ids: number[];
   };
 }
 
-interface IRegionData {
+interface RegionData {
   readonly key: string;
   readonly css: string;
   readonly zoneIds: number[];
 }
 
-const exVersions: IExVersionData[] = [
+const exVersions: ExVersionData[] = [
   {
     id: 0,
     version: 2,
@@ -99,8 +99,8 @@ const exVersions: IExVersionData[] = [
 ];
 
 const zoneData: {
-  zones: IZoneData[];
-  fieldZones: IFieldZoneData[];
+  zones: ZoneData[];
+  fieldZones: FieldZoneData[];
 } = {
   zones: [
     {
@@ -16300,8 +16300,8 @@ const zoneData: {
 };
 
 const regionData: {
-  huntRegions: IRegionData[];
-  weatherRegions: IRegionData[];
+  huntRegions: RegionData[];
+  weatherRegions: RegionData[];
 } = {
   huntRegions: [
     {
@@ -16499,11 +16499,11 @@ const regionData: {
 
 export {
   TExVersion,
-  IExVersionData,
-  IMarkerData,
-  IRegionData,
-  IZoneData,
-  IFieldZoneData,
+  ExVersionData,
+  MarkerData,
+  RegionData,
+  ZoneData,
+  FieldZoneData,
   exVersions,
   regionData,
   zoneData

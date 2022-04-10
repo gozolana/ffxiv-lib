@@ -1,29 +1,14 @@
-import { readCsv } from "./csvReader";
-import { parse } from "jsonc-parser";
-import { readFileSync, writeFileSync } from "fs";
-import { generateWeathers } from "./generateWeathers";
+import { readCsv } from './parseCsvs';
+import { writeFileSync } from 'fs';
+import { generateWeathers } from './generateWeathers';
 import {
-  IExpansion,
-  IFieldZoneInfo,
-  IRegionsJson,
-  IRespawnData,
   MessageIdSet,
-} from "./types";
+} from './types';
+import { expansionsJson, fieldZonesJson, regionsJson } from './parseJsons';
+import { basePath } from './saintCoinachPath';
 
-const outputPath = "./src/lib/resources/zones.data.ts";
+const outputPath = './src/lib/resources/zones.data.ts';
 
-const inputExpansions: IExpansion[] = parse(
-  readFileSync("./data/expansions.jsonc").toString()
-);
-const inputRespawnMinutes: IRespawnData = parse(
-  readFileSync("./data/respawnMinutes.jsonc").toString()
-);
-const inputFieldZones: IFieldZoneInfo = parse(
-  readFileSync("./data/fieldZones.jsonc").toString()
-);
-const inputRegions: IRegionsJson = parse(
-  readFileSync("./data/regions.jsonc").toString()
-);
 
 interface IRegionData {
   readonly key: string;
@@ -31,26 +16,23 @@ interface IRegionData {
   readonly zoneIds: number[];
 }
 
-const exVersionHeaders = ["id", "name", undefined, undefined];
+const exVersionHeaders = ['id', 'name', undefined, undefined];
 
 const territoryTypeHeaders = [
-  "id",
-  "name",
+  'id',
+  'name',
   undefined,
   undefined,
-  "placeName_region",
-  "placeName_zone",
-  "placeName",
-  "map",
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  "weatherRate",
+  'placeName_region',
+  'placeName_zone',
+  'placeName',
+  'map',
   undefined,
   undefined,
   undefined,
+  undefined,
+  undefined,
+  'weatherRate',
   undefined,
   undefined,
   undefined,
@@ -64,7 +46,10 @@ const territoryTypeHeaders = [
   undefined,
   undefined,
   undefined,
-  "exVersion",
+  undefined,
+  undefined,
+  undefined,
+  'exVersion',
   undefined,
   undefined,
   undefined,
@@ -80,72 +65,55 @@ const territoryTypeHeaders = [
   undefined,
 ];
 
-const offsetZHeaders = ["id", "offsetZ"];
+const offsetZHeaders = ['id', 'offsetZ'];
 
 const mapHeaders = [
-  "id",
+  'id',
   undefined,
   undefined,
   undefined,
   undefined,
   undefined,
-  "mapMarkerId",
-  "name",
-  "sizeFactor",
-  "offsetX",
-  "offsetY",
-  "placeName_region",
-  "placeName",
-  "placeName2",
+  'mapMarkerId',
+  'name',
+  'sizeFactor',
+  'offsetX',
+  'offsetY',
+  'placeName_region',
+  'placeName',
+  'placeName2',
   undefined,
   undefined,
-  "territoryType",
+  'territoryType',
   undefined,
   undefined,
   undefined,
 ];
 
 const mapMarkerHeaders = [
-  "key",
-  "x",
-  "y",
-  "icon",
-  "placeNameId",
+  'key',
+  'x',
+  'y',
+  'icon',
+  'placeNameId',
   undefined,
   undefined,
   undefined,
   undefined,
-  "placeName2Id",
-  undefined,
-  undefined,
-];
-
-const placeNameHeaders = [
-  "id",
-  "name",
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
-  undefined,
+  'placeName2Id',
   undefined,
   undefined,
 ];
 
 async function generateZones(
-  basePath: string,
   messageIdSet: MessageIdSet
 ): Promise<void> {
   const zoneIds: Set<number> = new Set<number>([
-    ...inputRegions.huntRegions.map((r) => r.zoneIds).flat(),
-    ...inputRegions.weatherRegions.map((r) => r.zoneIds).flat(),
+    ...regionsJson.huntRegions.map((r) => r.zoneIds).flat(),
+    ...regionsJson.weatherRegions.map((r) => r.zoneIds).flat(),
   ]);
   const territoryTypes = (
-    await readCsv(basePath, "TerritoryType", territoryTypeHeaders)
+    await readCsv('TerritoryType', territoryTypeHeaders)
   ).filter((tt) => zoneIds.has(parseInt(tt.id)));
 
   const weatherRateIds: Set<number> = new Set<number>(
@@ -159,27 +127,25 @@ async function generateZones(
   );
 
   const weatherIds: Set<number> = await generateWeathers(
-    basePath,
     weatherRateIds
   );
 
   const offsetZs = (
-    await readCsv(basePath, "TerritoryTypeTransient", offsetZHeaders)
+    await readCsv('TerritoryTypeTransient', offsetZHeaders)
   ).filter((offsetZ) => zoneIds.has(parseInt(offsetZ.id)));
-  const offsetZMap: {
-    [zoneId: string]: number;
-  } = {};
+  const offsetZMap: Record<string, number> = {};
   offsetZs.forEach(
     (offsetZ) => (offsetZMap[offsetZ.id] = parseInt(offsetZ.offsetZ))
   );
 
-  const mapMarkers = await readCsv(basePath, "MapMarker", mapMarkerHeaders);
+  const mapMarkers = await readCsv('MapMarker', mapMarkerHeaders);
 
-  const maps = (await readCsv(basePath, "Map", mapHeaders)).filter((map) =>
+  const maps = (await readCsv('Map', mapHeaders)).filter((map) =>
     mapIds.has(parseInt(map.id))
   );
-  const mapMap: {
-    [map: string]: {
+  const mapMap: Record<
+    string,
+    {
       offsetX: number;
       offsetY: number;
       sizeFactor: number;
@@ -189,12 +155,12 @@ async function generateZones(
         placeNameId: number;
         icon: string;
       }[];
-    };
-  } = {};
+    }
+  > = {};
   maps.forEach((map) => {
     const markers = mapMarkers.filter(
       (marker) =>
-        marker.key.split(".")[0] === map.mapMarkerId && marker.icon != "0"
+        marker.key.split('.')[0] === map.mapMarkerId && marker.icon != '0'
     );
     mapMap[map.id] = {
       offsetX: parseInt(map.offsetX),
@@ -205,40 +171,39 @@ async function generateZones(
           x: parseInt(marker.x),
           y: parseInt(marker.y),
           placeNameId: parseInt(marker.placeNameId),
-          icon: ("000000" + marker.icon).slice(-6),
+          icon: ('000000' + marker.icon).slice(-6),
         };
       }),
     };
   });
 
   const exVersions = await readCsv(
-    basePath,
-    "ExVersion",
+    'ExVersion',
     exVersionHeaders,
-    "en"
+    'en'
   );
   let exVersionIdByType: any = {};
   exVersions.forEach((exVersion) => {
-    exVersionIdByType[exVersion.name.replace(/ /g, "")] = parseInt(
+    exVersionIdByType[exVersion.name.replace(/ /g, '')] = parseInt(
       exVersion.id
     );
   });
-  const cssByRegionKey: { [key: string]: string } = {};
-  inputRegions.regions.forEach((region) => {
+  const cssByRegionKey: Record<string, string> = {};
+  regionsJson.regions.forEach((region) => {
     cssByRegionKey[region.key] = region.css;
   });
   const regionData: {
     huntRegions: IRegionData[];
     weatherRegions: IRegionData[];
   } = {
-    huntRegions: inputRegions.huntRegions.map((r) => {
+    huntRegions: regionsJson.huntRegions.map((r) => {
       return {
         key: r.key,
         css: cssByRegionKey[r.key],
         zoneIds: r.zoneIds,
       };
     }),
-    weatherRegions: inputRegions.weatherRegions.map((r) => {
+    weatherRegions: regionsJson.weatherRegions.map((r) => {
       return {
         key: r.key,
         css: cssByRegionKey[r.key],
@@ -263,14 +228,14 @@ async function generateZones(
 
   const zoneData = {
     zones: allZones.filter(
-      (zone) => !Object.keys(inputFieldZones).map(Number).includes(zone.id)
+      (zone) => !Object.keys(fieldZonesJson).map(Number).includes(zone.id)
     ),
     fieldZones: allZones
       .filter((zone) =>
-        Object.keys(inputFieldZones).map(Number).includes(zone.id)
+        Object.keys(fieldZonesJson).map(Number).includes(zone.id)
       )
       .map((zone) => {
-        return Object.assign(zone, inputFieldZones[zone.id.toString()]);
+        return Object.assign(zone, fieldZonesJson[zone.id.toString()]);
       }),
   };
 
@@ -279,25 +244,25 @@ async function generateZones(
 
 const TExVersion = ${JSON.stringify(exVersionIdByType, null, 2).replace(
     /\"([a-zA-Z]+)\": /g,
-    "$1: "
+    '$1: '
   )} as const;
 type TExVersion = typeof TExVersion[keyof typeof TExVersion];
 
-interface IExVersionData {
+interface ExVersionData {
   readonly id: number;
   readonly version: number;
   readonly locationClusteringThreshold: number;
   readonly css: string;
 }
 
-interface IMarkerData {
+interface MarkerData {
   readonly x: number;
   readonly y: number;
   readonly placeNameId: number;
   readonly icon: string;
 }
 
-interface IZoneData {
+interface ZoneData {
   readonly id: number;
   readonly placeNameId: number;
   readonly weatherRateId: number;
@@ -305,11 +270,11 @@ interface IZoneData {
   readonly offsetX: number;
   readonly offsetY: number;
   readonly offsetZ: number;
-  readonly markers: IMarkerData[];
+  readonly markers: MarkerData[];
   readonly exVersionId: number;
 }
 
-interface ILocationWithFlag {
+interface LocationWithFlag {
   readonly label: string;
   readonly x: number;
   readonly y: number;
@@ -317,53 +282,53 @@ interface ILocationWithFlag {
   readonly flag: string;
 }
 
-interface IFieldZoneData extends IZoneData {
+interface FieldZoneData extends ZoneData {
   readonly filter?: boolean;
   readonly elite: {
     readonly ids: number[];
-    readonly locations: ILocationWithFlag[];
+    readonly locations: LocationWithFlag[];
   };
   readonly ss?: {
     readonly ids: number[];
-    readonly locations: ILocationWithFlag[];
+    readonly locations: LocationWithFlag[];
   };
   readonly fate?: {
     readonly ids: number[];
   };
 }
 
-interface IRegionData {
+interface RegionData {
   readonly key: string;
   readonly css: string;
   readonly zoneIds: number[];
 }
 
-const exVersions: IExVersionData[] = ${JSON.stringify(
-    inputExpansions,
+const exVersions: ExVersionData[] = ${JSON.stringify(
+    expansionsJson,
     null,
     2
-  ).replace(/\"([a-zA-Z]+)\": /g, "$1: ")};
+  ).replace(/\"([a-zA-Z]+)\": /g, '$1: ')};
 
 const zoneData: {
-  zones: IZoneData[];
-  fieldZones: IFieldZoneData[];
-} = ${JSON.stringify(zoneData, null, 2).replace(/\"([a-zA-Z]+)\": /g, "$1: ")};
+  zones: ZoneData[];
+  fieldZones: FieldZoneData[];
+} = ${JSON.stringify(zoneData, null, 2).replace(/\"([a-zA-Z]+)\": /g, '$1: ')};
 
 const regionData: {
-  huntRegions: IRegionData[];
-  weatherRegions: IRegionData[];
+  huntRegions: RegionData[];
+  weatherRegions: RegionData[];
 } = ${JSON.stringify(regionData, null, 2).replace(
     /\"([a-zA-Z]+)\": /g,
-    "$1: "
+    '$1: '
   )};
 
 export {
   TExVersion,
-  IExVersionData,
-  IMarkerData,
-  IRegionData,
-  IZoneData,
-  IFieldZoneData,
+  ExVersionData,
+  MarkerData,
+  RegionData,
+  ZoneData,
+  FieldZoneData,
   exVersions,
   regionData,
   zoneData

@@ -5,8 +5,6 @@ import { MessageIdSet } from "./resourcesBuilder/types";
 import { generateMessages } from "./resourcesBuilder/generateMessages";
 import { generateMobs } from "./resourcesBuilder/generateMobs";
 
-const basePath = "./ThirdParty/SaintCoinach.Cmd/2022.03.01.0000.0000";
-
 const messageIdSet: MessageIdSet = {
   bNpcNameIdSet: new Set<number>(),
   placeNameIdSet: new Set<number>(),
@@ -14,10 +12,10 @@ const messageIdSet: MessageIdSet = {
 };
 
 async function main() {
-  await generateWorlds(basePath);
-  await generateIcons(basePath);
+  await generateWorlds();
+  await generateIcons();
   await generateMobs(messageIdSet);
-  await generateZones(basePath, messageIdSet);
-  await generateMessages(basePath, messageIdSet);
+  await generateZones(messageIdSet);
+  await generateMessages(messageIdSet);
 }
 main();

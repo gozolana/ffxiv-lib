@@ -1,18 +1,18 @@
 import {
   TDataCenter,
   TDataCenterRegion,
-  IDataCenterData,
-} from "../resources/worlds.data";
+  DataCenterData,
+} from '../resources/worlds.data';
 
-interface IDataCenter {
+interface DataCenter {
   readonly id: TDataCenter;
   readonly name: string;
   readonly regionId: TDataCenterRegion;
-  compare(another: IDataCenter): number;
+  compare(another: DataCenter): number;
 }
 
-class DataCenter implements IDataCenter {
-  constructor(info: IDataCenterData) {
+class DataCenterImpl implements DataCenter {
+  constructor(info: DataCenterData) {
     this.id = info.id;
     this.name = info.name;
     this.regionId = info.regionId;
@@ -20,7 +20,7 @@ class DataCenter implements IDataCenter {
   readonly id: TDataCenter;
   readonly name: string;
   readonly regionId: TDataCenterRegion;
-  compare(another: IDataCenter): number {
+  compare(another: DataCenter): number {
     let result = this.regionId - another.regionId;
     if (result === 0) {
       result = this.name.localeCompare(another.name);
@@ -29,4 +29,4 @@ class DataCenter implements IDataCenter {
   }
 }
 
-export { TDataCenter, TDataCenterRegion, IDataCenter, DataCenter };
+export { TDataCenter, TDataCenterRegion, DataCenter, DataCenterImpl };

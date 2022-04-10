@@ -1,17 +1,3 @@
-interface IExpansion {
-  id: number;
-  version: number;
-  locationClusteringThreshold: number;
-  ccs: string;
-}
-
-interface IRespawnData {
-  [id: string]: {
-    min: number;
-    max: number;
-  };
-}
-
 interface ILocationWithFlag {
   label: string;
   x: number;
@@ -20,8 +6,9 @@ interface ILocationWithFlag {
   flag: string;
 }
 
-interface IFieldZoneInfo {
-  [id: string]: {
+type IFieldZoneInfo = Record<
+  string,
+  {
     filter?: boolean;
     elite: {
       ids: number[];
@@ -35,7 +22,7 @@ interface IFieldZoneInfo {
       ids: number[];
     };
   }
-}
+>;
 
 interface IRegionsJson {
   regions: {
@@ -59,14 +46,11 @@ interface IRegionsJson {
 }
 
 interface ILangJson {
-  BNpcName?: { [id: number]: string };
-  PlaceName?: { [id: number]: string };
-  Weather?: { [id: number]: string };
-  Region?: { [key: string]: string };
-}
-
-interface ITextToSpeechJson {
-  [lang: string]: ILangJson;
+  BNpcName: Record<number, string>;
+  PlaceName: Record<number, string>;
+  Weather: Record<number, string>;
+  Region: Record<string, string>;
+  ExVersion: Record<number, string>;
 }
 
 interface MessageIdSet {
@@ -75,11 +59,4 @@ interface MessageIdSet {
   weatherIdSet: Set<number>;
 }
 
-export {
-  MessageIdSet,
-  IExpansion,
-  IFieldZoneInfo,
-  IRegionsJson,
-  IRespawnData,
-  ITextToSpeechJson,
-};
+export { MessageIdSet };

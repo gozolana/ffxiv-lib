@@ -1,21 +1,21 @@
 import {
   weathers,
   weatherRates,
-  IWeatherRateData,
+  WeatherRateData,
 } from "../resources/weathers.data";
-import { TWeather, IWeather, Weather } from "../entities/weather";
+import { TWeather, Weather, WeatherImpl } from "../entities/weather";
 
 class WeatherProvider {
   constructor() {
     this.weatherById = new Map(
-      weathers.map((weather) => [weather.id, new Weather(weather)])
+      weathers.map((weather) => [weather.id, new WeatherImpl(weather)])
     );
     this.weatherRateById = new Map(
       weatherRates.map((weatherRate) => [weatherRate.id, weatherRate])
     );
   }
-  private weatherById: Map<number, IWeather>;
-  private weatherRateById: Map<number, IWeatherRateData>;
+  private weatherById: Map<number, Weather>;
+  private weatherRateById: Map<number, WeatherRateData>;
 
   isSunny(weatherId: number): boolean {
     return [
@@ -30,11 +30,11 @@ class WeatherProvider {
     );
   }
 
-  findWeather(weatherId: number): IWeather | undefined {
+  findWeather(weatherId: number): Weather | undefined {
     return this.weatherById.get(weatherId);
   }
 
-  getWeatherAt(timestamp: number, weatherRateId: number): IWeather {
+  getWeatherAt(timestamp: number, weatherRateId: number): Weather {
     function calculateChance(timestamp: number): number {
       var unixSeconds = timestamp / 1000;
       var bell = unixSeconds / 175;
@@ -66,7 +66,7 @@ class WeatherProvider {
     return weather;
   }
 
-  getWeathers(): IWeather[] {
+  getWeathers(): Weather[] {
     return [...this.weatherById.values()];
   }
 }

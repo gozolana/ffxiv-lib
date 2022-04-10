@@ -1,8 +1,8 @@
 import { MessageProvider } from "../providers/messageProvider";
 import { ZoneProvider } from "../providers/zoneProvider";
-import { IRegionData } from "../resources/zones.data";
+import { RegionData } from "../resources/zones.data";
 
-interface IRegion {
+interface Region {
   readonly key: string;
   readonly css: string;
   readonly zones: {
@@ -13,8 +13,8 @@ interface IRegion {
   readonly tts: string;
 }
 
-class Region implements IRegion {
-  constructor(data: IRegionData) {
+class RegionImpl implements Region {
+  constructor(data: RegionData) {
     this.key = data.key;
     this.css = data.css;
     this.zones = data.zoneIds.map((zoneId) => {
@@ -37,4 +37,4 @@ class Region implements IRegion {
   }
 }
 
-export { IRegion, Region };
+export { Region, RegionImpl };

@@ -1,8 +1,8 @@
 import { elite, icon } from "../resources/icons.data";
 
 class IconProvider {
-  private _eliteMap: { [flag: number]: HTMLImageElement } = {};
-  private _iconMap: { [icon: string]: HTMLImageElement } = {};
+  private _eliteMap: Record<number, HTMLImageElement> = {};
+  private _iconMap: Record<string, HTMLImageElement> = {};
   constructor() {
     Object.keys(elite)
       .map(Number)

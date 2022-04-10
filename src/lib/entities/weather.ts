@@ -1,15 +1,15 @@
-import { MessageProvider } from "../providers/messageProvider";
-import { TWeather, IWeatherData } from "../resources/weathers.data";
+import { MessageProvider } from '../providers/messageProvider';
+import { TWeather, WeatherData } from '../resources/weathers.data';
 
-interface IWeather {
+interface Weather {
   readonly id: number;
   readonly icon: string;
   readonly name: string;
   readonly tts: string;
 }
 
-class Weather implements IWeather {
-  constructor(data: IWeatherData) {
+class WeatherImpl implements Weather {
+  constructor(data: WeatherData) {
     this.id = data.id;
     this.icon = data.icon;
   }
@@ -25,4 +25,4 @@ class Weather implements IWeather {
   }
 }
 
-export { TWeather, IWeather, Weather };
+export { TWeather, Weather, WeatherImpl };

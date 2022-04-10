@@ -1,40 +1,40 @@
-import { IDataCenter, DataCenter } from "../entities/dataCenter";
-import { IWorld, World } from "../entities/world";
+import { DataCenter, DataCenterImpl } from "../entities/dataCenter";
+import { World, WorldImpl } from "../entities/world";
 import { dataCenters, worlds } from "../resources/worlds.data";
 
 class WorldProvider {
   constructor() {
     this.dataCenterById = new Map(
-      dataCenters.map((dc) => [dc.id, new DataCenter(dc)])
+      dataCenters.map((dc) => [dc.id, new DataCenterImpl(dc)])
     );
     this.worldById = new Map(
-      worlds.map((world) => [world.id, new World(world)])
+      worlds.map((world) => [world.id, new WorldImpl(world)])
     );
   }
-  private dataCenterById: Map<number, IDataCenter>;
-  private worldById: Map<number, IWorld>;
+  private dataCenterById: Map<number, DataCenter>;
+  private worldById: Map<number, World>;
 
-  findDataCenter(id: number): IDataCenter | undefined {
+  findDataCenter(id: number): DataCenter | undefined {
     return this.dataCenterById.get(id);
   }
 
-  findWorld(id: number): IWorld | undefined {
+  findWorld(id: number): World | undefined {
     return this.worldById.get(id);
   }
 
-  getDataCentersOfRegion(regionId: number): IDataCenter[] {
+  getDataCentersOfRegion(regionId: number): DataCenter[] {
     return [...this.dataCenterById.values()]
       .filter((dc) => dc.regionId === regionId)
       .sort((a, b) => a.compare(b));
   }
 
-  getWorldsOfDataCenter(dataCenterId: number): IWorld[] {
+  getWorldsOfDataCenter(dataCenterId: number): World[] {
     return [...this.worldById.values()]
       .filter((world) => world.dataCenterId === dataCenterId)
       .sort((a, b) => a.compare(b));
   }
 
-  getWorldsOfRegion(regionId: number): IWorld[] {
+  getWorldsOfRegion(regionId: number): World[] {
     const dcIds = this.getDataCentersOfRegion(regionId).map((dc) => dc.id);
     return [...this.worldById.values()]
       .filter((world) => dcIds.includes(world.dataCenterId))
