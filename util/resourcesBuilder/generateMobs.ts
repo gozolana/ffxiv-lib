@@ -1,13 +1,13 @@
 import { writeFileSync } from "fs";
 import {
-  MessageIdSet,
-} from "./types";
+  MessageIds,
+} from "./messageIds";
 import { fieldZonesJson, regionsJson, respawnMinutesJson, RespawnMinutesData } from "./parseJsons";
 
 const outputPath = "./src/lib/resources/mobs.data.ts";
 
 async function generateMobs(
-  messageIdSet: MessageIdSet
+  messageIds: MessageIds
 ): Promise<void> {
 
   const TMobCategory = {
@@ -245,8 +245,8 @@ export {
 
   writeFileSync(outputPath, content);
 
-  messageIdSet.bNpcNameIdSet = new Set([
-    ...messageIdSet.bNpcNameIdSet,
+  messageIds.bNpcNameIdSet = new Set([
+    ...messageIds.bNpcNameIdSet,
     ...bNpcNameIds,
   ]);
 }

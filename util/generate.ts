@@ -1,11 +1,11 @@
 import { generateWorlds } from "./resourcesBuilder/generateWorlds";
 import { generateZones } from "./resourcesBuilder/generateZones";
 import { generateIcons } from "./resourcesBuilder/generateIcons";
-import { MessageIdSet } from "./resourcesBuilder/types";
+import { MessageIds } from "./resourcesBuilder/messageIds";
 import { generateMessages } from "./resourcesBuilder/generateMessages";
 import { generateMobs } from "./resourcesBuilder/generateMobs";
 
-const messageIdSet: MessageIdSet = {
+const messageIds: MessageIds = {
   bNpcNameIdSet: new Set<number>(),
   placeNameIdSet: new Set<number>(),
   weatherIdSet: new Set<number>(),
@@ -14,8 +14,8 @@ const messageIdSet: MessageIdSet = {
 async function main() {
   await generateWorlds();
   await generateIcons();
-  await generateMobs(messageIdSet);
-  await generateZones(messageIdSet);
-  await generateMessages(messageIdSet);
+  await generateMobs(messageIds);
+  await generateZones(messageIds);
+  await generateMessages(messageIds);
 }
 main();

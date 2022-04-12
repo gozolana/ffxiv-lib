@@ -1,6 +1,6 @@
 import { retrieveBNpcNameMessages, retrieveExVersionMessages, retrievePlaceNameMessages, retrieveWeatherMessages } from './parseCsvs';
 import { writeFileSync } from 'fs';
-import { MessageIdSet } from './types';
+import { MessageIds } from './messageIds';
 import { regionsJson, ttsJson } from './parseJsons';
 
 const outputPath = './src/lib/resources/messages.data.ts';
@@ -13,7 +13,7 @@ interface Message {
   ExVersion: Record<number, string>;
 }
 
-async function generateMessages(messageIdSet: MessageIdSet): Promise<void> {
+async function generateMessages(messageIds: MessageIds): Promise<void> {
   const message: Record<string, Message> = {
     ja: {
       BNpcName: {},
@@ -52,7 +52,7 @@ async function generateMessages(messageIdSet: MessageIdSet): Promise<void> {
 
   const bnpcnames = await retrieveBNpcNameMessages(
     Object.keys(message),
-    messageIdSet.bNpcNameIdSet
+    messageIds.bNpcNameIdSet
   );
   bnpcnames.forEach((obj) => {
     message[obj.lang].BNpcName = obj.results;
@@ -60,7 +60,7 @@ async function generateMessages(messageIdSet: MessageIdSet): Promise<void> {
 
   const placenames = await retrievePlaceNameMessages(
     Object.keys(message),
-    messageIdSet.placeNameIdSet
+    messageIds.placeNameIdSet
   );
   placenames.forEach((obj) => {
     message[obj.lang].PlaceName = obj.results;
@@ -68,7 +68,7 @@ async function generateMessages(messageIdSet: MessageIdSet): Promise<void> {
 
   const weathers = await retrieveWeatherMessages(
     Object.keys(message),
-    messageIdSet.weatherIdSet
+    messageIds.weatherIdSet
   );
   weathers.forEach((obj) => {
     message[obj.lang].Weather = obj.results;

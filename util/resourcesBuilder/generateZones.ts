@@ -7,12 +7,12 @@ import {
 } from './parseCsvs';
 import { writeFileSync } from 'fs';
 import { generateWeathers } from './generateWeathers';
-import { MessageIdSet } from './types';
+import { MessageIds } from './messageIds';
 import { expansionsJson, fieldZonesJson, regionsJson } from './parseJsons';
 
 const outputPath = './src/lib/resources/zones.data.ts';
 
-async function generateZones(messageIdSet: MessageIdSet): Promise<void> {
+async function generateZones(messageIds: MessageIds): Promise<void> {
   const zoneIds: Set<number> = new Set<number>([
     ...regionsJson.huntRegions.map((r) => r.zoneIds).flat(),
     ...regionsJson.weatherRegions.map((r) => r.zoneIds).flat(),
@@ -240,12 +240,12 @@ export {
 
   writeFileSync(outputPath, content);
 
-  messageIdSet.placeNameIdSet = new Set([
-    ...messageIdSet.placeNameIdSet,
+  messageIds.placeNameIdSet = new Set([
+    ...messageIds.placeNameIdSet,
     ...placeNameIds,
   ]);
-  messageIdSet.weatherIdSet = new Set([
-    ...messageIdSet.weatherIdSet,
+  messageIds.weatherIdSet = new Set([
+    ...messageIds.weatherIdSet,
     ...weatherIds,
   ]);
 }
