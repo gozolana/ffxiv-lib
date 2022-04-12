@@ -6765,6 +6765,12 @@ const zoneData: {
           y: 194,
           placeNameId: 0,
           icon: "060412"
+        },
+        {
+          x: 1178,
+          y: 586,
+          placeNameId: 4031,
+          icon: "060441"
         }
       ],
       exVersionId: 0,
@@ -14899,6 +14905,18 @@ const zoneData: {
           x: 420,
           y: 1830,
           placeNameId: 4027,
+          icon: "060442"
+        },
+        {
+          x: 754,
+          y: 1634,
+          placeNameId: 4154,
+          icon: "060414"
+        },
+        {
+          x: 944,
+          y: 1358,
+          placeNameId: 4030,
           icon: "060442"
         }
       ],
