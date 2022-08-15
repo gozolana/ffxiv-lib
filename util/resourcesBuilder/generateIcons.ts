@@ -187,7 +187,7 @@ function generateSvgIcons(outPath: string): string {
     content: hexagon('#607d8b'),
   });
   imports.push(
-    `icon["SB"] = new URL('../../assets/icons/ss.svg', import.meta.url).href;`
+    `icon["SB"] = new URL('../../assets/icons/sb.svg', import.meta.url).href;`
   );
   items.push({
     filename: `checkLime.svg`,
