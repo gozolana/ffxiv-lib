@@ -19,7 +19,9 @@ const TDataCenter = {
   Chaos: 6,
   Light: 7,
   Crystal: 8,
-  Materia: 9
+  Materia: 9,
+  Meteor: 10,
+  NADC4: 11
 } as const;
 type TDataCenter = typeof TDataCenter[keyof typeof TDataCenter];
 
@@ -96,7 +98,11 @@ const TWorld = {
   Masamune: 96,
   Ragnarok: 97,
   Ridill: 98,
-  Sargatanas: 99
+  Sargatanas: 99,
+  Sagittarius: 400,
+  Phantom: 401,
+  Alpha: 402,
+  Raiden: 403
 } as const;
 type TWorld = typeof TWorld[keyof typeof TWorld];
 
@@ -157,6 +163,16 @@ const dataCenters: DataCenterData[] = [
     id: 9,
     name: "Materia",
     regionId: 4
+  },
+  {
+    id: 10,
+    name: "Meteor",
+    regionId: 1
+  },
+  {
+    id: 11,
+    name: "NADC4",
+    regionId: 2
   }
 ];
 
@@ -179,7 +195,7 @@ const worlds: WorldData[] = [
   {
     id: 24,
     name: "Belias",
-    dataCenterId: 3
+    dataCenterId: 10
   },
   {
     id: 28,
@@ -189,22 +205,22 @@ const worlds: WorldData[] = [
   {
     id: 29,
     name: "Shinryu",
-    dataCenterId: 3
+    dataCenterId: 10
   },
   {
     id: 30,
     name: "Unicorn",
-    dataCenterId: 1
+    dataCenterId: 10
   },
   {
     id: 31,
     name: "Yojimbo",
-    dataCenterId: 2
+    dataCenterId: 10
   },
   {
     id: 32,
     name: "Zeromus",
-    dataCenterId: 2
+    dataCenterId: 10
   },
   {
     id: 33,
@@ -299,7 +315,7 @@ const worlds: WorldData[] = [
   {
     id: 52,
     name: "Valefor",
-    dataCenterId: 2
+    dataCenterId: 10
   },
   {
     id: 53,
@@ -339,7 +355,7 @@ const worlds: WorldData[] = [
   {
     id: 60,
     name: "Ramuh",
-    dataCenterId: 1
+    dataCenterId: 10
   },
   {
     id: 61,
@@ -449,7 +465,7 @@ const worlds: WorldData[] = [
   {
     id: 82,
     name: "Mandragora",
-    dataCenterId: 3
+    dataCenterId: 10
   },
   {
     id: 83,
@@ -525,6 +541,26 @@ const worlds: WorldData[] = [
     id: 99,
     name: "Sargatanas",
     dataCenterId: 4
+  },
+  {
+    id: 400,
+    name: "Sagittarius",
+    dataCenterId: 6
+  },
+  {
+    id: 401,
+    name: "Phantom",
+    dataCenterId: 6
+  },
+  {
+    id: 402,
+    name: "Alpha",
+    dataCenterId: 7
+  },
+  {
+    id: 403,
+    name: "Raiden",
+    dataCenterId: 7
   }
 ];
 
