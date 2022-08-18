@@ -73,7 +73,7 @@ async function generateWeathers(
 // DO NOT EDIT.
 
 const TWeather = ${JSON.stringify(weatherType, null, 2).replace(
-    /\"([a-zA-Z]+)\": /g,
+    /\"([a-zA-Z][a-zA-Z0-9]*)\": /g,
     '$1: '
   )} as const;
 type TWeather = typeof TWeather[keyof typeof TWeather];
@@ -92,7 +92,7 @@ interface WeatherRateData {
 }
 
 const weathers: WeatherData[] = ${JSON.stringify(weathers, null, 2).replace(
-    /\"([a-zA-Z]+)\": /g,
+    /\"([a-zA-Z][a-zA-Z0-9]*)\": /g,
     '$1: '
   )};
 
@@ -100,7 +100,7 @@ const weatherRates: WeatherRateData[] = ${JSON.stringify(
     weatherRates,
     null,
     2
-  ).replace(/\"([a-zA-Z]+)\": /g, '$1: ')};
+  ).replace(/\"([a-zA-Z][a-zA-Z0-9]*)\": /g, '$1: ')};
 
 export {
   TWeather,

@@ -146,7 +146,7 @@ async function generateZones(messageIds: MessageIds): Promise<void> {
 // DO NOT EDIT.
 
 const TExVersion = ${JSON.stringify(exVersionIdByType, null, 2).replace(
-    /\"([a-zA-Z]+)\": /g,
+    /\"([a-zA-Z][a-zA-Z0-9]*)\": /g,
     '$1: '
   )} as const;
 type TExVersion = typeof TExVersion[keyof typeof TExVersion];
@@ -210,18 +210,18 @@ const exVersions: ExVersionData[] = ${JSON.stringify(
     expansionsJson,
     null,
     2
-  ).replace(/\"([a-zA-Z]+)\": /g, '$1: ')};
+  ).replace(/\"([a-zA-Z][a-zA-Z0-9]*)\": /g, '$1: ')};
 
 const zoneData: {
   zones: ZoneData[];
   fieldZones: FieldZoneData[];
-} = ${JSON.stringify(zoneData, null, 2).replace(/\"([a-zA-Z]+)\": /g, '$1: ')};
+} = ${JSON.stringify(zoneData, null, 2).replace(/\"([a-zA-Z][a-zA-Z0-9]*)\": /g, '$1: ')};
 
 const regionData: {
   huntRegions: RegionData[];
   weatherRegions: RegionData[];
 } = ${JSON.stringify(regionData, null, 2).replace(
-    /\"([a-zA-Z]+)\": /g,
+    /\"([a-zA-Z][a-zA-Z0-9]*)\": /g,
     '$1: '
   )};
 

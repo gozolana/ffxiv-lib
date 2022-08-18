@@ -1,7 +1,7 @@
 import { copyFileSync, mkdirSync, readdirSync, writeFileSync } from 'fs';
 import { extname, resolve } from 'path';
 import { retrieveIconStrings } from './parseCsvs';
-import { basePath } from './saintCoinachPath';
+import { getPatchPath } from './saintCoinach';
 
 const outputPath = './src/addon/resources/icons.data.ts';
 const outputPath2 = './src/lib/resources/icons.data.ts';
@@ -231,7 +231,7 @@ function generatePngIcons(
   for (let icon of iconSet) {
     const filename = `${icon}.png`;
     const folder = icon.substring(0, 3) + '000';
-    const source = `${basePath}/ui/icon/${folder}/${filename}`;
+    const source = `${getPatchPath()}/ui/icon/${folder}/${filename}`;
     const dest = `${outPath}/${filename}`;
     // copy file
     copyFileSync(source, dest);

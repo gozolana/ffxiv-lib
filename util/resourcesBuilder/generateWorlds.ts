@@ -45,13 +45,13 @@ type TDataCenterRegion =
   typeof TDataCenterRegion[keyof typeof TDataCenterRegion];
 
 const TDataCenter = ${JSON.stringify(dataCenterIdByType, null, 2).replace(
-    /\"([a-zA-Z]+)\": /g,
+    /\"([a-zA-Z][a-zA-Z0-9]*)\": /g,
     '$1: '
   )} as const;
 type TDataCenter = typeof TDataCenter[keyof typeof TDataCenter];
 
 const TWorld = ${JSON.stringify(worldIdByType, null, 2).replace(
-    /\"([a-zA-Z]+)\": /g,
+    /\"([a-zA-Z][a-zA-Z0-9]*)\": /g,
     '$1: '
   )} as const;
 type TWorld = typeof TWorld[keyof typeof TWorld];
@@ -72,10 +72,10 @@ const dataCenters: DataCenterData[] = ${JSON.stringify(
     dataCenters,
     null,
     2
-  ).replace(/\"([a-zA-Z]+)\": /g, '$1: ')};
+  ).replace(/\"([a-zA-Z][a-zA-Z0-9]*)\": /g, '$1: ')};
 
 const worlds: WorldData[] = ${JSON.stringify(worlds, null, 2).replace(
-    /\"([a-zA-Z]+)\": /g,
+    /\"([a-zA-Z][a-zA-Z0-9]*)\": /g,
     '$1: '
   )};
 

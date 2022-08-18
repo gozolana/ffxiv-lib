@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { parse } from '@fast-csv/parse';
-import { basePath } from './saintCoinachPath';
+import { getPatchPath } from './saintCoinach';
 
 async function parseCsv<T>(
   table: string,
@@ -9,8 +9,8 @@ async function parseCsv<T>(
 ) {
   const filePath =
     lang === ''
-      ? `${basePath}/rawexd/${table}.csv`
-      : `${basePath}/exd-all/${table}.${lang}.csv`;
+      ? `${getPatchPath()}/rawexd/${table}.csv`
+      : `${getPatchPath()}/exd-all/${table}.${lang}.csv`;
 
   return new Promise<T[]>((resolve, reject) => {
     const result: T[] = [];
