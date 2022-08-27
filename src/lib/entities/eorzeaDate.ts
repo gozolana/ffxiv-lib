@@ -1,5 +1,3 @@
-import dayjs from "dayjs";
-
 const TEorzeaDateCategory = {
   YEARS: 1,
   MONTHS: 2,
@@ -9,7 +7,8 @@ const TEorzeaDateCategory = {
   SECONDS: 6,
   MILLISECONDS: 7,
 } as const;
-type TEorzeaDateCategory = typeof TEorzeaDateCategory[keyof typeof TEorzeaDateCategory];
+type TEorzeaDateCategory =
+  typeof TEorzeaDateCategory[keyof typeof TEorzeaDateCategory];
 
 class EorzeaDate {
   year: number;
@@ -21,7 +20,7 @@ class EorzeaDate {
   millisecond: number;
 
   constructor(date = new Date()) {
-    const time = date ? Math.floor((date.getTime() * 144) / 7) : 0;
+    const time = Math.floor((date.getTime() * 144) / 7);
     this.millisecond = time % 1000;
     const s = Math.floor(time / 1000);
     const m = Math.floor(s / 60);
@@ -38,49 +37,51 @@ class EorzeaDate {
   }
 
   clone(): EorzeaDate {
-    return new EorzeaDate(this.toDate());
+    const date = new EorzeaDate();
+    date.year = this.year;
+    date.month = this.month;
+    date.day = this.day;
+    date.hour = this.hour;
+    date.minute = this.minute;
+    date.second = this.second;
+    date.millisecond = this.millisecond;
+    return date;
   }
 
   get epoch(): number {
-    const M = this.month + this.year * 12;
-    const D = this.day + M * 32;
-    const h = this.hour + D * 24;
-    const m = this.minute + h * 60;
-    const s = this.second + m * 60;
-    const ms = this.millisecond + s * 1000;
+    const M = 12 * this.year + this.month;
+    const D = 32 * M + this.day;
+    const h = 24 * D + this.hour;
+    const m = 60 * h + this.minute;
+    const s = 60 * m + this.second;
+    const ms = 1000 * s + this.millisecond;
     return Math.round((ms * 70) / 1000 / 1440) * 1000;
   }
 
+  toTimeString(): string {
+    const hh = this.hour.toString().padStart(2, '0');
+    const mm = this.minute.toString().padStart(2, '0');
+    return `${hh}:${mm}`;
+  }
+
+  toDateString(): string {
+    const MM = (this.month + 1).toString().padStart(2, '0');
+    const DD = (this.day + 1).toString().padStart(2, '0');
+    return `${MM}/${DD} ${this.toTimeString()}`;
+  }
+
   toString(): string {
-    const Y = String(this.year);
-    const M = ("00" + (this.month + 1)).slice(-2);
-    const D = ("00" + (this.day + 1)).slice(-2);
-    const h = ("00" + this.hour).slice(-2);
-    const m = ("00" + this.minute).slice(-2);
-    const s = ("00" + this.second).slice(-2);
-    const ms = ("000" + this.millisecond).slice(-3);
-    return `${Y}/${M}/${D} ${h}:${m}:${s}.${ms}`;
+    const Y = this.year.toString()
+    const ss = this.second.toString().padStart(2, '0');
+    const ms = this.millisecond.toString().padStart(3, '0');
+    return `${Y}/${this.toDateString()}:${ss}.${ms}`;
   }
 
   toJSON(): { et: string; lt: string } {
     return {
       et: this.toString(),
-      lt: dayjs(this.epoch).format("YYYY/MM/DD HH:mm:ss"),
+      lt: this.toDate().toISOString()
     };
-  }
-
-  toDateString(): string {
-    const M = ("00" + (this.month + 1)).slice(-2);
-    const D = ("00" + (this.day + 1)).slice(-2);
-    const h = ("00" + this.hour).slice(-2);
-    const m = ("00" + this.minute).slice(-2);
-    return `${M}/${D} ${h}:${m}`;
-  }
-
-  toTimeString(): string {
-    const h = ("00" + this.hour).slice(-2);
-    const m = ("00" + this.minute).slice(-2);
-    return `${h}:${m}`;
   }
 
   toDate(): Date {
@@ -89,17 +90,16 @@ class EorzeaDate {
 
   add(value: number, cat: TEorzeaDateCategory): EorzeaDate {
     let Y = this.year + (cat === TEorzeaDateCategory.YEARS ? value : 0);
-    let M = this.month + Y * 12 + (cat === TEorzeaDateCategory.MONTHS ? value : 0);
-    let D = this.day + M * 32 + (cat === TEorzeaDateCategory.DAYS ? value : 0);
-    let h = this.hour + D * 24 + (cat === TEorzeaDateCategory.HOURS ? value : 0);
-    let m = this.minute + h * 60 + (cat === TEorzeaDateCategory.MINUTES ? value : 0);
-    let s = this.second + m * 60 + (cat === TEorzeaDateCategory.SECONDS ? value : 0);
-    const time =
+    let M = 12 * Y + this.month + (cat === TEorzeaDateCategory.MONTHS ? value : 0);
+    let D = 32 * M + this.day + (cat === TEorzeaDateCategory.DAYS ? value : 0);
+    let h = 24 * D + this.hour + (cat === TEorzeaDateCategory.HOURS ? value : 0);
+    let m = 60 * h + this.minute + (cat === TEorzeaDateCategory.MINUTES ? value : 0);
+    let s = 60 * m + this.second + (cat === TEorzeaDateCategory.SECONDS ? value : 0);
+    const ms = 1000 * s +
       this.millisecond +
-      s * 1000 +
       (cat === TEorzeaDateCategory.MILLISECONDS ? value : 0);
-    this.millisecond = time % 1000;
-    s = Math.floor(time / 1000);
+    this.millisecond = ms % 1000;
+    s = Math.floor(ms / 1000);
     m = Math.floor(s / 60);
     h = Math.floor(m / 60);
     D = Math.floor(h / 24);

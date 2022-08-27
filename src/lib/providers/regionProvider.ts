@@ -9,6 +9,14 @@ class RegionProvider {
 
   readonly huntRegions: Region[];
   readonly weatherRegions: Region[];
+
+  getHuntRegions(): Region[] {
+    return this.huntRegions
+  }
+
+  getWeatherRegions(): Region[] {
+    return this.weatherRegions
+  }
 }
 
 const regionProvider = new RegionProvider();

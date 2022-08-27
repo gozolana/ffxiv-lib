@@ -1,6 +1,6 @@
 import { DataCenter, DataCenterImpl } from "../entities/dataCenter";
 import { World, WorldImpl } from "../entities/world";
-import { dataCenters, worlds } from "../resources/worlds.data";
+import { dataCenters, TDataCenter, TDataCenterRegion, TWorld, worlds } from "../resources/worlds.data";
 
 class WorldProvider {
   constructor() {
@@ -11,30 +11,30 @@ class WorldProvider {
       worlds.map((world) => [world.id, new WorldImpl(world)])
     );
   }
-  private dataCenterById: Map<number, DataCenter>;
-  private worldById: Map<number, World>;
+  private dataCenterById: Map<TDataCenter, DataCenter>;
+  private worldById: Map<TWorld, World>;
 
-  findDataCenter(id: number): DataCenter | undefined {
+  findDataCenter(id: TDataCenter): DataCenter | undefined {
     return this.dataCenterById.get(id);
   }
 
-  findWorld(id: number): World | undefined {
+  findWorld(id: TWorld): World | undefined {
     return this.worldById.get(id);
   }
 
-  getDataCentersOfRegion(regionId: number): DataCenter[] {
+  getDataCentersOfRegion(regionId: TDataCenterRegion): DataCenter[] {
     return [...this.dataCenterById.values()]
       .filter((dc) => dc.regionId === regionId)
       .sort((a, b) => a.compare(b));
   }
 
-  getWorldsOfDataCenter(dataCenterId: number): World[] {
+  getWorldsOfDataCenter(dataCenterId: TDataCenter): World[] {
     return [...this.worldById.values()]
       .filter((world) => world.dataCenterId === dataCenterId)
       .sort((a, b) => a.compare(b));
   }
 
-  getWorldsOfRegion(regionId: number): World[] {
+  getWorldsOfRegion(regionId: TDataCenterRegion): World[] {
     const dcIds = this.getDataCentersOfRegion(regionId).map((dc) => dc.id);
     return [...this.worldById.values()]
       .filter((world) => dcIds.includes(world.dataCenterId))
