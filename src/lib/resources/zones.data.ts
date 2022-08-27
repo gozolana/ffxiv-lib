@@ -1076,6 +1076,12 @@ const zoneData: {
           y: 1758,
           placeNameId: 1377,
           icon: "060414"
+        },
+        {
+          x: 1198,
+          y: 1692,
+          placeNameId: 0,
+          icon: "063970"
         }
       ],
       exVersionId: 0,
@@ -2782,8 +2788,8 @@ const zoneData: {
           icon: "060448"
         },
         {
-          x: 798,
-          y: 1140,
+          x: 792,
+          y: 1148,
           placeNameId: 291,
           icon: "060442"
         },
@@ -14309,8 +14315,8 @@ const zoneData: {
       offsetZ: -225,
       markers: [
         {
-          x: 791,
-          y: 1364,
+          x: 794,
+          y: 1368,
           placeNameId: 4028,
           icon: "060414"
         },
@@ -15828,6 +15834,18 @@ const zoneData: {
           y: 1355,
           placeNameId: 3983,
           icon: "060453"
+        },
+        {
+          x: 1221,
+          y: 1262,
+          placeNameId: 4048,
+          icon: "060442"
+        },
+        {
+          x: 1341,
+          y: 1173,
+          placeNameId: 4041,
+          icon: "060442"
         }
       ],
       exVersionId: 4,
