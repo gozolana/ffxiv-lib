@@ -1,8 +1,8 @@
 import { readFileSync } from 'fs';
-import { parse } from '@fast-csv/parse';
+import { parse, Row } from '@fast-csv/parse';
 import { getPatchPath } from './saintCoinach';
 
-async function parseCsv<T>(
+async function parseCsv<T extends Row<any>>(
   table: string,
   headers: readonly (string | undefined)[],
   lang = ''
