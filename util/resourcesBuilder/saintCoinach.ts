@@ -3,7 +3,7 @@ import {
   existsSync,
   rmSync,
   readdirSync,
-//  createReadStream,
+  //  createReadStream,
   createWriteStream,
 } from 'fs';
 import { JSDOM } from 'jsdom';
@@ -29,18 +29,27 @@ export const getLatestZipUrl = async (
   homeUrl: string,
   fileName: string
 ): Promise<string> => {
-  const response = await fetch(homeUrl);
   const url = new URL(homeUrl);
-  const body = await response.text();
-  const dom = new JSDOM(body);
-  const ancher = dom.window.document.querySelector<HTMLAnchorElement>(
-    `a[href*="${fileName}"]`
+  const response = await fetch(homeUrl);
+  const dom = new JSDOM(await response.text());
+  const incFlag = dom.window.document.querySelector<HTMLElement>(
+    `include-fragment[loading="lazy"]`
   );
-  if (ancher) {
-    const zipUrl = new URL(ancher.href, url);
-    return zipUrl.toString();
+  if (incFlag) {
+    const incUrl = incFlag.getAttribute('src') ?? '';
+    const response2 = await fetch(incUrl);
+    const dom = new JSDOM(await response2.text());
+    const ancher = dom.window.document.querySelector<HTMLAnchorElement>(
+      `a[href*="${fileName}"]`
+    );
+    if (ancher) {
+      const zipUrl = new URL(ancher.href, url);
+      return zipUrl.toString();
+    } else {
+      throw `Link to ${fileName} was not found in ${incUrl}.`;
+    }
   } else {
-    throw `Link to ${fileName} was not found in ${homeUrl}.`;
+    throw `Link to include-fragment was not found in ${homeUrl}.`;
   }
 };
 
@@ -95,19 +104,15 @@ const update = async () => {
     'ui 060000 064000',
   ];
   return new Promise((resolve, reject) => {
-    let proc = spawn(
-      'SaintCoinach.Cmd.exe',
-      args,
-      {
-        cwd: rootPath,
-      }
-    );
-    proc.stdout.on('data', data => console.log(data.toString()))
+    let proc = spawn('SaintCoinach.Cmd.exe', args, {
+      cwd: rootPath,
+    });
+    proc.stdout.on('data', (data) => console.log(data.toString()));
     proc.on('exit', (code) => {
       console.log(`child process exited with code ${code}`);
-      resolve(code)
+      resolve(code);
     });
-  })
+  });
 };
 
 export { rootPath, getPatchPath, cleanUp, install, update };
