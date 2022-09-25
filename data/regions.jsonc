@@ -81,12 +81,12 @@
       "css": "brown lighten-4 black--text"
     },
     {
-      "key": "Eureka",
+      "key": "Others",
       "name": {
-        "ja": "エウレカ",
-        "en": "Eureka",
-        "fr": "Eureka",
-        "de": "Eureka"
+        "ja": "その他",
+        "en": "Others",
+        "fr": "Others",
+        "de": "Others"
       },
       "css": "lime lighten-2 black--text"
     }
@@ -159,8 +159,8 @@
       "zoneIds": [155, 156]
     },
     {
-      "key": "Eureka",
-      "zoneIds": [732, 763, 795, 827]
+      "key": "Others",
+      "zoneIds": [732, 763, 795, 827, 1055]
     }
   ]
 }

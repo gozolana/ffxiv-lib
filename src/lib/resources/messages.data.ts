@@ -243,7 +243,8 @@ const messages: Record<string, Message> = {
       3710: "ガレマルド",
       3711: "嘆きの海",
       3712: "ウルティマ・トゥーレ",
-      3713: "エルピス"
+      3713: "エルピス",
+      4043: "名もなき島"
     },
     Weather: {
       1: "快晴",
@@ -275,7 +276,7 @@ const messages: Record<string, Message> = {
       Gridania: "グリダニア",
       Thanalan: "ザナラーン",
       Frontier: "辺境エリア",
-      Eureka: "エウレカ"
+      Others: "その他"
     },
     ExVersion: {
       0: "新生エオルゼア",
@@ -518,7 +519,8 @@ const messages: Record<string, Message> = {
       3710: "Garlemald",
       3711: "Mare Lamentorum",
       3712: "Ultima Thule",
-      3713: "Elpis"
+      3713: "Elpis",
+      4043: "Unnamed Island"
     },
     Weather: {
       1: "Clear Skies",
@@ -550,7 +552,7 @@ const messages: Record<string, Message> = {
       Gridania: "Gridania",
       Thanalan: "Thanalan",
       Frontier: "Frontier",
-      Eureka: "Eureka"
+      Others: "Others"
     },
     ExVersion: {
       0: "A Realm Reborn",
@@ -793,7 +795,8 @@ const messages: Record<string, Message> = {
       3710: "Garlemald",
       3711: "Mare Lamentorum",
       3712: "Ultima Thule",
-      3713: "Elpis"
+      3713: "Elpis",
+      4043: "Einsame Insel"
     },
     Weather: {
       1: "Klar",
@@ -825,7 +828,7 @@ const messages: Record<string, Message> = {
       Gridania: "Gridania",
       Thanalan: "Thanalan",
       Frontier: "Grenze",
-      Eureka: "Eureka"
+      Others: "Others"
     },
     ExVersion: {
       0: "A Realm Reborn",
@@ -1068,7 +1071,8 @@ const messages: Record<string, Message> = {
       3710: "Garlemald",
       3711: "Mare Lamentorum",
       3712: "Ultima Thulé",
-      3713: "Elpis"
+      3713: "Elpis",
+      4043: "Île sans nom"
     },
     Weather: {
       1: "Dégagé",
@@ -1100,7 +1104,7 @@ const messages: Record<string, Message> = {
       Gridania: "Gridania",
       Thanalan: "Thanalan",
       Frontier: "Frontière",
-      Eureka: "Eureka"
+      Others: "Others"
     },
     ExVersion: {
       0: "A Realm Reborn",

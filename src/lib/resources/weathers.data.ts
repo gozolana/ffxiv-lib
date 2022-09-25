@@ -1325,6 +1325,35 @@ const weatherRates: WeatherRateData[] = [
         chance: 15
       }
     ]
+  },
+  {
+    id: 148,
+    rates: [
+      {
+        weatherId: 1,
+        chance: 25
+      },
+      {
+        weatherId: 2,
+        chance: 45
+      },
+      {
+        weatherId: 3,
+        chance: 10
+      },
+      {
+        weatherId: 7,
+        chance: 10
+      },
+      {
+        weatherId: 4,
+        chance: 5
+      },
+      {
+        weatherId: 8,
+        chance: 5
+      }
+    ]
   }
 ];
 

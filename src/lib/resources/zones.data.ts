@@ -594,6 +594,78 @@ const zoneData: {
         }
       ],
       exVersionId: 2
+    },
+    {
+      id: 1055,
+      placeNameId: 4043,
+      weatherRateId: 148,
+      sizeFactor: 100,
+      offsetX: -175,
+      offsetY: 138,
+      offsetZ: -1,
+      markers: [
+        {
+          x: 700,
+          y: 560,
+          placeNameId: 4238,
+          icon: "060442"
+        },
+        {
+          x: 1370,
+          y: 420,
+          placeNameId: 4239,
+          icon: "060442"
+        },
+        {
+          x: 690,
+          y: 840,
+          placeNameId: 4240,
+          icon: "060442"
+        },
+        {
+          x: 1045,
+          y: 773,
+          placeNameId: 4241,
+          icon: "060442"
+        },
+        {
+          x: 1199,
+          y: 759,
+          placeNameId: 4242,
+          icon: "060442"
+        },
+        {
+          x: 1283,
+          y: 915,
+          placeNameId: 4243,
+          icon: "060442"
+        },
+        {
+          x: 1450,
+          y: 1150,
+          placeNameId: 4244,
+          icon: "060442"
+        },
+        {
+          x: 870,
+          y: 1175,
+          placeNameId: 4245,
+          icon: "060442"
+        },
+        {
+          x: 1461,
+          y: 1385,
+          placeNameId: 4246,
+          icon: "060442"
+        },
+        {
+          x: 409,
+          y: 1366,
+          placeNameId: 0,
+          icon: "060467"
+        }
+      ],
+      exVersionId: 0
     }
   ],
   fieldZones: [
@@ -16533,13 +16605,14 @@ const regionData: {
       ]
     },
     {
-      key: "Eureka",
+      key: "Others",
       css: "lime lighten-2 black--text",
       zoneIds: [
         732,
         763,
         795,
-        827
+        827,
+        1055
       ]
     }
   ]
