@@ -1,6 +1,6 @@
-import { FieldZone, FieldZoneImpl } from "../entities/fieldZone";
-import { Zone, ZoneImpl } from "../entities/zone";
-import { zoneData } from "../resources/zones.data";
+import { FieldZone, FieldZoneImpl } from '../entities/fieldZone';
+import { Zone, ZoneImpl } from '../entities/zone';
+import { zoneData } from '../resources/zones.data';
 
 class ZoneProvider {
   constructor() {
@@ -15,7 +15,7 @@ class ZoneProvider {
   private fieldZoneById: Map<number, FieldZone>;
 
   findZone(id: number): Zone | undefined {
-    return this.zoneById.get(id);
+    return this.fieldZoneById.get(id) ?? this.zoneById.get(id);
   }
 
   findFieldZone(id: number): FieldZone | undefined {
