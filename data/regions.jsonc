@@ -8,7 +8,7 @@
         "de": "Endwalker Area",
         "fr": "Endwalker Area"
       },
-      "css": "amber lighten-3 black--text"
+      "css": "bg-amber-lighten-3 text-black"
     },
     {
       "key": "ShB",
@@ -18,7 +18,7 @@
         "fr": "Shadowbringers Area",
         "de": "Shadowbringers Area"
       },
-      "css": "grey darken-2 white--text"
+      "css": "bg-grey-darken-2 text-white"
     },
     {
       "key": "SB",
@@ -28,7 +28,7 @@
         "fr": "Stormblood Area",
         "de": "Stormblood Area"
       },
-      "css": "red darken-2 white--text"
+      "css": "bg-red-darken-2 text-white"
     },
     {
       "key": "HW",
@@ -38,7 +38,7 @@
         "fr": "Heavensward Area",
         "de": "Heavensward Area"
       },
-      "css": "indigo darken-2 white--text"
+      "css": "bg-indigo-darken-2 text-white"
     },
     {
       "key": "LaNoscea",
@@ -48,7 +48,7 @@
         "fr": "Noscea",
         "de": "La Noscea"
       },
-      "css": "red lighten-2 black--text"
+      "css": "bg-red-lighten-2 text-black"
     },
     {
       "key": "Gridania",
@@ -58,7 +58,7 @@
         "fr": "Gridania",
         "de": "Gridania"
       },
-      "css": "yellow lighten-2 black--text"
+      "css": "bg-yellow-lighten-2 text-black"
     },
     {
       "key": "Thanalan",
@@ -68,7 +68,7 @@
         "fr": "Thanalan",
         "de": "Thanalan"
       },
-      "css": "brown lighten-2 black--text"
+      "css": "bg-brown-lighten-2 text-black"
     },
     {
       "key": "Frontier",
@@ -78,7 +78,7 @@
         "fr": "Frontière",
         "de": "Grenze"
       },
-      "css": "brown lighten-4 black--text"
+      "css": "bg-brown-lighten-4 text-black"
     },
     {
       "key": "Others",
@@ -88,7 +88,7 @@
         "fr": "Others",
         "de": "Others"
       },
-      "css": "lime lighten-2 black--text"
+      "css": "bg-lime-lighten-2 text-black"
     }
   ],
   "huntRegions": [

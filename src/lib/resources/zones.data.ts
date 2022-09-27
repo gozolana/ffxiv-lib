@@ -16426,7 +16426,7 @@ const regionData: {
   huntRegions: [
     {
       key: "EW",
-      css: "amber lighten-3 black--text",
+      css: "bg-amber-lighten-3 text-black",
       zoneIds: [
         956,
         957,
@@ -16438,7 +16438,7 @@ const regionData: {
     },
     {
       key: "ShB",
-      css: "grey darken-2 white--text",
+      css: "bg-grey-darken-2 text-white",
       zoneIds: [
         813,
         814,
@@ -16450,7 +16450,7 @@ const regionData: {
     },
     {
       key: "SB",
-      css: "red darken-2 white--text",
+      css: "bg-red-darken-2 text-white",
       zoneIds: [
         612,
         620,
@@ -16462,7 +16462,7 @@ const regionData: {
     },
     {
       key: "HW",
-      css: "indigo darken-2 white--text",
+      css: "bg-indigo-darken-2 text-white",
       zoneIds: [
         397,
         401,
@@ -16474,7 +16474,7 @@ const regionData: {
     },
     {
       key: "LaNoscea",
-      css: "red lighten-2 black--text",
+      css: "bg-red-lighten-2 text-black",
       zoneIds: [
         134,
         135,
@@ -16486,7 +16486,7 @@ const regionData: {
     },
     {
       key: "Gridania",
-      css: "yellow lighten-2 black--text",
+      css: "bg-yellow-lighten-2 text-black",
       zoneIds: [
         148,
         152,
@@ -16496,7 +16496,7 @@ const regionData: {
     },
     {
       key: "Thanalan",
-      css: "brown lighten-2 black--text",
+      css: "bg-brown-lighten-2 text-black",
       zoneIds: [
         140,
         141,
@@ -16507,7 +16507,7 @@ const regionData: {
     },
     {
       key: "Frontier",
-      css: "brown lighten-4 black--text",
+      css: "bg-brown-lighten-4 text-black",
       zoneIds: [
         155,
         156
@@ -16517,7 +16517,7 @@ const regionData: {
   weatherRegions: [
     {
       key: "EW",
-      css: "amber lighten-3 black--text",
+      css: "bg-amber-lighten-3 text-black",
       zoneIds: [
         956,
         957,
@@ -16529,7 +16529,7 @@ const regionData: {
     },
     {
       key: "ShB",
-      css: "grey darken-2 white--text",
+      css: "bg-grey-darken-2 text-white",
       zoneIds: [
         813,
         814,
@@ -16541,7 +16541,7 @@ const regionData: {
     },
     {
       key: "SB",
-      css: "red darken-2 white--text",
+      css: "bg-red-darken-2 text-white",
       zoneIds: [
         612,
         620,
@@ -16553,7 +16553,7 @@ const regionData: {
     },
     {
       key: "HW",
-      css: "indigo darken-2 white--text",
+      css: "bg-indigo-darken-2 text-white",
       zoneIds: [
         397,
         401,
@@ -16565,7 +16565,7 @@ const regionData: {
     },
     {
       key: "LaNoscea",
-      css: "red lighten-2 black--text",
+      css: "bg-red-lighten-2 text-black",
       zoneIds: [
         134,
         135,
@@ -16577,7 +16577,7 @@ const regionData: {
     },
     {
       key: "Gridania",
-      css: "yellow lighten-2 black--text",
+      css: "bg-yellow-lighten-2 text-black",
       zoneIds: [
         148,
         152,
@@ -16587,7 +16587,7 @@ const regionData: {
     },
     {
       key: "Thanalan",
-      css: "brown lighten-2 black--text",
+      css: "bg-brown-lighten-2 text-black",
       zoneIds: [
         140,
         141,
@@ -16598,7 +16598,7 @@ const regionData: {
     },
     {
       key: "Frontier",
-      css: "brown lighten-4 black--text",
+      css: "bg-brown-lighten-4 text-black",
       zoneIds: [
         155,
         156
@@ -16606,7 +16606,7 @@ const regionData: {
     },
     {
       key: "Others",
-      css: "lime lighten-2 black--text",
+      css: "bg-lime-lighten-2 text-black",
       zoneIds: [
         732,
         763,
