@@ -1,4 +1,5 @@
-import { EorzeaDate } from "./eorzeaDate";
+import { WeatherProvider } from '../providers/weatherProvider';
+import { EorzeaDate, TEorzeaDateCategory } from './eorzeaDate';
 
 class EorzeaPeriod {
   start: EorzeaDate;
@@ -37,4 +38,34 @@ class EorzeaPeriod {
   }
 }
 
-export { EorzeaPeriod };
+class WeatherPeriod extends EorzeaPeriod {
+  readonly weatherRateId: number;
+  constructor(date: Date, weatherRateId: number) {
+    const start: EorzeaDate = Object.assign(new EorzeaDate(date), {
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    });
+    start.hour = start.hour >= 16 ? 16 : start.hour >= 8 ? 8 : 0;
+    const end = start
+      .clone()
+      .add(8, TEorzeaDateCategory.HOURS)
+      .subtract(1, TEorzeaDateCategory.MILLISECONDS);
+    super(start.toDate(), end.toDate());
+    this.weatherRateId = weatherRateId;
+  }
+  get weatherId(): number {
+    return WeatherProvider.getWeatherAt(this.start.epoch, this.weatherRateId)
+      .id;
+  }
+  get prev(): WeatherPeriod {
+    const prev = this.start.clone().subtract(8, TEorzeaDateCategory.HOURS);
+    return new WeatherPeriod(prev.toDate(), this.weatherRateId);
+  }
+  get next(): WeatherPeriod {
+    const next = this.start.clone().add(8, TEorzeaDateCategory.HOURS);
+    return new WeatherPeriod(next.toDate(), this.weatherRateId);
+  }
+}
+
+export { EorzeaPeriod, WeatherPeriod };
