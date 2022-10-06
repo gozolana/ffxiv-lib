@@ -14,15 +14,15 @@ class ZonaSeekerPeriod extends EorzeaPeriod {
   constructor(date: Date) {
     let periodNext = new WeatherPeriod(date, TWeatherRate.WesternThanalan);
     //晴れ→雨の変曲点を算出
-    while (!WeatherProvider.isSunny(periodNext.weatherId)) {
+    while (!WeatherProvider.isSunny(periodNext.weather.id)) {
       periodNext = periodNext.next;
     }
-    while (WeatherProvider.isSunny(periodNext.weatherId)) {
+    while (WeatherProvider.isSunny(periodNext.weather.id)) {
       periodNext = periodNext.next;
     }
     let periodPrevious = periodNext.prev.prev;
     //let count = 1;
-    while (WeatherProvider.isSunny(periodPrevious.weatherId)) {
+    while (WeatherProvider.isSunny(periodPrevious.weather.id)) {
       //count += 1;
       periodPrevious = periodPrevious.prev;
     }
@@ -121,15 +121,15 @@ class EorzeaDateProvider {
       constructor(date: Date) {
         let periodNext = new WeatherPeriod(date, TWeatherRate.EasternLaNoscea);
         //晴れ→雨の変曲点を算出
-        while (WeatherProvider.isRainy(periodNext.weatherId)) {
+        while (WeatherProvider.isRainy(periodNext.weather.id)) {
           periodNext = periodNext.next;
         }
-        while (!WeatherProvider.isRainy(periodNext.weatherId)) {
+        while (!WeatherProvider.isRainy(periodNext.weather.id)) {
           periodNext = periodNext.next;
         }
         let periodPrevious = periodNext.prev.prev;
         let count = 1;
-        while (!WeatherProvider.isRainy(periodPrevious.weatherId)) {
+        while (!WeatherProvider.isRainy(periodPrevious.weather.id)) {
           count += 1;
           periodPrevious = periodPrevious.prev;
         }
@@ -180,15 +180,15 @@ class EorzeaDateProvider {
     class LaideronnettePeriod extends EorzeaPeriod {
       constructor(date: Date) {
         let periodNext = new WeatherPeriod(date, TWeatherRate.SouthShroud);
-        while (!WeatherProvider.isRainy(periodNext.weatherId)) {
+        while (!WeatherProvider.isRainy(periodNext.weather.id)) {
           periodNext = periodNext.next;
         }
-        while (WeatherProvider.isRainy(periodNext.weatherId)) {
+        while (WeatherProvider.isRainy(periodNext.weather.id)) {
           periodNext = periodNext.next;
         }
         let periodPrevious = periodNext.prev.prev;
         let count = 1;
-        while (WeatherProvider.isRainy(periodPrevious.weatherId)) {
+        while (WeatherProvider.isRainy(periodPrevious.weather.id)) {
           count += 1;
           periodPrevious = periodPrevious.prev;
         }
@@ -254,7 +254,7 @@ class EorzeaDateProvider {
       }
       let wp = new WeatherPeriod(base.toDate(), TWeatherRate.Labyrinthos);
       let start = base.clone();
-      while (!WeatherProvider.isSunny(wp.weatherId)) {
+      while (!WeatherProvider.isSunny(wp.weather.id)) {
         if (wp.start.hour === 16) {
           wp = wp.next.next; // 翌日のET0800
           start = Object.assign(wp.start.clone(), { hour: 9 });
@@ -272,7 +272,7 @@ class EorzeaDateProvider {
         end.subtract(7, TEorzeaDateCategory.HOURS); // 23:59 - 7 hours = 16:59
       } else if (
         wp.start.hour === 8 &&
-        WeatherProvider.isSunny(wp.next.weatherId)
+        WeatherProvider.isSunny(wp.next.weather.id)
       ) {
         end.add(1, TEorzeaDateCategory.HOURS); // 15:59 + 1 hours = 16:59
       }

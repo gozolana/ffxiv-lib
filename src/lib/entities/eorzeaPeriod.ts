@@ -1,5 +1,6 @@
 import { WeatherProvider } from '../providers/weatherProvider';
 import { EorzeaDate, TEorzeaDateCategory } from './eorzeaDate';
+import { Weather } from './weather';
 
 class EorzeaPeriod {
   start: EorzeaDate;
@@ -54,9 +55,8 @@ class WeatherPeriod extends EorzeaPeriod {
     super(start.toDate(), end.toDate());
     this.weatherRateId = weatherRateId;
   }
-  get weatherId(): number {
-    return WeatherProvider.getWeatherAt(this.start.epoch, this.weatherRateId)
-      .id;
+  get weather(): Weather {
+    return WeatherProvider.getWeatherAt(this.start.epoch, this.weatherRateId);
   }
   get prev(): WeatherPeriod {
     const prev = this.start.clone().subtract(8, TEorzeaDateCategory.HOURS);
