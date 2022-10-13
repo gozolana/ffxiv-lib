@@ -6,9 +6,9 @@ class EorzeaPeriod {
   start: EorzeaDate;
   end: EorzeaDate;
 
-  constructor(start: Date, end: Date) {
-    this.start = new EorzeaDate(start);
-    this.end = new EorzeaDate(end);
+  constructor(startTimeStamp: number, endTimeStamp: number) {
+    this.start = new EorzeaDate(startTimeStamp);
+    this.end = new EorzeaDate(endTimeStamp);
   }
 
   toLengthString() {
@@ -41,8 +41,8 @@ class EorzeaPeriod {
 
 class WeatherPeriod extends EorzeaPeriod {
   readonly weatherRateId: number;
-  constructor(date: Date, weatherRateId: number) {
-    const start: EorzeaDate = Object.assign(new EorzeaDate(date), {
+  constructor(timeStamp: number, weatherRateId: number) {
+    const start: EorzeaDate = Object.assign(new EorzeaDate(timeStamp), {
       minute: 0,
       second: 0,
       millisecond: 0,
@@ -52,7 +52,7 @@ class WeatherPeriod extends EorzeaPeriod {
       .clone()
       .add(8, TEorzeaDateCategory.HOURS)
       .subtract(1, TEorzeaDateCategory.MILLISECONDS);
-    super(start.toDate(), end.toDate());
+    super(start.epoch, end.epoch);
     this.weatherRateId = weatherRateId;
   }
   get weather(): Weather {
@@ -60,11 +60,11 @@ class WeatherPeriod extends EorzeaPeriod {
   }
   get prev(): WeatherPeriod {
     const prev = this.start.clone().subtract(8, TEorzeaDateCategory.HOURS);
-    return new WeatherPeriod(prev.toDate(), this.weatherRateId);
+    return new WeatherPeriod(prev.epoch, this.weatherRateId);
   }
   get next(): WeatherPeriod {
     const next = this.start.clone().add(8, TEorzeaDateCategory.HOURS);
-    return new WeatherPeriod(next.toDate(), this.weatherRateId);
+    return new WeatherPeriod(next.epoch, this.weatherRateId);
   }
 }
 

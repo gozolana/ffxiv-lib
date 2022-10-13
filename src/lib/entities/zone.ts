@@ -99,7 +99,7 @@ class ZoneImpl implements Zone {
   }
 
   getWeatherPeriodAt(timestamp: number): WeatherPeriod {
-    return new WeatherPeriod(new Date(timestamp), this.weatherRateId);
+    return new WeatherPeriod(timestamp, this.weatherRateId);
   }
 }
 

@@ -19,8 +19,8 @@ class EorzeaDate {
   second: number;
   millisecond: number;
 
-  constructor(date = new Date()) {
-    const time = Math.floor((date.getTime() * 144) / 7);
+  constructor(timeStamp = Date.now()) {
+    const time = Math.floor((timeStamp * 144) / 7);
     this.millisecond = time % 1000;
     const s = Math.floor(time / 1000);
     const m = Math.floor(s / 60);
@@ -71,7 +71,7 @@ class EorzeaDate {
   }
 
   toString(): string {
-    const Y = this.year.toString()
+    const Y = this.year.toString();
     const ss = this.second.toString().padStart(2, '0');
     const ms = this.millisecond.toString().padStart(3, '0');
     return `${Y}/${this.toDateString()}:${ss}.${ms}`;
@@ -80,7 +80,7 @@ class EorzeaDate {
   toJSON(): { et: string; lt: string } {
     return {
       et: this.toString(),
-      lt: this.toDate().toISOString()
+      lt: this.toDate().toISOString(),
     };
   }
 
@@ -90,12 +90,17 @@ class EorzeaDate {
 
   add(value: number, cat: TEorzeaDateCategory): EorzeaDate {
     let Y = this.year + (cat === TEorzeaDateCategory.YEARS ? value : 0);
-    let M = 12 * Y + this.month + (cat === TEorzeaDateCategory.MONTHS ? value : 0);
+    let M =
+      12 * Y + this.month + (cat === TEorzeaDateCategory.MONTHS ? value : 0);
     let D = 32 * M + this.day + (cat === TEorzeaDateCategory.DAYS ? value : 0);
-    let h = 24 * D + this.hour + (cat === TEorzeaDateCategory.HOURS ? value : 0);
-    let m = 60 * h + this.minute + (cat === TEorzeaDateCategory.MINUTES ? value : 0);
-    let s = 60 * m + this.second + (cat === TEorzeaDateCategory.SECONDS ? value : 0);
-    const ms = 1000 * s +
+    let h =
+      24 * D + this.hour + (cat === TEorzeaDateCategory.HOURS ? value : 0);
+    let m =
+      60 * h + this.minute + (cat === TEorzeaDateCategory.MINUTES ? value : 0);
+    let s =
+      60 * m + this.second + (cat === TEorzeaDateCategory.SECONDS ? value : 0);
+    const ms =
+      1000 * s +
       this.millisecond +
       (cat === TEorzeaDateCategory.MILLISECONDS ? value : 0);
     this.millisecond = ms % 1000;
