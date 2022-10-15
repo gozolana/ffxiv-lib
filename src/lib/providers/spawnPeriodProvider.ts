@@ -270,7 +270,7 @@ const getLaideronnettePeriods = (spawnPeriod: EorzeaPeriod): EorzeaPeriod[] => {
   return periods;
 };
 
-class SpawnInfoProvider {
+class SpawnPeriodProvider {
   getSpawnInfo(
     mob: Mob,
     baseTimeStamp: number,
@@ -332,5 +332,5 @@ class SpawnInfoProvider {
   }
 }
 
-const spawnInfoProvider = new SpawnInfoProvider();
-export { spawnInfoProvider as SpawnInfoProvider };
+const spawnPeriodProvider = new SpawnPeriodProvider();
+export { spawnPeriodProvider as SpawnPeriodProvider };

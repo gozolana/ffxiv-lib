@@ -1,5 +1,5 @@
 import { MobProvider } from '../../../src/lib/providers/mobProvider';
-import { SpawnInfoProvider } from '../../../src/lib/providers/spawnInfoProvider';
+import { SpawnPeriodProvider } from '../../../src/lib/providers/spawnPeriodProvider';
 import dayjs from 'dayjs';
 
 describe('SpawnInfo', () => {
@@ -13,7 +13,7 @@ describe('SpawnInfo', () => {
       5984: "オキナ",
       */
     const mob = MobProvider.findMob(2964)!;
-    const si = SpawnInfoProvider.getSpawnInfo(
+    const si = SpawnPeriodProvider.getSpawnInfo(
       mob,
       new Date('2022-10-12T10:21:00+09:00').getTime(),
       false
