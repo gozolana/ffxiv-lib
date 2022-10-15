@@ -19,16 +19,9 @@ describe('SpawnInfo', () => {
       false
     );
     console.log(
-      `${dayjs(si.period.start.epoch).format('MM/DDddd HH:mm')} - ${dayjs(
-        si.period.end.epoch
+      `${dayjs(si.start.epoch).format('MM/DDddd HH:mm')} - ${dayjs(
+        si.end.epoch
       ).format('MM/DDddd HH:mm')}`
     );
-    const details = si.getDetails(
-      new Date('2022-10-14T11:22:00+09:00').getTime()
-    );
-    console.log('Fixed Spawn', details.fixedSpawn?.toDate());
-    details.periods.forEach((fw) => {
-      console.log(`${fw.isActive}: ${fw.formattedText}`);
-    });
   });
 });

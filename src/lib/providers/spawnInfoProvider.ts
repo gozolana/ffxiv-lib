@@ -1,4 +1,4 @@
-import { SpawnInfo } from '../entities/spawnInfo';
+import { SpawnPeriod } from '../entities/spawnPeriod';
 import { EorzeaDate, TEorzeaDateCategory } from '../entities/eorzeaDate';
 import { EorzeaPeriod, WeatherPeriod } from '../entities/eorzeaPeriod';
 import { Mob } from '../entities/mob';
@@ -275,7 +275,7 @@ class SpawnInfoProvider {
     mob: Mob,
     baseTimeStamp: number,
     isServerReset: boolean
-  ): SpawnInfo {
+  ): SpawnPeriod {
     const offsetStartMinutes = mob.respawnMinutes?.min
       ? mob.respawnMinutes.min
       : 0;
@@ -328,7 +328,7 @@ class SpawnInfoProvider {
         }
       }*/
     }
-    return new SpawnInfo(startTimeStamp, endTimeStamp, spawnWindows);
+    return new SpawnPeriod(startTimeStamp, endTimeStamp, spawnWindows);
   }
 }
 
