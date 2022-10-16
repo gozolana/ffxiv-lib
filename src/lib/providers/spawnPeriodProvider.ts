@@ -148,12 +148,22 @@ const getOkinaPeriods = (spawnPeriod: EorzeaPeriod): EorzeaPeriod[] => {
       day: 19,
       hour: 12,
     }).subtract(1, TEorzeaDateCategory.MILLISECONDS);
+
+    const period = new EorzeaPeriod(
+      Math.max(start.epoch, spawnPeriod.start.epoch),
+      Math.min(end.epoch, Math.max(start.epoch, spawnPeriod.end.epoch))
+    );
+    if (period.start.epoch <= period.end.epoch) {
+      periods.push(period);
+    }
+    /*
     periods.push(
       new EorzeaPeriod(
         Math.max(start.epoch, spawnPeriod.start.epoch),
         Math.min(end.epoch, Math.max(start.epoch, spawnPeriod.end.epoch))
       )
     );
+    */
     baseDate = end.clone();
     baseDate.add(1, TEorzeaDateCategory.MILLISECONDS);
   } while (baseDate.epoch < spawnPeriod.end.epoch);

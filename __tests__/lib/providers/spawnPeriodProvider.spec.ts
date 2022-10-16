@@ -12,16 +12,22 @@ describe('SpawnInfo', () => {
       10617: "ブーフールー",
       5984: "オキナ",
       */
-    const mob = MobProvider.findMob(2964)!;
-    const si = SpawnPeriodProvider.getSpawnInfo(
+    const mob = MobProvider.findMob(5984)!;
+    const period = SpawnPeriodProvider.getSpawnInfo(
       mob,
-      new Date('2022-10-12T10:21:00+09:00').getTime(),
+      //new Date('2022-10-12T14:16:00+09:00').getTime(),
+      new Date('2022-10-14T04:12:00+09:00').getTime(),
       false
     );
     console.log(
-      `${dayjs(si.start.epoch).format('MM/DDddd HH:mm')} - ${dayjs(
-        si.end.epoch
+      `${dayjs(period.start.epoch).format('MM/DDddd HH:mm')} - ${dayjs(
+        period.end.epoch
       ).format('MM/DDddd HH:mm')}`
     );
+    period.subPeriods.forEach((p) => {
+      console.log(
+        `${p.start.toDate()}(${p.start.toString()}) - ${p.end.toDate()}(${p.end.toString()})`
+      );
+    });
   });
 });
