@@ -11,6 +11,7 @@ export * from './entities/region';
 export * from './entities/spawnPeriod';
 export * from './entities/weather';
 export * from './entities/world';
+export * from './entities/zone';
 export * from './providers/exVersionProvider';
 export * from './providers/messageProvider';
 export * from './providers/mobProvider';
