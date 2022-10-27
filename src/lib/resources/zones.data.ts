@@ -2996,6 +2996,12 @@ const zoneData: {
           y: 632,
           placeNameId: 0,
           icon: "060910"
+        },
+        {
+          x: 793,
+          y: 1134,
+          placeNameId: 4199,
+          icon: "060414"
         }
       ],
       exVersionId: 0,
@@ -15918,6 +15924,48 @@ const zoneData: {
           y: 1173,
           placeNameId: 4041,
           icon: "060442"
+        },
+        {
+          x: 1325,
+          y: 1189,
+          placeNameId: 0,
+          icon: "060467"
+        },
+        {
+          x: 1268,
+          y: 1285,
+          placeNameId: 0,
+          icon: "060467"
+        },
+        {
+          x: 1359,
+          y: 1181,
+          placeNameId: 0,
+          icon: "060467"
+        },
+        {
+          x: 1483,
+          y: 1333,
+          placeNameId: 0,
+          icon: "060467"
+        },
+        {
+          x: 1328,
+          y: 1168,
+          placeNameId: 0,
+          icon: "060467"
+        },
+        {
+          x: 1336,
+          y: 1187,
+          placeNameId: 0,
+          icon: "060935"
+        },
+        {
+          x: 1350,
+          y: 1171,
+          placeNameId: 0,
+          icon: "060434"
         }
       ],
       exVersionId: 4,

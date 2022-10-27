@@ -30,6 +30,9 @@ async function generateZones(messageIds: MessageIds): Promise<void> {
   const placeNameIds: Set<number> = new Set<number>(
     territoryTypeRows.map((tt) => parseInt(tt.placeName))
   );
+  const placeNameIdToZoneId: Map<number, number> = new Map<number, number>(
+    territoryTypeRows.map((tt) => [parseInt(tt.placeName), parseInt(tt.id)])
+  );
   const mapIds: Set<number> = new Set<number>(
     territoryTypeRows.map((tt) => parseInt(tt.map))
   );
@@ -215,7 +218,10 @@ const exVersions: ExVersionData[] = ${JSON.stringify(
 const zoneData: {
   zones: ZoneData[];
   fieldZones: FieldZoneData[];
-} = ${JSON.stringify(zoneData, null, 2).replace(/\"([a-zA-Z][a-zA-Z0-9]*)\": /g, '$1: ')};
+} = ${JSON.stringify(zoneData, null, 2).replace(
+    /\"([a-zA-Z][a-zA-Z0-9]*)\": /g,
+    '$1: '
+  )};
 
 const regionData: {
   huntRegions: RegionData[];
@@ -244,6 +250,7 @@ export {
     ...messageIds.placeNameIdSet,
     ...placeNameIds,
   ]);
+  messageIds.placeNameIdToZoneId = placeNameIdToZoneId;
   messageIds.weatherIdSet = new Set([
     ...messageIds.weatherIdSet,
     ...weatherIds,

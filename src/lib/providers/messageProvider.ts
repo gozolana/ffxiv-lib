@@ -64,6 +64,34 @@ class MessageProvider {
     return result ? result : `PlaceName<${id}>`;
   }
 
+  getZoneNames(id: number) {
+    const results = langs.reduce<string[]>((acc, lang) => {
+      const messageMap = this._messages[lang].ZoneName;
+      if (messageMap && messageMap[id]) {
+        acc.push(messageMap[id]);
+      }
+      return acc;
+    }, []);
+    return results;
+  }
+
+  getZoneName(id: number, tts = false) {
+    let result: string | undefined;
+    if (tts) {
+      const ttsMap = this._tts[this._lang].ZoneName;
+      if (ttsMap && ttsMap[id]) {
+        result = ttsMap[id];
+      }
+    }
+    if (!result) {
+      const messageMap = this._messages[this._lang].ZoneName;
+      if (messageMap && messageMap[id]) {
+        result = messageMap[id];
+      }
+    }
+    return result ? result : `ZoneName<${id}>`;
+  }
+
   getExVersion(id: number, tts = false) {
     let result: string | undefined;
     if (tts) {

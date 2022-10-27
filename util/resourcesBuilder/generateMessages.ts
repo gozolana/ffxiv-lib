@@ -1,4 +1,9 @@
-import { retrieveBNpcNameMessages, retrieveExVersionMessages, retrievePlaceNameMessages, retrieveWeatherMessages } from './parseCsvs';
+import {
+  retrieveBNpcNameMessages,
+  retrieveExVersionMessages,
+  retrievePlaceNameMessages,
+  retrieveWeatherMessages,
+} from './parseCsvs';
 import { writeFileSync } from 'fs';
 import { MessageIds } from './messageIds';
 import { regionsJson, ttsJson } from './parseJsons';
@@ -8,6 +13,7 @@ const outputPath = './src/lib/resources/messages.data.ts';
 interface Message {
   BNpcName: Record<number, string>;
   PlaceName: Record<number, string>;
+  ZoneName: Record<number, string>;
   Weather: Record<number, string>;
   Region: Record<string, string>;
   ExVersion: Record<number, string>;
@@ -18,6 +24,7 @@ async function generateMessages(messageIds: MessageIds): Promise<void> {
     ja: {
       BNpcName: {},
       PlaceName: {},
+      ZoneName: {},
       Weather: {},
       Region: {},
       ExVersion: {},
@@ -25,6 +32,7 @@ async function generateMessages(messageIds: MessageIds): Promise<void> {
     en: {
       BNpcName: {},
       PlaceName: {},
+      ZoneName: {},
       Weather: {},
       Region: {},
       ExVersion: {},
@@ -32,6 +40,7 @@ async function generateMessages(messageIds: MessageIds): Promise<void> {
     de: {
       BNpcName: {},
       PlaceName: {},
+      ZoneName: {},
       Weather: {},
       Region: {},
       ExVersion: {},
@@ -39,6 +48,7 @@ async function generateMessages(messageIds: MessageIds): Promise<void> {
     fr: {
       BNpcName: {},
       PlaceName: {},
+      ZoneName: {},
       Weather: {},
       Region: {},
       ExVersion: {},
@@ -64,6 +74,14 @@ async function generateMessages(messageIds: MessageIds): Promise<void> {
   );
   placenames.forEach((obj) => {
     message[obj.lang].PlaceName = obj.results;
+    const results2: { [zoneId: string]: string } = {};
+    Object.entries(obj.results).forEach((entry) => {
+      const zoneId = messageIds.placeNameIdToZoneId.get(Number(entry[0]));
+      if (zoneId) {
+        results2[String(zoneId)] = entry[1];
+      }
+    });
+    message[obj.lang].ZoneName = results2;
   });
 
   const weathers = await retrieveWeatherMessages(
@@ -87,6 +105,7 @@ async function generateMessages(messageIds: MessageIds): Promise<void> {
 interface Message {
   BNpcName: Record<number, string>;
   PlaceName: Record<number, string>;
+  ZoneName: Record<number, string>;
   Weather: Record<number, string>;
   Region: Record<string, string>;
   ExVersion: Record<number, string>;
