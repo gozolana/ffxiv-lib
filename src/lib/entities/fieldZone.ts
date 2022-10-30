@@ -1,5 +1,5 @@
-import { FieldZoneData } from "../resources/zones.data";
-import { Zone, ZoneImpl } from "./zone";
+import { FieldZoneData } from '../resources/zones.data';
+import { Zone, ZoneImpl } from './zone';
 
 interface EliteLocation {
   label: string;
@@ -101,12 +101,12 @@ class FieldZoneImpl extends ZoneImpl implements FieldZone {
       sId: data.elite.ids[0],
       aIds:
         eliteLength === 5
-          ? data.elite.ids.slice(1, 1)
-          : data.elite.ids.slice(1, 0),
+          ? data.elite.ids.slice(1, 3)
+          : data.elite.ids.slice(1, 2),
       bIds:
         eliteLength === 5
-          ? data.elite.ids.slice(3, 1)
-          : data.elite.ids.slice(2, 0),
+          ? data.elite.ids.slice(3, 5)
+          : data.elite.ids.slice(2, 3),
     };
 
     this.ss = data.ss
@@ -118,7 +118,7 @@ class FieldZoneImpl extends ZoneImpl implements FieldZone {
               x: loc.x,
               y: loc.y,
               z: loc.z,
-              icon: loc.flag === "10" ? "ss" : "sb",
+              icon: loc.flag === '10' ? 'ss' : 'sb',
             };
           }),
           sId: data.ss.ids[0],
@@ -130,7 +130,7 @@ class FieldZoneImpl extends ZoneImpl implements FieldZone {
   }
 
   getMapImageUrl(imageType: TMapImage, imageSize: TImageSize): string {
-    const baseUrl = "https://res.cloudinary.com/lanaklein14/image/upload";
+    const baseUrl = 'https://res.cloudinary.com/lanaklein14/image/upload';
     switch (imageType) {
       case TMapImage.Outline:
         return `${baseUrl}/c_scale,w_${imageSize}/maps2/${this.id}.png`;
