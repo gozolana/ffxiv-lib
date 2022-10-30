@@ -140,6 +140,32 @@ class FieldZoneImpl extends ZoneImpl implements FieldZone {
         return `${baseUrl}/c_scale,w_${imageSize}/maps/${this.id}.jpg`;
     }
   }
+
+  // 範囲内のEliteIndexを近い順に返す
+  getEliteLocationIndices(
+    pos: { x: number; y: number },
+    flag = 0x1f, // all
+    threshold = 3.0
+  ): number[] {
+    interface IndexDistance {
+      index: number;
+      distance: number;
+    }
+    return this.elite.locations
+      .reduce<IndexDistance[]>((acc, location, index) => {
+        const [diffX, diffY] = [location.x - pos.x, location.y - pos.y];
+        const distance = Math.sqrt(diffX * diffX + diffY * diffY);
+        if (location.flag & flag && distance < threshold) {
+          acc.push({
+            index,
+            distance,
+          });
+        }
+        return acc;
+      }, [])
+      .sort((a, b) => a.distance - b.distance)
+      .map((item) => item.index);
+  }
 }
 
 export { TMapImage, TImageSize, FieldZone, FieldZoneImpl };
