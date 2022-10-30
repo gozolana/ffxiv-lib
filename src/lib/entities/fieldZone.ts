@@ -39,6 +39,11 @@ type TImageSize = typeof TImageSize[keyof typeof TImageSize];
 
 interface FieldZone extends Zone {
   getMapImageUrl(type: TMapImage, size: TImageSize): string;
+  getEliteLocationIndices(
+    pos: { x: number; y: number },
+    flag: number,
+    threshold: number
+  ): number[];
   readonly filter?: boolean;
   readonly elite: {
     readonly length: number;
