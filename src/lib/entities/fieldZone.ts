@@ -62,6 +62,12 @@ interface FieldZone extends Zone {
   readonly fate?: {
     readonly ids: number[];
   };
+  readonly focusRect: {
+    readonly x: number;
+    readonly y: number;
+    readonly width: number;
+    readonly height: number;
+  };
 }
 
 class FieldZoneImpl extends ZoneImpl implements FieldZone {
@@ -170,6 +176,50 @@ class FieldZoneImpl extends ZoneImpl implements FieldZone {
       }, [])
       .sort((a, b) => a.distance - b.distance)
       .map((item) => item.index);
+  }
+
+  get focusRect() {
+    if (this.elite.locations.length === 0) {
+      return {
+        x: this.scale.xMin,
+        y: this.scale.yMin,
+        width: this.scale.xRange,
+        height: this.scale.yRange,
+      };
+    }
+    const xarrays = this.elite.locations.map((loc) => loc.x);
+    const yarrays = this.elite.locations.map((loc) => loc.y);
+    const bounds = {
+      xmin: xarrays.reduce((a, b) => (a < b ? a : b)),
+      xmax: xarrays.reduce((a, b) => (a > b ? a : b)),
+      ymin: yarrays.reduce((a, b) => (a < b ? a : b)),
+      ymax: yarrays.reduce((a, b) => (a > b ? a : b)),
+    };
+    const p = 10.0;
+    const outer = {
+      xmin: Math.max(
+        this.scale.xMin,
+        ((p + 1) * bounds.xmin - bounds.xmax) / p
+      ),
+      xmax: Math.min(
+        this.scale.xMax,
+        ((p + 1) * bounds.xmax - bounds.xmin) / p
+      ),
+      ymin: Math.max(
+        this.scale.yMin,
+        ((p + 1) * bounds.ymin - bounds.ymax) / p
+      ),
+      ymax: Math.min(
+        this.scale.yMax,
+        ((p + 1) * bounds.ymax - bounds.ymin) / p
+      ),
+    };
+    return {
+      x: outer.xmin,
+      y: outer.ymin,
+      width: outer.xmax - outer.xmin,
+      height: outer.ymax - outer.ymin,
+    };
   }
 }
 
