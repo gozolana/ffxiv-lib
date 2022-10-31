@@ -94,7 +94,7 @@ class FieldZoneImpl extends ZoneImpl implements FieldZone {
         const flagString5Digits =
           eliteLength === 5
             ? loc.flag
-            : `${loc.flag.slice(0, 2)}0${loc.flag.slice(2, 1)}0`;
+            : `${loc.flag.slice(0, 2)}0${loc.flag.slice(2, 3)}0`;
         return {
           label: loc.label,
           x: loc.x,
