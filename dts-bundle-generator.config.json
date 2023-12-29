@@ -1,0 +1,9 @@
+{
+  "entries": [
+    {
+      "filePath": "./src/index.ts",
+      "outFile": "./dist/ffxiv-lib.d.ts",
+      "noCheck": false
+    }
+  ]
+}

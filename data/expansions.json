@@ -1,0 +1,38 @@
+[
+  {
+    "_comment": "A Realm Reborn",
+    "id": 0,
+    "version": 2,
+    "locationClusteringThreshold": 0.15,
+    "color": "#f0f4c3"
+  },
+  {
+    "_comment": "Heavensward",
+    "id": 1,
+    "version": 3,
+    "locationClusteringThreshold": 0.9,
+    "color": "#bbdefb"
+  },
+  {
+    "_comment": "Stormblood",
+
+    "id": 2,
+    "version": 4,
+    "locationClusteringThreshold": 0.9,
+    "color": "#ffcdd2"
+  },
+  {
+    "_comment": "Shadowbringers",
+    "id": 3,
+    "version": 5,
+    "locationClusteringThreshold": 0.9,
+    "color": "#cfd8dc"
+  },
+  {
+    "_comment": "Endwalker",
+    "id": 4,
+    "version": 6,
+    "locationClusteringThreshold": 0.9,
+    "color": "#ffe082"
+  }
+]

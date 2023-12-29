@@ -1,0 +1,14 @@
+{
+  "Elemental": {
+    "color": "green"
+  },
+  "Gaia": {
+    "color": "orange"
+  },
+  "Mana": {
+    "color": "blue"
+  },
+  "Meteor": {
+    "color": "red"
+  }
+}
