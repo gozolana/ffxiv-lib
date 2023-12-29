@@ -1,28 +1,42 @@
 Import-Module -Force .\SaintCoinach.psm1 -Function `
-    Import-SaintCoinachCsv, `
-    ConvertTo-DataJson, `
-    ConvertTo-TypeObjectJson, `
-    Set-ResourceData, `
-    Get-JsonData
+  Import-SaintCoinachCsv, `
+  ConvertTo-DataJson, `
+  ConvertTo-TypeObjectJson, `
+  Set-ResourceData, `
+  Get-JsonData
 
 $dcColors = Get-JsonData -Name 'dataCenterColors'
 
-$dcs = Import-SaintCoinachCsv -Name 'WorldDCGroupType' | ForEach-Object {
-    [PSCustomObject]@{
-        id       = [int]$_.'#';
-        name     = [string]$_.Name;
-        color    = [string]$dcColors."$($_.Name)".color;
-        regionId = [int]$_.Region;
-    }
-} | Where-Object { @(1..4).Contains($_.regionId) }
+enum TDCRegion {
+  Japan = 1
+  America = 2
+  Europe = 3
+  Oceania = 4
+}
+$regionIds = [TDCRegion].GetEnumValues() | ForEach-Object { [int]$_ }
 
-$worlds = Import-SaintCoinachCsv -Name 'World' | Where-Object { $_.IsPublic -eq 'True' } | ForEach-Object {
+$dcs = Import-SaintCoinachCsv -Name 'WorldDCGroupType' | 
+  Where-Object { $regionIds.Contains([int]$_.Region) } |
+  ForEach-Object {
     [PSCustomObject]@{
-        id           = [int]$_.'#';
-        name         = [string]$_.Name;
-        dataCenterId = [int]$_.DataCenter;
+      id       = [int]$_.'#';
+      name     = [string]$_.Name;
+      color    = [string]$dcColors."$($_.Name)".color;
+      regionId = [int]$_.Region;
     }
-} | Where-Object { $dcs.Id.Contains($_.dataCenterId) }
+  }
+
+$worlds = Import-SaintCoinachCsv -Name 'World' | 
+  Where-Object { 
+    [System.Convert]::ToBoolean($_.IsPublic) -and
+     ($dcs.id.Contains([int]$_.DataCenter)) } | 
+  ForEach-Object {
+    [PSCustomObject]@{
+      id           = [int]$_.'#';
+      name         = [string]$_.Name;
+      dataCenterId = [int]$_.DataCenter;
+    }
+  }
 
 @"
 // THIS CODE IS AUTO GENERATED.
