@@ -1,0 +1,27 @@
+{
+  "A Realm Reborn": {
+    "version": 2,
+    "locationClusteringThreshold": 0.15,
+    "color": "#f0f4c3"
+  },
+  "Heavensward": {
+    "version": 3,
+    "locationClusteringThreshold": 0.9,
+    "color": "#bbdefb"
+  },
+  "Stormblood": {
+    "version": 4,
+    "locationClusteringThreshold": 0.9,
+    "color": "#ffcdd2"
+  },
+  "Shadowbringers": {
+    "version": 5,
+    "locationClusteringThreshold": 0.9,
+    "color": "#cfd8dc"
+  },
+  "Endwalker": {
+    "version": 6,
+    "locationClusteringThreshold": 0.9,
+    "color": "#ffe082"
+  }
+}
