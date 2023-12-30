@@ -7,12 +7,16 @@ Import-Module -Force .\SaintCoinach.psm1 -Function `
 
 $dcColors = Get-JsonData -Name 'dataCenterColors'
 
-$dcrs = @(
-    [PSCustomObject]@{ id = 1; name = 'Japan' },
-    [PSCustomObject]@{ id = 2; name = 'America' },
-    [PSCustomObject]@{ id = 3; name = 'Europe' },
-    [PSCustomObject]@{ id = 4; name = 'Oceania' }
-)
+enum DataCenterRegionId {
+    Japan = 1
+    America = 2
+    Europe = 3
+    Oceania = 4
+}
+
+$dcrs = [DataCenterRegionId].GetEnumValues() | ForEach-Object {
+    [PSCustomObject]@{ id = [int]$_; name = [string]$_ }
+}
 
 $dcs = Import-SaintCoinachCsv -Name 'WorldDCGroupType' | 
     Where-Object { $dcrs.id.Contains([int]$_.Region) } |
