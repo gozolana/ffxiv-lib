@@ -1,14 +1,14 @@
 ﻿// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-const TExVersion = {
+const ExVersionId = {
   ARealmReborn: 0,
   Heavensward: 1,
   Stormblood: 2,
   Shadowbringers: 3,
   Endwalker: 4,
 } as const;
-type TExVersion = (typeof TExVersion)[keyof typeof TExVersion];
+type ExVersionId = (typeof ExVersionId)[keyof typeof ExVersionId];
 
 type ExVersionData = {
   readonly id: number;
@@ -50,4 +50,4 @@ const exVersions: ExVersionData[] = [
   },
 ];
 
-export { TExVersion, exVersions, type ExVersionData };
+export { ExVersionId, exVersions, type ExVersionData };

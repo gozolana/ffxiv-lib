@@ -1,31 +1,29 @@
 Import-Module -Force .\SaintCoinach.psm1 -Function `
-  Import-SaintCoinachCsv, `
-  ConvertTo-DataJson, `
-  ConvertTo-TypeObjectJson, `
-  Set-ResourceData, `
-  Get-JsonData
+    ConvertTo-UnionTypeDefinition, `
+    ConvertTo-DataJson, `
+    Get-JsonData, `
+    Import-SaintCoinachCsv, `
+    Set-ResourceData
 
-$exVersionsJson = Get-JsonData -Name 'exVersions'
+$exVersionsJson = Get-JsonData -Name exVersions
 
-$exVersions = Import-SaintCoinachCsv -Name 'ExVersion' -Lang 'en' |
-  ForEach-Object {
-    $exVersionName = $_.Name
-    $exVersionJson = $exVersionsJson.$exVersionName
-    [PSCustomObject]@{
-      id                          = [int]$_.'#';
-      name                        = [string]$_.Name -Split '\s' -Join '';
-      version                     = $exVersionJson.version;
-      locationClusteringThreshold = $exVersionJson.locationClusteringThreshold;
-      color                       = $exVersionJson.color;
-    }
-  } 
+$exVersions = Import-SaintCoinachCsv -Name ExVersion -Lang en |
+    ForEach-Object {
+        $exVersionJson = $exVersionsJson.$($_.Name)
+        [PSCustomObject]@{
+            id                          = [int]$_.'#';
+            name                        = [string]$_.Name;
+            version                     = [int]$exVersionJson.version;
+            locationClusteringThreshold = [float]$exVersionJson.locationClusteringThreshold;
+            color                       = [string]$exVersionJson.color;
+        }
+    } 
 
 @"
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-const TExVersion = $(ConvertTo-TypeObjectJson $exVersions) as const;
-type TExVersion = typeof TExVersion[keyof typeof TExVersion];
+$(ConvertTo-UnionTypeDefinition -Items $exVersions -Name ExVersionId)
 
 type ExVersionData = {
   readonly id: number;
@@ -34,12 +32,12 @@ type ExVersionData = {
   readonly color: string;
 };
 
-const exVersions: ExVersionData[] = $(ConvertTo-DataJson ($exVersions | 
-  Select-Object id, version, locationClusteringThreshold, color));
+const exVersions: ExVersionData[] = $(ConvertTo-DataJson ($exVersions |
+    Select-Object -Property id, version, locationClusteringThreshold, color));
 
 export {
-  TExVersion,
+  ExVersionId,
   exVersions,
   type ExVersionData,
 };
-"@ | Set-ResourceData -Name 'exVersion'
+"@ | Set-ResourceData -Name exVersions
