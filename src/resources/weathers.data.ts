@@ -1,7 +1,7 @@
 ﻿// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-const TWeather = {
+const WeatherId = {
   ClearSkies: 1,
   FairSkies: 2,
   Clouds: 3,
@@ -22,17 +22,17 @@ const TWeather = {
   MoonDust: 148,
   AstromagneticStorm: 149,
 } as const;
-type TWeather = (typeof TWeather)[keyof typeof TWeather];
+type WeatherId = (typeof WeatherId)[keyof typeof WeatherId];
 
 type WeatherData = {
-  readonly id: number;
+  readonly id: WeatherId;
   readonly icon: string;
 };
 
 type WeatherRateData = {
   readonly id: number;
   readonly rates: {
-    readonly weatherId: number;
+    readonly weatherId: WeatherId;
     readonly chance: number;
   }[];
 };
@@ -1358,7 +1358,7 @@ const weatherRates: WeatherRateData[] = [
 ];
 
 export {
-  TWeather,
+  WeatherId,
   weatherRates,
   weathers,
   type WeatherData,
