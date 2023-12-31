@@ -10,6 +10,8 @@ type MarkerData = {
 
 type ZoneData = {
   readonly id: number;
+  readonly regionPlaceNameId: number;
+  readonly zonePlaceNameId: number;
   readonly weatherRateId: number;
   readonly sizeFactor: number;
   readonly offsetX: number;
@@ -56,7 +58,8 @@ const zoneData: {
   zones: [
     {
       id: 732,
-      placeNameId: 2414,
+      regionPlaceNameId: 2405,
+      zonePlaceNameId: 0,
       weatherRateId: 91,
       sizeFactor: 100,
       offsetX: 0,
@@ -224,7 +227,8 @@ const zoneData: {
     },
     {
       id: 763,
-      placeNameId: 2462,
+      regionPlaceNameId: 2405,
+      zonePlaceNameId: 0,
       weatherRateId: 94,
       sizeFactor: 100,
       offsetX: 0,
@@ -428,7 +432,8 @@ const zoneData: {
     },
     {
       id: 795,
-      placeNameId: 2530,
+      regionPlaceNameId: 2405,
+      zonePlaceNameId: 0,
       weatherRateId: 96,
       sizeFactor: 100,
       offsetX: 0,
@@ -602,7 +607,8 @@ const zoneData: {
     },
     {
       id: 827,
-      placeNameId: 2545,
+      regionPlaceNameId: 2405,
+      zonePlaceNameId: 0,
       weatherRateId: 100,
       sizeFactor: 100,
       offsetX: 0,
@@ -734,7 +740,8 @@ const zoneData: {
     },
     {
       id: 1055,
-      placeNameId: 4043,
+      regionPlaceNameId: 2405,
+      zonePlaceNameId: 519,
       weatherRateId: 148,
       sizeFactor: 100,
       offsetX: -175,
@@ -832,7 +839,8 @@ const zoneData: {
   fieldZones: [
     {
       id: 134,
-      placeNameId: 30,
+      regionPlaceNameId: 22,
+      zonePlaceNameId: 502,
       weatherRateId: 16,
       sizeFactor: 100,
       offsetX: 0,
@@ -1167,7 +1175,8 @@ const zoneData: {
     },
     {
       id: 135,
-      placeNameId: 31,
+      regionPlaceNameId: 22,
+      zonePlaceNameId: 502,
       weatherRateId: 17,
       sizeFactor: 100,
       offsetX: 0,
@@ -1547,7 +1556,8 @@ const zoneData: {
     },
     {
       id: 137,
-      placeNameId: 32,
+      regionPlaceNameId: 22,
+      zonePlaceNameId: 502,
       weatherRateId: 18,
       sizeFactor: 100,
       offsetX: 0,
@@ -1975,7 +1985,8 @@ const zoneData: {
     },
     {
       id: 138,
-      placeNameId: 33,
+      regionPlaceNameId: 22,
+      zonePlaceNameId: 502,
       weatherRateId: 19,
       sizeFactor: 100,
       offsetX: 0,
@@ -2435,7 +2446,8 @@ const zoneData: {
     },
     {
       id: 139,
-      placeNameId: 34,
+      regionPlaceNameId: 22,
+      zonePlaceNameId: 502,
       weatherRateId: 20,
       sizeFactor: 100,
       offsetX: 0,
@@ -2710,7 +2722,8 @@ const zoneData: {
     },
     {
       id: 140,
-      placeNameId: 42,
+      regionPlaceNameId: 24,
+      zonePlaceNameId: 505,
       weatherRateId: 9,
       sizeFactor: 100,
       offsetX: 0,
@@ -3175,7 +3188,8 @@ const zoneData: {
     },
     {
       id: 141,
-      placeNameId: 43,
+      regionPlaceNameId: 24,
+      zonePlaceNameId: 505,
       weatherRateId: 10,
       sizeFactor: 100,
       offsetX: 0,
@@ -3600,7 +3614,8 @@ const zoneData: {
     },
     {
       id: 145,
-      placeNameId: 44,
+      regionPlaceNameId: 24,
+      zonePlaceNameId: 505,
       weatherRateId: 11,
       sizeFactor: 100,
       offsetX: 0,
@@ -4029,7 +4044,8 @@ const zoneData: {
     },
     {
       id: 146,
-      placeNameId: 45,
+      regionPlaceNameId: 24,
+      zonePlaceNameId: 505,
       weatherRateId: 12,
       sizeFactor: 100,
       offsetX: 0,
@@ -4550,7 +4566,8 @@ const zoneData: {
     },
     {
       id: 147,
-      placeNameId: 46,
+      regionPlaceNameId: 24,
+      zonePlaceNameId: 505,
       weatherRateId: 13,
       sizeFactor: 100,
       offsetX: 0,
@@ -4842,7 +4859,8 @@ const zoneData: {
     },
     {
       id: 148,
-      placeNameId: 54,
+      regionPlaceNameId: 23,
+      zonePlaceNameId: 507,
       weatherRateId: 3,
       sizeFactor: 100,
       offsetX: 0,
@@ -5300,7 +5318,8 @@ const zoneData: {
     },
     {
       id: 152,
-      placeNameId: 55,
+      regionPlaceNameId: 23,
+      zonePlaceNameId: 507,
       weatherRateId: 4,
       sizeFactor: 100,
       offsetX: 0,
@@ -5757,7 +5776,8 @@ const zoneData: {
     },
     {
       id: 153,
-      placeNameId: 56,
+      regionPlaceNameId: 23,
+      zonePlaceNameId: 507,
       weatherRateId: 5,
       sizeFactor: 100,
       offsetX: 0,
@@ -6220,7 +6240,8 @@ const zoneData: {
     },
     {
       id: 154,
-      placeNameId: 57,
+      regionPlaceNameId: 23,
+      zonePlaceNameId: 507,
       weatherRateId: 6,
       sizeFactor: 100,
       offsetX: 0,
@@ -6596,7 +6617,8 @@ const zoneData: {
     },
     {
       id: 155,
-      placeNameId: 63,
+      regionPlaceNameId: 25,
+      zonePlaceNameId: 508,
       weatherRateId: 21,
       sizeFactor: 100,
       offsetX: 0,
@@ -7312,7 +7334,8 @@ const zoneData: {
     },
     {
       id: 156,
-      placeNameId: 67,
+      regionPlaceNameId: 26,
+      zonePlaceNameId: 509,
       weatherRateId: 22,
       sizeFactor: 100,
       offsetX: 0,
@@ -7861,7 +7884,8 @@ const zoneData: {
     },
     {
       id: 180,
-      placeNameId: 350,
+      regionPlaceNameId: 22,
+      zonePlaceNameId: 502,
       weatherRateId: 24,
       sizeFactor: 100,
       offsetX: 0,
@@ -8129,7 +8153,8 @@ const zoneData: {
     },
     {
       id: 397,
-      placeNameId: 2200,
+      regionPlaceNameId: 25,
+      zonePlaceNameId: 508,
       weatherRateId: 49,
       sizeFactor: 95,
       offsetX: 0,
@@ -8543,7 +8568,8 @@ const zoneData: {
     },
     {
       id: 398,
-      placeNameId: 2000,
+      regionPlaceNameId: 498,
+      zonePlaceNameId: 511,
       weatherRateId: 50,
       sizeFactor: 95,
       offsetX: 0,
@@ -8919,7 +8945,8 @@ const zoneData: {
     },
     {
       id: 399,
-      placeNameId: 2001,
+      regionPlaceNameId: 498,
+      zonePlaceNameId: 511,
       weatherRateId: 51,
       sizeFactor: 95,
       offsetX: 0,
@@ -9258,7 +9285,8 @@ const zoneData: {
     },
     {
       id: 400,
-      placeNameId: 2002,
+      regionPlaceNameId: 498,
+      zonePlaceNameId: 511,
       weatherRateId: 52,
       sizeFactor: 95,
       offsetX: 0,
@@ -9615,7 +9643,8 @@ const zoneData: {
     },
     {
       id: 401,
-      placeNameId: 2100,
+      regionPlaceNameId: 497,
+      zonePlaceNameId: 510,
       weatherRateId: 53,
       sizeFactor: 95,
       offsetX: 0,
@@ -10084,7 +10113,8 @@ const zoneData: {
     },
     {
       id: 402,
-      placeNameId: 2101,
+      regionPlaceNameId: 497,
+      zonePlaceNameId: 510,
       weatherRateId: 54,
       sizeFactor: 95,
       offsetX: 0,
@@ -10490,7 +10520,8 @@ const zoneData: {
     },
     {
       id: 612,
-      placeNameId: 2406,
+      regionPlaceNameId: 2400,
+      zonePlaceNameId: 514,
       weatherRateId: 79,
       sizeFactor: 100,
       offsetX: 0,
@@ -10917,7 +10948,8 @@ const zoneData: {
     },
     {
       id: 613,
-      placeNameId: 2409,
+      regionPlaceNameId: 2401,
+      zonePlaceNameId: 515,
       weatherRateId: 83,
       sizeFactor: 100,
       offsetX: 0,
@@ -11357,7 +11389,8 @@ const zoneData: {
     },
     {
       id: 614,
-      placeNameId: 2410,
+      regionPlaceNameId: 2401,
+      zonePlaceNameId: 515,
       weatherRateId: 84,
       sizeFactor: 100,
       offsetX: 0,
@@ -11728,7 +11761,8 @@ const zoneData: {
     },
     {
       id: 620,
-      placeNameId: 2407,
+      regionPlaceNameId: 2400,
+      zonePlaceNameId: 514,
       weatherRateId: 80,
       sizeFactor: 100,
       offsetX: 0,
@@ -12165,7 +12199,8 @@ const zoneData: {
     },
     {
       id: 621,
-      placeNameId: 2408,
+      regionPlaceNameId: 2400,
+      zonePlaceNameId: 514,
       weatherRateId: 81,
       sizeFactor: 100,
       offsetX: 0,
@@ -12624,7 +12659,8 @@ const zoneData: {
     },
     {
       id: 622,
-      placeNameId: 2411,
+      regionPlaceNameId: 2401,
+      zonePlaceNameId: 515,
       weatherRateId: 85,
       sizeFactor: 100,
       offsetX: 0,
@@ -13104,7 +13140,8 @@ const zoneData: {
     },
     {
       id: 813,
-      placeNameId: 2953,
+      regionPlaceNameId: 2950,
+      zonePlaceNameId: 518,
       weatherRateId: 106,
       sizeFactor: 100,
       offsetX: 0,
@@ -13587,7 +13624,8 @@ const zoneData: {
     },
     {
       id: 814,
-      placeNameId: 2954,
+      regionPlaceNameId: 2950,
+      zonePlaceNameId: 518,
       weatherRateId: 107,
       sizeFactor: 100,
       offsetX: 0,
@@ -14186,7 +14224,8 @@ const zoneData: {
     },
     {
       id: 815,
-      placeNameId: 2955,
+      regionPlaceNameId: 2950,
+      zonePlaceNameId: 518,
       weatherRateId: 108,
       sizeFactor: 100,
       offsetX: 0,
@@ -14670,7 +14709,8 @@ const zoneData: {
     },
     {
       id: 816,
-      placeNameId: 2956,
+      regionPlaceNameId: 2950,
+      zonePlaceNameId: 518,
       weatherRateId: 109,
       sizeFactor: 100,
       offsetX: 0,
@@ -15087,7 +15127,8 @@ const zoneData: {
     },
     {
       id: 817,
-      placeNameId: 2957,
+      regionPlaceNameId: 2950,
+      zonePlaceNameId: 518,
       weatherRateId: 110,
       sizeFactor: 100,
       offsetX: 0,
@@ -15543,7 +15584,8 @@ const zoneData: {
     },
     {
       id: 818,
-      placeNameId: 2958,
+      regionPlaceNameId: 2950,
+      zonePlaceNameId: 518,
       weatherRateId: 111,
       sizeFactor: 100,
       offsetX: 0,
@@ -15902,7 +15944,8 @@ const zoneData: {
     },
     {
       id: 956,
-      placeNameId: 3708,
+      regionPlaceNameId: 3702,
+      zonePlaceNameId: 3740,
       weatherRateId: 131,
       sizeFactor: 100,
       offsetX: 0,
@@ -16354,7 +16397,8 @@ const zoneData: {
     },
     {
       id: 957,
-      placeNameId: 3709,
+      regionPlaceNameId: 3703,
+      zonePlaceNameId: 3741,
       weatherRateId: 132,
       sizeFactor: 100,
       offsetX: 0,
@@ -16717,7 +16761,8 @@ const zoneData: {
     },
     {
       id: 958,
-      placeNameId: 3710,
+      regionPlaceNameId: 3703,
+      zonePlaceNameId: 4138,
       weatherRateId: 133,
       sizeFactor: 100,
       offsetX: 0,
@@ -17054,7 +17099,8 @@ const zoneData: {
     },
     {
       id: 959,
-      placeNameId: 3711,
+      regionPlaceNameId: 3704,
+      zonePlaceNameId: 3742,
       weatherRateId: 135,
       sizeFactor: 100,
       offsetX: 0,
@@ -17403,7 +17449,8 @@ const zoneData: {
     },
     {
       id: 960,
-      placeNameId: 3712,
+      regionPlaceNameId: 3704,
+      zonePlaceNameId: 3742,
       weatherRateId: 136,
       sizeFactor: 100,
       offsetX: 0,
@@ -17797,7 +17844,8 @@ const zoneData: {
     },
     {
       id: 961,
-      placeNameId: 3713,
+      regionPlaceNameId: 3705,
+      zonePlaceNameId: 3743,
       weatherRateId: 134,
       sizeFactor: 100,
       offsetX: 0,

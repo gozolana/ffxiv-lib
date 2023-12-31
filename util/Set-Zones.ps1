@@ -71,15 +71,18 @@ $allZones = Import-SaintCoinachCsv -Name 'TerritoryType' |
         $map = $mapIdToMap[[int]$_.Map]
         $markers = $mapMarkers | Where-Object markerId -eq $map.mapMarkerId 
         [ordered]@{
-            id            = [int]$_.'#';
-            placeNameId   = [int]$_.PlaceName;
-            weatherRateId = [int]$_.WeatherRate;
-            sizeFactor    = [int]$map.sizeFactor
-            offsetX       = [int]$map.offsetX
-            offsetY       = [int]$map.offsetY
-            offsetZ       = [int]$offsetZ
-            markers       = @($markers | Select-Object x, y, placeNameId, icon)
-            exVersionId   = [int]$_.ExVersion
+            id                = [int]$_.'#'
+            regionPlaceNameId = [int]$_.'PlaceName{Region}'
+            zonePlaceNameId   = [int]$_.'PlaceName{Zone}' 
+            #placeNameId       = [int]$_.PlaceName
+            #map               = [int]$_.Map
+            weatherRateId     = [int]$_.WeatherRate;
+            sizeFactor        = [int]$map.sizeFactor
+            offsetX           = [int]$map.offsetX
+            offsetY           = [int]$map.offsetY
+            offsetZ           = [int]$offsetZ
+            markers           = @($markers | Select-Object x, y, placeNameId, icon)
+            exVersionId       = [int]$_.ExVersion
         }
     } 
 
@@ -157,6 +160,8 @@ type MarkerData = {
 
 type ZoneData = {
   readonly id: number;
+  readonly regionPlaceNameId: number;
+  readonly zonePlaceNameId: number;
   readonly weatherRateId: number;
   readonly sizeFactor: number;
   readonly offsetX: number;
