@@ -51,7 +51,7 @@ $weathers = Import-SaintCoinachCsv -Name 'Weather' -Lang 'en' |
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-$(ConvertTo-UnionTypeDefinition -Items $weathers -Name WeatherId -Sanitize);
+$(ConvertTo-UnionTypeDefinition -Items $weathers -Name WeatherId -Sanitize)
 
 type WeatherData = {
   readonly id: WeatherId;

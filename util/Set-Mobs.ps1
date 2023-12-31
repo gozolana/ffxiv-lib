@@ -115,9 +115,9 @@ foreach ($entry in $mobMap.GetEnumerator()) {
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-$(ConvertTo-UnionTypeDefinition -Items $mobCategories -Name TMobCategory);
+$(ConvertTo-UnionTypeDefinition -Items $mobCategories -Name TMobCategory)
 
-$(ConvertTo-UnionTypeDefinition -Items $mobRanks -Name TMobRank);
+$(ConvertTo-UnionTypeDefinition -Items $mobRanks -Name TMobRank)
 
 type MobData = {
   readonly id: number;

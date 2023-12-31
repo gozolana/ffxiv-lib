@@ -45,11 +45,11 @@ $worlds = Import-SaintCoinachCsv -Name 'World' |
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-$(ConvertTo-UnionTypeDefinition -Items $dcrs -Name DataCenterRegionId);
+$(ConvertTo-UnionTypeDefinition -Items $dcrs -Name DataCenterRegionId)
 
-$(ConvertTo-UnionTypeDefinition -Items $dcs -Name DataCenterId);
+$(ConvertTo-UnionTypeDefinition -Items $dcs -Name DataCenterId)
 
-$(ConvertTo-UnionTypeDefinition -Items $worlds -Name WorldId);
+$(ConvertTo-UnionTypeDefinition -Items $worlds -Name WorldId)
 
 type DataCenterData = {
   readonly id: DataCenterId;
