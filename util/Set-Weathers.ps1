@@ -42,7 +42,7 @@ $weathers = Import-SaintCoinachCsv -Name 'Weather' -Lang 'en' |
     ForEach-Object {
         [PSCustomObject]@{
             id   = [int]$_.'#'
-            name = [string]$_.Name -Split '\s' -Join ''
+            name = [string]$_.Name
             icon = [string]$_.Icon -Replace 'ui/icon/060000/', '' -Replace '.tex', ''
         }
     }
@@ -51,7 +51,7 @@ $weathers = Import-SaintCoinachCsv -Name 'Weather' -Lang 'en' |
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-$(ConvertTo-UnionTypeDefinition -Items $weathers -Name WeatherId);
+$(ConvertTo-UnionTypeDefinition -Items $weathers -Name WeatherId -Sanitize);
 
 type WeatherData = {
   readonly id: WeatherId;
@@ -80,5 +80,7 @@ export {
 "@ | Set-ResourceData -Name 'weathers'
 
 if ($UniqueWeatherIds) {
-    $UniqueWeatherIds.UnionWith($uniqueWeatherIds)
+    foreach ($id in $uniqWeatherIds) {
+        [void]$UniqueWeatherIds.Add($id)
+    }
 }

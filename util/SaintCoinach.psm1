@@ -87,11 +87,16 @@ function ConvertTo-UnionTypeDefinition {
     [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
     [PSObject]$Items,
     [Parameter(Mandatory = $true)]
-    [string]$Name
+    [string]$Name,
+    [switch]$Sanitize
   ) 
   $hash = [ordered]@{}
   foreach ($item in $Items) {
-    $key = sanitize -Literal $item.name
+    if ($Sanitize ) {
+      $key = sanitize -Literal $item.name
+    } else {
+      $key = $item.name
+    }
     $hash[$key] = [int]$item.id
   }
   $data = ([PSCustomObject]$hash | ConvertTo-Json -Depth 10) -Replace `

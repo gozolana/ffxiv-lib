@@ -23,7 +23,7 @@ $exVersions = Import-SaintCoinachCsv -Name ExVersion -Lang en |
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-$(ConvertTo-UnionTypeDefinition -Items $exVersions -Name ExVersionId)
+$(ConvertTo-UnionTypeDefinition -Items $exVersions -Name ExVersionId -Sanitize)
 
 type ExVersionData = {
   readonly id: number;
