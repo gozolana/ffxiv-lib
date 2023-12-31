@@ -4,6 +4,7 @@ $placeNameIdToZoneId = [System.Collections.Generic.SortedDictionary[int, int]]::
 
 .\Set-ExVersions.ps1
 .\Set-Worlds.ps1
+.\Set-Icons.ps1
 .\Set-Mobs.ps1 -UniqueBNpcNameIds $uniqueBNpcNameIds
 .\Set-Weathers.ps1 -UniqueWeatherIds $uniqueWeatherIds
 .\Set-Zones.ps1 -PlaceNameIdToZoneId $placeNameIdToZoneId

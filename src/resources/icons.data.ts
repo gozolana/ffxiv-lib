@@ -1,10 +1,7 @@
-// THIS CODE IS AUTO GENERATED.
+﻿// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-// THIS CODE IS AUTO GENERATED.
-// DO NOT EDIT.
-
-const TIcon = {
+const IconId = {
   Aetheryte: "060453",
   Mob: "060004",
   PartyMember: "060421",
@@ -43,269 +40,263 @@ const TIcon = {
   Num6: "060923",
   Num7: "060924",
   Num8: "060925",
-  SS: "SS",
   SB: "SB",
+  SS: "SS",
   CheckMine: "CheckMine",
   CheckOthers: "CheckOthers",
   CheckUnknown: "CheckUnknown",
 } as const;
-type TIcon = (typeof TIcon)[keyof typeof TIcon];
+type IconId = (typeof IconId)[keyof typeof IconId];
 
-const elite: Record<number, string> = {};
-const icon: Record<string, string> = {};
-elite[1] = new URL("../assets/icons/00001.svg", import.meta.url).href;
-elite[2] = new URL("../assets/icons/00010.svg", import.meta.url).href;
-elite[3] = new URL("../assets/icons/00011.svg", import.meta.url).href;
-elite[4] = new URL("../assets/icons/00100.svg", import.meta.url).href;
-elite[5] = new URL("../assets/icons/00101.svg", import.meta.url).href;
-elite[6] = new URL("../assets/icons/00110.svg", import.meta.url).href;
-elite[7] = new URL("../assets/icons/00111.svg", import.meta.url).href;
-elite[8] = new URL("../assets/icons/01000.svg", import.meta.url).href;
-elite[9] = new URL("../assets/icons/01001.svg", import.meta.url).href;
-elite[10] = new URL("../assets/icons/01010.svg", import.meta.url).href;
-elite[11] = new URL("../assets/icons/01011.svg", import.meta.url).href;
-elite[12] = new URL("../assets/icons/01100.svg", import.meta.url).href;
-elite[13] = new URL("../assets/icons/01101.svg", import.meta.url).href;
-elite[14] = new URL("../assets/icons/01110.svg", import.meta.url).href;
-elite[15] = new URL("../assets/icons/01111.svg", import.meta.url).href;
-elite[16] = new URL("../assets/icons/10000.svg", import.meta.url).href;
-elite[17] = new URL("../assets/icons/10001.svg", import.meta.url).href;
-elite[18] = new URL("../assets/icons/10010.svg", import.meta.url).href;
-elite[19] = new URL("../assets/icons/10011.svg", import.meta.url).href;
-elite[20] = new URL("../assets/icons/10100.svg", import.meta.url).href;
-elite[21] = new URL("../assets/icons/10101.svg", import.meta.url).href;
-elite[22] = new URL("../assets/icons/10110.svg", import.meta.url).href;
-elite[23] = new URL("../assets/icons/10111.svg", import.meta.url).href;
-elite[24] = new URL("../assets/icons/11000.svg", import.meta.url).href;
-elite[25] = new URL("../assets/icons/11001.svg", import.meta.url).href;
-elite[26] = new URL("../assets/icons/11010.svg", import.meta.url).href;
-elite[27] = new URL("../assets/icons/11011.svg", import.meta.url).href;
-elite[28] = new URL("../assets/icons/11100.svg", import.meta.url).href;
-elite[29] = new URL("../assets/icons/11101.svg", import.meta.url).href;
-elite[30] = new URL("../assets/icons/11110.svg", import.meta.url).href;
-elite[31] = new URL("../assets/icons/11111.svg", import.meta.url).href;
-icon["SS"] = new URL("../assets/icons/ss.svg", import.meta.url).href;
-icon["SB"] = new URL("../assets/icons/sb.svg", import.meta.url).href;
-icon["CheckMine"] = new URL(
-  "../assets/icons/checkLime.svg",
-  import.meta.url
-).href;
-icon["CheckOthers"] = new URL(
-  "../assets/icons/checkRoyalBlue.svg",
-  import.meta.url
-).href;
-icon["CheckUnknown"] = new URL(
-  "../assets/icons/checkGrey.svg",
-  import.meta.url
-).href;
-icon["060201"] = new URL("../assets/icons/060201.png", import.meta.url).href;
-icon["060202"] = new URL("../assets/icons/060202.png", import.meta.url).href;
-icon["060203"] = new URL("../assets/icons/060203.png", import.meta.url).href;
-icon["060204"] = new URL("../assets/icons/060204.png", import.meta.url).href;
-icon["060205"] = new URL("../assets/icons/060205.png", import.meta.url).href;
-icon["060206"] = new URL("../assets/icons/060206.png", import.meta.url).href;
-icon["060207"] = new URL("../assets/icons/060207.png", import.meta.url).href;
-icon["060208"] = new URL("../assets/icons/060208.png", import.meta.url).href;
-icon["060209"] = new URL("../assets/icons/060209.png", import.meta.url).href;
-icon["060210"] = new URL("../assets/icons/060210.png", import.meta.url).href;
-icon["060211"] = new URL("../assets/icons/060211.png", import.meta.url).href;
-icon["060212"] = new URL("../assets/icons/060212.png", import.meta.url).href;
-icon["060213"] = new URL("../assets/icons/060213.png", import.meta.url).href;
-icon["060214"] = new URL("../assets/icons/060214.png", import.meta.url).href;
-icon["060215"] = new URL("../assets/icons/060215.png", import.meta.url).href;
-icon["060216"] = new URL("../assets/icons/060216.png", import.meta.url).href;
-icon["060218"] = new URL("../assets/icons/060218.png", import.meta.url).href;
-icon["060217"] = new URL("../assets/icons/060217.png", import.meta.url).href;
-icon["060251"] = new URL("../assets/icons/060251.png", import.meta.url).href;
-icon["060255"] = new URL("../assets/icons/060255.png", import.meta.url).href;
-icon["060259"] = new URL("../assets/icons/060259.png", import.meta.url).href;
-icon["060258"] = new URL("../assets/icons/060258.png", import.meta.url).href;
-icon["060257"] = new URL("../assets/icons/060257.png", import.meta.url).href;
-icon["060252"] = new URL("../assets/icons/060252.png", import.meta.url).href;
-icon["060256"] = new URL("../assets/icons/060256.png", import.meta.url).href;
-icon["060253"] = new URL("../assets/icons/060253.png", import.meta.url).href;
-icon["060254"] = new URL("../assets/icons/060254.png", import.meta.url).href;
-icon["060260"] = new URL("../assets/icons/060260.png", import.meta.url).href;
-icon["060261"] = new URL("../assets/icons/060261.png", import.meta.url).href;
-icon["060262"] = new URL("../assets/icons/060262.png", import.meta.url).href;
-icon["060264"] = new URL("../assets/icons/060264.png", import.meta.url).href;
-icon["060219"] = new URL("../assets/icons/060219.png", import.meta.url).href;
-icon["060220"] = new URL("../assets/icons/060220.png", import.meta.url).href;
-icon["060263"] = new URL("../assets/icons/060263.png", import.meta.url).href;
-icon["060226"] = new URL("../assets/icons/060226.png", import.meta.url).href;
-icon["060227"] = new URL("../assets/icons/060227.png", import.meta.url).href;
-icon["060265"] = new URL("../assets/icons/060265.png", import.meta.url).href;
-icon["060266"] = new URL("../assets/icons/060266.png", import.meta.url).href;
-icon["060267"] = new URL("../assets/icons/060267.png", import.meta.url).href;
-icon["060268"] = new URL("../assets/icons/060268.png", import.meta.url).href;
-icon["060269"] = new URL("../assets/icons/060269.png", import.meta.url).href;
-icon["060274"] = new URL("../assets/icons/060274.png", import.meta.url).href;
-icon["060271"] = new URL("../assets/icons/060271.png", import.meta.url).href;
-icon["060270"] = new URL("../assets/icons/060270.png", import.meta.url).href;
-icon["060272"] = new URL("../assets/icons/060272.png", import.meta.url).href;
-icon["060273"] = new URL("../assets/icons/060273.png", import.meta.url).href;
-icon["060275"] = new URL("../assets/icons/060275.png", import.meta.url).href;
-icon["060277"] = new URL("../assets/icons/060277.png", import.meta.url).href;
-icon["060276"] = new URL("../assets/icons/060276.png", import.meta.url).href;
-icon["060293"] = new URL("../assets/icons/060293.png", import.meta.url).href;
-icon["060278"] = new URL("../assets/icons/060278.png", import.meta.url).href;
-icon["060279"] = new URL("../assets/icons/060279.png", import.meta.url).href;
-icon["060280"] = new URL("../assets/icons/060280.png", import.meta.url).href;
-icon["060281"] = new URL("../assets/icons/060281.png", import.meta.url).href;
-icon["060282"] = new URL("../assets/icons/060282.png", import.meta.url).href;
-icon["060283"] = new URL("../assets/icons/060283.png", import.meta.url).href;
-icon["060284"] = new URL("../assets/icons/060284.png", import.meta.url).href;
-icon["060221"] = new URL("../assets/icons/060221.png", import.meta.url).href;
-icon["060287"] = new URL("../assets/icons/060287.png", import.meta.url).href;
-icon["060285"] = new URL("../assets/icons/060285.png", import.meta.url).href;
-icon["060286"] = new URL("../assets/icons/060286.png", import.meta.url).href;
-icon["060288"] = new URL("../assets/icons/060288.png", import.meta.url).href;
-icon["060289"] = new URL("../assets/icons/060289.png", import.meta.url).href;
-icon["060290"] = new URL("../assets/icons/060290.png", import.meta.url).href;
-icon["060291"] = new URL("../assets/icons/060291.png", import.meta.url).href;
-icon["060296"] = new URL("../assets/icons/060296.png", import.meta.url).href;
-icon["060294"] = new URL("../assets/icons/060294.png", import.meta.url).href;
-icon["060295"] = new URL("../assets/icons/060295.png", import.meta.url).href;
-icon["060292"] = new URL("../assets/icons/060292.png", import.meta.url).href;
-icon["060297"] = new URL("../assets/icons/060297.png", import.meta.url).href;
-icon["060222"] = new URL("../assets/icons/060222.png", import.meta.url).href;
-icon["060223"] = new URL("../assets/icons/060223.png", import.meta.url).href;
-icon["060224"] = new URL("../assets/icons/060224.png", import.meta.url).href;
-icon["060298"] = new URL("../assets/icons/060298.png", import.meta.url).href;
-icon["060225"] = new URL("../assets/icons/060225.png", import.meta.url).href;
-icon["060228"] = new URL("../assets/icons/060228.png", import.meta.url).href;
-icon["060299"] = new URL("../assets/icons/060299.png", import.meta.url).href;
-icon["060229"] = new URL("../assets/icons/060229.png", import.meta.url).href;
-icon["060230"] = new URL("../assets/icons/060230.png", import.meta.url).href;
-icon["060231"] = new URL("../assets/icons/060231.png", import.meta.url).href;
-icon["060453"] = new URL("../assets/icons/060453.png", import.meta.url).href;
-icon["060430"] = new URL("../assets/icons/060430.png", import.meta.url).href;
-icon["060412"] = new URL("../assets/icons/060412.png", import.meta.url).href;
-icon["060434"] = new URL("../assets/icons/060434.png", import.meta.url).href;
-icon["060551"] = new URL("../assets/icons/060551.png", import.meta.url).href;
-icon["060425"] = new URL("../assets/icons/060425.png", import.meta.url).href;
-icon["060426"] = new URL("../assets/icons/060426.png", import.meta.url).href;
-icon["060427"] = new URL("../assets/icons/060427.png", import.meta.url).href;
-icon["060460"] = new URL("../assets/icons/060460.png", import.meta.url).href;
-icon["060560"] = new URL("../assets/icons/060560.png", import.meta.url).href;
-icon["060559"] = new URL("../assets/icons/060559.png", import.meta.url).href;
-icon["060759"] = new URL("../assets/icons/060759.png", import.meta.url).href;
-icon["060760"] = new URL("../assets/icons/060760.png", import.meta.url).href;
-icon["060414"] = new URL("../assets/icons/060414.png", import.meta.url).href;
-icon["060456"] = new URL("../assets/icons/060456.png", import.meta.url).href;
-icon["060339"] = new URL("../assets/icons/060339.png", import.meta.url).href;
-icon["060352"] = new URL("../assets/icons/060352.png", import.meta.url).href;
-icon["060448"] = new URL("../assets/icons/060448.png", import.meta.url).href;
-icon["060436"] = new URL("../assets/icons/060436.png", import.meta.url).href;
-icon["060314"] = new URL("../assets/icons/060314.png", import.meta.url).href;
-icon["060446"] = new URL("../assets/icons/060446.png", import.meta.url).href;
-icon["060447"] = new URL("../assets/icons/060447.png", import.meta.url).href;
-icon["060441"] = new URL("../assets/icons/060441.png", import.meta.url).href;
-icon["060449"] = new URL("../assets/icons/060449.png", import.meta.url).href;
-icon["060555"] = new URL("../assets/icons/060555.png", import.meta.url).href;
-icon["060450"] = new URL("../assets/icons/060450.png", import.meta.url).href;
-icon["060554"] = new URL("../assets/icons/060554.png", import.meta.url).href;
-icon["060451"] = new URL("../assets/icons/060451.png", import.meta.url).href;
-icon["060342"] = new URL("../assets/icons/060342.png", import.meta.url).href;
-icon["060347"] = new URL("../assets/icons/060347.png", import.meta.url).href;
-icon["060331"] = new URL("../assets/icons/060331.png", import.meta.url).href;
-icon["060322"] = new URL("../assets/icons/060322.png", import.meta.url).href;
-icon["060320"] = new URL("../assets/icons/060320.png", import.meta.url).href;
-icon["060319"] = new URL("../assets/icons/060319.png", import.meta.url).href;
-icon["060344"] = new URL("../assets/icons/060344.png", import.meta.url).href;
-icon["060330"] = new URL("../assets/icons/060330.png", import.meta.url).href;
-icon["060321"] = new URL("../assets/icons/060321.png", import.meta.url).href;
-icon["060337"] = new URL("../assets/icons/060337.png", import.meta.url).href;
-icon["060334"] = new URL("../assets/icons/060334.png", import.meta.url).href;
-icon["060345"] = new URL("../assets/icons/060345.png", import.meta.url).href;
-icon["060326"] = new URL("../assets/icons/060326.png", import.meta.url).href;
-icon["060348"] = new URL("../assets/icons/060348.png", import.meta.url).href;
-icon["060351"] = new URL("../assets/icons/060351.png", import.meta.url).href;
-icon["060335"] = new URL("../assets/icons/060335.png", import.meta.url).href;
-icon["060346"] = new URL("../assets/icons/060346.png", import.meta.url).href;
-icon["060318"] = new URL("../assets/icons/060318.png", import.meta.url).href;
-icon["060333"] = new URL("../assets/icons/060333.png", import.meta.url).href;
-icon["060567"] = new URL("../assets/icons/060567.png", import.meta.url).href;
-icon["060568"] = new URL("../assets/icons/060568.png", import.meta.url).href;
-icon["060569"] = new URL("../assets/icons/060569.png", import.meta.url).href;
-icon["060311"] = new URL("../assets/icons/060311.png", import.meta.url).href;
-icon["060768"] = new URL("../assets/icons/060768.png", import.meta.url).href;
-icon["060570"] = new URL("../assets/icons/060570.png", import.meta.url).href;
-icon["060459"] = new URL("../assets/icons/060459.png", import.meta.url).href;
-icon["060428"] = new URL("../assets/icons/060428.png", import.meta.url).href;
-icon["060572"] = new URL("../assets/icons/060572.png", import.meta.url).href;
-icon["060573"] = new URL("../assets/icons/060573.png", import.meta.url).href;
-icon["060574"] = new URL("../assets/icons/060574.png", import.meta.url).href;
-icon["060571"] = new URL("../assets/icons/060571.png", import.meta.url).href;
-icon["060581"] = new URL("../assets/icons/060581.png", import.meta.url).href;
-icon["060362"] = new URL("../assets/icons/060362.png", import.meta.url).href;
-icon["060582"] = new URL("../assets/icons/060582.png", import.meta.url).href;
-icon["060363"] = new URL("../assets/icons/060363.png", import.meta.url).href;
-icon["060364"] = new URL("../assets/icons/060364.png", import.meta.url).href;
-icon["060467"] = new URL("../assets/icons/060467.png", import.meta.url).href;
-icon["060473"] = new URL("../assets/icons/060473.png", import.meta.url).href;
-icon["060910"] = new URL("../assets/icons/060910.png", import.meta.url).href;
-icon["060926"] = new URL("../assets/icons/060926.png", import.meta.url).href;
-icon["060927"] = new URL("../assets/icons/060927.png", import.meta.url).href;
-icon["060935"] = new URL("../assets/icons/060935.png", import.meta.url).href;
-icon["060959"] = new URL("../assets/icons/060959.png", import.meta.url).href;
-icon["060960"] = new URL("../assets/icons/060960.png", import.meta.url).href;
-icon["060968"] = new URL("../assets/icons/060968.png", import.meta.url).href;
-icon["060969"] = new URL("../assets/icons/060969.png", import.meta.url).href;
-icon["060404"] = new URL("../assets/icons/060404.png", import.meta.url).href;
-icon["060971"] = new URL("../assets/icons/060971.png", import.meta.url).href;
-icon["063922"] = new URL("../assets/icons/063922.png", import.meta.url).href;
-icon["060983"] = new URL("../assets/icons/060983.png", import.meta.url).href;
-icon["060988"] = new URL("../assets/icons/060988.png", import.meta.url).href;
-icon["060986"] = new URL("../assets/icons/060986.png", import.meta.url).href;
-icon["060993"] = new URL("../assets/icons/060993.png", import.meta.url).href;
-icon["063903"] = new URL("../assets/icons/063903.png", import.meta.url).href;
-icon["063907"] = new URL("../assets/icons/063907.png", import.meta.url).href;
-icon["063920"] = new URL("../assets/icons/063920.png", import.meta.url).href;
-icon["063919"] = new URL("../assets/icons/063919.png", import.meta.url).href;
-icon["063913"] = new URL("../assets/icons/063913.png", import.meta.url).href;
-icon["063921"] = new URL("../assets/icons/063921.png", import.meta.url).href;
-icon["063948"] = new URL("../assets/icons/063948.png", import.meta.url).href;
-icon["063970"] = new URL("../assets/icons/063970.png", import.meta.url).href;
-icon["063971"] = new URL("../assets/icons/063971.png", import.meta.url).href;
-icon["063972"] = new URL("../assets/icons/063972.png", import.meta.url).href;
-icon["063973"] = new URL("../assets/icons/063973.png", import.meta.url).href;
-icon["060004"] = new URL("../assets/icons/060004.png", import.meta.url).href;
-icon["060421"] = new URL("../assets/icons/060421.png", import.meta.url).href;
-icon["060443"] = new URL("../assets/icons/060443.png", import.meta.url).href;
-icon["060437"] = new URL("../assets/icons/060437.png", import.meta.url).href;
-icon["060438"] = new URL("../assets/icons/060438.png", import.meta.url).href;
-icon["060432"] = new URL("../assets/icons/060432.png", import.meta.url).href;
-icon["060433"] = new URL("../assets/icons/060433.png", import.meta.url).href;
-icon["060445"] = new URL("../assets/icons/060445.png", import.meta.url).href;
-icon["060954"] = new URL("../assets/icons/060954.png", import.meta.url).href;
-icon["060955"] = new URL("../assets/icons/060955.png", import.meta.url).href;
-icon["060561"] = new URL("../assets/icons/060561.png", import.meta.url).href;
-icon["060905"] = new URL("../assets/icons/060905.png", import.meta.url).href;
-icon["060906"] = new URL("../assets/icons/060906.png", import.meta.url).href;
-icon["060907"] = new URL("../assets/icons/060907.png", import.meta.url).href;
-icon["060908"] = new URL("../assets/icons/060908.png", import.meta.url).href;
-icon["060913"] = new URL("../assets/icons/060913.png", import.meta.url).href;
-icon["060912"] = new URL("../assets/icons/060912.png", import.meta.url).href;
-icon["060911"] = new URL("../assets/icons/060911.png", import.meta.url).href;
-icon["060403"] = new URL("../assets/icons/060403.png", import.meta.url).href;
-icon["060444"] = new URL("../assets/icons/060444.png", import.meta.url).href;
-icon["060442"] = new URL("../assets/icons/060442.png", import.meta.url).href;
-icon["060424"] = new URL("../assets/icons/060424.png", import.meta.url).href;
-icon["060422"] = new URL("../assets/icons/060422.png", import.meta.url).href;
-icon["060358"] = new URL("../assets/icons/060358.png", import.meta.url).href;
-icon["060361"] = new URL("../assets/icons/060361.png", import.meta.url).href;
-icon["060360"] = new URL("../assets/icons/060360.png", import.meta.url).href;
-icon["060359"] = new URL("../assets/icons/060359.png", import.meta.url).href;
-icon["060402"] = new URL("../assets/icons/060402.png", import.meta.url).href;
-icon["060401"] = new URL("../assets/icons/060401.png", import.meta.url).href;
-icon["060918"] = new URL("../assets/icons/060918.png", import.meta.url).href;
-icon["060919"] = new URL("../assets/icons/060919.png", import.meta.url).href;
-icon["060920"] = new URL("../assets/icons/060920.png", import.meta.url).href;
-icon["060921"] = new URL("../assets/icons/060921.png", import.meta.url).href;
-icon["060922"] = new URL("../assets/icons/060922.png", import.meta.url).href;
-icon["060923"] = new URL("../assets/icons/060923.png", import.meta.url).href;
-icon["060924"] = new URL("../assets/icons/060924.png", import.meta.url).href;
-icon["060925"] = new URL("../assets/icons/060925.png", import.meta.url).href;
+const elite: Record<number, string> = {
+  1: "../assets/icons/00001.svg",
+  2: "../assets/icons/00010.svg",
+  3: "../assets/icons/00011.svg",
+  4: "../assets/icons/00100.svg",
+  5: "../assets/icons/00101.svg",
+  6: "../assets/icons/00110.svg",
+  7: "../assets/icons/00111.svg",
+  8: "../assets/icons/01000.svg",
+  9: "../assets/icons/01001.svg",
+  10: "../assets/icons/01010.svg",
+  11: "../assets/icons/01011.svg",
+  12: "../assets/icons/01100.svg",
+  13: "../assets/icons/01101.svg",
+  14: "../assets/icons/01110.svg",
+  15: "../assets/icons/01111.svg",
+  16: "../assets/icons/10000.svg",
+  17: "../assets/icons/10001.svg",
+  18: "../assets/icons/10010.svg",
+  19: "../assets/icons/10011.svg",
+  20: "../assets/icons/10100.svg",
+  21: "../assets/icons/10101.svg",
+  22: "../assets/icons/10110.svg",
+  23: "../assets/icons/10111.svg",
+  24: "../assets/icons/11000.svg",
+  25: "../assets/icons/11001.svg",
+  26: "../assets/icons/11010.svg",
+  27: "../assets/icons/11011.svg",
+  28: "../assets/icons/11100.svg",
+  29: "../assets/icons/11101.svg",
+  30: "../assets/icons/11110.svg",
+  31: "../assets/icons/11111.svg",
+};
 
-export { TIcon, elite, icon };
+const icon: Record<string, string> = {
+  SB: "../assets/icons/sb.svg",
+  SS: "../assets/icons/ss.svg",
+  CheckMine: "../assets/icons/checkLime.svg",
+  CheckOthers: "../assets/icons/checkRoyalBlue.svg",
+  CheckUnknown: "../assets/icons/checkGrey.svg",
+  "060004": "../assets/icons/060004.png",
+  "060201": "../assets/icons/060201.png",
+  "060202": "../assets/icons/060202.png",
+  "060203": "../assets/icons/060203.png",
+  "060204": "../assets/icons/060204.png",
+  "060205": "../assets/icons/060205.png",
+  "060206": "../assets/icons/060206.png",
+  "060207": "../assets/icons/060207.png",
+  "060208": "../assets/icons/060208.png",
+  "060209": "../assets/icons/060209.png",
+  "060210": "../assets/icons/060210.png",
+  "060211": "../assets/icons/060211.png",
+  "060212": "../assets/icons/060212.png",
+  "060213": "../assets/icons/060213.png",
+  "060214": "../assets/icons/060214.png",
+  "060215": "../assets/icons/060215.png",
+  "060216": "../assets/icons/060216.png",
+  "060217": "../assets/icons/060217.png",
+  "060218": "../assets/icons/060218.png",
+  "060219": "../assets/icons/060219.png",
+  "060220": "../assets/icons/060220.png",
+  "060221": "../assets/icons/060221.png",
+  "060222": "../assets/icons/060222.png",
+  "060223": "../assets/icons/060223.png",
+  "060224": "../assets/icons/060224.png",
+  "060225": "../assets/icons/060225.png",
+  "060226": "../assets/icons/060226.png",
+  "060227": "../assets/icons/060227.png",
+  "060228": "../assets/icons/060228.png",
+  "060229": "../assets/icons/060229.png",
+  "060230": "../assets/icons/060230.png",
+  "060231": "../assets/icons/060231.png",
+  "060251": "../assets/icons/060251.png",
+  "060252": "../assets/icons/060252.png",
+  "060253": "../assets/icons/060253.png",
+  "060254": "../assets/icons/060254.png",
+  "060255": "../assets/icons/060255.png",
+  "060256": "../assets/icons/060256.png",
+  "060257": "../assets/icons/060257.png",
+  "060258": "../assets/icons/060258.png",
+  "060259": "../assets/icons/060259.png",
+  "060260": "../assets/icons/060260.png",
+  "060261": "../assets/icons/060261.png",
+  "060262": "../assets/icons/060262.png",
+  "060263": "../assets/icons/060263.png",
+  "060264": "../assets/icons/060264.png",
+  "060265": "../assets/icons/060265.png",
+  "060266": "../assets/icons/060266.png",
+  "060267": "../assets/icons/060267.png",
+  "060268": "../assets/icons/060268.png",
+  "060269": "../assets/icons/060269.png",
+  "060270": "../assets/icons/060270.png",
+  "060271": "../assets/icons/060271.png",
+  "060272": "../assets/icons/060272.png",
+  "060273": "../assets/icons/060273.png",
+  "060274": "../assets/icons/060274.png",
+  "060275": "../assets/icons/060275.png",
+  "060276": "../assets/icons/060276.png",
+  "060277": "../assets/icons/060277.png",
+  "060278": "../assets/icons/060278.png",
+  "060279": "../assets/icons/060279.png",
+  "060280": "../assets/icons/060280.png",
+  "060281": "../assets/icons/060281.png",
+  "060282": "../assets/icons/060282.png",
+  "060283": "../assets/icons/060283.png",
+  "060284": "../assets/icons/060284.png",
+  "060285": "../assets/icons/060285.png",
+  "060286": "../assets/icons/060286.png",
+  "060287": "../assets/icons/060287.png",
+  "060288": "../assets/icons/060288.png",
+  "060289": "../assets/icons/060289.png",
+  "060290": "../assets/icons/060290.png",
+  "060291": "../assets/icons/060291.png",
+  "060292": "../assets/icons/060292.png",
+  "060293": "../assets/icons/060293.png",
+  "060294": "../assets/icons/060294.png",
+  "060295": "../assets/icons/060295.png",
+  "060296": "../assets/icons/060296.png",
+  "060297": "../assets/icons/060297.png",
+  "060298": "../assets/icons/060298.png",
+  "060299": "../assets/icons/060299.png",
+  "060311": "../assets/icons/060311.png",
+  "060314": "../assets/icons/060314.png",
+  "060318": "../assets/icons/060318.png",
+  "060319": "../assets/icons/060319.png",
+  "060320": "../assets/icons/060320.png",
+  "060321": "../assets/icons/060321.png",
+  "060322": "../assets/icons/060322.png",
+  "060326": "../assets/icons/060326.png",
+  "060330": "../assets/icons/060330.png",
+  "060331": "../assets/icons/060331.png",
+  "060333": "../assets/icons/060333.png",
+  "060334": "../assets/icons/060334.png",
+  "060335": "../assets/icons/060335.png",
+  "060337": "../assets/icons/060337.png",
+  "060339": "../assets/icons/060339.png",
+  "060342": "../assets/icons/060342.png",
+  "060344": "../assets/icons/060344.png",
+  "060345": "../assets/icons/060345.png",
+  "060346": "../assets/icons/060346.png",
+  "060347": "../assets/icons/060347.png",
+  "060348": "../assets/icons/060348.png",
+  "060351": "../assets/icons/060351.png",
+  "060352": "../assets/icons/060352.png",
+  "060358": "../assets/icons/060358.png",
+  "060359": "../assets/icons/060359.png",
+  "060360": "../assets/icons/060360.png",
+  "060361": "../assets/icons/060361.png",
+  "060362": "../assets/icons/060362.png",
+  "060363": "../assets/icons/060363.png",
+  "060364": "../assets/icons/060364.png",
+  "060401": "../assets/icons/060401.png",
+  "060402": "../assets/icons/060402.png",
+  "060403": "../assets/icons/060403.png",
+  "060404": "../assets/icons/060404.png",
+  "060412": "../assets/icons/060412.png",
+  "060414": "../assets/icons/060414.png",
+  "060421": "../assets/icons/060421.png",
+  "060422": "../assets/icons/060422.png",
+  "060424": "../assets/icons/060424.png",
+  "060425": "../assets/icons/060425.png",
+  "060426": "../assets/icons/060426.png",
+  "060427": "../assets/icons/060427.png",
+  "060428": "../assets/icons/060428.png",
+  "060430": "../assets/icons/060430.png",
+  "060432": "../assets/icons/060432.png",
+  "060433": "../assets/icons/060433.png",
+  "060434": "../assets/icons/060434.png",
+  "060436": "../assets/icons/060436.png",
+  "060437": "../assets/icons/060437.png",
+  "060438": "../assets/icons/060438.png",
+  "060441": "../assets/icons/060441.png",
+  "060442": "../assets/icons/060442.png",
+  "060443": "../assets/icons/060443.png",
+  "060444": "../assets/icons/060444.png",
+  "060445": "../assets/icons/060445.png",
+  "060446": "../assets/icons/060446.png",
+  "060447": "../assets/icons/060447.png",
+  "060448": "../assets/icons/060448.png",
+  "060449": "../assets/icons/060449.png",
+  "060450": "../assets/icons/060450.png",
+  "060451": "../assets/icons/060451.png",
+  "060453": "../assets/icons/060453.png",
+  "060456": "../assets/icons/060456.png",
+  "060459": "../assets/icons/060459.png",
+  "060460": "../assets/icons/060460.png",
+  "060467": "../assets/icons/060467.png",
+  "060473": "../assets/icons/060473.png",
+  "060551": "../assets/icons/060551.png",
+  "060554": "../assets/icons/060554.png",
+  "060555": "../assets/icons/060555.png",
+  "060559": "../assets/icons/060559.png",
+  "060560": "../assets/icons/060560.png",
+  "060561": "../assets/icons/060561.png",
+  "060567": "../assets/icons/060567.png",
+  "060568": "../assets/icons/060568.png",
+  "060569": "../assets/icons/060569.png",
+  "060570": "../assets/icons/060570.png",
+  "060571": "../assets/icons/060571.png",
+  "060572": "../assets/icons/060572.png",
+  "060573": "../assets/icons/060573.png",
+  "060574": "../assets/icons/060574.png",
+  "060581": "../assets/icons/060581.png",
+  "060582": "../assets/icons/060582.png",
+  "060759": "../assets/icons/060759.png",
+  "060760": "../assets/icons/060760.png",
+  "060768": "../assets/icons/060768.png",
+  "060905": "../assets/icons/060905.png",
+  "060906": "../assets/icons/060906.png",
+  "060907": "../assets/icons/060907.png",
+  "060908": "../assets/icons/060908.png",
+  "060910": "../assets/icons/060910.png",
+  "060911": "../assets/icons/060911.png",
+  "060912": "../assets/icons/060912.png",
+  "060913": "../assets/icons/060913.png",
+  "060918": "../assets/icons/060918.png",
+  "060919": "../assets/icons/060919.png",
+  "060920": "../assets/icons/060920.png",
+  "060921": "../assets/icons/060921.png",
+  "060922": "../assets/icons/060922.png",
+  "060923": "../assets/icons/060923.png",
+  "060924": "../assets/icons/060924.png",
+  "060925": "../assets/icons/060925.png",
+  "060926": "../assets/icons/060926.png",
+  "060927": "../assets/icons/060927.png",
+  "060935": "../assets/icons/060935.png",
+  "060954": "../assets/icons/060954.png",
+  "060955": "../assets/icons/060955.png",
+  "060959": "../assets/icons/060959.png",
+  "060960": "../assets/icons/060960.png",
+  "060968": "../assets/icons/060968.png",
+  "060969": "../assets/icons/060969.png",
+  "060971": "../assets/icons/060971.png",
+  "060983": "../assets/icons/060983.png",
+  "060986": "../assets/icons/060986.png",
+  "060988": "../assets/icons/060988.png",
+  "060993": "../assets/icons/060993.png",
+  "063903": "../assets/icons/063903.png",
+  "063907": "../assets/icons/063907.png",
+  "063913": "../assets/icons/063913.png",
+  "063919": "../assets/icons/063919.png",
+  "063920": "../assets/icons/063920.png",
+  "063921": "../assets/icons/063921.png",
+  "063922": "../assets/icons/063922.png",
+  "063948": "../assets/icons/063948.png",
+  "063970": "../assets/icons/063970.png",
+  "063971": "../assets/icons/063971.png",
+  "063972": "../assets/icons/063972.png",
+  "063973": "../assets/icons/063973.png",
+};
+
+export { IconId, elite, icon };
