@@ -9,7 +9,8 @@ Import-Module -Force .\SaintCoinach.psm1 -Function `
     svgHexagon, `
     svgCheck, `
     Export-SVG, `
-    Copy-Icon
+    Copy-Icon, `
+    Export-IconPreview
 
 $iconTypes = @(
     [PSCustomObject]@{ name = 'Aetheryte'; id = '060453' },
@@ -119,3 +120,5 @@ export {
   icon
 };
 "@ | Set-ResourceData -Name 'icons'
+
+Export-IconPreview

@@ -248,7 +248,6 @@ function Export-SVG {
 "@
     $path = Join-Path '../src/assets/icons' "$($Name).svg"
     $content | Set-Content -Path $path -Encoding UTF8
-    Write-Host "updated $path"
 }
 
 function Copy-Icon {
@@ -261,6 +260,42 @@ function Copy-Icon {
     $dest = '../src/assets/icons'
     Copy-Item $source -Destination $dest
 }
+
+function Export-IconPreview {
+    $folder = '../src/assets/icons'
+    $path = Join-Path $folder preview.htm
+    $lis = (Get-ChildItem $folder -Recurse -Include *.svg).Name |
+        ForEach-Object {
+            "<li><img class=`"middle`" src=`"./$_`" />$_</li>"
+        }
+    $lis += (Get-ChildItem $folder -Recurse -Include *.png).Name |
+        ForEach-Object {
+            "<li><img class=`"middle`" src=`"./$_`" />$_</li>"
+        }
+    @"
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style rel="stylesheet" type="text/css">
+      img.middle {
+        vertical-align: middle;
+      }
+    </style>
+    <title>Icons Preview</title>
+  </head>
+  <body>
+    <ul>
+      $($lis -Join "`r`n")
+    </ul>
+  </body>
+</html>
+"@ | Set-Content -Path $path -Encoding UTF8
+}
+
+
 
 Export-ModuleMember -Function `
     Import-SaintCoinachCsv, `
@@ -276,4 +311,5 @@ Export-ModuleMember -Function `
     svgHexagon, `
     svgCheck, `
     Export-SVG, `
-    Copy-Icon
+    Copy-Icon, `
+    Export-IconPreview
