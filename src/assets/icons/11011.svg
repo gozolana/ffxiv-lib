@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-  <filter id="h" x="-50%" y="-50%" width="200%" height="200%">
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+  <filter id="highlight" x="-50%" y="-50%" width="200%" height="200%">
     <feGaussianBlur stdDeviation="2" />
   </filter>
   <g stroke="black">
-    <path d="M 16,16 L 5.39,5.39 A 15,15 0 0,1 26.61,5.39 Z" fill="#f44336" />
-    <path d="M 16,16 L 5.39,26.61 A 15,15 0 0,1 5.39,5.39 Z" fill="#ffeb3b" />
-    <path d="M 16,16 L 26.61,5.39 A 15,15 0 0,1 26.61,26.61 Z" fill="#2196f3" />
-    <path d="M 16,16 L 26.61,26.61 A 15,15 0 0,1 5.39,26.61 Z" fill="#9c27b0" />
-  </g>
-  <circle cx="7" cy="7" r="4" fill="white" filter="url(#h)" />
+    <path fill="#f44336" d="M 16,16 L 5.39,5.39 A 15,15 0 0,1 26.61,5.39 Z" />
+    <path fill="#ffeb3b" d="M 16,16 L 5.39,26.61 A 15,15 0 0,1 5.39,5.39 Z" />
+    <path fill="#2196f3" d="M 16,16 L 26.61,5.39 A 15,15 0 0,1 26.61,26.61 Z" />
+    <path fill="#9c27b0" d="M 16,16 L 26.61,26.61 A 15,15 0 0,1 5.39,26.61 Z" />
+</g>
+  <circle cx="7" cy="7" r="4" fill="white" filter="url(#highlight)" />
 </svg>
