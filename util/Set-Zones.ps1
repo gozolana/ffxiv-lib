@@ -1,107 +1,147 @@
+param(
+    [Parameter(Mandatory = $false)]
+    [System.Collections.Generic.SortedSet[int]]$UniquePlaceNameIds,
+    [Parameter(Mandatory = $false)]
+    [System.Collections.Generic.SortedDictionary[int, int]]$ZoneIdToPlaceNameId
+)
+
 Import-Module -Force .\SaintCoinach.psm1 -Function `
-  Import-SaintCoinachCsv, `
-  ConvertTo-DataJson, `
-  ConvertTo-TypeObjectJson, `
-  Set-ResourceData, `
-  Get-JsonData
+    Import-SaintCoinachCsv, `
+    ConvertTo-DataJson, `
+    ConvertTo-TypeObjectJson, `
+    Set-ResourceData, `
+    Get-JsonData
 
 $regionsJson = Get-JsonData -Name 'regions'
 $uniqueZoneIds = ($regionsJson.huntRegions.zoneIds + $regionsJson.weatherRegions.zoneIds) | Sort-Object | Get-Unique
 
-$zoneIdToOffsetZ = New-Object 'System.Collections.Generic.Dictionary[int, int]'
+$zoneIdToOffsetZ = [System.Collections.Generic.Dictionary[int, int]]::new()
 Import-SaintCoinachCsv -Name 'TerritoryTypeTransient' |
-  Where-Object { $uniqueZoneIds.Contains([int]$_.'#') } |
-  ForEach-Object {
-    $zoneIdToOffsetZ.Add([int]$_.'#', [int]$_.'Offset{Z}')
-  }
+    Where-Object { $uniqueZoneIds.Contains([int]$_.'#') } |
+    ForEach-Object {
+        $zoneIdToOffsetZ.Add([int]$_.'#', [int]$_.'Offset{Z}')
+    }
 
-$mapIdToMap = New-Object 'System.Collections.Generic.Dictionary[int, PSObject]'
+$mapIdToMap = [System.Collections.Generic.Dictionary[int, PSObject]]::new()
 Import-SaintCoinachCsv -Name 'Map' | 
-  Where-Object { $uniqueZoneIds.Contains([int]$_.TerritoryType) } |
-  ForEach-Object {
-    $mapIdToMap.Add([int]$_.'#', [PSCustomObject]@{
-        id               = [int]$_.'#';
-        mapMarkerId      = [int]$_.MapMarkerRange;
-        name             = [string]$_.Id;
-        sizeFactor       = [int]$_.SizeFactor;
-        offsetX          = [int]$_.'Offset{X}';
-        offsetY          = [int]$_.'Offset{Y}';
-        placeName_region = [int]$_.'PlaceName{Region}';
-        placeName        = [int]$_.PlaceName;
-        placeName2       = [int]$_.'PlaceName{Sub}';
-        territoryType    = [int]$_.TerritoryType;
-      })
-  }
+    Where-Object { $uniqueZoneIds.Contains([int]$_.TerritoryType) } |
+    ForEach-Object {
+        $mapIdToMap.Add([int]$_.'#', [PSCustomObject]@{
+                id               = [int]$_.'#';
+                mapMarkerId      = [int]$_.MapMarkerRange;
+                name             = [string]$_.Id;
+                sizeFactor       = [int]$_.SizeFactor;
+                offsetX          = [int]$_.'Offset{X}';
+                offsetY          = [int]$_.'Offset{Y}';
+                placeName_region = [int]$_.'PlaceName{Region}';
+                placeName        = [int]$_.PlaceName;
+                placeName2       = [int]$_.'PlaceName{Sub}';
+                territoryType    = [int]$_.TerritoryType;
+            })
+    }
+
+$mapMarkerIds = $mapIdToMap.Values.mapMarkerId | Sort-Object | Get-Unique
+
+$mapMarkers = Import-SaintCoinachCsv -Name 'MapMarker' | 
+    Where-Object { 
+        $markerIdString = $_.'#' -Split '\.' | Select-Object -First 1
+        $mapMarkerIds.Contains([int]$markerIdString) -and (($_.Icon -ne '0') -or ($_.'PlaceName{SubText}' -ne '0'))
+    } |
+    ForEach-Object {
+        $icon = ''
+        if ($_.Icon -ne '0') {
+            $icon = "0$($_.Icon)" 
+        } 
+        [PSCustomObject]@{
+            markerId    = [int]$($_.'#' -Split '\.' | Select-Object -first 1);
+            x           = [int]$_.X
+            y           = [int]$_.y
+            placeNameId = [int]$_.'PlaceName{SubText}'
+            icon        = [string]$icon
+        }
+    }
 
 $allZones = Import-SaintCoinachCsv -Name 'TerritoryType' | 
-  Where-Object { $uniqueZoneIds.Contains([int]$_.'#') } |
-  ForEach-Object {
-    $offsetZ = $zoneIdToOffsetZ[[int]$_.'#']
-    $map = $mapIdToMap[[int]$_.Map]
-    [ordered]@{
-      id            = [int]$_.'#';
-      placeName     = [int]$_.PlaceName;
-      weatherRateId = [int]$_.WeatherRate;
-      sizeFactor    = [int]$map.sizeFactor
-      offsetX       = [int]$map.offsetX
-      offsetY       = [int]$map.offsetY
-      offsetZ       = [int]$offsetZ
-      markers       = @()
-      exVersionId   = [int]$_.ExVersion
-    }
-  } 
-
-$uniquePlaceNameIds = $allZones.placeName | Sort-Object | Get-Unique
-$mapIdToMarkers = Import-SaintCoinachCsv -Name 'MapMarker' |
-  Where-Object { $uniquePlaceNameIds.Contains([int]$_.'PlaceName{Subtext}') } |
-  ForEach-Object {
-    [PSCustomObject]@{
-      x         = [int]$_.X
-      y         = [int]$_.Y
-      icon      = [string]$_.Icon
-      placeName = [int]$_.'PlaceName{Subtext}'
-    }
-  }
-
+    Where-Object { $uniqueZoneIds.Contains([int]$_.'#') } |
+    ForEach-Object {
+        if ($ZoneIdToPlaceNameId) {
+            $ZoneIdToPlaceNameId.Add([int]$_.'#', [int]$_.PlaceName)
+        }
+        $offsetZ = $zoneIdToOffsetZ[[int]$_.'#']
+        $map = $mapIdToMap[[int]$_.Map]
+        $markers = $mapMarkers | Where-Object markerId -eq $map.mapMarkerId 
+        [ordered]@{
+            id            = [int]$_.'#';
+            placeNameId   = [int]$_.PlaceName;
+            weatherRateId = [int]$_.WeatherRate;
+            sizeFactor    = [int]$map.sizeFactor
+            offsetX       = [int]$map.offsetX
+            offsetY       = [int]$map.offsetY
+            offsetZ       = [int]$offsetZ
+            markers       = @($markers | Select-Object x, y, placeNameId, icon)
+            exVersionId   = [int]$_.ExVersion
+        }
+    } 
 
 
 $fieldZonesJson = Get-JsonData 'fieldZones'
 
 $zones = $allZones | Where-Object {
-  $zoneId = [int]$_.id;
-  $fieldZonesJson.$zoneId -eq $null } 
+    $zoneId = [int]$_.id;
+    $fieldZonesJson.$zoneId -eq $null } 
 
+$fieldZones = $allZones | Where-Object {
+    $zoneId = [int]$_.id;
+    $fieldZonesJson.$zoneId -ne $null } | 
+    ForEach-Object { 
+        $zoneId = [int]$_.id;
+        if ($fieldZonesJson.$zoneId.filter -eq $true) {
+            $_.filter = $True
+        }
+        if ($fieldZonesJson.$zoneId.elite) {
+            $_.elite = ($fieldZonesJson.$zoneId.elite | Select-Object ids, locations)
+        }
+        if ($fieldZonesJson.$zoneId.ss) {
+            $_.ss = ($fieldZonesJson.$zoneId.ss | Select-Object ids, locations)
+        }
+        if ($fieldZonesJson.$zoneId.fate) {
+            $_.fate = ($fieldZonesJson.$zoneId.fate | Select-Object ids)
+        }
+        $_
+    }
+
+# 
 # $maps | Format-Table
 #const territoryTypeTransientRows =
 #  await retrieveTerritoryTypeTransients(zoneIds);
 #const mapMarkerRows = await retrieveMapMarkers();
 #const exVersionRows = await retrieveExVersions();
-
-
+# 
+# 
 $regionKeyToRegion = @{}
 foreach ($region in $regionsJson.regions) {
-  $key = $region.key
-  $regionKeyToRegion.$key = $region
+    $key = $region.key
+    $regionKeyToRegion.$key = $region
 }
-
+# 
 $huntRegions = $regionsJson.huntRegions | ForEach-Object {
-  $region = $regionKeyToRegion[$_.key]
-  [PSCustomObject]@{
-    key     = $_.key
-    zoneIds = $_.zoneIds
-    color   = $region.color
-    bgColor = $region.'background-color'
-  }
+    $region = $regionKeyToRegion[$_.key]
+    [PSCustomObject]@{
+        key     = $_.key
+        zoneIds = $_.zoneIds
+        color   = $region.color
+        bgColor = $region.'background-color'
+    }
 }
-
+# 
 $weatherRegions = $regionsJson.weatherRegions | ForEach-Object {
-  $region = $regionKeyToRegion[$_.key]
-  [PSCustomObject]@{
-    key     = $_.key
-    zoneIds = $_.zoneIds
-    color   = $region.color
-    bgColor = $region.'background-color'
-  }
+    $region = $regionKeyToRegion[$_.key]
+    [PSCustomObject]@{
+        key     = $_.key
+        zoneIds = $_.zoneIds
+        color   = $region.color
+        bgColor = $region.'background-color'
+    }
 }
 
 @"
@@ -161,7 +201,7 @@ const zoneData: {
   fieldZones: FieldZoneData[];
 } = {
   zones: $(ConvertTo-DataJson $zones),
-  fieldZones: $(ConvertTo-Json @()),
+  fieldZones: $(ConvertTo-DataJson $fieldZones),
 }
 
 const regionData: {
@@ -180,10 +220,10 @@ export {
   type ZoneData,
   type FieldZoneData,
 };
-"@ | Set-ResourceData -Name 'zones2'
+"@ | Set-ResourceData -Name 'zones'
 
-$placeNameToZoneIdmobMap = New-Object 'System.Collections.Generic.SortedDictionary[int, int]'
-$allZones | ForEach-Object {
-  $placeNameToZoneIdmobMap.Add($_.placeName, $_.id)
+if ($PlaceNameIdToZoneId) {
+    $allZones | ForEach-Object {
+        $PlaceNameIdToZoneId.Add($_.placeName, $_.id)
+    }
 }
-$placeNameToZoneIdmobMap

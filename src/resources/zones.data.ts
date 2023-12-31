@@ -1,16 +1,15 @@
-// THIS CODE IS AUTO GENERATED.
+﻿// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-interface MarkerData {
+type MarkerData = {
   readonly x: number;
   readonly y: number;
   readonly placeNameId: number;
   readonly icon: string;
-}
+};
 
-interface ZoneData {
+type ZoneData = {
   readonly id: number;
-  readonly placeNameId: number;
   readonly weatherRateId: number;
   readonly sizeFactor: number;
   readonly offsetX: number;
@@ -18,17 +17,17 @@ interface ZoneData {
   readonly offsetZ: number;
   readonly markers: MarkerData[];
   readonly exVersionId: number;
-}
+};
 
-interface LocationWithFlag {
+type LocationWithFlag = {
   readonly label: string;
   readonly x: number;
   readonly y: number;
   readonly z: number;
   readonly flag: string;
-}
+};
 
-interface FieldZoneData extends ZoneData {
+type FieldZoneData = ZoneData & {
   readonly filter?: boolean;
   readonly elite: {
     readonly ids: number[];
@@ -41,13 +40,14 @@ interface FieldZoneData extends ZoneData {
   readonly fate?: {
     readonly ids: number[];
   };
-}
+};
 
-interface RegionData {
+type RegionData = {
   readonly key: string;
-  readonly css: string;
   readonly zoneIds: number[];
-}
+  readonly color: string;
+  readonly bgColor: string;
+};
 
 const zoneData: {
   zones: ZoneData[];
@@ -63,6 +63,66 @@ const zoneData: {
       offsetY: 0,
       offsetZ: -10000,
       markers: [
+        {
+          x: 858,
+          y: 1632,
+          placeNameId: 2415,
+          icon: "",
+        },
+        {
+          x: 1214,
+          y: 1620,
+          placeNameId: 2416,
+          icon: "",
+        },
+        {
+          x: 1229,
+          y: 923,
+          placeNameId: 2419,
+          icon: "",
+        },
+        {
+          x: 443,
+          y: 1439,
+          placeNameId: 2417,
+          icon: "",
+        },
+        {
+          x: 230,
+          y: 1060,
+          placeNameId: 2420,
+          icon: "",
+        },
+        {
+          x: 627,
+          y: 455,
+          placeNameId: 2421,
+          icon: "",
+        },
+        {
+          x: 1383,
+          y: 666,
+          placeNameId: 2422,
+          icon: "",
+        },
+        {
+          x: 1666,
+          y: 869,
+          placeNameId: 2423,
+          icon: "",
+        },
+        {
+          x: 990,
+          y: 1063,
+          placeNameId: 2418,
+          icon: "",
+        },
+        {
+          x: 1447,
+          y: 1382,
+          placeNameId: 2424,
+          icon: "",
+        },
         {
           x: 1334,
           y: 1234,
@@ -92,6 +152,12 @@ const zoneData: {
           y: 561,
           placeNameId: 2429,
           icon: "060442",
+        },
+        {
+          x: 1006,
+          y: 571,
+          placeNameId: 2430,
+          icon: "",
         },
         {
           x: 1229,
@@ -165,6 +231,54 @@ const zoneData: {
       offsetY: 0,
       offsetZ: -10000,
       markers: [
+        {
+          x: 150,
+          y: 1275,
+          placeNameId: 2463,
+          icon: "",
+        },
+        {
+          x: 400,
+          y: 1400,
+          placeNameId: 2464,
+          icon: "",
+        },
+        {
+          x: 1000,
+          y: 1500,
+          placeNameId: 2465,
+          icon: "",
+        },
+        {
+          x: 1650,
+          y: 1400,
+          placeNameId: 2466,
+          icon: "",
+        },
+        {
+          x: 300,
+          y: 560,
+          placeNameId: 2467,
+          icon: "",
+        },
+        {
+          x: 860,
+          y: 970,
+          placeNameId: 2468,
+          icon: "",
+        },
+        {
+          x: 1375,
+          y: 640,
+          placeNameId: 2469,
+          icon: "",
+        },
+        {
+          x: 1150,
+          y: 1111,
+          placeNameId: 2470,
+          icon: "",
+        },
         {
           x: 255,
           y: 1025,
@@ -322,6 +436,54 @@ const zoneData: {
       offsetZ: -10000,
       markers: [
         {
+          x: 542,
+          y: 1090,
+          placeNameId: 2531,
+          icon: "",
+        },
+        {
+          x: 596,
+          y: 1302,
+          placeNameId: 2532,
+          icon: "",
+        },
+        {
+          x: 1400,
+          y: 1242,
+          placeNameId: 2533,
+          icon: "",
+        },
+        {
+          x: 1300,
+          y: 1848,
+          placeNameId: 2534,
+          icon: "",
+        },
+        {
+          x: 610,
+          y: 1766,
+          placeNameId: 2535,
+          icon: "",
+        },
+        {
+          x: 1208,
+          y: 966,
+          placeNameId: 2536,
+          icon: "",
+        },
+        {
+          x: 424,
+          y: 474,
+          placeNameId: 2537,
+          icon: "",
+        },
+        {
+          x: 1610,
+          y: 510,
+          placeNameId: 2538,
+          icon: "",
+        },
+        {
           x: 637,
           y: 997,
           placeNameId: 2539,
@@ -478,6 +640,30 @@ const zoneData: {
           icon: "060968",
         },
         {
+          x: 1048,
+          y: 610,
+          placeNameId: 2876,
+          icon: "",
+        },
+        {
+          x: 430,
+          y: 1084,
+          placeNameId: 2877,
+          icon: "",
+        },
+        {
+          x: 890,
+          y: 934,
+          placeNameId: 2878,
+          icon: "",
+        },
+        {
+          x: 1526,
+          y: 1084,
+          placeNameId: 2879,
+          icon: "",
+        },
+        {
           x: 1511,
           y: 1317,
           placeNameId: 2888,
@@ -556,6 +742,18 @@ const zoneData: {
       offsetZ: -1,
       markers: [
         {
+          x: 1064,
+          y: 1090,
+          placeNameId: 4236,
+          icon: "",
+        },
+        {
+          x: 400,
+          y: 1513,
+          placeNameId: 4237,
+          icon: "",
+        },
+        {
           x: 700,
           y: 560,
           placeNameId: 4238,
@@ -610,6 +808,18 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 850,
+          y: 970,
+          placeNameId: 4247,
+          icon: "",
+        },
+        {
+          x: 1077,
+          y: 1220,
+          placeNameId: 4248,
+          icon: "",
+        },
+        {
           x: 409,
           y: 1366,
           placeNameId: 0,
@@ -630,10 +840,34 @@ const zoneData: {
       offsetZ: -1,
       markers: [
         {
+          x: 1358,
+          y: 1150,
+          placeNameId: 161,
+          icon: "",
+        },
+        {
+          x: 656,
+          y: 996,
+          placeNameId: 162,
+          icon: "",
+        },
+        {
+          x: 508,
+          y: 536,
+          placeNameId: 163,
+          icon: "",
+        },
+        {
           x: 980,
           y: 1166,
           placeNameId: 179,
           icon: "060442",
+        },
+        {
+          x: 894,
+          y: 1106,
+          placeNameId: 182,
+          icon: "",
         },
         {
           x: 1214,
@@ -654,6 +888,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 768,
+          y: 928,
+          placeNameId: 186,
+          icon: "",
+        },
+        {
           x: 882,
           y: 810,
           placeNameId: 187,
@@ -664,6 +904,12 @@ const zoneData: {
           y: 714,
           placeNameId: 188,
           icon: "060442",
+        },
+        {
+          x: 832,
+          y: 742,
+          placeNameId: 189,
+          icon: "",
         },
         {
           x: 724,
@@ -682,6 +928,12 @@ const zoneData: {
           y: 568,
           placeNameId: 192,
           icon: "060442",
+        },
+        {
+          x: 690,
+          y: 818,
+          placeNameId: 193,
+          icon: "",
         },
         {
           x: 532,
@@ -923,6 +1175,24 @@ const zoneData: {
       offsetZ: -1,
       markers: [
         {
+          x: 1277,
+          y: 1268,
+          placeNameId: 164,
+          icon: "",
+        },
+        {
+          x: 1401,
+          y: 875,
+          placeNameId: 165,
+          icon: "",
+        },
+        {
+          x: 1010,
+          y: 1538,
+          placeNameId: 166,
+          icon: "",
+        },
+        {
           x: 1239,
           y: 1125,
           placeNameId: 195,
@@ -933,6 +1203,12 @@ const zoneData: {
           y: 1052,
           placeNameId: 196,
           icon: "060442",
+        },
+        {
+          x: 1160,
+          y: 1209,
+          placeNameId: 197,
+          icon: "",
         },
         {
           x: 985,
@@ -963,6 +1239,12 @@ const zoneData: {
           y: 707,
           placeNameId: 202,
           icon: "060442",
+        },
+        {
+          x: 1273,
+          y: 1092,
+          placeNameId: 203,
+          icon: "",
         },
         {
           x: 1545,
@@ -1025,6 +1307,12 @@ const zoneData: {
           icon: "060441",
         },
         {
+          x: 940,
+          y: 1874,
+          placeNameId: 33,
+          icon: "",
+        },
+        {
           x: 1526,
           y: 945,
           placeNameId: 593,
@@ -1083,6 +1371,12 @@ const zoneData: {
           y: 916,
           placeNameId: 425,
           icon: "060441",
+        },
+        {
+          x: 1440,
+          y: 1720,
+          placeNameId: 424,
+          icon: "",
         },
         {
           x: 1292,
@@ -1261,6 +1555,24 @@ const zoneData: {
       offsetZ: 7,
       markers: [
         {
+          x: 1677,
+          y: 1613,
+          placeNameId: 167,
+          icon: "",
+        },
+        {
+          x: 641,
+          y: 1644,
+          placeNameId: 168,
+          icon: "",
+        },
+        {
+          x: 1710,
+          y: 910,
+          placeNameId: 169,
+          icon: "",
+        },
+        {
           x: 1403,
           y: 1667,
           placeNameId: 205,
@@ -1271,6 +1583,12 @@ const zoneData: {
           y: 1444,
           placeNameId: 206,
           icon: "060448",
+        },
+        {
+          x: 1212,
+          y: 1145,
+          placeNameId: 207,
+          icon: "",
         },
         {
           x: 1631,
@@ -1355,6 +1673,12 @@ const zoneData: {
           y: 909,
           placeNameId: 34,
           icon: "060441",
+        },
+        {
+          x: 1722,
+          y: 1416,
+          placeNameId: 29,
+          icon: "",
         },
         {
           x: 1514,
@@ -1659,6 +1983,30 @@ const zoneData: {
       offsetZ: -44,
       markers: [
         {
+          x: 1800,
+          y: 1340,
+          placeNameId: 170,
+          icon: "",
+        },
+        {
+          x: 962,
+          y: 1182,
+          placeNameId: 171,
+          icon: "",
+        },
+        {
+          x: 1092,
+          y: 823,
+          placeNameId: 172,
+          icon: "",
+        },
+        {
+          x: 917,
+          y: 1589,
+          placeNameId: 173,
+          icon: "",
+        },
+        {
           x: 1688,
           y: 1553,
           placeNameId: 218,
@@ -1731,10 +2079,22 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 623,
+          y: 820,
+          placeNameId: 367,
+          icon: "",
+        },
+        {
           x: 1338,
           y: 1373,
           placeNameId: 368,
           icon: "060456",
+        },
+        {
+          x: 736,
+          y: 1452,
+          placeNameId: 369,
+          icon: "",
         },
         {
           x: 601,
@@ -1753,6 +2113,18 @@ const zoneData: {
           y: 1012,
           placeNameId: 34,
           icon: "060441",
+        },
+        {
+          x: 1329,
+          y: 1404,
+          placeNameId: 29,
+          icon: "",
+        },
+        {
+          x: 1329,
+          y: 1424,
+          placeNameId: 31,
+          icon: "",
         },
         {
           x: 1676,
@@ -1821,10 +2193,22 @@ const zoneData: {
           icon: "060434",
         },
         {
+          x: 1329,
+          y: 1444,
+          placeNameId: 461,
+          icon: "",
+        },
+        {
           x: 733,
           y: 1430,
           placeNameId: 461,
           icon: "060456",
+        },
+        {
+          x: 673,
+          y: 1450,
+          placeNameId: 368,
+          icon: "",
         },
         {
           x: 802,
@@ -2058,6 +2442,24 @@ const zoneData: {
       offsetY: 0,
       offsetZ: -15,
       markers: [
+        {
+          x: 442,
+          y: 1239,
+          placeNameId: 174,
+          icon: "",
+        },
+        {
+          x: 1839,
+          y: 1050,
+          placeNameId: 177,
+          icon: "",
+        },
+        {
+          x: 1436,
+          y: 830,
+          placeNameId: 178,
+          icon: "",
+        },
         {
           x: 1448,
           y: 1085,
@@ -2316,6 +2718,36 @@ const zoneData: {
       offsetZ: 12,
       markers: [
         {
+          x: 1095,
+          y: 1228,
+          placeNameId: 243,
+          icon: "",
+        },
+        {
+          x: 1056,
+          y: 934,
+          placeNameId: 244,
+          icon: "",
+        },
+        {
+          x: 720,
+          y: 646,
+          placeNameId: 245,
+          icon: "",
+        },
+        {
+          x: 483,
+          y: 255,
+          placeNameId: 246,
+          icon: "",
+        },
+        {
+          x: 1360,
+          y: 1179,
+          placeNameId: 261,
+          icon: "",
+        },
+        {
           x: 848,
           y: 1342,
           placeNameId: 262,
@@ -2326,6 +2758,12 @@ const zoneData: {
           y: 1162,
           placeNameId: 263,
           icon: "060448",
+        },
+        {
+          x: 1080,
+          y: 1118,
+          placeNameId: 264,
+          icon: "",
         },
         {
           x: 1079,
@@ -2368,6 +2806,12 @@ const zoneData: {
           y: 769,
           placeNameId: 269,
           icon: "060442",
+        },
+        {
+          x: 1163,
+          y: 921,
+          placeNameId: 270,
+          icon: "",
         },
         {
           x: 1115,
@@ -2446,6 +2890,12 @@ const zoneData: {
           y: 695,
           placeNameId: 728,
           icon: "060339",
+        },
+        {
+          x: 452,
+          y: 720,
+          placeNameId: 29,
+          icon: "",
         },
         {
           x: 778,
@@ -2733,6 +3183,24 @@ const zoneData: {
       offsetZ: -32,
       markers: [
         {
+          x: 1140,
+          y: 1488,
+          placeNameId: 247,
+          icon: "",
+        },
+        {
+          x: 954,
+          y: 736,
+          placeNameId: 248,
+          icon: "",
+        },
+        {
+          x: 1220,
+          y: 904,
+          placeNameId: 249,
+          icon: "",
+        },
+        {
           x: 866,
           y: 1242,
           placeNameId: 278,
@@ -2745,6 +3213,18 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1188,
+          y: 1220,
+          placeNameId: 280,
+          icon: "",
+        },
+        {
+          x: 907,
+          y: 1174,
+          placeNameId: 281,
+          icon: "",
+        },
+        {
           x: 1084,
           y: 1270,
           placeNameId: 282,
@@ -2755,6 +3235,12 @@ const zoneData: {
           y: 1374,
           placeNameId: 283,
           icon: "060442",
+        },
+        {
+          x: 960,
+          y: 1112,
+          placeNameId: 284,
+          icon: "",
         },
         {
           x: 1032,
@@ -2773,6 +3259,12 @@ const zoneData: {
           y: 1680,
           placeNameId: 287,
           icon: "060442",
+        },
+        {
+          x: 1126,
+          y: 856,
+          placeNameId: 288,
+          icon: "",
         },
         {
           x: 942,
@@ -2797,6 +3289,12 @@ const zoneData: {
           y: 916,
           placeNameId: 292,
           icon: "060442",
+        },
+        {
+          x: 729,
+          y: 682,
+          placeNameId: 293,
+          icon: "",
         },
         {
           x: 1118,
@@ -3110,6 +3608,36 @@ const zoneData: {
       offsetZ: -66,
       markers: [
         {
+          x: 798,
+          y: 1188,
+          placeNameId: 250,
+          icon: "",
+        },
+        {
+          x: 740,
+          y: 1403,
+          placeNameId: 251,
+          icon: "",
+        },
+        {
+          x: 1140,
+          y: 938,
+          placeNameId: 252,
+          icon: "",
+        },
+        {
+          x: 1320,
+          y: 1215,
+          placeNameId: 253,
+          icon: "",
+        },
+        {
+          x: 782,
+          y: 1028,
+          placeNameId: 299,
+          icon: "",
+        },
+        {
           x: 629,
           y: 1141,
           placeNameId: 300,
@@ -3126,6 +3654,12 @@ const zoneData: {
           y: 1024,
           placeNameId: 302,
           icon: "060442",
+        },
+        {
+          x: 438,
+          y: 646,
+          placeNameId: 303,
+          icon: "",
         },
         {
           x: 477,
@@ -3150,6 +3684,12 @@ const zoneData: {
           y: 1004,
           placeNameId: 307,
           icon: "060448",
+        },
+        {
+          x: 1203,
+          y: 1088,
+          placeNameId: 308,
+          icon: "",
         },
         {
           x: 1209,
@@ -3497,6 +4037,30 @@ const zoneData: {
       offsetZ: -23,
       markers: [
         {
+          x: 893,
+          y: 488,
+          placeNameId: 254,
+          icon: "",
+        },
+        {
+          x: 900,
+          y: 1046,
+          placeNameId: 255,
+          icon: "",
+        },
+        {
+          x: 619,
+          y: 976,
+          placeNameId: 256,
+          icon: "",
+        },
+        {
+          x: 861,
+          y: 1600,
+          placeNameId: 257,
+          icon: "",
+        },
+        {
           x: 1213,
           y: 573,
           placeNameId: 312,
@@ -3507,6 +4071,12 @@ const zoneData: {
           y: 607,
           placeNameId: 313,
           icon: "060448",
+        },
+        {
+          x: 754,
+          y: 807,
+          placeNameId: 314,
+          icon: "",
         },
         {
           x: 1119,
@@ -3988,6 +4558,24 @@ const zoneData: {
       offsetZ: -39,
       markers: [
         {
+          x: 1082,
+          y: 1169,
+          placeNameId: 258,
+          icon: "",
+        },
+        {
+          x: 825,
+          y: 770,
+          placeNameId: 259,
+          icon: "",
+        },
+        {
+          x: 629,
+          y: 728,
+          placeNameId: 260,
+          icon: "",
+        },
+        {
           x: 1043,
           y: 1440,
           placeNameId: 325,
@@ -4030,6 +4618,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 828,
+          y: 1109,
+          placeNameId: 330,
+          icon: "",
+        },
+        {
           x: 972,
           y: 1042,
           placeNameId: 331,
@@ -4046,6 +4640,12 @@ const zoneData: {
           y: 798,
           placeNameId: 333,
           icon: "060414",
+        },
+        {
+          x: 1336,
+          y: 1273,
+          placeNameId: 334,
+          icon: "",
         },
         {
           x: 1058,
@@ -4256,6 +4856,12 @@ const zoneData: {
           icon: "060441",
         },
         {
+          x: 721,
+          y: 732,
+          placeNameId: 52,
+          icon: "",
+        },
+        {
           x: 1440,
           y: 791,
           placeNameId: 55,
@@ -4272,6 +4878,12 @@ const zoneData: {
           y: 661,
           placeNameId: 57,
           icon: "060441",
+        },
+        {
+          x: 1155,
+          y: 900,
+          placeNameId: 68,
+          icon: "",
         },
         {
           x: 1151,
@@ -4304,6 +4916,12 @@ const zoneData: {
           icon: "060448",
         },
         {
+          x: 1355,
+          y: 1073,
+          placeNameId: 69,
+          icon: "",
+        },
+        {
           x: 1305,
           y: 991,
           placeNameId: 91,
@@ -4320,6 +4938,12 @@ const zoneData: {
           y: 1160,
           placeNameId: 93,
           icon: "060442",
+        },
+        {
+          x: 1089,
+          y: 1141,
+          placeNameId: 70,
+          icon: "",
         },
         {
           x: 1037,
@@ -4370,6 +4994,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 691,
+          y: 944,
+          placeNameId: 71,
+          icon: "",
+        },
+        {
           x: 432,
           y: 1092,
           placeNameId: 102,
@@ -4394,10 +5024,28 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 526,
+          y: 847,
+          placeNameId: 72,
+          icon: "",
+        },
+        {
           x: 469,
           y: 815,
           placeNameId: 106,
           icon: "060442",
+        },
+        {
+          x: 1054,
+          y: 961,
+          placeNameId: 156,
+          icon: "",
+        },
+        {
+          x: 1280,
+          y: 956,
+          placeNameId: 157,
+          icon: "",
         },
         {
           x: 1007,
@@ -4448,10 +5096,22 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 785,
+          y: 718,
+          placeNameId: 52,
+          icon: "",
+        },
+        {
           x: 1242,
           y: 1349,
           placeNameId: 475,
           icon: "060456",
+        },
+        {
+          x: 1292,
+          y: 1364,
+          placeNameId: 426,
+          icon: "",
         },
         {
           x: 971,
@@ -4660,10 +5320,22 @@ const zoneData: {
           icon: "060441",
         },
         {
+          x: 640,
+          y: 1227,
+          placeNameId: 73,
+          icon: "",
+        },
+        {
           x: 446,
           y: 1094,
           placeNameId: 155,
           icon: "060456",
+        },
+        {
+          x: 914,
+          y: 1364,
+          placeNameId: 74,
+          icon: "",
         },
         {
           x: 812,
@@ -4702,10 +5374,22 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 794,
+          y: 1121,
+          placeNameId: 75,
+          icon: "",
+        },
+        {
           x: 830,
           y: 791,
           placeNameId: 112,
           icon: "060442",
+        },
+        {
+          x: 1170,
+          y: 1007,
+          placeNameId: 76,
+          icon: "",
         },
         {
           x: 1247,
@@ -4736,6 +5420,12 @@ const zoneData: {
           y: 467,
           placeNameId: 117,
           icon: "060442",
+        },
+        {
+          x: 372,
+          y: 1115,
+          placeNameId: 53,
+          icon: "",
         },
         {
           x: 802,
@@ -5087,6 +5777,18 @@ const zoneData: {
           icon: "060441",
         },
         {
+          x: 740,
+          y: 1716,
+          placeNameId: 44,
+          icon: "",
+        },
+        {
+          x: 975,
+          y: 1032,
+          placeNameId: 78,
+          icon: "",
+        },
+        {
           x: 732,
           y: 826,
           placeNameId: 118,
@@ -5117,6 +5819,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 786,
+          y: 1554,
+          placeNameId: 79,
+          icon: "",
+        },
+        {
           x: 793,
           y: 1380,
           placeNameId: 123,
@@ -5129,16 +5837,34 @@ const zoneData: {
           icon: "060414",
         },
         {
+          x: 925,
+          y: 1425,
+          placeNameId: 126,
+          icon: "",
+        },
+        {
           x: 688,
           y: 1642,
           placeNameId: 127,
           icon: "060442",
         },
         {
+          x: 1096,
+          y: 1240,
+          placeNameId: 80,
+          icon: "",
+        },
+        {
           x: 1204,
           y: 1192,
           placeNameId: 128,
           icon: "060414",
+        },
+        {
+          x: 1180,
+          y: 888,
+          placeNameId: 81,
+          icon: "",
         },
         {
           x: 1203,
@@ -5163,6 +5889,12 @@ const zoneData: {
           y: 964,
           placeNameId: 132,
           icon: "060442",
+        },
+        {
+          x: 1512,
+          y: 1160,
+          placeNameId: 82,
+          icon: "",
         },
         {
           x: 1644,
@@ -5496,6 +6228,12 @@ const zoneData: {
       offsetZ: -82,
       markers: [
         {
+          x: 1305,
+          y: 1280,
+          placeNameId: 83,
+          icon: "",
+        },
+        {
           x: 1472,
           y: 1226,
           placeNameId: 135,
@@ -5514,6 +6252,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1310,
+          y: 1048,
+          placeNameId: 84,
+          icon: "",
+        },
+        {
           x: 1424,
           y: 1103,
           placeNameId: 138,
@@ -5524,6 +6268,12 @@ const zoneData: {
           y: 934,
           placeNameId: 139,
           icon: "060448",
+        },
+        {
+          x: 967,
+          y: 1377,
+          placeNameId: 85,
+          icon: "",
         },
         {
           x: 980,
@@ -5550,6 +6300,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1058,
+          y: 1010,
+          placeNameId: 86,
+          icon: "",
+        },
+        {
           x: 1123,
           y: 1189,
           placeNameId: 144,
@@ -5566,6 +6322,12 @@ const zoneData: {
           y: 1156,
           placeNameId: 146,
           icon: "060442",
+        },
+        {
+          x: 624,
+          y: 1143,
+          placeNameId: 63,
+          icon: "",
         },
         {
           x: 1031,
@@ -5842,6 +6604,36 @@ const zoneData: {
       offsetZ: 133,
       markers: [
         {
+          x: 1276,
+          y: 1278,
+          placeNameId: 380,
+          icon: "",
+        },
+        {
+          x: 1305,
+          y: 559,
+          placeNameId: 381,
+          icon: "",
+        },
+        {
+          x: 624,
+          y: 1442,
+          placeNameId: 382,
+          icon: "",
+        },
+        {
+          x: 723,
+          y: 926,
+          placeNameId: 383,
+          icon: "",
+        },
+        {
+          x: 1242,
+          y: 1017,
+          placeNameId: 384,
+          icon: "",
+        },
+        {
           x: 1237,
           y: 1383,
           placeNameId: 385,
@@ -5960,6 +6752,24 @@ const zoneData: {
           y: 1012,
           placeNameId: 404,
           icon: "060414",
+        },
+        {
+          x: 927,
+          y: 1110,
+          placeNameId: 405,
+          icon: "",
+        },
+        {
+          x: 834,
+          y: 672,
+          placeNameId: 406,
+          icon: "",
+        },
+        {
+          x: 756,
+          y: 767,
+          placeNameId: 407,
+          icon: "",
         },
         {
           x: 1247,
@@ -6510,6 +7320,24 @@ const zoneData: {
       offsetZ: -30,
       markers: [
         {
+          x: 443,
+          y: 789,
+          placeNameId: 409,
+          icon: "",
+        },
+        {
+          x: 980,
+          y: 260,
+          placeNameId: 409,
+          icon: "",
+        },
+        {
+          x: 1706,
+          y: 552,
+          placeNameId: 410,
+          icon: "",
+        },
+        {
           x: 1064,
           y: 356,
           placeNameId: 411,
@@ -6546,10 +7374,22 @@ const zoneData: {
           icon: "060448",
         },
         {
+          x: 1468,
+          y: 382,
+          placeNameId: 417,
+          icon: "",
+        },
+        {
           x: 1364,
           y: 655,
           placeNameId: 418,
           icon: "060414",
+        },
+        {
+          x: 1222,
+          y: 888,
+          placeNameId: 421,
+          icon: "",
         },
         {
           x: 1143,
@@ -6616,6 +7456,12 @@ const zoneData: {
           y: 765,
           placeNameId: 941,
           icon: "060442",
+        },
+        {
+          x: 1775,
+          y: 825,
+          placeNameId: 942,
+          icon: "",
         },
         {
           x: 1042,
@@ -7023,6 +7869,18 @@ const zoneData: {
       offsetZ: -10,
       markers: [
         {
+          x: 520,
+          y: 622,
+          placeNameId: 175,
+          icon: "",
+        },
+        {
+          x: 1254,
+          y: 553,
+          placeNameId: 176,
+          icon: "",
+        },
+        {
           x: 727,
           y: 445,
           placeNameId: 235,
@@ -7357,6 +8215,18 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1462,
+          y: 572,
+          placeNameId: 2223,
+          icon: "",
+        },
+        {
+          x: 1220,
+          y: 530,
+          placeNameId: 2205,
+          icon: "",
+        },
+        {
           x: 1682,
           y: 812,
           placeNameId: 2208,
@@ -7423,10 +8293,22 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 902,
+          y: 1426,
+          placeNameId: 2206,
+          icon: "",
+        },
+        {
           x: 766,
           y: 1012,
           placeNameId: 2220,
           icon: "060448",
+        },
+        {
+          x: 400,
+          y: 866,
+          placeNameId: 2211,
+          icon: "",
         },
         {
           x: 456,
@@ -7451,6 +8333,30 @@ const zoneData: {
           y: 266,
           placeNameId: 2214,
           icon: "060414",
+        },
+        {
+          x: 926,
+          y: 378,
+          placeNameId: 2210,
+          icon: "",
+        },
+        {
+          x: 1596,
+          y: 1434,
+          placeNameId: 2201,
+          icon: "",
+        },
+        {
+          x: 592,
+          y: 1598,
+          placeNameId: 2203,
+          icon: "",
+        },
+        {
+          x: 200,
+          y: 702,
+          placeNameId: 2202,
+          icon: "",
         },
         {
           x: 1458,
@@ -7711,16 +8617,64 @@ const zoneData: {
           icon: "060441",
         },
         {
+          x: 1750,
+          y: 830,
+          placeNameId: 2003,
+          icon: "",
+        },
+        {
+          x: 1570,
+          y: 1610,
+          placeNameId: 2004,
+          icon: "",
+        },
+        {
           x: 1276,
           y: 1770,
           placeNameId: 2005,
           icon: "060601",
         },
         {
+          x: 370,
+          y: 1362,
+          placeNameId: 2006,
+          icon: "",
+        },
+        {
+          x: 392,
+          y: 538,
+          placeNameId: 2008,
+          icon: "",
+        },
+        {
+          x: 1036,
+          y: 226,
+          placeNameId: 2007,
+          icon: "",
+        },
+        {
           x: 1450,
           y: 222,
           placeNameId: 2029,
           icon: "060442",
+        },
+        {
+          x: 1442,
+          y: 472,
+          placeNameId: 2019,
+          icon: "",
+        },
+        {
+          x: 1648,
+          y: 788,
+          placeNameId: 2053,
+          icon: "",
+        },
+        {
+          x: 1490,
+          y: 832,
+          placeNameId: 2020,
+          icon: "",
         },
         {
           x: 1530,
@@ -7787,6 +8741,12 @@ const zoneData: {
           y: 1056,
           placeNameId: 2025,
           icon: "060453",
+        },
+        {
+          x: 826,
+          y: 1324,
+          placeNameId: 2027,
+          icon: "",
         },
         {
           x: 522,
@@ -8003,6 +8963,42 @@ const zoneData: {
           icon: "060441",
         },
         {
+          x: 358,
+          y: 784,
+          placeNameId: 2052,
+          icon: "",
+        },
+        {
+          x: 924,
+          y: 516,
+          placeNameId: 2010,
+          icon: "",
+        },
+        {
+          x: 1306,
+          y: 628,
+          placeNameId: 2009,
+          icon: "",
+        },
+        {
+          x: 810,
+          y: 1878,
+          placeNameId: 2011,
+          icon: "",
+        },
+        {
+          x: 1360,
+          y: 264,
+          placeNameId: 2068,
+          icon: "",
+        },
+        {
+          x: 1362,
+          y: 864,
+          placeNameId: 2033,
+          icon: "",
+        },
+        {
           x: 1462,
           y: 1030,
           placeNameId: 2032,
@@ -8021,10 +9017,28 @@ const zoneData: {
           icon: "060414",
         },
         {
+          x: 1640,
+          y: 1802,
+          placeNameId: 2074,
+          icon: "",
+        },
+        {
           x: 988,
           y: 836,
           placeNameId: 2067,
           icon: "060448",
+        },
+        {
+          x: 948,
+          y: 1078,
+          placeNameId: 2039,
+          icon: "",
+        },
+        {
+          x: 1008,
+          y: 1532,
+          placeNameId: 2040,
+          icon: "",
         },
         {
           x: 1056,
@@ -8033,16 +9047,34 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 478,
+          y: 944,
+          placeNameId: 2069,
+          icon: "",
+        },
+        {
           x: 433,
           y: 1079,
           placeNameId: 2034,
           icon: "060414",
         },
         {
+          x: 652,
+          y: 1468,
+          placeNameId: 2035,
+          icon: "",
+        },
+        {
           x: 278,
           y: 1550,
           placeNameId: 2070,
           icon: "060442",
+        },
+        {
+          x: 488,
+          y: 1596,
+          placeNameId: 2073,
+          icon: "",
         },
         {
           x: 558,
@@ -8282,6 +9314,42 @@ const zoneData: {
           icon: "060935",
         },
         {
+          x: 598,
+          y: 752,
+          placeNameId: 2016,
+          icon: "",
+        },
+        {
+          x: 1302,
+          y: 1188,
+          placeNameId: 2014,
+          icon: "",
+        },
+        {
+          x: 748,
+          y: 1408,
+          placeNameId: 2015,
+          icon: "",
+        },
+        {
+          x: 524,
+          y: 1902,
+          placeNameId: 2017,
+          icon: "",
+        },
+        {
+          x: 1790,
+          y: 1590,
+          placeNameId: 2013,
+          icon: "",
+        },
+        {
+          x: 1592,
+          y: 1760,
+          placeNameId: 2012,
+          icon: "",
+        },
+        {
           x: 272,
           y: 372,
           placeNameId: 2079,
@@ -8304,6 +9372,12 @@ const zoneData: {
           y: 858,
           placeNameId: 2078,
           icon: "060442",
+        },
+        {
+          x: 530,
+          y: 860,
+          placeNameId: 2076,
+          icon: "",
         },
         {
           x: 922,
@@ -8639,6 +9713,18 @@ const zoneData: {
           icon: "060414",
         },
         {
+          x: 1308,
+          y: 188,
+          placeNameId: 2106,
+          icon: "",
+        },
+        {
+          x: 370,
+          y: 550,
+          placeNameId: 2105,
+          icon: "",
+        },
+        {
           x: 810,
           y: 1050,
           placeNameId: 2108,
@@ -8655,6 +9741,30 @@ const zoneData: {
           y: 1100,
           placeNameId: 2104,
           icon: "060600",
+        },
+        {
+          x: 706,
+          y: 1280,
+          placeNameId: 2152,
+          icon: "",
+        },
+        {
+          x: 1504,
+          y: 1536,
+          placeNameId: 2103,
+          icon: "",
+        },
+        {
+          x: 690,
+          y: 1906,
+          placeNameId: 2102,
+          icon: "",
+        },
+        {
+          x: 1186,
+          y: 1850,
+          placeNameId: 2153,
+          icon: "",
         },
         {
           x: 314,
@@ -8998,6 +10108,36 @@ const zoneData: {
           y: 390,
           placeNameId: 2301,
           icon: "060441",
+        },
+        {
+          x: 484,
+          y: 276,
+          placeNameId: 2109,
+          icon: "",
+        },
+        {
+          x: 1716,
+          y: 100,
+          placeNameId: 2110,
+          icon: "",
+        },
+        {
+          x: 1398,
+          y: 934,
+          placeNameId: 2114,
+          icon: "",
+        },
+        {
+          x: 260,
+          y: 1850,
+          placeNameId: 2112,
+          icon: "",
+        },
+        {
+          x: 1700,
+          y: 1500,
+          placeNameId: 2111,
+          icon: "",
         },
         {
           x: 338,
@@ -9424,6 +10564,12 @@ const zoneData: {
           icon: "060551",
         },
         {
+          x: 110,
+          y: 762,
+          placeNameId: 2612,
+          icon: "",
+        },
+        {
           x: 430,
           y: 550,
           placeNameId: 2614,
@@ -9436,6 +10582,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 445,
+          y: 1010,
+          placeNameId: 2617,
+          icon: "",
+        },
+        {
           x: 290,
           y: 842,
           placeNameId: 2618,
@@ -9446,6 +10598,12 @@ const zoneData: {
           y: 1260,
           placeNameId: 2620,
           icon: "060442",
+        },
+        {
+          x: 444,
+          y: 1444,
+          placeNameId: 2621,
+          icon: "",
         },
         {
           x: 358,
@@ -9472,6 +10630,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 846,
+          y: 420,
+          placeNameId: 2626,
+          icon: "",
+        },
+        {
           x: 1110,
           y: 335,
           placeNameId: 2627,
@@ -9482,6 +10646,12 @@ const zoneData: {
           y: 303,
           placeNameId: 2628,
           icon: "060442",
+        },
+        {
+          x: 1424,
+          y: 607,
+          placeNameId: 2630,
+          icon: "",
         },
         {
           x: 1197,
@@ -9514,10 +10684,46 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1740,
+          y: 1070,
+          placeNameId: 2638,
+          icon: "",
+        },
+        {
+          x: 1452,
+          y: 752,
+          placeNameId: 2639,
+          icon: "",
+        },
+        {
           x: 1467,
           y: 1670,
           placeNameId: 2640,
           icon: "060442",
+        },
+        {
+          x: 582,
+          y: 612,
+          placeNameId: 2600,
+          icon: "",
+        },
+        {
+          x: 900,
+          y: 1050,
+          placeNameId: 2601,
+          icon: "",
+        },
+        {
+          x: 1117,
+          y: 537,
+          placeNameId: 2602,
+          icon: "",
+        },
+        {
+          x: 1294,
+          y: 1380,
+          placeNameId: 2603,
+          icon: "",
         },
         {
           x: 1716,
@@ -9797,6 +11003,18 @@ const zoneData: {
           icon: "060551",
         },
         {
+          x: 1240,
+          y: 989,
+          placeNameId: 2750,
+          icon: "",
+        },
+        {
+          x: 310,
+          y: 412,
+          placeNameId: 2751,
+          icon: "",
+        },
+        {
           x: 1874,
           y: 1876,
           placeNameId: 2760,
@@ -9813,6 +11031,12 @@ const zoneData: {
           y: 1764,
           placeNameId: 2762,
           icon: "060442",
+        },
+        {
+          x: 1156,
+          y: 1567,
+          placeNameId: 2763,
+          icon: "",
         },
         {
           x: 1502,
@@ -9879,6 +11103,12 @@ const zoneData: {
           y: 172,
           placeNameId: 2777,
           icon: "060442",
+        },
+        {
+          x: 456,
+          y: 1711,
+          placeNameId: 2778,
+          icon: "",
         },
         {
           x: 65,
@@ -10201,6 +11431,30 @@ const zoneData: {
           icon: "060551",
         },
         {
+          x: 1385,
+          y: 883,
+          placeNameId: 2752,
+          icon: "",
+        },
+        {
+          x: 959,
+          y: 1310,
+          placeNameId: 2753,
+          icon: "",
+        },
+        {
+          x: 1500,
+          y: 391,
+          placeNameId: 2754,
+          icon: "",
+        },
+        {
+          x: 745,
+          y: 508,
+          placeNameId: 2755,
+          icon: "",
+        },
+        {
           x: 1785,
           y: 805,
           placeNameId: 2789,
@@ -10219,10 +11473,28 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1395,
+          y: 965,
+          placeNameId: 2792,
+          icon: "",
+        },
+        {
           x: 1457,
           y: 933,
           placeNameId: 2793,
           icon: "060453",
+        },
+        {
+          x: 1777,
+          y: 1141,
+          placeNameId: 2794,
+          icon: "",
+        },
+        {
+          x: 983,
+          y: 1176,
+          placeNameId: 2795,
+          icon: "",
         },
         {
           x: 991,
@@ -10542,6 +11814,30 @@ const zoneData: {
           icon: "060551",
         },
         {
+          x: 622,
+          y: 414,
+          placeNameId: 2604,
+          icon: "",
+        },
+        {
+          x: 1242,
+          y: 694,
+          placeNameId: 2605,
+          icon: "",
+        },
+        {
+          x: 692,
+          y: 1370,
+          placeNameId: 2606,
+          icon: "",
+        },
+        {
+          x: 1165,
+          y: 1385,
+          placeNameId: 2607,
+          icon: "",
+        },
+        {
           x: 1135,
           y: 275,
           placeNameId: 2646,
@@ -10558,6 +11854,12 @@ const zoneData: {
           y: 313,
           placeNameId: 2641,
           icon: "060442",
+        },
+        {
+          x: 353,
+          y: 635,
+          placeNameId: 2642,
+          icon: "",
         },
         {
           x: 950,
@@ -10578,6 +11880,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1215,
+          y: 415,
+          placeNameId: 2647,
+          icon: "",
+        },
+        {
           x: 1385,
           y: 340,
           placeNameId: 2648,
@@ -10588,6 +11896,12 @@ const zoneData: {
           y: 240,
           placeNameId: 2649,
           icon: "060442",
+        },
+        {
+          x: 1450,
+          y: 535,
+          placeNameId: 2650,
+          icon: "",
         },
         {
           x: 1590,
@@ -10614,6 +11928,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 550,
+          y: 1020,
+          placeNameId: 2655,
+          icon: "",
+        },
+        {
           x: 1325,
           y: 995,
           placeNameId: 2656,
@@ -10624,6 +11944,12 @@ const zoneData: {
           y: 1530,
           placeNameId: 2657,
           icon: "060442",
+        },
+        {
+          x: 370,
+          y: 1300,
+          placeNameId: 2658,
+          icon: "",
         },
         {
           x: 160,
@@ -10666,6 +11992,18 @@ const zoneData: {
           y: 1385,
           placeNameId: 2666,
           icon: "060442",
+        },
+        {
+          x: 1375,
+          y: 1240,
+          placeNameId: 2667,
+          icon: "",
+        },
+        {
+          x: 1190,
+          y: 1625,
+          placeNameId: 2668,
+          icon: "",
         },
         {
           x: 1330,
@@ -10901,6 +12239,36 @@ const zoneData: {
           icon: "060551",
         },
         {
+          x: 263,
+          y: 845,
+          placeNameId: 2608,
+          icon: "",
+        },
+        {
+          x: 855,
+          y: 865,
+          placeNameId: 2609,
+          icon: "",
+        },
+        {
+          x: 1690,
+          y: 1580,
+          placeNameId: 2610,
+          icon: "",
+        },
+        {
+          x: 1400,
+          y: 300,
+          placeNameId: 2611,
+          icon: "",
+        },
+        {
+          x: 1555,
+          y: 855,
+          placeNameId: 2692,
+          icon: "",
+        },
+        {
           x: 373,
           y: 1005,
           placeNameId: 2670,
@@ -10953,6 +12321,12 @@ const zoneData: {
           y: 1650,
           placeNameId: 2679,
           icon: "060442",
+        },
+        {
+          x: 1024,
+          y: 1960,
+          placeNameId: 2680,
+          icon: "",
         },
         {
           x: 180,
@@ -11366,6 +12740,30 @@ const zoneData: {
           icon: "060551",
         },
         {
+          x: 1515,
+          y: 1143,
+          placeNameId: 2756,
+          icon: "",
+        },
+        {
+          x: 1355,
+          y: 619,
+          placeNameId: 2757,
+          icon: "",
+        },
+        {
+          x: 415,
+          y: 1001,
+          placeNameId: 2758,
+          icon: "",
+        },
+        {
+          x: 734,
+          y: 1413,
+          placeNameId: 2759,
+          icon: "",
+        },
+        {
           x: 1580,
           y: 1363,
           placeNameId: 2814,
@@ -11382,6 +12780,24 @@ const zoneData: {
           y: 830,
           placeNameId: 2816,
           icon: "060442",
+        },
+        {
+          x: 1759,
+          y: 627,
+          placeNameId: 2817,
+          icon: "",
+        },
+        {
+          x: 1755,
+          y: 1059,
+          placeNameId: 2818,
+          icon: "",
+        },
+        {
+          x: 1797,
+          y: 1461,
+          placeNameId: 2819,
+          icon: "",
         },
         {
           x: 1316,
@@ -11402,10 +12818,22 @@ const zoneData: {
           icon: "060453",
         },
         {
+          x: 909,
+          y: 1146,
+          placeNameId: 2823,
+          icon: "",
+        },
+        {
           x: 1191,
           y: 1045,
           placeNameId: 2824,
           icon: "060442",
+        },
+        {
+          x: 1871,
+          y: 948,
+          placeNameId: 2825,
+          icon: "",
         },
         {
           x: 1353,
@@ -11414,10 +12842,28 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 980,
+          y: 388,
+          placeNameId: 2828,
+          icon: "",
+        },
+        {
           x: 1268,
           y: 468,
           placeNameId: 2829,
           icon: "060442",
+        },
+        {
+          x: 660,
+          y: 310,
+          placeNameId: 2830,
+          icon: "",
+        },
+        {
+          x: 924,
+          y: 240,
+          placeNameId: 2831,
+          icon: "",
         },
         {
           x: 959,
@@ -11460,6 +12906,18 @@ const zoneData: {
           y: 1621,
           placeNameId: 2838,
           icon: "060442",
+        },
+        {
+          x: 1320,
+          y: 1780,
+          placeNameId: 2839,
+          icon: "",
+        },
+        {
+          x: 255,
+          y: 1830,
+          placeNameId: 2840,
+          icon: "",
         },
         {
           x: 571,
@@ -11654,6 +13112,30 @@ const zoneData: {
       offsetZ: -2,
       markers: [
         {
+          x: 950,
+          y: 1050,
+          placeNameId: 3036,
+          icon: "",
+        },
+        {
+          x: 1700,
+          y: 1350,
+          placeNameId: 3037,
+          icon: "",
+        },
+        {
+          x: 1080,
+          y: 485,
+          placeNameId: 3038,
+          icon: "",
+        },
+        {
+          x: 650,
+          y: 1485,
+          placeNameId: 3039,
+          icon: "",
+        },
+        {
           x: 1200,
           y: 1075,
           placeNameId: 3040,
@@ -11664,6 +13146,18 @@ const zoneData: {
           y: 1355,
           placeNameId: 3041,
           icon: "060442",
+        },
+        {
+          x: 1365,
+          y: 1210,
+          placeNameId: 3042,
+          icon: "",
+        },
+        {
+          x: 1990,
+          y: 1190,
+          placeNameId: 3043,
+          icon: "",
         },
         {
           x: 1778,
@@ -11720,6 +13214,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1100,
+          y: 735,
+          placeNameId: 3053,
+          icon: "",
+        },
+        {
           x: 1260,
           y: 790,
           placeNameId: 3054,
@@ -11748,6 +13248,12 @@ const zoneData: {
           y: 765,
           placeNameId: 3058,
           icon: "060442",
+        },
+        {
+          x: 975,
+          y: 1825,
+          placeNameId: 3059,
+          icon: "",
         },
         {
           x: 1120,
@@ -11790,6 +13296,12 @@ const zoneData: {
           y: 1020,
           placeNameId: 3066,
           icon: "060442",
+        },
+        {
+          x: 930,
+          y: 1280,
+          placeNameId: 3067,
+          icon: "",
         },
         {
           x: 400,
@@ -12083,6 +13595,30 @@ const zoneData: {
       offsetZ: 0,
       markers: [
         {
+          x: 1615,
+          y: 1175,
+          placeNameId: 3070,
+          icon: "",
+        },
+        {
+          x: 585,
+          y: 1300,
+          placeNameId: 3071,
+          icon: "",
+        },
+        {
+          x: 550,
+          y: 690,
+          placeNameId: 3072,
+          icon: "",
+        },
+        {
+          x: 1450,
+          y: 330,
+          placeNameId: 3073,
+          icon: "",
+        },
+        {
           x: 1650,
           y: 1575,
           placeNameId: 3074,
@@ -12119,6 +13655,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1025,
+          y: 1300,
+          placeNameId: 3100,
+          icon: "",
+        },
+        {
           x: 1475,
           y: 1315,
           placeNameId: 3081,
@@ -12129,6 +13671,12 @@ const zoneData: {
           y: 1085,
           placeNameId: 3082,
           icon: "060442",
+        },
+        {
+          x: 1485,
+          y: 1350,
+          placeNameId: 3083,
+          icon: "",
         },
         {
           x: 1186,
@@ -12147,6 +13695,12 @@ const zoneData: {
           y: 1900,
           placeNameId: 3086,
           icon: "060442",
+        },
+        {
+          x: 1260,
+          y: 1780,
+          placeNameId: 3087,
+          icon: "",
         },
         {
           x: 1320,
@@ -12221,6 +13775,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1060,
+          y: 1465,
+          placeNameId: 3080,
+          icon: "",
+        },
+        {
           x: 265,
           y: 1900,
           placeNameId: 3101,
@@ -12255,6 +13815,12 @@ const zoneData: {
           y: 214,
           placeNameId: 2997,
           icon: "060414",
+        },
+        {
+          x: 1285,
+          y: 695,
+          placeNameId: 3108,
+          icon: "",
         },
         {
           x: 1395,
@@ -12387,6 +13953,12 @@ const zoneData: {
           y: 1370,
           placeNameId: 3374,
           icon: "060311",
+        },
+        {
+          x: 670,
+          y: 870,
+          placeNameId: 3106,
+          icon: "",
         },
         {
           x: 568,
@@ -12622,10 +14194,46 @@ const zoneData: {
       offsetZ: -117,
       markers: [
         {
+          x: 1425,
+          y: 370,
+          placeNameId: 3114,
+          icon: "",
+        },
+        {
+          x: 1730,
+          y: 860,
+          placeNameId: 3115,
+          icon: "",
+        },
+        {
+          x: 375,
+          y: 580,
+          placeNameId: 3116,
+          icon: "",
+        },
+        {
+          x: 400,
+          y: 960,
+          placeNameId: 3117,
+          icon: "",
+        },
+        {
+          x: 805,
+          y: 1830,
+          placeNameId: 3118,
+          icon: "",
+        },
+        {
           x: 1695,
           y: 370,
           placeNameId: 3119,
           icon: "060448",
+        },
+        {
+          x: 1550,
+          y: 610,
+          placeNameId: 3120,
+          icon: "",
         },
         {
           x: 1490,
@@ -12686,6 +14294,12 @@ const zoneData: {
           y: 1545,
           placeNameId: 3130,
           icon: "060442",
+        },
+        {
+          x: 1590,
+          y: 1570,
+          placeNameId: 3131,
+          icon: "",
         },
         {
           x: 1005,
@@ -12752,6 +14366,12 @@ const zoneData: {
           y: 1725,
           placeNameId: 3142,
           icon: "060442",
+        },
+        {
+          x: 1500,
+          y: 1950,
+          placeNameId: 3143,
+          icon: "",
         },
         {
           x: 1715,
@@ -12842,6 +14462,12 @@ const zoneData: {
           y: 1530,
           placeNameId: 0,
           icon: "060352",
+        },
+        {
+          x: 400,
+          y: 1660,
+          placeNameId: 3107,
+          icon: "",
         },
         {
           x: 549,
@@ -13052,6 +14678,24 @@ const zoneData: {
       offsetZ: 0,
       markers: [
         {
+          x: 220,
+          y: 1625,
+          placeNameId: 3144,
+          icon: "",
+        },
+        {
+          x: 1100,
+          y: 1195,
+          placeNameId: 3145,
+          icon: "",
+        },
+        {
+          x: 1785,
+          y: 435,
+          placeNameId: 3146,
+          icon: "",
+        },
+        {
           x: 680,
           y: 1535,
           placeNameId: 3147,
@@ -13098,6 +14742,12 @@ const zoneData: {
           y: 1039,
           placeNameId: 3154,
           icon: "060442",
+        },
+        {
+          x: 400,
+          y: 545,
+          placeNameId: 3155,
+          icon: "",
         },
         {
           x: 952,
@@ -13202,10 +14852,28 @@ const zoneData: {
           icon: "060311",
         },
         {
+          x: 1072,
+          y: 748,
+          placeNameId: 3356,
+          icon: "",
+        },
+        {
           x: 1156,
           y: 790,
           placeNameId: 3360,
           icon: "060442",
+        },
+        {
+          x: 950,
+          y: 1440,
+          placeNameId: 3357,
+          icon: "",
+        },
+        {
+          x: 400,
+          y: 1133,
+          placeNameId: 3358,
+          icon: "",
         },
         {
           x: 980,
@@ -13427,6 +15095,30 @@ const zoneData: {
       offsetZ: 0,
       markers: [
         {
+          x: 645,
+          y: 1885,
+          placeNameId: 3165,
+          icon: "",
+        },
+        {
+          x: 345,
+          y: 1400,
+          placeNameId: 3166,
+          icon: "",
+        },
+        {
+          x: 1590,
+          y: 1335,
+          placeNameId: 3167,
+          icon: "",
+        },
+        {
+          x: 1410,
+          y: 370,
+          placeNameId: 3168,
+          icon: "",
+        },
+        {
           x: 620,
           y: 1580,
           placeNameId: 3169,
@@ -13613,10 +15305,22 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 620,
+          y: 1720,
+          placeNameId: 3362,
+          icon: "",
+        },
+        {
           x: 560,
           y: 1220,
           placeNameId: 3363,
           icon: "060442",
+        },
+        {
+          x: 824,
+          y: 1060,
+          placeNameId: 3364,
+          icon: "",
         },
         {
           x: 434,
@@ -13641,6 +15345,12 @@ const zoneData: {
           y: 640,
           placeNameId: 3368,
           icon: "060442",
+        },
+        {
+          x: 1575,
+          y: 700,
+          placeNameId: 3373,
+          icon: "",
         },
         {
           x: 448,
@@ -13840,6 +15550,24 @@ const zoneData: {
       offsetY: 0,
       offsetZ: 548,
       markers: [
+        {
+          x: 1268,
+          y: 390,
+          placeNameId: 3192,
+          icon: "",
+        },
+        {
+          x: 800,
+          y: 1090,
+          placeNameId: 3193,
+          icon: "",
+        },
+        {
+          x: 1100,
+          y: 1800,
+          placeNameId: 3194,
+          icon: "",
+        },
         {
           x: 1585,
           y: 825,
@@ -14188,6 +15916,12 @@ const zoneData: {
           icon: "060414",
         },
         {
+          x: 700,
+          y: 260,
+          placeNameId: 3829,
+          icon: "",
+        },
+        {
           x: 1005,
           y: 160,
           placeNameId: 3830,
@@ -14242,10 +15976,22 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1250,
+          y: 355,
+          placeNameId: 3839,
+          icon: "",
+        },
+        {
           x: 1401,
           y: 287,
           placeNameId: 3840,
           icon: "060442",
+        },
+        {
+          x: 1000,
+          y: 530,
+          placeNameId: 3841,
+          icon: "",
         },
         {
           x: 1475,
@@ -14282,6 +16028,12 @@ const zoneData: {
           y: 605,
           placeNameId: 3847,
           icon: "060442",
+        },
+        {
+          x: 620,
+          y: 1100,
+          placeNameId: 3848,
+          icon: "",
         },
         {
           x: 1170,
@@ -14463,6 +16215,24 @@ const zoneData: {
           placeNameId: 3712,
           icon: "060467",
         },
+        {
+          x: 970,
+          y: 955,
+          placeNameId: 0,
+          icon: "060927",
+        },
+        {
+          x: 966,
+          y: 964,
+          placeNameId: 0,
+          icon: "060935",
+        },
+        {
+          x: 965,
+          y: 974,
+          placeNameId: 0,
+          icon: "060412",
+        },
       ],
       exVersionId: 4,
       filter: true,
@@ -14604,6 +16374,12 @@ const zoneData: {
           icon: "060414",
         },
         {
+          x: 950,
+          y: 1450,
+          placeNameId: 3879,
+          icon: "",
+        },
+        {
           x: 1220,
           y: 1652,
           placeNameId: 3880,
@@ -14626,6 +16402,12 @@ const zoneData: {
           y: 1550,
           placeNameId: 3884,
           icon: "060442",
+        },
+        {
+          x: 650,
+          y: 750,
+          placeNameId: 3885,
+          icon: "",
         },
         {
           x: 498,
@@ -14652,6 +16434,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1350,
+          y: 920,
+          placeNameId: 3892,
+          icon: "",
+        },
+        {
           x: 1570,
           y: 375,
           placeNameId: 3893,
@@ -14676,6 +16464,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1450,
+          y: 980,
+          placeNameId: 3897,
+          icon: "",
+        },
+        {
           x: 1170,
           y: 1180,
           placeNameId: 3898,
@@ -14692,6 +16486,12 @@ const zoneData: {
           y: 780,
           placeNameId: 3900,
           icon: "060442",
+        },
+        {
+          x: 1470,
+          y: 1550,
+          placeNameId: 3901,
+          icon: "",
         },
         {
           x: 1190,
@@ -14794,6 +16594,12 @@ const zoneData: {
           y: 1358,
           placeNameId: 4030,
           icon: "060442",
+        },
+        {
+          x: 1185,
+          y: 1803,
+          placeNameId: 0,
+          icon: "063973",
         },
       ],
       exVersionId: 4,
@@ -14943,6 +16749,12 @@ const zoneData: {
           icon: "060441",
         },
         {
+          x: 950,
+          y: 1300,
+          placeNameId: 3902,
+          icon: "",
+        },
+        {
           x: 616,
           y: 1504,
           placeNameId: 3903,
@@ -14967,6 +16779,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1350,
+          y: 1500,
+          placeNameId: 3907,
+          icon: "",
+        },
+        {
           x: 1160,
           y: 1670,
           placeNameId: 3908,
@@ -14977,6 +16795,12 @@ const zoneData: {
           y: 1600,
           placeNameId: 3909,
           icon: "060442",
+        },
+        {
+          x: 1100,
+          y: 1050,
+          placeNameId: 3910,
+          icon: "",
         },
         {
           x: 500,
@@ -15009,6 +16833,18 @@ const zoneData: {
           icon: "060453",
         },
         {
+          x: 1645,
+          y: 450,
+          placeNameId: 3916,
+          icon: "",
+        },
+        {
+          x: 1100,
+          y: 450,
+          placeNameId: 3917,
+          icon: "",
+        },
+        {
           x: 800,
           y: 380,
           placeNameId: 3918,
@@ -15025,6 +16861,18 @@ const zoneData: {
           y: 450,
           placeNameId: 3920,
           icon: "060442",
+        },
+        {
+          x: 820,
+          y: 1000,
+          placeNameId: 3921,
+          icon: "",
+        },
+        {
+          x: 1400,
+          y: 260,
+          placeNameId: 3922,
+          icon: "",
         },
         {
           x: 525,
@@ -15232,6 +17080,12 @@ const zoneData: {
           icon: "060467",
         },
         {
+          x: 300,
+          y: 1550,
+          placeNameId: 3949,
+          icon: "",
+        },
+        {
           x: 457,
           y: 1674,
           placeNameId: 3949,
@@ -15242,6 +17096,12 @@ const zoneData: {
           y: 1600,
           placeNameId: 3950,
           icon: "060442",
+        },
+        {
+          x: 1050,
+          y: 1700,
+          placeNameId: 3951,
+          icon: "",
         },
         {
           x: 835,
@@ -15280,6 +17140,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 850,
+          y: 1000,
+          placeNameId: 3958,
+          icon: "",
+        },
+        {
           x: 840,
           y: 1205,
           placeNameId: 3959,
@@ -15310,16 +17176,46 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1600,
+          y: 1320,
+          placeNameId: 3964,
+          icon: "",
+        },
+        {
           x: 1650,
           y: 1200,
           placeNameId: 3965,
           icon: "060442",
         },
         {
+          x: 950,
+          y: 620,
+          placeNameId: 3966,
+          icon: "",
+        },
+        {
           x: 1023,
           y: 511,
           placeNameId: 3966,
           icon: "060453",
+        },
+        {
+          x: 1027,
+          y: 350,
+          placeNameId: 3967,
+          icon: "",
+        },
+        {
+          x: 430,
+          y: 480,
+          placeNameId: 3968,
+          icon: "",
+        },
+        {
+          x: 1670,
+          y: 480,
+          placeNameId: 3969,
+          icon: "",
         },
         {
           x: 538,
@@ -15515,6 +17411,12 @@ const zoneData: {
       offsetZ: 44,
       markers: [
         {
+          x: 350,
+          y: 1450,
+          placeNameId: 3970,
+          icon: "",
+        },
+        {
           x: 700,
           y: 1650,
           placeNameId: 3971,
@@ -15537,6 +17439,12 @@ const zoneData: {
           y: 1000,
           placeNameId: 3974,
           icon: "060442",
+        },
+        {
+          x: 1100,
+          y: 550,
+          placeNameId: 3975,
+          icon: "",
         },
         {
           x: 675,
@@ -15569,6 +17477,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 1700,
+          y: 1550,
+          placeNameId: 3981,
+          icon: "",
+        },
+        {
           x: 1536,
           y: 1165,
           placeNameId: 3982,
@@ -15597,6 +17511,12 @@ const zoneData: {
           y: 1250,
           placeNameId: 3987,
           icon: "060442",
+        },
+        {
+          x: 1080,
+          y: 1150,
+          placeNameId: 3988,
+          icon: "",
         },
         {
           x: 1150,
@@ -15885,6 +17805,12 @@ const zoneData: {
       offsetZ: -161,
       markers: [
         {
+          x: 900,
+          y: 1350,
+          placeNameId: 3925,
+          icon: "",
+        },
+        {
           x: 1300,
           y: 1840,
           placeNameId: 3926,
@@ -15933,6 +17859,12 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 460,
+          y: 960,
+          placeNameId: 3934,
+          icon: "",
+        },
+        {
           x: 682,
           y: 1055,
           placeNameId: 3935,
@@ -15963,6 +17895,18 @@ const zoneData: {
           icon: "060442",
         },
         {
+          x: 635,
+          y: 850,
+          placeNameId: 3940,
+          icon: "",
+        },
+        {
+          x: 500,
+          y: 400,
+          placeNameId: 3941,
+          icon: "",
+        },
+        {
           x: 677,
           y: 477,
           placeNameId: 3942,
@@ -15979,6 +17923,12 @@ const zoneData: {
           y: 370,
           placeNameId: 3944,
           icon: "060442",
+        },
+        {
+          x: 1400,
+          y: 550,
+          placeNameId: 3945,
+          icon: "",
         },
         {
           x: 1200,
@@ -16247,90 +18197,107 @@ const regionData: {
   huntRegions: [
     {
       key: "EW",
-      css: "bg-amber-lighten-3 text-black",
       zoneIds: [956, 957, 958, 959, 960, 961],
+      color: "black",
+      bgColor: "#ffe082",
     },
     {
       key: "ShB",
-      css: "bg-grey-darken-2 text-white",
       zoneIds: [813, 814, 815, 816, 817, 818],
+      color: "white",
+      bgColor: "#616161",
     },
     {
       key: "SB",
-      css: "bg-red-darken-2 text-white",
       zoneIds: [612, 620, 621, 613, 614, 622],
+      color: "white",
+      bgColor: "#d32f2f",
     },
     {
       key: "HW",
-      css: "bg-indigo-darken-2 text-white",
       zoneIds: [397, 401, 402, 398, 399, 400],
+      color: "white",
+      bgColor: "#303f9f",
     },
     {
       key: "LaNoscea",
-      css: "bg-red-lighten-2 text-black",
       zoneIds: [134, 135, 137, 138, 139, 180],
+      color: "black",
+      bgColor: "#e57373",
     },
     {
       key: "Gridania",
-      css: "bg-yellow-lighten-2 text-black",
       zoneIds: [148, 152, 153, 154],
+      color: "black",
+      bgColor: "#fff176",
     },
     {
       key: "Thanalan",
-      css: "bg-brown-lighten-2 text-black",
       zoneIds: [140, 141, 145, 146, 147],
+      color: "black",
+      bgColor: "#a1887f",
     },
     {
       key: "Frontier",
-      css: "bg-brown-lighten-4 text-black",
       zoneIds: [155, 156],
+      color: "black",
+      bgColor: "#d7ccc8",
     },
   ],
   weatherRegions: [
     {
       key: "EW",
-      css: "bg-amber-lighten-3 text-black",
       zoneIds: [956, 957, 958, 959, 960, 961],
+      color: "black",
+      bgColor: "#ffe082",
     },
     {
       key: "ShB",
-      css: "bg-grey-darken-2 text-white",
       zoneIds: [813, 814, 815, 816, 817, 818],
+      color: "white",
+      bgColor: "#616161",
     },
     {
       key: "SB",
-      css: "bg-red-darken-2 text-white",
       zoneIds: [612, 620, 621, 613, 614, 622],
+      color: "white",
+      bgColor: "#d32f2f",
     },
     {
       key: "HW",
-      css: "bg-indigo-darken-2 text-white",
       zoneIds: [397, 401, 402, 398, 399, 400],
+      color: "white",
+      bgColor: "#303f9f",
     },
     {
       key: "LaNoscea",
-      css: "bg-red-lighten-2 text-black",
       zoneIds: [134, 135, 137, 138, 139, 180],
+      color: "black",
+      bgColor: "#e57373",
     },
     {
       key: "Gridania",
-      css: "bg-yellow-lighten-2 text-black",
       zoneIds: [148, 152, 153, 154],
+      color: "black",
+      bgColor: "#fff176",
     },
     {
       key: "Thanalan",
-      css: "bg-brown-lighten-2 text-black",
       zoneIds: [140, 141, 145, 146, 147],
+      color: "black",
+      bgColor: "#a1887f",
     },
     {
       key: "Frontier",
-      css: "bg-brown-lighten-4 text-black",
       zoneIds: [155, 156],
+      color: "black",
+      bgColor: "#d7ccc8",
     },
     {
       key: "Others",
-      css: "bg-lime-lighten-2 text-black",
       zoneIds: [732, 763, 795, 827, 1055],
+      color: "black",
+      bgColor: "#dce775",
     },
   ],
 };
