@@ -2,6 +2,8 @@ param(
     [Parameter(Mandatory = $true)]
     [int[]]$MobIds,
     [Parameter(Mandatory = $true)]
+    [int[]]$PlaceNameIds,
+    [Parameter(Mandatory = $true)]
     [System.Collections.Generic.SortedDictionary[int, int]]$PlaceNameIdToZoneId,
     [Parameter(Mandatory = $true)]
     [int[]]$WeatherIds
@@ -17,6 +19,7 @@ Import-Module -Force .\SaintCoinach.psm1 -Function `
 $message = [ordered]@{
     ja = [ordered]@{
         BNpcName  = [ordered]@{}
+        PlaceName = [ordered]@{}
         ZoneName  = [ordered]@{}
         Weather   = [ordered]@{}
         Region    = [ordered]@{}
@@ -24,6 +27,7 @@ $message = [ordered]@{
     }
     en = [ordered]@{
         BNpcName  = [ordered]@{}
+        PlaceName = [ordered]@{}
         ZoneName  = [ordered]@{}
         Weather   = [ordered]@{}
         Region    = [ordered]@{}
@@ -31,6 +35,7 @@ $message = [ordered]@{
     }
     de = [ordered] @{
         BNpcName  = [ordered]@{}
+        PlaceName = [ordered]@{}
         ZoneName  = [ordered]@{}
         Weather   = [ordered]@{}
         Region    = [ordered]@{}
@@ -38,14 +43,13 @@ $message = [ordered]@{
     }
     fr = [ordered]@{
         BNpcName  = [ordered]@{}
+        PlaceName = [ordered]@{}
         ZoneName  = [ordered]@{}
         Weather   = [ordered]@{}
         Region    = [ordered]@{}
         ExVersion = [ordered]@{}
     }
 }
-
-$uniquePlaceNameIds = $PlaceNameIdToZoneId.Keys
 
 $regionJson = Get-JsonData 'regions'
 
@@ -56,7 +60,17 @@ foreach ($lang in $message.Keys) {
             $message[$lang].BNpcName[$_.'#'] = [string]$_.Singular
         }
     Import-SaintCoinachCsv -Name 'PlaceName' -Lang $lang |
-        Where-Object { $uniquePlaceNameIds.Contains([int]$_.'#') } |
+        Where-Object { $PlaceNameIds.Contains([int]$_.'#') } |
+        ForEach-Object {
+            [PSCustomObject]@{
+                Id   = [int]$_.'#'
+                Name = $_.Name
+            }
+        } | Sort-Object Id | ForEach-Object {
+            $message[$lang].PlaceName[[string]$_.Id] = [string]$_.Name
+        }
+    Import-SaintCoinachCsv -Name 'PlaceName' -Lang $lang |
+        Where-Object { $PlaceNameIdToZoneId.Keys.Contains([int]$_.'#') } |
         ForEach-Object {
             $placeNameId = [int]$_.'#'
             [PSCustomObject]@{
@@ -89,6 +103,7 @@ $ttsJson = Get-JsonData 'tts'
 
 interface Message {
   BNpcName: Record<number, string>;
+  PlaceName: Record<number, string>;
   ZoneName: Record<number, string>;
   Weather: Record<number, string>;
   Region: Record<string, string>;
@@ -100,5 +115,4 @@ const messages: Record<string, Message> = $(ConvertTo-DataJson $message);
 const tts: Record<string, Partial<Message>> = $(ConvertTo-DataJson $ttsJson);
 
 export { messages, tts, type Message };
-`;
 "@ | Set-ResourceData -Name 'messages'

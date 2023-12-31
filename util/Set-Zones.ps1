@@ -2,7 +2,7 @@ param(
     [Parameter(Mandatory = $false)]
     [System.Collections.Generic.SortedSet[int]]$UniquePlaceNameIds,
     [Parameter(Mandatory = $false)]
-    [System.Collections.Generic.SortedDictionary[int, int]]$ZoneIdToPlaceNameId
+    [System.Collections.Generic.SortedDictionary[int, int]]$PlaceNameIdToZoneId
 )
 
 Import-Module -Force .\SaintCoinach.psm1 -Function `
@@ -64,8 +64,13 @@ $mapMarkers = Import-SaintCoinachCsv -Name 'MapMarker' |
 $allZones = Import-SaintCoinachCsv -Name 'TerritoryType' | 
     Where-Object { $uniqueZoneIds.Contains([int]$_.'#') } |
     ForEach-Object {
-        if ($ZoneIdToPlaceNameId) {
-            $ZoneIdToPlaceNameId.Add([int]$_.'#', [int]$_.PlaceName)
+        $id = [int]$_.'#'
+        $placeNameId = [int]$_.PlaceName
+        if ($PlaceNameIdToZoneId) {
+            [void]$PlaceNameIdToZoneId.Add($placeNameId, $id)
+        }
+        if ($UniquePlaceNameIds) {
+            [void]$UniquePlaceNameIds.Add($placeNameId)
         }
         $offsetZ = $zoneIdToOffsetZ[[int]$_.'#']
         $map = $mapIdToMap[[int]$_.Map]
@@ -113,14 +118,6 @@ $fieldZones = $allZones | Where-Object {
         $_
     }
 
-# 
-# $maps | Format-Table
-#const territoryTypeTransientRows =
-#  await retrieveTerritoryTypeTransients(zoneIds);
-#const mapMarkerRows = await retrieveMapMarkers();
-#const exVersionRows = await retrieveExVersions();
-# 
-# 
 $regionKeyToRegion = @{}
 foreach ($region in $regionsJson.regions) {
     $key = $region.key
@@ -220,15 +217,9 @@ const regionData: {
 export {
   regionData,
   zoneData,
+  type FieldZoneData,
   type MarkerData,
   type RegionData,
   type ZoneData,
-  type FieldZoneData,
 };
 "@ | Set-ResourceData -Name 'zones'
-
-if ($PlaceNameIdToZoneId) {
-    $allZones | ForEach-Object {
-        $PlaceNameIdToZoneId.Add($_.placeName, $_.id)
-    }
-}
