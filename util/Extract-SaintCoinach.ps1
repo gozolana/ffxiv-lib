@@ -23,6 +23,7 @@ Push-Location ..\SaintCoinach
     'C:/Program Files (x86)/SquareEnix/FINAL FANTASY XIV - A Realm Reborn' `
     'allexd BNpcName PlaceName Weather ExVersion' `
     'rawexd Aetheryte Map MapMarker MapSymbol TerritoryType TerritoryTypeTransient WeatherRate World WorldDCGroupType' `
-    #'uihd 060000 064000' `
     'ui 060000 064000'
 Pop-Location
+
+Write-Host 'Indivisually run SaintCoinach.Cmd.exe with map sub menu when extracting map data.'
