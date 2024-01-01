@@ -58,7 +58,7 @@ $iconTypes = @(
     [PSCustomObject]@{ name = 'CheckUnknown'; id = 'CheckUnknown' }
 )
     
-$elite = [ordered]@{}
+$elite = @()
 1..31 | ForEach-Object {
     $name = [convert]::ToString($_, 2).PadLeft(5, '0')
     $colors = @()
@@ -69,7 +69,10 @@ $elite = [ordered]@{}
     if ($_ -band 1) { $colors += '#9c27b0' }
     Export-SVG -Svg (svgPIChart -Colors $colors) -Name $name
     # 定義追加
-    $elite.$_ = "../assets/icons/$name.svg";
+    $elite += [PSCustomObject]@{
+        key   = [int]$_;
+        value = "../assets/icons/$name.svg";
+    }
 }
 
 Export-SVG -Svg (svgRhombus -Color '#607d8b') -Name sb
@@ -77,13 +80,14 @@ Export-SVG -Svg (svgHexagon -Color '#607d8b') -Name ss
 Export-SVG -Svg (svgCheck -Color 'lime') -Name checkLime
 Export-SVG -Svg (svgCheck -Color 'royalblue') -Name checkRoyalBlue
 Export-SVG -Svg (svgCheck -Color 'grey') -Name checkGrey
-$icon = [ordered]@{
-    'SB'           = '../assets/icons/sb.svg';
-    'SS'           = '../assets/icons/ss.svg';
-    'CheckMine'    = '../assets/icons/checkLime.svg';
-    'CheckOthers'  = '../assets/icons/checkRoyalBlue.svg';
-    'CheckUnknown' = '../assets/icons/checkGrey.svg';
-}
+
+$icon = @(
+    [PSCustomObject]@{ key = 'SB'; value = '../assets/icons/sb.svg' },
+    [PSCustomObject]@{ key = 'SS'; value = '../assets/icons/ss.svg' },
+    [PSCustomObject]@{ key = 'CheckMine'   ; value = '../assets/icons/checkLime.svg' },
+    [PSCustomObject]@{ key = 'CheckOthers' ; value = '../assets/icons/checkRoyalBlue.svg' },
+    [PSCustomObject]@{ key = 'CheckUnknown'; value = '../assets/icons/checkGrey.svg' }
+)
 
 # Weatherのすべて＋Symbolのすべて＋上で定義したすべて(icontypesの下5つ以外)
 $pngIconIds = Import-SaintCoinachCsv -Name Weather -Lang en |
@@ -101,7 +105,10 @@ foreach ($pngIconId in $pngIconIds) {
     # ファイルコピー
     Copy-Icon -Name $pngIconId
     # 定義追加
-    $icon.$pngIconId = "../assets/icons/$pngIconId.png"
+    $icon += [PSCustomObject]@{
+        key   = $pngIconId;
+        value = "../assets/icons/$pngIconId.png"
+    }
 }
 
 @"
@@ -110,9 +117,17 @@ foreach ($pngIconId in $pngIconIds) {
 
 $(ConvertTo-UnionTypeDefinition -Items $iconTypes -Name IconId)
 
-const elite: Record<number, string> = $(ConvertTo-DataJson $elite);
+const elite: Record<number, string> = {
+$($elite | ForEach-Object {
+"$($_.key): new URL('$($_.value)', import.meta.url).href,`n"
+})
+};
 
-const icon: Record<string, string> = $(ConvertTo-Json $icon);
+const icon: Record<string, string> = {
+$($icon | ForEach-Object {
+"'$($_.key)': new URL('$($_.value)', import.meta.url).href,`n"
+})
+};
 
 export {
   IconId,
