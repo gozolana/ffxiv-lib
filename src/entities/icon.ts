@@ -1,1 +1,1 @@
-export { TIcon } from "../resources/icons.data";
+export { IconId } from '../resources/icons.data'

@@ -1,5 +1,5 @@
 import { langs, TLang } from '../entities/lang'
-import { TWorld } from '../entities/world'
+import { WorldId } from '../entities/world'
 import { Message, messages, tts } from '../resources/messages.data'
 import { WorldProvider } from './worldProvider'
 
@@ -146,7 +146,7 @@ class MessageProvider {
   }
 
   getWorld(id: number) {
-    const world = WorldProvider.findWorld(id as TWorld)
+    const world = WorldProvider.findWorld(id as WorldId)
     return world ? world.name : `World<${id}>`
   }
 }
