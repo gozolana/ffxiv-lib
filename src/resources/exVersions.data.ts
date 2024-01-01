@@ -22,31 +22,31 @@ const exVersions: ExVersionData[] = [
     id: 0,
     version: 2,
     locationClusteringThreshold: 0.15,
-    color: "#f0f4c3",
+    color: '#f0f4c3',
   },
   {
     id: 1,
     version: 3,
     locationClusteringThreshold: 0.9,
-    color: "#bbdefb",
+    color: '#bbdefb',
   },
   {
     id: 2,
     version: 4,
     locationClusteringThreshold: 0.9,
-    color: "#ffcdd2",
+    color: '#ffcdd2',
   },
   {
     id: 3,
     version: 5,
     locationClusteringThreshold: 0.9,
-    color: "#cfd8dc",
+    color: '#cfd8dc',
   },
   {
     id: 4,
     version: 6,
     locationClusteringThreshold: 0.9,
-    color: "#ffe082",
+    color: '#ffe082',
   },
 ];
 
