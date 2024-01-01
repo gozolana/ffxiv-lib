@@ -11,7 +11,7 @@ const ExVersionId = {
 type ExVersionId = (typeof ExVersionId)[keyof typeof ExVersionId];
 
 type ExVersionData = {
-  readonly id: number;
+  readonly id: ExVersionId;
   readonly version: number;
   readonly locationClusteringThreshold: number;
   readonly color: string;

@@ -24,7 +24,7 @@ MapMarker.csv
 [int]$_.X                     : 座標変換で必要
 [int]$_.Y                     : 座標変換で必要
 [string]$_.Icon               : '0' or '6xxxxx' 0は無視でよい？
-[int]$_.'PlaceName{Sub}'      : 座標の名前
+[int]$_.'PlaceName{Subtext}'  : 座標の名前
 [int]$_.Type                  : ワンチャンス、フィルタで使える？
 
 #,    X,    Y,    Icon,  PlaceName{Sub},   SubtextOrientation,MapMarkerRegion,Type,Data{Type},Data{Key},
