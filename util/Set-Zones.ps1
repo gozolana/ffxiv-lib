@@ -71,6 +71,8 @@ $allZones = Import-SaintCoinachCsv -Name 'TerritoryType' |
         }
         if ($UniquePlaceNameIds) {
             [void]$UniquePlaceNameIds.Add($placeNameId)
+            [void]$UniquePlaceNameIds.Add([int]$_.'PlaceName{Region}')
+            [void]$UniquePlaceNameIds.Add([int]$_.'PlaceName{Zone}')
         }
         $offsetZ = $zoneIdToOffsetZ[[int]$_.'#']
         $map = $mapIdToMap[[int]$_.Map]
