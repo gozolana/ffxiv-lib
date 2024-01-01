@@ -52,6 +52,9 @@ $mapMarkers = Import-SaintCoinachCsv -Name 'MapMarker' |
         if ($_.Icon -ne '0') {
             $icon = "0$($_.Icon)" 
         } 
+        # if ($UniquePlaceNameIds) {
+        #    [void]$UniquePlaceNameIds.Add([int]$_.'PlaceName{SubText}')
+        # }
         [PSCustomObject]@{
             markerId    = [int]$($_.'#' -Split '\.' | Select-Object -first 1);
             x           = [int]$_.X
