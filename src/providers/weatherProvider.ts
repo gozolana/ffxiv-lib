@@ -6,33 +6,35 @@ import {
 } from '../resources/weathers.data'
 
 class WeatherProvider {
+  private weatherById: Record<number, Weather> = {}
+  private weatherRateById: Record<number, WeatherRateData> = {}
+
   constructor() {
-    this.weatherById = new Map(
-      weathers.map(weather => [weather.id, new WeatherImpl(weather)])
+    weathers.forEach(
+      weather => (this.weatherById[weather.id] = new WeatherImpl(weather))
     )
-    this.weatherRateById = new Map(
-      weatherRates.map(weatherRate => [weatherRate.id, weatherRate])
+    weatherRates.forEach(
+      weatherRate => (this.weatherRateById[weatherRate.id] = weatherRate)
     )
   }
-  private weatherById: Map<number, Weather>
-  private weatherRateById: Map<number, WeatherRateData>
 
-  isSunny(weatherId: number): boolean {
+  isSunny(weatherId: WeatherId | number): boolean {
     return [
       WeatherId.ClearSkies as number,
       WeatherId.FairSkies as number,
     ].includes(weatherId)
   }
 
-  isRainy(weatherId: number): boolean {
+  isRainy(weatherId: WeatherId | number): boolean {
     return [WeatherId.Rain as number, WeatherId.Showers as number].includes(
       weatherId
     )
   }
 
-  findWeather(weatherId: number): Weather | undefined {
-    return this.weatherById.get(weatherId)
-  }
+  findWeather = (weatherId: number): Weather | undefined =>
+    this.weatherById[weatherId]
+
+  geWeatherIds = (): Weather[] => Object.values(this.weatherById)
 
   getWeatherAt(timestamp: number, weatherRateId: number): Weather {
     function calculateChance(timestamp: number): number {
@@ -46,7 +48,7 @@ class WeatherProvider {
       const step2 = ((step1 >>> 8) ^ step1) >>> 0
       return step2 % 100
     }
-    const weatherRate = this.weatherRateById.get(weatherRateId)
+    const weatherRate = this.weatherRateById[weatherRateId]
     if (!weatherRate) {
       throw `invalid weatherRateId ${weatherRateId}`
     }
@@ -64,10 +66,6 @@ class WeatherProvider {
       throw `invalid weatherId ${weatherId}`
     }
     return weather
-  }
-
-  geWeatherIds(): Weather[] {
-    return [...this.weatherById.values()]
   }
 }
 
