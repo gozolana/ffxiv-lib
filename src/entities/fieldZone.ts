@@ -148,6 +148,18 @@ class FieldZoneImpl extends ZoneImpl implements FieldZone {
     }
   }
 
+  async loadMapImage(
+    target: HTMLImageElement,
+    imageType: TMapImage = TMapImage.Default,
+    imageSize: TImageSize = TImageSize.Small
+  ): Promise<void> {
+    await new Promise((resolve, reject) => {
+      target.onload = () => resolve(target)
+      target.onerror = e => reject(e)
+      target.src = this.getMapImageUrl(imageType, imageSize)
+    })
+  }
+
   // 範囲内のEliteIndexを近い順に返す
   getEliteLocationIndices(
     pos: { x: number; y: number },
