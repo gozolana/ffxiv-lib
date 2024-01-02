@@ -1,9 +1,7 @@
-import { IconId, IconProvider } from './'
+import { ZoneProvider } from '.'
 
-const icon: HTMLImageElement | undefined = IconProvider.findIcon(
-  IconId.CairnOfReturn
-)
-const svg: HTMLImageElement | undefined = IconProvider.findElite(2)
+const a = ZoneProvider.findZone(134)
 
-document.querySelector('#sample')?.append(icon!)
-document.querySelector('#sample')?.append(svg!)
+if (a) {
+  document.querySelector('#sample')?.append(a.name)
+}
