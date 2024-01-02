@@ -1,30 +1,37 @@
-import { langs, TLang } from '../entities/lang'
 import { WorldId } from '../entities/world'
-import { Message, messages, tts } from '../resources/messages.data'
+import { TLang, messages, tts, type TMessage } from '../resources/messages.data'
 import { WorldProvider } from './worldProvider'
 
 class MessageProvider {
+  private _lang: TLang = 'ja'
+  private _messages: Record<TLang, TMessage>
+  private _tts: Partial<Record<TLang, TMessage>>
+
   constructor() {
     this._messages = messages
     this._tts = tts
   }
 
-  private _lang: TLang = 'ja'
-  private _messages: Record<TLang, Message>
-  private _tts: Record<TLang, Partial<Message>>
-
   get lang(): TLang {
     return this._lang
   }
 
-  setLang(newLang: TLang): void {
-    this._lang = newLang
+  get tts(): TMessage | undefined {
+    return this._tts[this.lang]
+  }
+
+  get messages(): TMessage | undefined {
+    return this._messages[this.lang]
+  }
+
+  setLang(lang: TLang): void {
+    this._lang = lang
   }
 
   getBNpcName(id: number, tts = false) {
     let result: string | undefined
     if (tts) {
-      const ttsMap = this._tts[this._lang].BNpcName
+      const ttsMap = this.tts?.BNpcName
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id]
       }
@@ -39,7 +46,7 @@ class MessageProvider {
   }
 
   getPlaceNames(id: number) {
-    const results = langs.reduce<string[]>((acc, lang) => {
+    const results = TLang.reduce<string[]>((acc, lang) => {
       const messageMap = this._messages[lang].PlaceName
       if (messageMap && messageMap[id]) {
         acc.push(messageMap[id])
@@ -52,13 +59,13 @@ class MessageProvider {
   getPlaceName(id: number, tts = false) {
     let result: string | undefined
     if (tts) {
-      const ttsMap = this._tts[this._lang].PlaceName
+      const ttsMap = this.tts?.PlaceName
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id]
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang].PlaceName
+      const messageMap = this.messages?.PlaceName
       if (messageMap && messageMap[id]) {
         result = messageMap[id]
       }
@@ -67,7 +74,7 @@ class MessageProvider {
   }
 
   getZoneNames(id: number) {
-    const results = langs.reduce<string[]>((acc, lang) => {
+    const results = TLang.reduce<string[]>((acc, lang) => {
       const messageMap = this._messages[lang].ZoneName
       if (messageMap && messageMap[id]) {
         acc.push(messageMap[id])
@@ -80,13 +87,13 @@ class MessageProvider {
   getZoneName(id: number, tts = false) {
     let result: string | undefined
     if (tts) {
-      const ttsMap = this._tts[this._lang].ZoneName
+      const ttsMap = this.tts?.ZoneName
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id]
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang].ZoneName
+      const messageMap = this.messages?.ZoneName
       if (messageMap && messageMap[id]) {
         result = messageMap[id]
       }
@@ -97,13 +104,13 @@ class MessageProvider {
   getExVersion(id: number, tts = false) {
     let result: string | undefined
     if (tts) {
-      const ttsMap = this._tts[this._lang].ExVersion
+      const ttsMap = this.tts?.ExVersion
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id]
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang].ExVersion
+      const messageMap = this.messages?.ExVersion
       if (messageMap && messageMap[id]) {
         result = messageMap[id]
       }
@@ -114,13 +121,13 @@ class MessageProvider {
   getWeather(id: number, tts = false) {
     let result: string | undefined
     if (tts) {
-      const ttsMap = this._tts[this._lang].Weather
+      const ttsMap = this.tts?.Weather
       if (ttsMap && ttsMap[id]) {
         result = ttsMap[id]
       }
     }
     if (!result) {
-      const messageMap = this._messages[this._lang].Weather
+      const messageMap = this.messages?.Weather
       if (messageMap && messageMap[id]) {
         result = messageMap[id]
       }
@@ -131,7 +138,7 @@ class MessageProvider {
   getRegion(key: string, tts = false) {
     let result: string | undefined
     if (tts) {
-      const ttsMap = this._tts[this._lang].Region
+      const ttsMap = this.tts?.Region
       if (ttsMap && ttsMap[key]) {
         result = ttsMap[key]
       }
@@ -145,7 +152,7 @@ class MessageProvider {
     return result ? result : `Region<${key}>`
   }
 
-  getWorld(id: number) {
+  getWorld(id: WorldId | number) {
     const world = WorldProvider.findWorld(id as WorldId)
     return world ? world.name : `World<${id}>`
   }

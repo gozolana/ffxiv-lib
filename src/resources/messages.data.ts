@@ -1,16 +1,19 @@
 ﻿// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-interface Message {
-  BNpcName: Record<number, string>;
-  PlaceName: Record<number, string>;
-  ZoneName: Record<number, string>;
-  Weather: Record<number, string>;
-  Region: Record<string, string>;
-  ExVersion: Record<number, string>;
+const TLang = ['ja', 'en', 'de', 'fr'] as const
+type TLang = (typeof TLang)[number]
+
+type TMessage = {
+  readonly BNpcName: Record<number, string>
+  readonly PlaceName: Record<number, string>
+  readonly ZoneName: Record<number, string>
+  readonly Weather: Record<number, string>
+  readonly Region: Record<string, string>
+  readonly ExVersion: Record<number, string>
 }
 
-const messages: Record<string, Message> = {
+const messages: Record<TLang, TMessage> = {
   ja: {
     BNpcName: {
       655: 'ベヒーモス',
@@ -1435,9 +1438,9 @@ const messages: Record<string, Message> = {
       4: 'Endwalker',
     },
   },
-};
+}
 
-const tts: Record<string, Partial<Message>> = {
+const tts: Partial<Record<TLang, TMessage>> = {
   ja: {
     BNpcName: {
       2926: 'しかいのアルビン',
@@ -1458,6 +1461,7 @@ const tts: Record<string, Partial<Message>> = {
       10616: 'ケールのじゅうしゃ',
       10635: 'くさけんじん',
     },
+    PlaceName: {},
     ZoneName: {
       134: 'ちゅうおうラノシア',
       135: 'ていちラノシア',
@@ -1521,7 +1525,14 @@ const tts: Record<string, Partial<Message>> = {
       HW: 'そうてんエリア',
       Frontier: 'へんきょうエリア',
     },
+    ExVersion: {
+      0: 'しんせいエオルゼア',
+      1: 'そうてんのイシュガルド',
+      2: 'ぐれんのリベレーター',
+      3: 'しっこくのヴィランズ',
+      4: 'ぎょうげつのフィナーレ',
+    },
   },
-};
+}
 
-export { messages, tts, type Message };
+export { TLang, messages, tts, type TMessage }
