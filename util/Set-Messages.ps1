@@ -101,18 +101,21 @@ $ttsJson = Get-JsonData 'tts'
 // THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-interface Message {
-  BNpcName: Record<number, string>;
-  PlaceName: Record<number, string>;
-  ZoneName: Record<number, string>;
-  Weather: Record<number, string>;
-  Region: Record<string, string>;
-  ExVersion: Record<number, string>;
+const TLang = ['ja', 'en', 'de', 'fr'] as const
+type TLang = (typeof TLang)[number]
+
+type TMessage = {
+  readonly BNpcName: Record<number, string>
+  readonly PlaceName: Record<number, string>
+  readonly ZoneName: Record<number, string>
+  readonly Weather: Record<number, string>
+  readonly Region: Record<string, string>
+  readonly ExVersion: Record<number, string>
 }
 
-const messages: Record<string, Message> = $(ConvertTo-DataJson $message);
+const messages: Record<TLang, TMessage> = $(ConvertTo-DataJson $message)
 
-const tts: Record<string, Partial<Message>> = $(ConvertTo-DataJson $ttsJson);
+const tts: Partial<Record<TLang, TMessage>> = $(ConvertTo-DataJson $ttsJson)
 
-export { messages, tts, type Message };
+export { TLang, messages, tts, type TMessage }
 "@ | Set-ResourceData -Name 'messages'
