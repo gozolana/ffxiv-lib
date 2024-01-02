@@ -45,8 +45,8 @@ const IconId = {
   CheckMine: 'CheckMine',
   CheckOthers: 'CheckOthers',
   CheckUnknown: 'CheckUnknown',
-} as const;
-type IconId = (typeof IconId)[keyof typeof IconId];
+} as const
+type IconId = (typeof IconId)[keyof typeof IconId]
 
 const elite: Record<number, string> = {
   1: new URL('../assets/icons/00001.svg', import.meta.url).href,
@@ -80,7 +80,7 @@ const elite: Record<number, string> = {
   29: new URL('../assets/icons/11101.svg', import.meta.url).href,
   30: new URL('../assets/icons/11110.svg', import.meta.url).href,
   31: new URL('../assets/icons/11111.svg', import.meta.url).href,
-};
+}
 
 const icon: Record<string, string> = {
   SB: new URL('../assets/icons/sb.svg', import.meta.url).href,
@@ -298,6 +298,6 @@ const icon: Record<string, string> = {
   '063971': new URL('../assets/icons/063971.png', import.meta.url).href,
   '063972': new URL('../assets/icons/063972.png', import.meta.url).href,
   '063973': new URL('../assets/icons/063973.png', import.meta.url).href,
-};
+}
 
-export { IconId, elite, icon };
+export { IconId, elite, icon }

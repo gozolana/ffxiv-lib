@@ -6,35 +6,35 @@ const TMobCategory = {
   SpecialEliteMark: 2,
   SpecialFATE: 3,
   None: 999,
-} as const;
-type TMobCategory = (typeof TMobCategory)[keyof typeof TMobCategory];
+} as const
+type TMobCategory = (typeof TMobCategory)[keyof typeof TMobCategory]
 
 const TMobRank = {
   S: 1,
   A: 2,
   B: 3,
   None: 999,
-} as const;
-type TMobRank = (typeof TMobRank)[keyof typeof TMobRank];
+} as const
+type TMobRank = (typeof TMobRank)[keyof typeof TMobRank]
 
 type MobData = {
-  readonly id: number;
-  readonly category: TMobCategory;
-  readonly rank: TMobRank;
-  readonly zoneIds: number[];
+  readonly id: number
+  readonly category: TMobCategory
+  readonly rank: TMobRank
+  readonly zoneIds: number[]
   readonly respawnMinutes?: {
-    min: number;
-    max: number;
-  };
-};
+    min: number
+    max: number
+  }
+}
 
 const mobData: {
-  mobById: Record<number, MobData>;
-  sRanks: number[];
-  aRanks: number[];
-  bRanks: number[];
-  specials: number[];
-  fates: number[];
+  mobById: Record<number, MobData>
+  sRanks: number[]
+  aRanks: number[]
+  bRanks: number[]
+  specials: number[]
+  fates: number[]
 } = {
   mobById: {
     655: {
@@ -1596,6 +1596,6 @@ const mobData: {
   ],
   specials: [8915, 8916, 10615, 10616],
   fates: [655, 887, 3783, 3789, 6290, 6392, 8234, 8822, 10269, 10400],
-};
+}
 
-export { TMobCategory, TMobRank, mobData, type MobData };
+export { TMobCategory, TMobRank, mobData, type MobData }

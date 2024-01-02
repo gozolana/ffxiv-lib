@@ -7,15 +7,15 @@ const ExVersionId = {
   Stormblood: 2,
   Shadowbringers: 3,
   Endwalker: 4,
-} as const;
-type ExVersionId = (typeof ExVersionId)[keyof typeof ExVersionId];
+} as const
+type ExVersionId = (typeof ExVersionId)[keyof typeof ExVersionId]
 
 type ExVersionData = {
-  readonly id: ExVersionId;
-  readonly version: number;
-  readonly locationClusteringThreshold: number;
-  readonly color: string;
-};
+  readonly id: ExVersionId
+  readonly version: number
+  readonly locationClusteringThreshold: number
+  readonly color: string
+}
 
 const exVersions: ExVersionData[] = [
   {
@@ -48,6 +48,6 @@ const exVersions: ExVersionData[] = [
     locationClusteringThreshold: 0.9,
     color: '#ffe082',
   },
-];
+]
 
-export { ExVersionId, exVersions, type ExVersionData };
+export { ExVersionId, exVersions, type ExVersionData }

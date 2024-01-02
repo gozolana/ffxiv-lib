@@ -21,21 +21,21 @@ const WeatherId = {
   UmbralStatic: 50,
   MoonDust: 148,
   AstromagneticStorm: 149,
-} as const;
-type WeatherId = (typeof WeatherId)[keyof typeof WeatherId];
+} as const
+type WeatherId = (typeof WeatherId)[keyof typeof WeatherId]
 
 type WeatherData = {
-  readonly id: WeatherId;
-  readonly icon: string;
-};
+  readonly id: WeatherId
+  readonly icon: string
+}
 
 type WeatherRateData = {
-  readonly id: number;
+  readonly id: number
   readonly rates: {
-    readonly weatherId: WeatherId;
-    readonly chance: number;
-  }[];
-};
+    readonly weatherId: WeatherId
+    readonly chance: number
+  }[]
+}
 
 const weathers: WeatherData[] = [
   {
@@ -114,7 +114,7 @@ const weathers: WeatherData[] = [
     id: 149,
     icon: '060223',
   },
-];
+]
 
 const weatherRates: WeatherRateData[] = [
   {
@@ -1355,7 +1355,7 @@ const weatherRates: WeatherRateData[] = [
       },
     ],
   },
-];
+]
 
 export {
   WeatherId,
@@ -1363,4 +1363,4 @@ export {
   weathers,
   type WeatherData,
   type WeatherRateData,
-};
+}

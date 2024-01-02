@@ -6,9 +6,9 @@ const DataCenterRegionId = {
   America: 2,
   Europe: 3,
   Oceania: 4,
-} as const;
+} as const
 type DataCenterRegionId =
-  (typeof DataCenterRegionId)[keyof typeof DataCenterRegionId];
+  (typeof DataCenterRegionId)[keyof typeof DataCenterRegionId]
 
 const DataCenterId = {
   Elemental: 1,
@@ -22,8 +22,8 @@ const DataCenterId = {
   Materia: 9,
   Meteor: 10,
   Dynamis: 11,
-} as const;
-type DataCenterId = (typeof DataCenterId)[keyof typeof DataCenterId];
+} as const
+type DataCenterId = (typeof DataCenterId)[keyof typeof DataCenterId]
 
 const WorldId = {
   Ravana: 21,
@@ -107,21 +107,21 @@ const WorldId = {
   Seraph: 405,
   Halicarnassus: 406,
   Maduin: 407,
-} as const;
-type WorldId = (typeof WorldId)[keyof typeof WorldId];
+} as const
+type WorldId = (typeof WorldId)[keyof typeof WorldId]
 
 type DataCenterData = {
-  readonly id: DataCenterId;
-  readonly name: string;
-  readonly color: string;
-  readonly regionId: DataCenterRegionId;
-};
+  readonly id: DataCenterId
+  readonly name: string
+  readonly color: string
+  readonly regionId: DataCenterRegionId
+}
 
 type WorldData = {
-  readonly id: WorldId;
-  readonly name: string;
-  readonly dataCenterId: DataCenterId;
-};
+  readonly id: WorldId
+  readonly name: string
+  readonly dataCenterId: DataCenterId
+}
 
 const dataCenters: DataCenterData[] = [
   {
@@ -190,7 +190,7 @@ const dataCenters: DataCenterData[] = [
     color: '',
     regionId: 2,
   },
-];
+]
 
 const worlds: WorldData[] = [
   {
@@ -598,7 +598,7 @@ const worlds: WorldData[] = [
     name: 'Maduin',
     dataCenterId: 11,
   },
-];
+]
 
 export {
   DataCenterId,
@@ -608,4 +608,4 @@ export {
   worlds,
   type DataCenterData,
   type WorldData,
-};
+}

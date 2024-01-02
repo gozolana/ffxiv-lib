@@ -2,58 +2,58 @@
 // DO NOT EDIT.
 
 type MarkerData = {
-  readonly x: number;
-  readonly y: number;
-  readonly placeNameId: number;
-  readonly icon: string;
-};
+  readonly x: number
+  readonly y: number
+  readonly placeNameId: number
+  readonly icon: string
+}
 
 type ZoneData = {
-  readonly id: number;
-  readonly regionPlaceNameId: number;
-  readonly zonePlaceNameId: number;
-  readonly weatherRateId: number;
-  readonly sizeFactor: number;
-  readonly offsetX: number;
-  readonly offsetY: number;
-  readonly offsetZ: number;
-  readonly markers: MarkerData[];
-  readonly exVersionId: number;
-};
+  readonly id: number
+  readonly regionPlaceNameId: number
+  readonly zonePlaceNameId: number
+  readonly weatherRateId: number
+  readonly sizeFactor: number
+  readonly offsetX: number
+  readonly offsetY: number
+  readonly offsetZ: number
+  readonly markers: MarkerData[]
+  readonly exVersionId: number
+}
 
 type LocationWithFlag = {
-  readonly label: string;
-  readonly x: number;
-  readonly y: number;
-  readonly z: number;
-  readonly flag: string;
-};
+  readonly label: string
+  readonly x: number
+  readonly y: number
+  readonly z: number
+  readonly flag: string
+}
 
 type FieldZoneData = ZoneData & {
-  readonly filter?: boolean;
+  readonly filter?: boolean
   readonly elite: {
-    readonly ids: number[];
-    readonly locations: LocationWithFlag[];
-  };
+    readonly ids: number[]
+    readonly locations: LocationWithFlag[]
+  }
   readonly ss?: {
-    readonly ids: number[];
-    readonly locations: LocationWithFlag[];
-  };
+    readonly ids: number[]
+    readonly locations: LocationWithFlag[]
+  }
   readonly fate?: {
-    readonly ids: number[];
-  };
-};
+    readonly ids: number[]
+  }
+}
 
 type RegionData = {
-  readonly key: string;
-  readonly zoneIds: number[];
-  readonly color: string;
-  readonly bgColor: string;
-};
+  readonly key: string
+  readonly zoneIds: number[]
+  readonly color: string
+  readonly bgColor: string
+}
 
 const zoneData: {
-  zones: ZoneData[];
-  fieldZones: FieldZoneData[];
+  zones: ZoneData[]
+  fieldZones: FieldZoneData[]
 } = {
   zones: [
     {
@@ -18236,11 +18236,11 @@ const zoneData: {
       },
     },
   ],
-};
+}
 
 const regionData: {
-  huntRegions: RegionData[];
-  weatherRegions: RegionData[];
+  huntRegions: RegionData[]
+  weatherRegions: RegionData[]
 } = {
   huntRegions: [
     {
@@ -18348,7 +18348,7 @@ const regionData: {
       bgColor: '#dce775',
     },
   ],
-};
+}
 
 export {
   regionData,
@@ -18357,4 +18357,4 @@ export {
   type MarkerData,
   type RegionData,
   type ZoneData,
-};
+}
