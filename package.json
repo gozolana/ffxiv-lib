@@ -2,23 +2,14 @@
   "name": "ffxiv-lib",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "type": "module",
   "files": [
-    "dist"
+    "lib",
+    "plugin"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "./client": {
-      "types": "./dist/client.d.ts",
-      "default": "./dist/client.js"
-    }
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.json",
@@ -26,7 +17,7 @@
     "test:coverage": "vitest --coverage",
     "lint": "eslint . --ext .ts",
     "format": "prettier . --write",
-    "build:resources": "pushd util & powershell -NoProfile -ExecutionPolicy Unrestricted -Command .\\build.ps1 & popd & prettier --write ./src/resources/*.ts ./src/assets/icons/*.htm",
+    "build:resources": "pushd util & powershell -NoProfile -ExecutionPolicy Unrestricted -Command .\\build.ps1 & popd & prettier --write ./src/*/resources/*.ts ./src/assets/icons/*.htm",
     "prepare": "npm run build"
   },
   "devDependencies": {

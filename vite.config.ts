@@ -6,19 +6,17 @@ export default defineConfig({
   base: "./",
   build: {
     lib: {
-      entry:  [
-        resolve(__dirname, 'src/index.ts'),
-        resolve(__dirname, 'src/client.ts')
-      ],
-      name: 'FfxivLib',
-      fileName: (_, entryName) => {
-        return `${entryName}.js`;
-      }
+      entry: {
+        plugin: resolve(__dirname, 'src/plugin/index.ts'),
+        lib: resolve(__dirname, 'src/lib/index.ts')
+      },
+      formats: ['es'],
+      fileName: '[name]/index'
     },
     rollupOptions: {
       output: {
         preserveModules: true,
-        exports: 'named'
+        dir: '.'
       }
     }
   },
