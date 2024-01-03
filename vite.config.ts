@@ -6,10 +6,12 @@ export default defineConfig({
   base: "./",
   build: {
     lib: {
-      entry:  resolve(__dirname, 'src/index.ts'),
+      entry:  [
+        resolve(__dirname, 'src/index.ts'),
+        resolve(__dirname, 'src/client.ts')
+      ],
       name: 'FfxivLib',
-      fileName: 'ffxiv-lib',
-      formats: ['es', 'umd'],
+      fileName: (_, entryName) => `${entryName}.js`
     },
   },
   test: {

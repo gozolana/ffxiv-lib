@@ -2,12 +2,17 @@
   "name": "ffxiv-lib",
   "version": "1.0.0",
   "description": "",
-  "module": "./dist/ffxiv-lib.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/ffxiv-lib.d.ts",
   "type": "module",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./dist/client.js"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.json",
