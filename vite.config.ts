@@ -10,9 +10,19 @@ export default defineConfig({
         resolve(__dirname, 'src/index.ts'),
         resolve(__dirname, 'src/client.ts')
       ],
+      formats: ['es', 'cjs'],
       name: 'FfxivLib',
-      fileName: (_, entryName) => `${entryName}.js`
+      fileName: (format, entryName) => {
+        const extension = format === 'es' ? 'js' : 'cjs';
+        return `${entryName}.${extension}`;
+      }
     },
+    rollupOptions: {
+      output: {
+        preserveModules: true,
+        exports: 'named'
+      }
+    }
   },
   test: {
     globals: true
