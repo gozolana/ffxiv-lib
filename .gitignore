@@ -16,6 +16,12 @@ SaintCoinach
 coverage
 util/temp.csv
 
+/assets/*
+/lib/*
+/lib.js
+/plugin/*
+/plugin.js
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

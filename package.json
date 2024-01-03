@@ -7,8 +7,11 @@
   "types": "./lib/index.d.ts",
   "type": "module",
   "files": [
+    "assets",
     "lib",
-    "plugin"
+    "plugin",
+    "lib.js",
+    "plugin.js"
   ],
   "scripts": {
     "dev": "vite",
@@ -18,7 +21,8 @@
     "lint": "eslint . --ext .ts",
     "format": "prettier . --write",
     "build:resources": "pushd util & powershell -NoProfile -ExecutionPolicy Unrestricted -Command .\\build.ps1 & popd & prettier --write ./src/*/resources/*.ts ./src/assets/icons/*.htm",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "postprepare": "node ./util/extract-dist.js"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.6",
