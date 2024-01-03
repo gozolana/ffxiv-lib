@@ -15,11 +15,6 @@ dist-ssr
 SaintCoinach
 coverage
 util/temp.csv
-assets
-lib
-lib/index.d.ts
-plugin
-plugin/index.d.ts
 
 # Editor directories and files
 .vscode/*

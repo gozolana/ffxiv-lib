@@ -1,8 +1,8 @@
+import { IconId, ZoneProvider } from './lib'
 import { IconProvider } from './plugin'
-import { ZoneProvider } from './lib'
 
 const a = ZoneProvider.findZone(134)
-const b = IconProvider.findIcon('SS')
+const b = IconProvider.findIcon(IconId.BronzeCoffer)
 if (a) {
   document.querySelector('#sample')?.append(a.name)
 }
