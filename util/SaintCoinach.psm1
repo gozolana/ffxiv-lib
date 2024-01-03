@@ -53,9 +53,15 @@ function Set-ResourceData {
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [string[]]$Content,
         [Parameter(Mandatory = $true)]
-        [string]$Name
+        [string]$Name,
+        [switch]$Plugin
     )
-    $path = Join-Path '../src/resources' "$($Name).data.ts"
+    if ($Plugin) {
+        $path = Join-Path '../src/plugin/resources' "$($Name).data.ts"
+    }
+    else {
+        $path = Join-Path '../src/lib/resources' "$($Name).data.ts"
+    }
     $Content | Set-Content -Path $path -Encoding UTF8
     Write-Host "updated $path"
 }

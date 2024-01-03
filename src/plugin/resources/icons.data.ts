@@ -1,53 +1,6 @@
 ﻿// THIS CODE IS AUTO GENERATED.
 // DO NOT EDIT.
 
-const IconId = {
-  Aetheryte: '060453',
-  Mob: '060004',
-  PartyMember: '060421',
-  Player: '060443',
-  Mining: '060437',
-  Quarrying: '060438',
-  Logging: '060432',
-  Harvesting: '060433',
-  Fishing: '060445',
-  Up: '060954',
-  Down: '060955',
-  Flag: '060561',
-  CairnOfReturn: '060905',
-  CairnOfReturnActive: '060906',
-  CairnOfPassage: '060907',
-  CairnOfPassageActive: '060908',
-  GoldCoffer: '060913',
-  SilverCoffer: '060912',
-  BronzeCoffer: '060911',
-  PlotGreen: '060403',
-  PlotWhite: '060444',
-  Pin: '060442',
-  PlotYellow: '060424',
-  PlotRed: '060422',
-  TriangleGreen: '060358',
-  TriangleBlue: '060361',
-  TriangleYellow: '060360',
-  TriangleRed: '060359',
-  TrapYellow: '060402',
-  TrapRed: '060401',
-  Num1: '060918',
-  Num2: '060919',
-  Num3: '060920',
-  Num4: '060921',
-  Num5: '060922',
-  Num6: '060923',
-  Num7: '060924',
-  Num8: '060925',
-  SB: 'SB',
-  SS: 'SS',
-  CheckMine: 'CheckMine',
-  CheckOthers: 'CheckOthers',
-  CheckUnknown: 'CheckUnknown',
-} as const
-type IconId = (typeof IconId)[keyof typeof IconId]
-
 const elite: Record<number, string> = {
   1: new URL('../assets/icons/00001.svg', import.meta.url).href,
   2: new URL('../assets/icons/00010.svg', import.meta.url).href,
@@ -300,4 +253,4 @@ const icon: Record<string, string> = {
   '063973': new URL('../assets/icons/063973.png', import.meta.url).href,
 }
 
-export { IconId, elite, icon }
+export { elite, icon }

@@ -1,5 +1,5 @@
-import { ZoneProvider } from '.'
-import { IconProvider } from './client'
+import { IconProvider } from './plugin'
+import { ZoneProvider } from './lib'
 
 const a = ZoneProvider.findZone(134)
 const b = IconProvider.findIcon('SS')

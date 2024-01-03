@@ -117,6 +117,13 @@ foreach ($pngIconId in $pngIconIds) {
 
 $(ConvertTo-UnionTypeDefinition -Items $iconTypes -Name IconId)
 
+export { IconId }
+"@ | Set-ResourceData -Name 'icons'
+
+@"
+// THIS CODE IS AUTO GENERATED.
+// DO NOT EDIT.
+
 const elite: Record<number, string> = {
 $($elite | ForEach-Object {
 "$($_.key): new URL('$($_.value)', import.meta.url).href,`n"
@@ -129,11 +136,7 @@ $($icon | ForEach-Object {
 })
 };
 
-export {
-  IconId,
-  elite,
-  icon
-};
-"@ | Set-ResourceData -Name 'icons'
+export { elite, icon }
+"@ | Set-ResourceData -Name 'icons' -Plugin
 
 Export-IconPreview

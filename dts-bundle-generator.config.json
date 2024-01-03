@@ -5,13 +5,13 @@
 
   "entries": [
     {
-      "filePath": "./src/index.ts",
-      "outFile": "./dist/index.d.ts",
+      "filePath": "./src/lib/index.ts",
+      "outFile": "./lib/index.d.ts",
       "noCheck": false
     },
     {
-      "filePath": "./src/client.ts",
-      "outFile": "./dist/client.d.ts",
+      "filePath": "./src/plugin/index.ts",
+      "outFile": "./plugin/index.d.ts",
       "noCheck": false
     }
   ]
