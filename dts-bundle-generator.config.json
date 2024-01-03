@@ -2,16 +2,15 @@
   "compilationOptions": {
     "preferredConfigPath": "./tsconfig.json"
   },
-
   "entries": [
     {
       "filePath": "./src/lib/index.ts",
-      "outFile": "./lib/index.d.ts",
+      "outFile": "./dist/lib/index.d.ts",
       "noCheck": false
     },
     {
       "filePath": "./src/plugin/index.ts",
-      "outFile": "./plugin/index.d.ts",
+      "outFile": "./dist/plugin/index.d.ts",
       "noCheck": false
     }
   ]
