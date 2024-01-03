@@ -2,8 +2,8 @@
   "name": "ffxiv-lib",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "main": "./lib.js",
+  "module": "./lib.js",
   "types": "./lib/index.d.ts",
   "type": "module",
   "files": [
