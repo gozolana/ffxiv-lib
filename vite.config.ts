@@ -1,16 +1,17 @@
 /// <reference types="vitest" />
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   base: "./",
   build: {
     copyPublicDir: true,
     lib: {
-      entry: {
-        plugin: resolve(__dirname, 'src/plugin/index.ts'),
-        lib: resolve(__dirname, 'src/lib/index.ts')
-      },
+      entry: [
+        resolve(__dirname, 'src/plugin/index.ts'),
+        resolve(__dirname, 'src/lib/index.ts')
+      ],
       formats: ['es'],
     },
     rollupOptions: {
@@ -19,6 +20,7 @@ export default defineConfig({
       }
     }
   },
+  plugins: [dts()],
   test: {
     globals: true
   }

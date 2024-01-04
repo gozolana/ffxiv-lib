@@ -2,20 +2,18 @@
   "name": "ffxiv-lib",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib.js",
-  "module": "./lib.js",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "type": "module",
   "files": [
     "assets",
     "lib",
-    "plugin",
-    "lib.js",
-    "plugin.js"
+    "plugin"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.json",
+    "build": "tsc && vite build",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "lint": "eslint . --ext .ts",
@@ -30,7 +28,6 @@
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "@vitest/coverage-v8": "^1.1.0",
-    "dts-bundle-generator": "^9.0.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "extract-zip": "^2.0.1",
@@ -38,6 +35,7 @@
     "prettier": "^3.1.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.7.0",
     "vitest": "^1.1.0"
   }
 }

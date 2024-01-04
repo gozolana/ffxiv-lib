@@ -16,10 +16,10 @@ SaintCoinach
 coverage
 util/temp.csv
 
-/assets/*
-/lib/*
+/assets/
+/lib/
 /lib.js
-/plugin/*
+/plugin/
 /plugin.js
 
 # Editor directories and files
