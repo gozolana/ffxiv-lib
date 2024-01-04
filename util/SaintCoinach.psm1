@@ -58,8 +58,7 @@ function Set-ResourceData {
     )
     if ($Plugin) {
         $path = Join-Path '../src/plugin/resources' "$($Name).data.ts"
-    }
-    else {
+    } else {
         $path = Join-Path '../src/lib/resources' "$($Name).data.ts"
     }
     $Content | Set-Content -Path $path -Encoding UTF8
@@ -252,7 +251,7 @@ function Export-SVG {
   <circle cx="7" cy="7" r="4" fill="white" filter="url(#highlight)" />
 </svg>
 "@
-    $path = Join-Path '../src/assets/icons' "$($Name).svg"
+    $path = Join-Path '../public/assets/icons' "$($Name).svg"
     $content | Set-Content -Path $path -Encoding UTF8
 }
 
@@ -263,12 +262,12 @@ function Copy-Icon {
     )
     $patchPath = Get-ChildItem -Path '..\SaintCoinach\[0-9]*' -Directory | Select-Object -Last 1
     $source = Join-Path -Path $patchPath -ChildPath "ui/icon/$($Name.Substring(0, 3))000/$Name.png"
-    $dest = '../src/assets/icons'
+    $dest = '../public/assets/icons'
     Copy-Item $source -Destination $dest
 }
 
 function Export-IconPreview {
-    $folder = '../src/assets/icons'
+    $folder = '../public/assets/icons'
     $path = Join-Path $folder preview.htm
     $lis = (Get-ChildItem $folder -Recurse -Include *.svg).Name |
         ForEach-Object {

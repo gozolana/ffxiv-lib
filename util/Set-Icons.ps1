@@ -71,7 +71,7 @@ $elite = @()
     # 定義追加
     $elite += [PSCustomObject]@{
         key   = [int]$_;
-        value = "../assets/icons/$name.svg";
+        value = "/assets/icons/$name.svg";
     }
 }
 
@@ -82,11 +82,11 @@ Export-SVG -Svg (svgCheck -Color 'royalblue') -Name checkRoyalBlue
 Export-SVG -Svg (svgCheck -Color 'grey') -Name checkGrey
 
 $icon = @(
-    [PSCustomObject]@{ key = 'SB'; value = '../assets/icons/sb.svg' },
-    [PSCustomObject]@{ key = 'SS'; value = '../assets/icons/ss.svg' },
-    [PSCustomObject]@{ key = 'CheckMine'   ; value = '../assets/icons/checkLime.svg' },
-    [PSCustomObject]@{ key = 'CheckOthers' ; value = '../assets/icons/checkRoyalBlue.svg' },
-    [PSCustomObject]@{ key = 'CheckUnknown'; value = '../assets/icons/checkGrey.svg' }
+    [PSCustomObject]@{ key = 'SB'; value = '/assets/icons/sb.svg' },
+    [PSCustomObject]@{ key = 'SS'; value = '/assets/icons/ss.svg' },
+    [PSCustomObject]@{ key = 'CheckMine'   ; value = '/assets/icons/checkLime.svg' },
+    [PSCustomObject]@{ key = 'CheckOthers' ; value = '/assets/icons/checkRoyalBlue.svg' },
+    [PSCustomObject]@{ key = 'CheckUnknown'; value = '/assets/icons/checkGrey.svg' }
 )
 
 # Weatherのすべて＋Symbolのすべて＋上で定義したすべて(icontypesの下5つ以外)
@@ -107,7 +107,7 @@ foreach ($pngIconId in $pngIconIds) {
     # 定義追加
     $icon += [PSCustomObject]@{
         key   = $pngIconId;
-        value = "../assets/icons/$pngIconId.png"
+        value = "/assets/icons/$pngIconId.png"
     }
 }
 
