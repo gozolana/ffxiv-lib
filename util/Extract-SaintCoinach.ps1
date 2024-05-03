@@ -4,7 +4,7 @@ if (Test-Path ..\SaintCoinach -PathType Container) {
 }
 New-Item ..\SaintCoinach -ItemType Directory | Out-Null
 
-if ($false) {
+if ($true) {
     $latestBody = Invoke-RestMethod https://api.github.com/repos/xivapi/SaintCoinach/releases/latest
     $downloadUrl = ($latestBody.assets | Where-Object { $_.name -eq 'SaintCoinach.Cmd.zip' }).browser_download_url
     $tmpfilename = [System.IO.Path]::GetTempFileName()

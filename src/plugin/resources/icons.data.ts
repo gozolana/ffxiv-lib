@@ -74,6 +74,7 @@ const icon: Record<string, string> = {
   '060229': new URL('/assets/icons/060229.png', import.meta.url).href,
   '060230': new URL('/assets/icons/060230.png', import.meta.url).href,
   '060231': new URL('/assets/icons/060231.png', import.meta.url).href,
+  '060232': new URL('/assets/icons/060232.png', import.meta.url).href,
   '060251': new URL('/assets/icons/060251.png', import.meta.url).href,
   '060252': new URL('/assets/icons/060252.png', import.meta.url).href,
   '060253': new URL('/assets/icons/060253.png', import.meta.url).href,
