@@ -25,7 +25,7 @@ class WorldProvider {
   findWorld = (id: WorldId | number): World | undefined => this.worldById[id]
 
   getDataCentersOfRegion = (
-    regionId: DataCenterRegionId | number
+    regionId: DataCenterRegionId | number = DataCenterRegionId.Japan
   ): DataCenter[] =>
     Object.values(this.dataCenterById)
       .filter(dc => dc.regionId === regionId)
@@ -36,7 +36,9 @@ class WorldProvider {
       .filter(world => world.dataCenterId === dataCenterId)
       .sort((a, b) => a.compare(b))
 
-  getWorldsOfRegion(regionId: DataCenterRegionId): World[] {
+  getWorldsOfRegion(
+    regionId: DataCenterRegionId | number = DataCenterRegionId.Japan
+  ): World[] {
     const dcIds = this.getDataCentersOfRegion(regionId).map(dc => dc.id)
     return Object.values(this.worldById)
       .filter(world => dcIds.includes(world.dataCenterId))
@@ -44,18 +46,12 @@ class WorldProvider {
   }
 
   get DEFAULT_WORLD(): World {
-    return this.getWorldsOfRegion(DataCenterRegionId.Japan)[0]
+    return this.getWorldsOfRegion()[0]
   }
-
-  findWorldOrDefault = (id: WorldId | number): World =>
-    this.worldById[id] || this.DEFAULT_WORLD
 
   get DEFAULT_DATACENTER(): DataCenter {
-    return this.getDataCentersOfRegion(DataCenterRegionId.Japan)[0]
+    return this.getDataCentersOfRegion()[0]
   }
-
-  findDataCenterOrDefault = (id: DataCenterId | number): DataCenter =>
-    this.dataCenterById[id] || this.DEFAULT_DATACENTER
 }
 
 const worldProvider = new WorldProvider()
