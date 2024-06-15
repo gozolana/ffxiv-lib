@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
-import { WorldProvider } from '../providers/worldProvider'
-import { DataCenterData } from '../resources/worlds.data'
-import { DataCenterId, DataCenterImpl, DataCenterRegionId } from './dataCenter'
+import { WorldProvider } from '../../providers/worldProvider'
+import type { DataCenterData } from '../../resources/worlds.data'
+import { DataCenterId, DataCenterImpl, DataCenterRegionId } from '../dataCenter'
 
 test('constructor set properties', () => {
   const input: DataCenterData = {
