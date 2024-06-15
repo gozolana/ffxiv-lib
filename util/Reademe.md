@@ -1,4 +1,11 @@
-# Resource Builder
+# ツールの使い方
+
+Extract-SaintCoinach.ps1 ・・・ 最新のSaintCoinachをダウンロードして展開する
+build.ps1 ・・・ 展開されたデータからtsファイルを自動生成する
+
+TBD: imageのいくつかをリスケールして、Claudnaryにアップロードする
+
+## Resource Builder
 
 Powershell scripts to gererate resource files using [SaintCoinach](https://github.com/xivapi/SaintCoinach)
 
@@ -25,7 +32,7 @@ TerritoryType.csv
 Map.csv
 [int]$_.'#'                   : ZoneId (中央ラノシア 15)：
 [int]$_.MapMarkerRange : MapMarkerRangeとの紐づけで必要
-[string$_.Id : Mapのファイル名（中央ラノシアs1f1/00）直接は不要だが持っておく？
+[string]$_.Id : Mapのファイル名（中央ラノシアs1f1/00）直接は不要だが持っておく？
 [int]$_.SizeFactor            : 座標変換で必要。95 or 100 or 200（中央ラノシア 100）
 [int]$_.'Offset{X}' : 座標変換で必要
 [int]$_.'Offset{Y}' : 座標変換で必要
@@ -42,7 +49,7 @@ MapMarker.csv
 [int]$_.'PlaceName{Subtext}' : 座標の名前
 [int]$_.Type : ワンチャンス、フィルタで使える？
 
-# , X, Y, Icon, PlaceName{Sub}, SubtextOrientation,MapMarkerRegion,Type,Data{Type},Data{Key}
+## , X, Y, Icon, PlaceName{Sub}, SubtextOrientation,MapMarkerRegion,Type,Data{Type},Data{Key}
 
 74.0, 1358, 1150, 0, 161, 3,0,1,0,0,255,0 <- "ゼファードリフト"
 74.1, 656, 996, 0, 162, 3,0,1,0,0,255,0 <- "サマーフォード"
@@ -55,7 +62,7 @@ MapSymbol.csv
 [string]$_.Icon               : アイコンのシンボル
 [int]$\_.PlaceName : アイコンそのものの名称(Aethryteとか)
 
-# ,Icon,PlaceName,DisplayNavi
+## ,Icon,PlaceName,DisplayNavi
 
 int32,Image,PlaceName,bit&01
 0,0,0,False
