@@ -22,6 +22,7 @@ const DataCenterId = {
   Materia: 9,
   Meteor: 10,
   Dynamis: 11,
+  Shadow: 12,
 } as const
 type DataCenterId = (typeof DataCenterId)[keyof typeof DataCenterId]
 
@@ -107,6 +108,9 @@ const WorldId = {
   Seraph: 405,
   Halicarnassus: 406,
   Maduin: 407,
+  Titania: 412,
+  Innocence: 413,
+  Pixie: 414,
 } as const
 type WorldId = (typeof WorldId)[keyof typeof WorldId]
 
@@ -189,6 +193,12 @@ const dataCenters: DataCenterData[] = [
     name: 'Dynamis',
     color: '',
     regionId: 2,
+  },
+  {
+    id: 12,
+    name: 'Shadow',
+    color: '',
+    regionId: 3,
   },
 ]
 
@@ -597,6 +607,21 @@ const worlds: WorldData[] = [
     id: 407,
     name: 'Maduin',
     dataCenterId: 11,
+  },
+  {
+    id: 412,
+    name: 'Titania',
+    dataCenterId: 12,
+  },
+  {
+    id: 413,
+    name: 'Innocence',
+    dataCenterId: 12,
+  },
+  {
+    id: 414,
+    name: 'Pixie',
+    dataCenterId: 12,
   },
 ]
 
