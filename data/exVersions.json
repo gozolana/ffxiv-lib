@@ -23,5 +23,10 @@
     "version": 6,
     "locationClusteringThreshold": 0.9,
     "color": "#ffe082"
+  },
+  "Dawntrail": {
+    "version": 7,
+    "locationClusteringThreshold": 0.9,
+    "color": "#ffe0e0"
   }
 }

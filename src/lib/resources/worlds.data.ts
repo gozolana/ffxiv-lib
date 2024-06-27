@@ -108,9 +108,14 @@ const WorldId = {
   Seraph: 405,
   Halicarnassus: 406,
   Maduin: 407,
+  Cuchulainn: 408,
+  Kraken: 409,
+  Rafflesia: 410,
+  Golem: 411,
   Titania: 412,
   Innocence: 413,
   Pixie: 414,
+  Tycoon: 415,
 } as const
 type WorldId = (typeof WorldId)[keyof typeof WorldId]
 
@@ -609,6 +614,26 @@ const worlds: WorldData[] = [
     dataCenterId: 11,
   },
   {
+    id: 408,
+    name: 'Cuchulainn',
+    dataCenterId: 11,
+  },
+  {
+    id: 409,
+    name: 'Kraken',
+    dataCenterId: 11,
+  },
+  {
+    id: 410,
+    name: 'Rafflesia',
+    dataCenterId: 11,
+  },
+  {
+    id: 411,
+    name: 'Golem',
+    dataCenterId: 11,
+  },
+  {
     id: 412,
     name: 'Titania',
     dataCenterId: 12,
@@ -621,6 +646,11 @@ const worlds: WorldData[] = [
   {
     id: 414,
     name: 'Pixie',
+    dataCenterId: 12,
+  },
+  {
+    id: 415,
+    name: 'Tycoon',
     dataCenterId: 12,
   },
 ]

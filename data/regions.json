@@ -1,6 +1,17 @@
 {
   "regions": [
     {
+      "key": "DT",
+      "name": {
+        "ja": "黄金エリア",
+        "en": "Dawntrail Area",
+        "de": "Dawntrail Area",
+        "fr": "Dawntrail Area"
+      },
+      "background-color": "#ffe082",
+      "color": "black"
+    },
+    {
       "key": "EW",
       "name": {
         "ja": "暁月エリア",
@@ -102,6 +113,10 @@
   ],
   "huntRegions": [
     {
+      "key": "DT",
+      "zoneIds": [1187, 1188, 1189, 1190, 1191, 1192]
+    },
+    {
       "key": "EW",
       "zoneIds": [956, 957, 958, 959, 960, 961]
     },
@@ -135,6 +150,10 @@
     }
   ],
   "weatherRegions": [
+    {
+      "key": "DT",
+      "zoneIds": [1187, 1188, 1189, 1190, 1191, 1192]
+    },
     {
       "key": "EW",
       "zoneIds": [956, 957, 958, 959, 960, 961]

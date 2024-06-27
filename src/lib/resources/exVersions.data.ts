@@ -7,6 +7,7 @@ const ExVersionId = {
   Stormblood: 2,
   Shadowbringers: 3,
   Endwalker: 4,
+  Dawntrail: 5,
 } as const
 type ExVersionId = (typeof ExVersionId)[keyof typeof ExVersionId]
 
@@ -47,6 +48,12 @@ const exVersions: ExVersionData[] = [
     version: 6,
     locationClusteringThreshold: 0.9,
     color: '#ffe082',
+  },
+  {
+    id: 5,
+    version: 7,
+    locationClusteringThreshold: 0.9,
+    color: '#ffe0e0',
   },
 ]
 

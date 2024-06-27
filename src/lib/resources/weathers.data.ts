@@ -20,7 +20,7 @@ const WeatherId = {
   UmbralWind: 49,
   UmbralStatic: 50,
   MoonDust: 148,
-  AstromagneticStorm: 149,
+  AstromagneticStorms: 149,
 } as const
 type WeatherId = (typeof WeatherId)[keyof typeof WeatherId]
 
@@ -1352,6 +1352,164 @@ const weatherRates: WeatherRateData[] = [
       {
         weatherId: 8,
         chance: 5,
+      },
+    ],
+  },
+  {
+    id: 160,
+    rates: [
+      {
+        weatherId: 1,
+        chance: 20,
+      },
+      {
+        weatherId: 2,
+        chance: 30,
+      },
+      {
+        weatherId: 3,
+        chance: 20,
+      },
+      {
+        weatherId: 4,
+        chance: 10,
+      },
+      {
+        weatherId: 5,
+        chance: 10,
+      },
+      {
+        weatherId: 15,
+        chance: 10,
+      },
+    ],
+  },
+  {
+    id: 161,
+    rates: [
+      {
+        weatherId: 1,
+        chance: 25,
+      },
+      {
+        weatherId: 2,
+        chance: 35,
+      },
+      {
+        weatherId: 3,
+        chance: 15,
+      },
+      {
+        weatherId: 4,
+        chance: 10,
+      },
+      {
+        weatherId: 7,
+        chance: 10,
+      },
+      {
+        weatherId: 8,
+        chance: 5,
+      },
+    ],
+  },
+  {
+    id: 162,
+    rates: [
+      {
+        weatherId: 1,
+        chance: 15,
+      },
+      {
+        weatherId: 2,
+        chance: 40,
+      },
+      {
+        weatherId: 3,
+        chance: 15,
+      },
+      {
+        weatherId: 4,
+        chance: 15,
+      },
+      {
+        weatherId: 7,
+        chance: 15,
+      },
+    ],
+  },
+  {
+    id: 164,
+    rates: [
+      {
+        weatherId: 1,
+        chance: 5,
+      },
+      {
+        weatherId: 2,
+        chance: 45,
+      },
+      {
+        weatherId: 3,
+        chance: 20,
+      },
+      {
+        weatherId: 11,
+        chance: 15,
+      },
+      {
+        weatherId: 6,
+        chance: 15,
+      },
+    ],
+  },
+  {
+    id: 165,
+    rates: [
+      {
+        weatherId: 2,
+        chance: 5,
+      },
+      {
+        weatherId: 3,
+        chance: 20,
+      },
+      {
+        weatherId: 4,
+        chance: 15,
+      },
+      {
+        weatherId: 7,
+        chance: 5,
+      },
+      {
+        weatherId: 10,
+        chance: 5,
+      },
+      {
+        weatherId: 50,
+        chance: 50,
+      },
+    ],
+  },
+  {
+    id: 166,
+    rates: [
+      {
+        weatherId: 7,
+        chance: 10,
+      },
+      {
+        weatherId: 4,
+        chance: 10,
+      },
+      {
+        weatherId: 3,
+        chance: 20,
+      },
+      {
+        weatherId: 2,
+        chance: 60,
       },
     ],
   },
