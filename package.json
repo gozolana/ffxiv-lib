@@ -24,18 +24,18 @@
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.7",
-    "@types/node": "^20.14.9",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.14.1",
-    "@vitest/coverage-v8": "^1.6.0",
+    "@types/node": "^20.14.10",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "@vitest/coverage-v8": "^2.0.2",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "extract-zip": "^2.0.1",
     "jsdom": "^24.1.0",
     "prettier": "^3.3.2",
-    "typescript": "^5.5.2",
-    "vite": "^5.3.2",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3",
     "vite-plugin-dts": "^3.9.1",
-    "vitest": "^1.6.0"
+    "vitest": "^2.0.2"
   }
 }
