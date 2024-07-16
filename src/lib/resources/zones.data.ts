@@ -18500,7 +18500,11 @@ const zoneData: {
       ],
       exVersionId: 5,
       elite: {
-        ids: [13359, 13362, 13361, 13144, 13145],
+        ids: [13358, 13362, 13361, 13144, 13145],
+        locations: [],
+      },
+      ss: {
+        ids: [13406, 13407],
         locations: [],
       },
     },
@@ -18796,6 +18800,10 @@ const zoneData: {
         ids: [13446, 13442, 13443, 13146, 13147],
         locations: [],
       },
+      ss: {
+        ids: [13406, 13407],
+        locations: [],
+      },
     },
     {
       id: 1189,
@@ -19065,6 +19073,10 @@ const zoneData: {
         ids: [12754, 12692, 12753, 13148, 13149],
         locations: [],
       },
+      ss: {
+        ids: [13406, 13407],
+        locations: [],
+      },
     },
     {
       id: 1190,
@@ -19268,6 +19280,13 @@ const zoneData: {
         ids: [13399, 13400, 13401, 13150, 13151],
         locations: [],
       },
+      ss: {
+        ids: [13406, 13407],
+        locations: [],
+      },
+      fate: {
+        ids: [12733],
+      },
     },
     {
       id: 1191,
@@ -19451,6 +19470,10 @@ const zoneData: {
       exVersionId: 5,
       elite: {
         ids: [13156, 13157, 13158, 13152, 13153],
+        locations: [],
+      },
+      ss: {
+        ids: [13406, 13407],
         locations: [],
       },
     },
