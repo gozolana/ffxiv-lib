@@ -18500,7 +18500,7 @@ const zoneData: {
       ],
       exVersionId: 5,
       elite: {
-        ids: [13358, 13362, 13361, 13144, 13145],
+        ids: [13360, 13362, 13361, 13144, 13145],
         locations: [],
       },
       ss: {
@@ -18797,7 +18797,7 @@ const zoneData: {
       ],
       exVersionId: 5,
       elite: {
-        ids: [13446, 13442, 13443, 13146, 13147],
+        ids: [13444, 13442, 13443, 13146, 13147],
         locations: [],
       },
       ss: {
