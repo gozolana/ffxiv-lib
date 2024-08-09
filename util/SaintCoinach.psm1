@@ -255,6 +255,17 @@ function Export-SVG {
     $content | Set-Content -Path $path -Encoding UTF8
 }
 
+function Get-SvgDataUri {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Name
+    )
+    $path = Join-Path '../public/assets/icons' "$($Name).svg"
+    $svg = Get-Content -Path $path -Encoding UTF8 -Raw
+    return 'data:image/svg+xml;charset=UTF-8,' + [uri]::EscapeDataString($svg)
+}
+
 function Copy-Icon {
     param(
         [Parameter(Mandatory = $true)]
@@ -264,6 +275,16 @@ function Copy-Icon {
     $source = Join-Path -Path $patchPath -ChildPath "ui/icon/$($Name.Substring(0, 3))000/$Name.png"
     $dest = '../public/assets/icons'
     Copy-Item $source -Destination $dest
+}
+
+function Get-PngDataUri {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Name
+    )
+    $path = Join-Path '../public/assets/icons' "$($Name).png"
+    return 'data:image/png;base64,' + [Convert]::ToBase64String([IO.File]::ReadAllBytes($path))
 }
 
 function Export-IconPreview {
@@ -300,8 +321,6 @@ function Export-IconPreview {
 "@ | Set-Content -Path $path -Encoding UTF8
 }
 
-
-
 Export-ModuleMember -Function `
     Import-SaintCoinachCsv, `
     ConvertTo-TypeObjectJson, `
@@ -316,5 +335,7 @@ Export-ModuleMember -Function `
     svgHexagon, `
     svgCheck, `
     Export-SVG, `
+    Get-SvgDataUri, `
     Copy-Icon, `
+    Get-PngDataUri, `
     Export-IconPreview

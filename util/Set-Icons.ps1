@@ -9,7 +9,9 @@ Import-Module -Force .\SaintCoinach.psm1 -Function `
     svgHexagon, `
     svgCheck, `
     Export-SVG, `
+    Get-SvgDataUri, `
     Copy-Icon, `
+    Get-PngDataUri, `
     Export-IconPreview
 
 $iconTypes = @(
@@ -70,8 +72,9 @@ $elite = @()
     Export-SVG -Svg (svgPIChart -Colors $colors) -Name $name
     # 定義追加
     $elite += [PSCustomObject]@{
-        key   = [int]$_;
-        value = "/assets/icons/$name.svg";
+        key     = [int]$_;
+        value   = "/assets/icons/$name.svg";
+        dataUri = Get-SvgDataUri -Name $name;
     }
 }
 
@@ -82,11 +85,11 @@ Export-SVG -Svg (svgCheck -Color 'royalblue') -Name checkRoyalBlue
 Export-SVG -Svg (svgCheck -Color 'grey') -Name checkGrey
 
 $icon = @(
-    [PSCustomObject]@{ key = 'SB'; value = '/assets/icons/sb.svg' },
-    [PSCustomObject]@{ key = 'SS'; value = '/assets/icons/ss.svg' },
-    [PSCustomObject]@{ key = 'CheckMine'   ; value = '/assets/icons/checkLime.svg' },
-    [PSCustomObject]@{ key = 'CheckOthers' ; value = '/assets/icons/checkRoyalBlue.svg' },
-    [PSCustomObject]@{ key = 'CheckUnknown'; value = '/assets/icons/checkGrey.svg' }
+    [PSCustomObject]@{ key = 'SB'; value = '/assets/icons/sb.svg'; dataUri = Get-SvgDataUri -Name 'sb' },
+    [PSCustomObject]@{ key = 'SS'; value = '/assets/icons/ss.svg'; dataUri = Get-SvgDataUri -Name 'ss' },
+    [PSCustomObject]@{ key = 'CheckMine'   ; value = '/assets/icons/checkLime.svg'; dataUri = Get-SvgDataUri -Name 'checkLime' },
+    [PSCustomObject]@{ key = 'CheckOthers' ; value = '/assets/icons/checkRoyalBlue.svg'; dataUri = Get-SvgDataUri -Name 'checkRoyalBlue' },
+    [PSCustomObject]@{ key = 'CheckUnknown'; value = '/assets/icons/checkGrey.svg'; dataUri = Get-SvgDataUri -Name 'checkGrey' }
 )
 
 # Weatherのすべて＋Symbolのすべて＋上で定義したすべて(icontypesの下5つ以外)
@@ -106,8 +109,9 @@ foreach ($pngIconId in $pngIconIds) {
     Copy-Icon -Name $pngIconId
     # 定義追加
     $icon += [PSCustomObject]@{
-        key   = $pngIconId;
-        value = "/assets/icons/$pngIconId.png"
+        key     = $pngIconId;
+        value   = "/assets/icons/$pngIconId.png";
+        dataUri = Get-PngDataUri -Name $pngIconId;
     }
 }
 
@@ -126,13 +130,15 @@ export { IconId }
 
 const elite: Record<number, string> = {
 $($elite | ForEach-Object {
-"$($_.key): new URL('$($_.value)', import.meta.url).href,`n"
+#"$($_.key): sanitizeDataUri(new URL('$($_.value)', import.meta.url).href),`n"
+"'$($_.key)': '$($_.dataUri)',`n"
 })
 };
 
 const icon: Record<string, string> = {
 $($icon | ForEach-Object {
-"'$($_.key)': new URL('$($_.value)', import.meta.url).href,`n"
+#"'$($_.key)': sanitizeDataUri(new URL('$($_.value)', import.meta.url).href),`n"
+"'$($_.key)': '$($_.dataUri)',`n"
 })
 };
 
