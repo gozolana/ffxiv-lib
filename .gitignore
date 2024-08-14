@@ -32,5 +32,4 @@ util/temp.csv
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
