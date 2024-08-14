@@ -4,7 +4,7 @@ namespace BuildResources;
 
 class Program
 {
-    static void Main()
+    static void Main(params string[] args)
     {
         Console.WriteLine($"Curent Direcotry: {Directory.GetCurrentDirectory()}");
         var gameData = new GameData(@"C:\Program Files (x86)\SquareEnix\FINAL FANTASY XIV - A Realm Reborn\game\sqpack");

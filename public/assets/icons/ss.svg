@@ -1,7 +1,0 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-  <filter id="highlight" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur stdDeviation="2" />
-  </filter>
-  <polygon stroke="black" fill="#607d8b" points="24.66,16 28.99,23.5 20.33,23.5 16,31 11.67,23.5 3.01,23.5 7.34,16 3.01,8.5 11.67,8.5 16,1 20.33,8.5 28.99,8.5" />
-  <circle cx="7" cy="7" r="4" fill="white" filter="url(#highlight)" />
-</svg>
