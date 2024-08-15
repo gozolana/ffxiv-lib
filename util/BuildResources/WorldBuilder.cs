@@ -6,14 +6,6 @@ using Lumina.Excel.GeneratedSheets;
 
 namespace BuildResources;
 
-/// <summary>
-/// data フォルダ配下のjsonファイルから関連する追加情報を読み込む時の型
-/// </summary>
-class DataCenterColorsData
-{
-    public required string color { get; set; }
-}
-
 class DataCenterResource(uint id, string name, string color, uint regionId) : BaseResource(id, name)
 {
     // Baseクラスではignoreしているため
@@ -33,12 +25,9 @@ class WorldBuilder(GameData gameData, string projectPath) : BaseBuilder(gameData
 {
     public override void Extract()
     {
-
         string outputPath = Path.Join(projectPath, "src", "lib", "resources", "worlds.data.ts");
 
-        string inputPath = Path.Join(projectPath, "data", "dataCenterColors.json");
-
-        var extraData = JsonSerializer.Deserialize<Dictionary<string, DataCenterColorsData>>(File.ReadAllText(inputPath))!;
+        var extraData = ExtraDataUtil.ImportDataCenterExtraData(projectPath);
 
         BaseResource[] dcrs = [
             new BaseResource(1, "Japan"),

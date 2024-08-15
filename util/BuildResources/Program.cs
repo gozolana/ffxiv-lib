@@ -13,5 +13,9 @@ class Program
         new ExVersionBuilder(gameData, projectPath).Extract();
         new WorldBuilder(gameData, projectPath).Extract();
         new IconBuilder(gameData, projectPath).Extract();
+        new MobBuilder(gameData, projectPath).Extract();
+        new WeatherBuilder(gameData, projectPath).Extract();
+
+
     }
 }

@@ -28,12 +28,14 @@ abstract class BaseBuilder(GameData gameData, string projectPath)
     public static JsonSerializerOptions SerializerOptions = new()
     {
         Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
-        WriteIndented = true
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        WriteIndented = true,
     };
 
     public static JsonSerializerOptions UnsafeSerializerOptions = new()
     {
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         WriteIndented = true
     };
 
