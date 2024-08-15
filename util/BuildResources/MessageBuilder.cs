@@ -7,14 +7,16 @@ using BuildResources;
 using Lumina;
 using Lumina.Excel.GeneratedSheets;
 
-class MessageBuilder(GameData gameData, string projectPath, SortedSet<uint> uniqueBNpcNameIds, SortedSet<uint> uniqueWeatherIds, SortedSet<uint> uniquePlaceNameIds, Dictionary<uint, uint> placeNameIdToZoneId) : BaseBuilder(gameData, projectPath)
+class MessageBuilder(GameData gameData, string projectPath, SortedSet<uint> uniqueBNpcNameIds, SortedSet<uint> uniqueWeatherIds, SortedSet<uint> uniquePlaceNameIds, SortedSet<uint> uniqueFateIds, Dictionary<uint, uint> placeNameIdToZoneId) : BaseBuilder(gameData, projectPath)
 {
     private readonly RegionsExtraData regionsExtraData = ExtraDataUtil.ImportRegionsExtraData(projectPath);
     private readonly Dictionary<string, MessageExtraData> ttsExtraData = ExtraDataUtil.ImportTTSExtraData(projectPath);
     private readonly SortedSet<uint> uniqueBNpcNameIds = uniqueBNpcNameIds;
     private readonly SortedSet<uint> uniqueWeatherIds = uniqueWeatherIds;
     private readonly SortedSet<uint> uniquePlaceNameIds = uniquePlaceNameIds;
+    private readonly SortedSet<uint> uniqueFateIds = uniqueFateIds;
     private readonly Dictionary<uint, uint> placeNameIdToZoneId = placeNameIdToZoneId;
+
 
     public override void Extract()
     {
@@ -52,6 +54,10 @@ class MessageBuilder(GameData gameData, string projectPath, SortedSet<uint> uniq
             .Where(m => uniqueWeatherIds.Contains(m.RowId))
             .ToDictionary(m => m.RowId.ToString(), m => m.Name.RawString);
 
+            message[lang].Fate = gameData.GetExcelSheet<Fate>(langMap[lang])!
+            .Where(m => uniqueFateIds.Contains(m.RowId))
+            .ToDictionary(m => m.RowId.ToString(), m => m.Name.RawString);
+
             message[lang].Region = regionsExtraData.regions
             .ToDictionary(m => m.key, m => m.name[lang]);
 
@@ -75,6 +81,7 @@ class MessageBuilder(GameData gameData, string projectPath, SortedSet<uint> uniq
               readonly PlaceName: Record<number, string>
               readonly ZoneName: Record<number, string>
               readonly Weather: Record<number, string>
+              readonly Fate: Record<string, string>
               readonly Region: Record<string, string>
               readonly ExVersion: Record<number, string>
             }

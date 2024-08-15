@@ -60,8 +60,8 @@ abstract class BaseBuilder(GameData gameData, string projectPath)
         """;
     }
 
-    public static string ConvertToDataJson<T>(IEnumerable<T> resources)
+    public static string ConvertToDataJson<T>(IEnumerable<T> resources, bool unsafeOption = false)
     {
-        return Regex.Replace(JsonSerializer.Serialize(resources, SerializerOptions), "\"([a-zA-Z][a-zA-Z0-9]*)\": +", "$1: ");
+        return Regex.Replace(JsonSerializer.Serialize(resources, unsafeOption ? UnsafeSerializerOptions : SerializerOptions), "\"([a-zA-Z][a-zA-Z0-9]*)\": +", "$1: ");
     }
 }

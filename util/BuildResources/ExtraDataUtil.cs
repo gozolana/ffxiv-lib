@@ -82,6 +82,8 @@ public class RegionsExtraData
     public required KeyToZoneIds[] huntRegions { get; set; }
     public required KeyToZoneIds[] weatherRegions { get; set; }
 
+    public SortedSet<uint> GetUniqueZoneIds()
+        => new(huntRegions.SelectMany(r => r.zoneIds).Concat(weatherRegions.SelectMany(r => r.zoneIds)));
 }
 
 public class MessageExtraData
@@ -90,6 +92,7 @@ public class MessageExtraData
     public Dictionary<string, string> PlaceName { get; set; } = [];
     public Dictionary<string, string> ZoneName { get; set; } = [];
     public Dictionary<string, string> Weather { get; set; } = [];
+    public Dictionary<string, string> Fate { get; set; } = [];
     public Dictionary<string, string> Region { get; set; } = [];
     public Dictionary<string, string> ExVersion { get; set; } = [];
 }

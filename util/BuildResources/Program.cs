@@ -17,6 +17,8 @@ class Program
         var weatherBuilder = new WeatherBuilder(gameData, projectPath);
         var zoneBuilder = new ZoneBuilder(gameData, projectPath);
 
+        var fateBuilder = new FateBuilder(gameData, projectPath);
+
         exVersionBuilder.Extract();
         worldBuilder.Extract();
         iconBuilder.Extract();
@@ -24,10 +26,13 @@ class Program
         weatherBuilder.Extract();
         zoneBuilder.Extract();
 
+        fateBuilder.Extract();
+
         var messageBuilder = new MessageBuilder(gameData, projectPath,
             mobBuilder.GetUniqueBNpcNameIds(),
             weatherBuilder.GetUniqueWeatherIds(),
             zoneBuilder.GetUniquePlaceNameIds(),
+            fateBuilder.GetUniqueFateIds(),
             zoneBuilder.GetPlaceNameIdToZoneId()
         );
         messageBuilder.Extract();
