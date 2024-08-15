@@ -18528,7 +18528,7 @@ const zoneData: {
             x: 22.3,
             y: 16.9,
             z: 1.2,
-            flag: '11110',
+            flag: '00010',
           },
           {
             label: '5',
@@ -20140,6 +20140,13 @@ const zoneData: {
             flag: '11110',
           },
         ],
+      },
+      ss: {
+        ids: [13406, 13407],
+        locations: [],
+      },
+      fate: {
+        ids: [13049],
       },
     },
   ],
