@@ -10,12 +10,26 @@ class Program
         var gameData = new GameData(@"C:\Program Files (x86)\SquareEnix\FINAL FANTASY XIV - A Realm Reborn\game\sqpack");
         var projectPath = @"D:\GitHub\ffxiv-lib";
 
-        new ExVersionBuilder(gameData, projectPath).Extract();
-        new WorldBuilder(gameData, projectPath).Extract();
-        new IconBuilder(gameData, projectPath).Extract();
-        new MobBuilder(gameData, projectPath).Extract();
-        new WeatherBuilder(gameData, projectPath).Extract();
+        var exVersionBuilder = new ExVersionBuilder(gameData, projectPath);
+        var worldBuilder = new WorldBuilder(gameData, projectPath);
+        var iconBuilder = new IconBuilder(gameData, projectPath);
+        var mobBuilder = new MobBuilder(gameData, projectPath);
+        var weatherBuilder = new WeatherBuilder(gameData, projectPath);
+        var zoneBuilder = new ZoneBuilder(gameData, projectPath);
 
+        exVersionBuilder.Extract();
+        worldBuilder.Extract();
+        iconBuilder.Extract();
+        mobBuilder.Extract();
+        weatherBuilder.Extract();
+        zoneBuilder.Extract();
 
+        var messageBuilder = new MessageBuilder(gameData, projectPath,
+            mobBuilder.GetUniqueBNpcNameIds(),
+            weatherBuilder.GetUniqueWeatherIds(),
+            zoneBuilder.GetUniquePlaceNameIds(),
+            zoneBuilder.GetPlaceNameIdToZoneId()
+        );
+        messageBuilder.Extract();
     }
 }

@@ -30,7 +30,7 @@ public class FieldZonesExtraData
 
     public class EliteExtraData
     {
-        public string[]? _comment { get; set; }
+        public string[]? _comment;
         public required uint[] ids { get; set; }
         public required LocationExtraData[] locations { get; set; }
     }
@@ -84,6 +84,16 @@ public class RegionsExtraData
 
 }
 
+public class MessageExtraData
+{
+    public Dictionary<string, string> BNpcName { get; set; } = [];
+    public Dictionary<string, string> PlaceName { get; set; } = [];
+    public Dictionary<string, string> ZoneName { get; set; } = [];
+    public Dictionary<string, string> Weather { get; set; } = [];
+    public Dictionary<string, string> Region { get; set; } = [];
+    public Dictionary<string, string> ExVersion { get; set; } = [];
+}
+
 public static class ExtraDataUtil
 {
     public static Dictionary<string, ExVersionExtraData> ImportExVersionExtraData(string projectPath)
@@ -112,5 +122,10 @@ public static class ExtraDataUtil
     {
         string inputPath = Path.Join(projectPath, "data", "respawnMinutes.json");
         return JsonSerializer.Deserialize<Dictionary<string, RespawnMinutesExtraData>>(File.ReadAllText(inputPath))!;
+    }
+    public static Dictionary<string, MessageExtraData> ImportTTSExtraData(string projectPath)
+    {
+        string inputPath = Path.Join(projectPath, "data", "tts.json");
+        return JsonSerializer.Deserialize<Dictionary<string, MessageExtraData>>(File.ReadAllText(inputPath))!;
     }
 }
