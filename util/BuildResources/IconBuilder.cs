@@ -232,6 +232,8 @@ class IconBuilder(GameData gameData, string projectPath) : BaseBuilder(gameData,
             .Where(w => w.Icon > 0).Select(w => (uint)w.Icon);
         iconIds = iconIds.Concat(gameData.GetExcelSheet<MapSymbol>(Lumina.Data.Language.English)!
             .Where(w => w.Icon > 0).Select(w => (uint)w.Icon));
+        iconIds = iconIds.Concat(gameData.GetExcelSheet<Fate>(Lumina.Data.Language.English)!
+            .Where(w => w.IconMap > 0).Select(w => (uint)w.IconMap));
         iconIds = iconIds.Concat(iconTypes.Where(t => Regex.IsMatch(t.id, @"\d{6}")).Select(t => uint.Parse(t.id)));
         iconIds = iconIds.Order().Distinct();
 
