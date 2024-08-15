@@ -8,7 +8,7 @@
         "de": "Dawntrail Area",
         "fr": "Dawntrail Area"
       },
-      "background-color": "#ffe082",
+      "backgroundColor": "#ffe082",
       "color": "black"
     },
     {
@@ -19,7 +19,7 @@
         "de": "Endwalker Area",
         "fr": "Endwalker Area"
       },
-      "background-color": "#ffe082",
+      "backgroundColor": "#ffe082",
       "color": "black"
     },
     {
@@ -30,7 +30,7 @@
         "fr": "Shadowbringers Area",
         "de": "Shadowbringers Area"
       },
-      "background-color": "#616161",
+      "backgroundColor": "#616161",
       "color": "white"
     },
     {
@@ -41,7 +41,7 @@
         "fr": "Stormblood Area",
         "de": "Stormblood Area"
       },
-      "background-color": "#d32f2f",
+      "backgroundColor": "#d32f2f",
       "color": "white"
     },
     {
@@ -52,7 +52,7 @@
         "fr": "Heavensward Area",
         "de": "Heavensward Area"
       },
-      "background-color": "#303f9f",
+      "backgroundColor": "#303f9f",
       "color": "white"
     },
     {
@@ -63,7 +63,7 @@
         "fr": "Noscea",
         "de": "La Noscea"
       },
-      "background-color": "#e57373",
+      "backgroundColor": "#e57373",
       "color": "black"
     },
     {
@@ -74,7 +74,7 @@
         "fr": "Gridania",
         "de": "Gridania"
       },
-      "background-color": "#fff176",
+      "backgroundColor": "#fff176",
       "color": "black"
     },
     {
@@ -85,7 +85,7 @@
         "fr": "Thanalan",
         "de": "Thanalan"
       },
-      "background-color": "#a1887f",
+      "backgroundColor": "#a1887f",
       "color": "black"
     },
     {
@@ -96,7 +96,7 @@
         "fr": "Frontière",
         "de": "Grenze"
       },
-      "background-color": "#d7ccc8",
+      "backgroundColor": "#d7ccc8",
       "color": "black"
     },
     {
@@ -107,7 +107,7 @@
         "fr": "Others",
         "de": "Others"
       },
-      "background-color": "#dce775",
+      "backgroundColor": "#dce775",
       "color": "black"
     }
   ],

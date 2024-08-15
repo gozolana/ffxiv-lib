@@ -135,7 +135,7 @@ $huntRegions = $regionsJson.huntRegions | ForEach-Object {
         key     = $_.key
         zoneIds = $_.zoneIds
         color   = $region.color
-        bgColor = $region.'background-color'
+        bgColor = $region.'backgroundColor'
     }
 }
 # 
@@ -145,7 +145,7 @@ $weatherRegions = $regionsJson.weatherRegions | ForEach-Object {
         key     = $_.key
         zoneIds = $_.zoneIds
         color   = $region.color
-        bgColor = $region.'background-color'
+        bgColor = $region.'backgroundColor'
     }
 }
 
