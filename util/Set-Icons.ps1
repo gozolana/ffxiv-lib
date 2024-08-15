@@ -59,7 +59,11 @@ $iconTypes = @(
     [PSCustomObject]@{ name = 'CheckOthers'; id = 'CheckOthers' },
     [PSCustomObject]@{ name = 'CheckUnknown'; id = 'CheckUnknown' }
 )
-    
+
+if (-not (Test-Path '../assets/icons')) {
+    New-Item '../assets/icons' -ItemType Directory -Force | Out-Null
+}
+
 $elite = @()
 1..31 | ForEach-Object {
     $name = [convert]::ToString($_, 2).PadLeft(5, '0')

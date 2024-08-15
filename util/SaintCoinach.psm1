@@ -251,7 +251,7 @@ function Export-SVG {
   <circle cx="7" cy="7" r="4" fill="white" filter="url(#highlight)" />
 </svg>
 "@
-    $path = Join-Path '../public/assets/icons' "$($Name).svg"
+    $path = Join-Path '../assets/icons' "$($Name).svg"
     $content | Set-Content -Path $path -Encoding UTF8
 }
 
@@ -261,7 +261,7 @@ function Get-SvgDataUri {
         [Parameter(Mandatory = $true)]
         [string]$Name
     )
-    $path = Join-Path '../public/assets/icons' "$($Name).svg"
+    $path = Join-Path '../assets/icons' "$($Name).svg"
     $svg = Get-Content -Path $path -Encoding UTF8 -Raw
     return 'data:image/svg+xml;charset=UTF-8,' + [uri]::EscapeDataString($svg)
 }
@@ -273,7 +273,7 @@ function Copy-Icon {
     )
     $patchPath = Get-ChildItem -Path '..\SaintCoinach\[0-9]*' -Directory | Select-Object -Last 1
     $source = Join-Path -Path $patchPath -ChildPath "ui/icon/$($Name.Substring(0, 3))000/$Name.png"
-    $dest = '../public/assets/icons'
+    $dest = '../assets/icons'
     Copy-Item $source -Destination $dest
 }
 
@@ -283,12 +283,12 @@ function Get-PngDataUri {
         [Parameter(Mandatory = $true)]
         [string]$Name
     )
-    $path = Join-Path '../public/assets/icons' "$($Name).png"
+    $path = Join-Path '../assets/icons' "$($Name).png"
     return 'data:image/png;base64,' + [Convert]::ToBase64String([IO.File]::ReadAllBytes($path))
 }
 
 function Export-IconPreview {
-    $folder = '../public/assets/icons'
+    $folder = '../assets/icons'
     $path = Join-Path $folder preview.htm
     $lis = (Get-ChildItem $folder -Recurse -Include *.svg).Name |
         ForEach-Object {
