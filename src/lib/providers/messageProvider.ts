@@ -135,6 +135,23 @@ class MessageProvider {
     return result ? result : `Weather<${id}>`
   }
 
+  getFate(id: number, tts = false) {
+    let result: string | undefined
+    if (tts) {
+      const ttsMap = this.tts?.Fate
+      if (ttsMap && ttsMap[id]) {
+        result = ttsMap[id]
+      }
+    }
+    if (!result) {
+      const messageMap = this._messages[this._lang].Fate
+      if (messageMap && messageMap[id]) {
+        result = messageMap[id]
+      }
+    }
+    return result ? result : `Fate<${id}>`
+  }
+
   getRegion(key: string, tts = false) {
     let result: string | undefined
     if (tts) {
