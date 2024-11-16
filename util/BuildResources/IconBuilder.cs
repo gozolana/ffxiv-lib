@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 
 using Lumina;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace BuildResources;
 
@@ -233,7 +233,7 @@ class IconBuilder(GameData gameData, string projectPath) : BaseBuilder(gameData,
         iconIds = iconIds.Concat(gameData.GetExcelSheet<MapSymbol>(Lumina.Data.Language.English)!
             .Where(w => w.Icon > 0).Select(w => (uint)w.Icon));
         iconIds = iconIds.Concat(gameData.GetExcelSheet<Fate>(Lumina.Data.Language.English)!
-            .Where(w => w.IconMap > 0).Select(w => (uint)w.IconMap));
+            .Where(w => w.MapIcon > 0).Select(w => w.MapIcon));
         iconIds = iconIds.Concat(iconTypes.Where(t => Regex.IsMatch(t.id, @"\d{6}")).Select(t => uint.Parse(t.id)));
         iconIds = iconIds.Order().Distinct();
 

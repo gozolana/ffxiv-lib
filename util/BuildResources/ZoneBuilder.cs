@@ -3,21 +3,21 @@ using System.Text;
 using BuildResources;
 
 using Lumina;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 
 class MapResource(Map item)
 {
     public uint id = item.RowId;
     public uint mapMarkerId = item.MapMarkerRange;
-    public string name = item.Id;
+    public string name = item.Id.ToString();
     public uint sizeFactor = item.SizeFactor;
     public int offsetX = item.OffsetX;
     public int offsetY = item.OffsetY;
-    public uint placeName_retion = item.PlaceNameRegion.Row;
-    public uint placeName = item.PlaceName.Row;
-    public uint placeName2 = item.PlaceNameSub.Row;
-    public uint territoryType = item.TerritoryType.Row;
+    public uint placeName_retion = item.PlaceNameRegion.RowId;
+    public uint placeName = item.PlaceName.RowId;
+    public uint placeName2 = item.PlaceNameSub.RowId;
+    public uint territoryType = item.TerritoryType.RowId;
 }
 
 class MapMarkerResource(MapMarker item)
@@ -25,22 +25,24 @@ class MapMarkerResource(MapMarker item)
     public uint markerId = item.RowId;
     public int x { get; } = item.X;
     public int y { get; } = item.Y;
-    public uint placeNameId { get; } = item.PlaceNameSubtext.Row;
+    public uint placeNameId { get; } = item.PlaceNameSubtext.RowId;
     public string icon { get; } = item.Icon == 0 ? "" : $"{item.Icon:000000}";
+
+    public bool isValid() { return icon != "" || placeNameId != 0; }
 }
 
 class ZoneResource(TerritoryType item, MapResource map, int offsetZ, IEnumerable<MapMarkerResource> markers)
 {
     public uint id { get; set; } = item.RowId;
-    public uint regionPlaceNameId { get; } = item.PlaceNameRegion.Row;
-    public uint zonePlaceNameId { get; } = item.PlaceNameZone.Row;
+    public uint regionPlaceNameId { get; } = item.PlaceNameRegion.RowId;
+    public uint zonePlaceNameId { get; } = item.PlaceNameZone.RowId;
     public uint weatherRateId { get; } = item.WeatherRate;
     public uint sizeFactor { get; } = map.sizeFactor;
     public int offsetX { get; } = map.offsetX;
     public int offsetY { get; } = map.offsetY;
     public int offsetZ { get; } = offsetZ;
     public IEnumerable<MapMarkerResource> markers { get; } = markers;
-    public uint exVersionId { get; } = item.ExVersion.Row;
+    public uint exVersionId { get; } = item.ExVersion.RowId;
 
     public bool? filter { get; set; }
     public FieldZonesExtraData.EliteExtraData? elite { get; set; }
@@ -82,27 +84,27 @@ class ZoneBuilder(GameData gameData, string projectPath) : BaseBuilder(gameData,
         .ToDictionary(tt => tt.RowId, tt => (int)tt.OffsetZ);
 
         var mapIdToMap = gameData.GetExcelSheet<Map>()!
-        .Where(m => uniqueZoneIds.Contains(m.TerritoryType.Row))
+        .Where(m => uniqueZoneIds.Contains(m.TerritoryType.RowId))
         .ToDictionary(m => m.RowId, m => new MapResource(m));
 
         var mapMarkerIds = mapIdToMap.Values.Select(mm => mm.mapMarkerId)
         .Order().Distinct();
 
-        var mapMarkers = gameData.GetExcelSheet<MapMarker>()!
-        .Where(mm => mapMarkerIds.Contains(mm.RowId) && (mm.Icon != 0 || mm.PlaceNameSubtext.Row != 0))
-        .Select(mm => new MapMarkerResource(mm));
+        var mapMarkers = gameData.GetSubrowExcelSheet<MapMarker>()!
+        .Where(mm => mapMarkerIds.Contains(mm.RowId))
+        .SelectMany(mm => mm.Select(m => new MapMarkerResource(m)).Where(m => m.isValid()));
 
         var allZones = gameData.GetExcelSheet<TerritoryType>()!
         .Where(tt => uniqueZoneIds.Contains(tt.RowId))
         .Select(tt =>
         {
-            placeNameIdToZoneId[tt.PlaceName.Row] = tt.RowId;
-            uniquerPlaceNameIds.Add(tt.PlaceName.Row);
-            uniquerPlaceNameIds.Add(tt.PlaceNameRegion.Row);
-            uniquerPlaceNameIds.Add(tt.PlaceNameZone.Row);
+            placeNameIdToZoneId[tt.PlaceName.RowId] = tt.RowId;
+            uniquerPlaceNameIds.Add(tt.PlaceName.RowId);
+            uniquerPlaceNameIds.Add(tt.PlaceNameRegion.RowId);
+            uniquerPlaceNameIds.Add(tt.PlaceNameZone.RowId);
 
             var offsetZ = zoneIdToOffsetZ[tt.RowId];
-            var map = mapIdToMap[tt.Map.Row];
+            var map = mapIdToMap[tt.Map.RowId];
             var markers = mapMarkers.Where(mm => mm.markerId == map.mapMarkerId);
             return new ZoneResource(tt, map, offsetZ, markers);
         });

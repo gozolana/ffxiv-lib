@@ -1,10 +1,9 @@
 using System.Text;
-using System.Text.Json;
 
 using BuildResources;
 
 using Lumina;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 class WeatherRateResource(WeatherRate item)
 {
@@ -20,20 +19,20 @@ class WeatherRateResource(WeatherRate item)
     private static RateResource[] InitializeRates(WeatherRate item)
     {
         RateResource[] temp = [
-            new RateResource((uint)item.UnkData0[0].Weather, item.UnkData0[0].Rate),
-            new RateResource((uint)item.UnkData0[1].Weather, item.UnkData0[1].Rate),
-            new RateResource((uint)item.UnkData0[2].Weather, item.UnkData0[2].Rate),
-            new RateResource((uint)item.UnkData0[3].Weather, item.UnkData0[3].Rate),
-            new RateResource((uint)item.UnkData0[4].Weather, item.UnkData0[4].Rate),
-            new RateResource((uint)item.UnkData0[5].Weather, item.UnkData0[5].Rate),
-            new RateResource((uint)item.UnkData0[6].Weather, item.UnkData0[6].Rate),
-            new RateResource((uint)item.UnkData0[7].Weather, item.UnkData0[7].Rate),
+            new RateResource(item.Weather[0].RowId, item.Rate[0]),
+            new RateResource(item.Weather[1].RowId, item.Rate[1]),
+            new RateResource(item.Weather[2].RowId, item.Rate[2]),
+            new RateResource(item.Weather[3].RowId, item.Rate[3]),
+            new RateResource(item.Weather[4].RowId, item.Rate[4]),
+            new RateResource(item.Weather[5].RowId, item.Rate[5]),
+            new RateResource(item.Weather[6].RowId, item.Rate[6]),
+            new RateResource(item.Weather[7].RowId, item.Rate[7]),
         ];
         return temp.Where(r => r.chance > 0).ToArray();
     }
 }
 
-class WeatherResource(Weather item) : BaseResource(item.RowId, item.Name)
+class WeatherResource(Weather item) : BaseResource(item.RowId, item.Name.ToString())
 {
     public string icon { get; set; } = $"{item.Icon:000000}";
 }

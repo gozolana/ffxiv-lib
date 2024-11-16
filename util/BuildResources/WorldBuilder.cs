@@ -1,8 +1,7 @@
 using System.Text;
-using System.Text.Json;
 
 using Lumina;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace BuildResources;
 
@@ -41,13 +40,13 @@ class WorldBuilder(GameData gameData, string projectPath) : BaseBuilder(gameData
         .Select(dc =>
         {
             // 個別カラーを設定しているのは国内4DCのみ
-            var color = extraData.ContainsKey(dc.Name) ? extraData[dc.Name].color : "";
-            return new DataCenterResource(dc.RowId, dc.Name, color, dc.Region);
+            var color = extraData.ContainsKey(dc.Name.ToString()) ? extraData[dc.Name.ToString()].color : "";
+            return new DataCenterResource(dc.RowId, dc.Name.ToString(), color, dc.Region);
         })!;
 
         var worlds = gameData.GetExcelSheet<World>()!
-        .Where(world => Convert.ToBoolean(world.IsPublic) && dcs.Select(dc => dc.id).Contains(world.DataCenter.Row))
-        .Select(world => new WorldResource(world.RowId, world.Name, world.DataCenter.Row));
+        .Where(world => Convert.ToBoolean(world.IsPublic) && dcs.Select(dc => dc.id).Contains(world.DataCenter.RowId))
+        .Select(world => new WorldResource(world.RowId, world.Name.ToString(), world.DataCenter.RowId));
 
         string content = $$"""
             // THIS CODE IS AUTO GENERATED.

@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using BuildResources;
 
 using Lumina;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 class MessageBuilder(GameData gameData, string projectPath, SortedSet<uint> uniqueBNpcNameIds, SortedSet<uint> uniqueWeatherIds, SortedSet<uint> uniquePlaceNameIds, SortedSet<uint> uniqueFateIds, Dictionary<uint, uint> placeNameIdToZoneId) : BaseBuilder(gameData, projectPath)
 {
@@ -39,30 +39,30 @@ class MessageBuilder(GameData gameData, string projectPath, SortedSet<uint> uniq
         {
             message[lang].BNpcName = gameData.GetExcelSheet<BNpcName>(langMap[lang])!
             .Where(m => uniqueBNpcNameIds.Contains(m.RowId))
-            .ToDictionary(m => m.RowId.ToString(), m => m.Singular.RawString);
+            .ToDictionary(m => m.RowId.ToString(), m => m.Singular.ToString());
 
             message[lang].PlaceName = gameData.GetExcelSheet<PlaceName>(langMap[lang])!
             .Where(m => uniquePlaceNameIds.Contains(m.RowId))
-            .ToDictionary(m => m.RowId.ToString(), m => m.Name.RawString);
+            .ToDictionary(m => m.RowId.ToString(), m => m.Name.ToString());
 
             message[lang].ZoneName = gameData.GetExcelSheet<PlaceName>(langMap[lang])!
             .Where(m => placeNameIdToZoneId.ContainsKey(m.RowId))
             .OrderBy(m => placeNameIdToZoneId[m.RowId])
-            .ToDictionary(m => placeNameIdToZoneId[m.RowId].ToString(), m => m.Name.RawString);
+            .ToDictionary(m => placeNameIdToZoneId[m.RowId].ToString(), m => m.Name.ToString());
 
             message[lang].Weather = gameData.GetExcelSheet<Weather>(langMap[lang])!
             .Where(m => uniqueWeatherIds.Contains(m.RowId))
-            .ToDictionary(m => m.RowId.ToString(), m => m.Name.RawString);
+            .ToDictionary(m => m.RowId.ToString(), m => m.Name.ToString());
 
             message[lang].Fate = gameData.GetExcelSheet<Fate>(langMap[lang])!
             .Where(m => uniqueFateIds.Contains(m.RowId))
-            .ToDictionary(m => m.RowId.ToString(), m => m.Name.RawString);
+            .ToDictionary(m => m.RowId.ToString(), m => m.Name.ToString());
 
             message[lang].Region = regionsExtraData.regions
             .ToDictionary(m => m.key, m => m.name[lang]);
 
             message[lang].ExVersion = gameData.GetExcelSheet<ExVersion>(langMap[lang])!
-            .ToDictionary(m => m.RowId.ToString(), m => m.Name.RawString);
+            .ToDictionary(m => m.RowId.ToString(), m => m.Name.ToString());
         }
 
         var messageJson = Regex.Replace(JsonSerializer.Serialize(message, UnsafeSerializerOptions), "\"([a-zA-Z0-9]*)\": +", "$1: ");

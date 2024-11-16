@@ -1,13 +1,10 @@
 using System.Text;
-using System.Text.Json;
 
 using Lumina;
 using Lumina.Data;
-using Lumina.Excel.GeneratedSheets;
-
+using Lumina.Excel.Sheets;
 
 namespace BuildResources;
-
 
 class ExVersionResource(uint id, string name, ExVersionExtraData data) : BaseResource(id, name)
 {
@@ -24,7 +21,8 @@ class ExVersionBuilder(GameData gameData, string projectPath) : BaseBuilder(game
 
         var extraData = ExtraDataUtil.ImportExVersionExtraData(projectPath);
 
-        var exVersions = gameData.GetExcelSheet<ExVersion>(Language.English)!.Select(res => new ExVersionResource(res.RowId, res.Name, extraData[res.Name]!));
+        var exVersions = gameData.GetExcelSheet<ExVersion>(Language.English)!.
+            Select(res => new ExVersionResource(res.RowId, res.Name.ToString(), extraData[res.Name.ToString()]!));
 
         string content = $$"""
             // THIS CODE IS AUTO GENERATED.

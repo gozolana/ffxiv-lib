@@ -7,7 +7,6 @@ using BuildResources;
 
 using Lumina;
 
-
 enum TMobCategory
 {
     EliteMark = 1,

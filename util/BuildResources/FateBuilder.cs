@@ -5,7 +5,7 @@ using BuildResources;
 using Lumina;
 using Lumina.Data;
 using Lumina.Data.Files;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 public class FateLocation(uint id, double x, double y, double z, string layerName, uint zoneId, bool hasFate)
 {
     public uint id { get; } = id;
@@ -20,8 +20,8 @@ public class FateLocation(uint id, double x, double y, double z, string layerNam
 public class FateResource(Fate item, FateLocation loc)
 {
     public uint id { get; } = item.RowId;
-    public string name { get; } = item.Name.RawString;
-    public string icon { get; } = $"{item.IconMap:000000}";
+    public string name { get; } = item.Name.ToString();
+    public string icon { get; } = $"{item.MapIcon:000000}";
     public uint eureka { get; } = item.EurekaFate;
     public uint rule { get; } = item.Rule;
     public bool specialFate { get; } = item.SpecialFate;
@@ -53,7 +53,7 @@ class FateBuilder(GameData gameData, string projectPath) : BaseBuilder(gameData,
         {
             try
             {
-                var bgString = tt.Bg.RawString;
+                var bgString = tt.Bg.ToString();
                 var fateLgbPath = $"bg/{bgString.Substring(0, bgString.Length - 5)}/planevent.lgb";
                 var lgbFile = gameData.GetFile<LgbFile>(fateLgbPath);
 
@@ -71,7 +71,7 @@ class FateBuilder(GameData gameData, string projectPath) : BaseBuilder(gameData,
             }
             catch (Exception e)
             {
-                Console.Write($"{tt.RowId} {tt.Bg.RawString} {e}");
+                Console.Write($"{tt.RowId} {tt.Bg} {e}");
                 return [];
             }
         })
