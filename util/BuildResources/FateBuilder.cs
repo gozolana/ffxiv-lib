@@ -26,8 +26,10 @@ public class FateResource(Fate item, FateLocation loc)
     public uint rule { get; } = item.Rule;
     public bool specialFate { get; } = item.SpecialFate;
     public double x { get; } = loc.x;
-    public double y { get; } = loc.y;
-    public double z { get; } = loc.z;
+
+    // Important y and z are swapped
+    public double y { get; } = loc.z;
+    public double z { get; } = loc.y;
     public uint zoneId { get; } = loc.zoneId;
 }
 
